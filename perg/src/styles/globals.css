@@ -9,20 +9,33 @@
 :root {
     --fundo-claro: #EFF5F9;
     --verde-escuro: #004146;
+    --fundo-verde-claro: #E0FCFB;
     --verde: #018076;
     --verde-destaque: #03BFB5;
     --branco: #FFF;
     --cinza: #949398;
 
-    --tamanho-titulo: 40px;
+    --tamanho-titulo: 64px;
     --tamanho-sub-titulo: 30px;
     --tamanho-titulo-light: 25px;
     --tamanho-texto-btn: 15px;
-    --tamanho-texto: 14px;
+    --tamanho-texto: 22px;
 
     --sombra: 0 0 4 2 rgba(90, 93, 87, 0.1)
 }
 
 .layout_guide {
     width: 80%;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.titulo-principal {
+  font-family: var(--font-titulo);
+  font-size: var(--tamanho-titulo);
+  font-weight: 600;
+  color: var(--verde-escuro);
 }
