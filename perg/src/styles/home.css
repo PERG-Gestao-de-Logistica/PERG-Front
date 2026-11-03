@@ -1,3 +1,8 @@
+
+/* ========================================== */
+/* PRIMEIRA SEÇÃO - APRESENTAÇÃO */
+/* ========================================== */
+
 .primeiro-container {
   width: 100%;
   min-height: calc(100vh - 72px);
@@ -6,6 +11,11 @@
   justify-content: center;
   align-items: center;
 }
+
+
+/* ========================================== */
+/* SEGUNDA SEÇÃO - O PROBLEMA */
+/* ========================================== */
 
 .segundo-container {
   width: 100%;
@@ -16,6 +26,11 @@
   align-items: center;
 }
 
+
+/* ========================================== */
+/* TERCEIRA SEÇÃO - A SOLUÇÃO */
+/* ========================================== */
+
 .terceiro-container {
   width: 100%;
   min-height: calc(100vh - 72px);
@@ -25,6 +40,49 @@
   align-items: center;
 }
 
+
+/* ========================================== */
+/* QUARTA SEÇÃO - COMO FUNCIONA */
+/* ========================================== */
+
+.quarto-container {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background-color: var(--verde-escuro);
+}
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - TRÊS FRENTES DO PERG */
+/* ========================================== */
+
+.quinto-container {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background-color: var(--fundo-claro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========================================== */
+/* SEXTA SEÇÃO - 5 DIFERENCIAIS */
+/* ========================================== */
+
+.sexto-container {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background-color: var(--fundo-verde-claro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* ========================================== */
+/* CONTEÚDO DAS PRIMEIRAS SEÇÕES */
+/* ========================================== */
 
 .conteudo-home {
   width: 89%;
@@ -55,6 +113,11 @@
   height: auto;
 }
 
+
+/* ========================================== */
+/* TÍTULOS */
+/* ========================================== */
+
 .titulo-principal {
   font-size: 64px;
   line-height: 1.25;
@@ -64,12 +127,36 @@
   color: var(--verde-destaque);
 }
 
+.titulo-principal-branco {
+  color: var(--branco);
+  font-size: 48px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.titulo-principal-ciano {
+  color: var(--verde-destaque);
+  font-size: 48px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+
+/* ========================================== */
+/* BOTÕES DA PRIMEIRA SEÇÃO */
+/* ========================================== */
+
 .botoes-home {
   display: flex;
   align-items: center;
   gap: 25px;
   margin-top: 12px;
 }
+
+
+/* ========================================== */
+/* TEXTOS */
+/* ========================================== */
 
 .texto-home-problema {
   text-align: end;
@@ -81,4 +168,399 @@
   font-weight: 400;
   color: var(--verde-escuro);
   line-height: 1.5;
+}
+
+.texto-card {
+  font-family: var(--font-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  color: var(--verde-escuro);
+  line-height: 1.5;
+}
+
+.texto-branco {
+  font-family: var(--font-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  color: var(--branco);
+  line-height: 1.5;
+}
+
+
+/* ========================================== */
+/* QUARTA SEÇÃO - ESTRUTURA */
+/* ========================================== */
+
+.conteudo-quarto-container {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  display: grid;
+  grid-template-columns: 30% minmax(0, 1fr);
+  gap: 0;
+}
+
+
+/* ========================================== */
+/* QUARTA SEÇÃO - LADO ESQUERDO */
+/* ========================================== */
+
+.parte-esquerda {
+  background-color: #102a2c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.imagem-caminhao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 55px;
+}
+
+.imagem-caminhao img {
+  width: 160px;
+  height: auto;
+}
+
+.texto-etapas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+
+/* ========================================== */
+/* QUARTA SEÇÃO - LADO DIREITO */
+/* ========================================== */
+
+.parte-direita {
+  background-color: var(--verde-escuro);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  padding: 45px 55px;
+  gap: 30px;
+}
+
+.etapa-item {
+  width: 100%;
+  max-width: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.titulo-etapa {
+  color: var(--branco);
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - CONTEÚDO */
+/* ========================================== */
+
+.conteudo-quinto-container {
+  width: 89%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 45px 0;
+}
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - TÍTULOS */
+/* ========================================== */
+
+.texto-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  gap: 0;
+}
+
+.subtitulo-verde-escuro {
+  width: fit-content;
+  margin: 0 0 24px;
+  padding: 9px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--fundo-texto-claro);
+  border-radius: 10px;
+}
+
+/* Título principal da quinta seção */
+
+
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - CARDS */
+/* ========================================== */
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 44px;
+}
+
+.card {
+  flex: 1;
+  min-width: 0;
+  min-height: 340px;
+  background-color: var(--fundo-texto-claro);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - TOPO DOS CARDS */
+/* ========================================== */
+
+.card-topo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.card-topo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.card-topo span {
+  background-color: var(--verde-destaque);
+  color: var(--verde-escuro);
+  padding: 5px 15px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - TÍTULOS E DESCRIÇÕES */
+/* ========================================== */
+
+.card .titulo-principal {
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  color: var(--verde-escuro);
+}
+
+/* Ajuste do texto do primeiro card */
+
+.card > .subtitulo-verde-escuro {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+  text-align: left;
+  background-color: transparent;
+  border-radius: 0;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - FUNCIONALIDADES */
+/* ========================================== */
+
+.lista-funcoes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.funcao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+}
+
+.funcao img {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.funcao .texto {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+
+/* ========================================== */
+/* QUINTA SEÇÃO - BOTÕES DOS CARDS */
+/* ========================================== */
+
+.card > button {
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+
+
+/* ========================================== */
+/* SEXTA SEÇÃO - TÍTULOS */
+/* ========================================== */
+
+.sexto-container .texto-inicial .titulo-principal {
+  font-size: 64px;
+  line-height: 1.25;
+}
+
+
+/* ========================================== */
+/* RESPONSIVIDADE - TABLETS */
+/* ========================================== */
+
+@media (max-width: 900px) {
+
+  /* QUARTA SEÇÃO */
+
+  .conteudo-quarto-container {
+    grid-template-columns: 1fr;
+  }
+
+  .parte-esquerda {
+    padding: 50px 20px;
+  }
+
+  .imagem-caminhao {
+    margin-bottom: 25px;
+  }
+
+  .parte-direita {
+    padding: 50px 20px;
+  }
+
+  /* QUINTA SEÇÃO */
+
+  .conteudo-quinto-container {
+    width: 90%;
+  }
+
+  .cards {
+    gap: 12px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .card .titulo-principal {
+    font-size: 21px;
+  }
+
+}
+
+
+/* ========================================== */
+/* RESPONSIVIDADE - CELULARES */
+/* ========================================== */
+
+@media (max-width: 550px) {
+
+  /* PRIMEIRA, SEGUNDA E TERCEIRA SEÇÕES */
+
+  .conteudo-home {
+    flex-direction: column;
+    padding: 40px 0;
+  }
+
+  .titulo-principal {
+    font-size: 42px;
+  }
+
+  .botoes-home {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* QUARTA SEÇÃO */
+
+  .parte-direita {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 45px;
+  }
+
+  .titulo-principal-branco,
+  .titulo-principal-ciano {
+    font-size: 34px;
+  }
+
+  .imagem-caminhao img {
+    width: 130px;
+  }
+
+  /* QUINTA SEÇÃO */
+
+  .quinto-container {
+    min-height: auto;
+  }
+
+  .conteudo-quinto-container {
+    width: 89%;
+    padding: 45px 0;
+  }
+
+  .texto-inicial .titulo-principal {
+    font-size: 28px;
+  }
+
+  .subtitulo-verde-escuro {
+    font-size: 14px;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .card {
+    width: 100%;
+    min-height: 320px;
+    padding: 20px;
+  }
+
+  .card .titulo-principal {
+    font-size: 24px;
+  }
+
 }
