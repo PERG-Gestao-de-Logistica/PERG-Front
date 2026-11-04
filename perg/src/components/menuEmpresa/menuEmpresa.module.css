@@ -1,0 +1,20 @@
+.menuEmpresa{
+    background-color: var(--cor-primaria-verde-escuro);
+    max-width: 20vw;
+    min-height: 100vh;
+    padding: var(--espacamento-xl);
+}
+.logo{
+    width: 20px;
+}
+.lista{
+    gap: var(--espacamento-md)
+}
+
+.item{
+    color: var(--cor-texto-branco);
+    font-family: var(--fonte-titulo);
+    font-weight: var(--);
+    list-style: none;
+    
+}

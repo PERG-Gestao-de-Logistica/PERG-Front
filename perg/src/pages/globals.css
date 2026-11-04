@@ -63,7 +63,7 @@ body {
 --------------------- */
   --cor-status-novo: #004146;
   --cor-status-rota: #0088FF;
-  --cor-status-roteirizado: var(--cor-superficie-branca);
+  --cor-status-roteirizado: var(--cor-texto-branco);
   --cor-status-disponivel: #34C759;
   --cor-status-outraLoja: #8A4B00;
   --cor-status-alto: #DB8B55;
@@ -257,10 +257,10 @@ a {
   text-decoration: none;
 }
 
-img {
+/* img {
   display: block;
   max-width: 100%;
-}
+} */
 
 
 /* ---------------------------

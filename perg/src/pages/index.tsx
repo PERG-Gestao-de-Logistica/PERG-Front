@@ -1,10 +1,9 @@
-import { redirect } from "next/dist/server/api-utils";
+import MenuEmpresa from "../components/menuEmpresa/menuEmpresa";
 
-export async function getServerSideProps() {
-  return {
-    redirect: {
-      destination: "/home",
-      permanent: false,
-    },
-  };
+export default function Home() {
+  return (
+    <>
+      <MenuEmpresa />
+    </>
+  );
 }
