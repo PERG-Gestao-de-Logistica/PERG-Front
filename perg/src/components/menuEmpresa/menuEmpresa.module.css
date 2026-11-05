@@ -1,20 +1,80 @@
-.menuEmpresa{
-    background-color: var(--cor-primaria-verde-escuro);
-    max-width: 20vw;
-    min-height: 100vh;
-    padding: var(--espacamento-xl);
-}
-.logo{
-    width: 20px;
-}
-.lista{
-    gap: var(--espacamento-md)
+.menuEmpresa {
+  background-color: var(--cor-primaria-verde-escuro);
+  max-width: 20vw;
+  min-height: 100vh;
 }
 
-.item{
-    color: var(--cor-texto-branco);
-    font-family: var(--fonte-titulo);
-    font-weight: var(--);
-    list-style: none;
-    
+.logo {
+  width: 12vw;
+  margin: var(--espacamento-xl);
+  margin-bottom: 2vh;
+}
+
+.navegacao {
+  margin-bottom: 3vh;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: var(--espacamento-md);
+}
+
+.item {
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
+  font-weight: 200;
+  margin-left: 0;
+  width: 18vw;
+  padding: var(--espacamento-md);
+}
+
+.item:hover {
+  width: 25vw;
+  color: var(--cor-primaria-verde-escuro);
+  border-top-right-radius: var(--raio-padrao);
+  border-bottom-right-radius: var(--raio-padrao);
+  background-color: var(--cor-verde-destaque);
+}
+
+.imgEntregador {
+  width: 8vw;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  
+}
+
+.perfil {
+  color: var(--cor-texto-branco);
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  gap: 5px;
+  align-items: center;
+  padding-left: var(--espacamento-md);
+}
+
+.iniciais {
+  color: var(--cor-texto-branco);
+  background-color: var(--cor-verde-destaque);
+  width: 50px;
+  border-radius: var(--raio-padrao);
+  display: flex;
+  justify-content: center;
+  padding: var(--espacamento-xs);
+}
+
+.infoUsuario {
+  color: var(--cor-texto-branco);
+}
+
+.nomeEmpresa {
+  color: var(--cor-texto-branco);
+}
+
+.nomeUsuario {
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-regular);
 }

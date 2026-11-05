@@ -4,32 +4,68 @@ import { MdOutlineRoute } from "react-icons/md";
 import { IoMapOutline } from "react-icons/io5";
 import { HiOutlineIdentification } from "react-icons/hi2";
 import { IoSettingsOutline } from "react-icons/io5";
-import { MdLogout } from "react-icons/md";  
-import styles from "../menuEmpresa/menuEmpresa.module.css"
+import { MdLogout } from "react-icons/md";
+import styles from "../menuEmpresa/menuEmpresa.module.css";
 
 export default function MenuEmpresa() {
-    return(
-        <aside className={styles.menuEmpresa}>
-            <img className="logo" src="/assets/logos/logoBranca.png" alt="" />
-            <nav className={styles.navegacao}>
-                <ul className="lista">
-                    <li className={styles.item}><a href=""><TbClipboardData />Visão Geral</a></li>
-                    <li className={styles.item}><a href=""><HiOutlineArchiveBox />Pedidos</a></li>
-                    <li className={styles.item}><a href=""><MdOutlineRoute />Roteirização</a></li>
-                    <li className={styles.item}><a href=""><IoMapOutline />Monitoramento</a></li>
-                    <li className={styles.item}><a href=""><HiOutlineIdentification />Entregadores</a></li>
-                    <li className={styles.item}><a href=""><IoSettingsOutline />Configurações</a></li>
-                </ul>
-            </nav>
-            <img src="/assets/images/entregadorMenu.png" alt="" />
-            <section className="perfil">
-                <h2>AS</h2>
-                <div>
-                <h2>Aurora Store</h2>
-                <h3>Ana Sousa - Admin</h3>
-                </div>
-                <MdLogout />    
-            </section>
-        </aside>
-    );
-};
+  return (
+    <aside className={styles.menuEmpresa}>
+      <img className={styles.logo} src="/assets/logos/logoBranca.png" alt="" />
+      <section className={styles.menuNavegacao}>
+        <nav className={styles.navegacao}>
+          <ul className={styles.lista}>
+            <li className={styles.topico}>
+              <a href="" className={styles.item}>
+                <TbClipboardData />
+                Visão Geral
+              </a>
+            </li>
+            <li>
+              <a href="" className={styles.item}>
+                <HiOutlineArchiveBox />
+                Pedidos
+              </a>
+            </li>
+            <li>
+              <a href="" className={styles.item}>
+                <MdOutlineRoute />
+                Roteirização
+              </a>
+            </li>
+            <li>
+              <a href="" className={styles.item}>
+                <IoMapOutline />
+                Monitoramento
+              </a>
+            </li>
+            <li>
+              <a href="" className={styles.item}>
+                <HiOutlineIdentification />
+                Entregadores
+              </a>
+            </li>
+            <li>
+              <a href="" className={styles.item}>
+                <IoSettingsOutline />
+                Configurações
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <img
+        className={styles.imgEntregador}
+        src="/assets/images/entregadorMenu.png"
+        alt=""
+      />
+      <section className={styles.perfil}>
+        <h3 className={styles.iniciais}>AS</h3>
+        <div className={styles.infoUsuario}>
+          <h3 className={styles.nomeEmpresa}>Aurora Store</h3>
+          <h4 className={styles.nomeUsuario}>Ana Sousa - Admin</h4>
+        </div>
+        <MdLogout size={1} />
+      </section>
+    </aside>
+  );
+}
