@@ -34,12 +34,13 @@ body {
 -- CORES E IDENTIDADE VISUAL --
 ------------------------------- */
   --cor-primaria-verde-escuro: #004146;
-  --cor-primaria-escura: #021A1D;
+  --cor-primaria-escura: #03171A;
   --cor-primaria-profunda: #11292C;
   --cor-primaria-secundaria: #062A2E;
 
   --cor-secundaria-verde: #018076;
   --cor-verde-destaque: #03BFB5;
+   --cor-verde-hover: #9BD0CD;
 
   --cor-fundo-claro: #EFF5F9;
   --cor-superficie-branca: #FFFFFF;
@@ -114,6 +115,7 @@ body {
 /* ---------------------
 -- TIPOGRAFIA — PESOS --
 ------------------------ */
+  --peso-light: 300;
   --peso-regular: 400;
   --peso-medio: 500;
   --peso-semi-negrito: 600;

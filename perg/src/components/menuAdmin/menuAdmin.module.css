@@ -1,0 +1,119 @@
+.menuEmpresa {
+  background-color: var(--cor-primaria-escura);
+  max-width: 18vw;
+  height: 100vh;
+  box-shadow: 5px 10px 15px rgba(3, 191, 181, 0.3);
+  border-right: 3px solid rgba(3, 191, 181, 0.3);
+   display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  max-width: 75%;
+  height: auto;
+  margin: var(--espacamento-xl) var(--espacamento-xl) var(--espacamento-xs);
+}
+
+.admin {
+  display: flex;
+  width: 75%;
+  justify-content: flex-end;
+  margin: 0 var(--espacamento-xl) var(--espacamento-xl);
+}
+
+.admin p {
+  border-radius: var(--raio-padrao);
+  background-color: var(--cor-primaria-secundaria);
+  color: var(--cor-verde-destaque);
+  font-weight: var(--peso-negrito);
+  padding: var(--espacamento-xs);
+  width: 35%;
+  display: flex;
+  justify-content: center;
+}
+
+.navegacao {
+  width: 100%;
+}
+
+.lista {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: var(--espacamento-sm);
+}
+
+.item {
+  width: 100%;
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
+  font-weight: var(--peso-light);
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-sm) var(--espacamento-xl);
+}
+
+.item:hover {
+  color: var(--cor-primaria-verde-escuro);
+  border-radius: 0 var(--raio-padrao) var(--raio-padrao) 0;
+  background-color: var(--cor-verde-hover);
+}
+
+.item:focus-visible {
+  outline: 3px solid var(--cor-verde-destaque);
+  outline-offset: 3px;
+}
+
+.imgEntregador {
+  max-width: 40%;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.perfil {
+  width: 100%;
+  color: var(--cor-texto-branco);
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) auto;
+  align-items: center;
+  padding: 0 var(--espacamento-xl);
+}
+
+.iniciais:global(h3),
+:global(h3).iniciais {
+  color: var(--cor-texto-branco);
+  background-color: var(--cor-verde-destaque);
+  width: 75%;
+  border-radius: var(--raio-padrao);
+  display: flex;
+  justify-content: center;
+  padding: var(--espacamento-sm);
+}
+
+.nomeEmpresa {
+  color: var(--cor-texto-branco);
+}
+
+.nomeUsuario {
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-light);
+}
+
+.botaoLogout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--espacamento-xs);
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-branco);
+}
+
+.botaoLogout:hover {
+  color: var(--cor-verde-destaque);
+}
