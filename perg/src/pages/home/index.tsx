@@ -3,6 +3,7 @@
 // ==========================================
 import Header from "@/components/header";
 import Button from "@/components/botao";
+import Footer from "@/components/footer";
 export default function Home() {
   return (
     <main>
@@ -564,6 +565,129 @@ export default function Home() {
           </div>
         </section>
       </div>
-    </main>
+
+<div className="oitavo-container">
+  <section className="conteudo-oitavo-container">
+
+    <img
+      src="/c5Branco.png"
+      className="logo-banner"
+      alt="Logo C5 Solutions"
+    />
+
+    <div className="area-texto-oitava">
+      <h2 className="titulo-principal-branco">
+        Tecnologia aplicada a
+        <br />
+         desafios reais.
+      </h2>
+
+      <p className="texto-branco">
+        A C5 Solutions desenvolve soluções digitais para otimizar
+        processos, conectar operações e gerar valor para seus
+        clientes.
+      </p>
+
+      <p className="texto-branco">
+        O PERG é a nossa solução para transformar a gestão
+        logística em uma operação integrada, estruturada e
+        preparada para crescer.
+      </p>
+    </div>
+
+  </section>
+</div>
+
+<div className="nono-container">
+  <section className="conteudo-nono-container">
+
+    <h2 className="titulo-faq">
+      Perguntas frequentes
+    </h2>
+
+    <div className="lista-perguntas">
+
+      <div className="card-faq">
+
+        <div className="botao-minimizar">
+
+          <p className="texto-faq">
+            Funciona para qualquer tipo de veículo?
+          </p>
+
+          <button className="faq-toggle" type="button">
+            <img src="/botao-menos.png" alt="Minimizar pergunta" />
+          </button>
+
+        </div>
+
+        <p className="resposta-faq">
+          Sim. Motos, carros, vans e caminhões, cada um com
+          capacidade, volume e jornada próprios. O otimizador
+          monta as rotas só com os veículos que você escolher.
+        </p>
+
+      </div>
+       <div className="card-faq-minimizado">
+
+        <div className="botao-minimizar">
+
+          <p className="texto-faq">
+            Posso cancelar quando quiser?
+          </p>
+          <button className="faq-toggle" type="button">
+            <img src="/botao-mais.png" alt=" pergunta" />
+          </button>
+        </div>
+      </div>
+
+        <div className="card-faq-minimizado">
+
+        <div className="botao-minimizar">
+
+          <p className="texto-faq">
+            O cliente final precisa baixar algum app?
+          </p>
+          <button className="faq-toggle" type="button">
+            <img src="/botao-mais.png" alt="" />
+          </button>
+        </div>
+      </div>
+
+         <div className="card-faq-minimizado">
+
+        <div className="botao-minimizar">
+
+          <p className="texto-faq">
+            E se o motorista ficar sem internet?
+          </p>
+          <button className="faq-toggle" type="button">
+            <img src="/botao-mais.png" alt=" pergunta" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+           {/* Mensagem para assinatura */}
+        <div className="area-texto-nona">
+        <h2 className="titulo-principal-branco">
+          Seu primeiro lote 
+             <br />
+          roteirizado hoje.
+        </h2>
+        <p className="texto-verde-escuro">  
+            Crie a conta, conecte sua loja e veja as rotas saindo
+            <br />
+            em minutos. 
+        </p>
+           <Button variant="verde-destaque">
+                Conheça Nossas Soluções
+              </Button>
+       </div>
+  </section>
+</div>
+
+<Footer />
+</main>
   );
 }

@@ -1,6 +1,6 @@
 type ButtonProps = {
   children: React.ReactNode;
-  variant?: "principal" | "texto";
+  variant?: "principal" | "texto" | "verde-destaque" ;
   onClick?: () => void;
 };
 
