@@ -9,13 +9,16 @@
 :root {
     --fundo-claro: #EFF5F9;
     --verde-escuro: #004146;
+    --fundo-verde-escuro: #11292C;
     --fundo-verde-claro: #E0FCFB;
     --verde: #018076;
     --verde-destaque: #03BFB5;
     --branco: #FFF;
     --cinza: #949398;
+    --fundo-texto-claro: #BEEFF6;
 
     --tamanho-titulo: 64px;
+    --tamanho-titulo-secundario: 44px;
     --tamanho-sub-titulo: 30px;
     --tamanho-titulo-light: 25px;
     --tamanho-texto-btn: 15px;
@@ -36,6 +39,27 @@
 .titulo-principal {
   font-family: var(--font-titulo);
   font-size: var(--tamanho-titulo);
+  font-weight: 600;
+  color: var(--verde-escuro);
+}
+
+.titulo-principal-branco {
+  font-family: var(--font-titulo);
+  font-size: var(--tamanho-titulo);
+  font-weight: 600;
+  color: var(--branco);
+}
+
+.titulo-principal-ciano {
+  font-family: var(--font-titulo);
+  font-size: var(--tamanho-titulo);
+  font-weight: 600;
+  color: var(--verde-destaque);
+}
+
+.subtitulo-verde-escuro {
+  font-family: var(--font-titulo);
+  font-size: var(--tamanho-sub-titulo);
   font-weight: 600;
   color: var(--verde-escuro);
 }

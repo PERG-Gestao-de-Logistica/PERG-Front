@@ -1,10 +1,15 @@
-import { redirect } from "next/dist/server/api-utils";
 
-export async function getServerSideProps() {
+import type { GetServerSideProps } from "next";
+
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
       destination: "/home",
       permanent: false,
     },
   };
+};
+
+export default function Index() {
+  return null;
 }
