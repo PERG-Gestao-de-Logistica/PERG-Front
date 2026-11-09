@@ -49,6 +49,12 @@ export default function MenuEmpresa() {
         src="/assets/logos/logoBranca.png"
         alt="Logo do Perg"
       />
+      <img
+        className={styles.logoSimbolo}
+        src="/assets/logos/simboloBranco.png"
+        alt=""
+        aria-hidden="true"
+      />
 
       <nav className={styles.navegacao} aria-label="Navegação principal">
         <ul className={styles.lista}>
@@ -92,7 +98,7 @@ export default function MenuEmpresa() {
           className={styles.botaoLogout}
           aria-label="Sair da conta"
         >
-          <MdLogout size={32}/>
+          <MdLogout size={32} />
         </button>
       </footer>
     </aside>

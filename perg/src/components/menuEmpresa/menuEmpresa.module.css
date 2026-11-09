@@ -1,13 +1,17 @@
 .menuEmpresa {
   background-color: var(--cor-primaria-verde-escuro);
-  max-width: 18vw;
-   height: 100vh;
+  max-width: 18dvw;
+  height: 100dvh;
 }
 
 .logo {
   max-width: 75%;
   height: auto;
   margin: var(--espacamento-xl);
+}
+
+.logoSimbolo {
+  display: none;
 }
 
 .navegacao {
@@ -46,14 +50,15 @@
 }
 
 .imgEntregador {
-  max-width: 40%;
+  max-width: 65%;
   margin-top: 3vh;
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
   
 }
 
 .perfil {
   width: 100%;
+  height: auto;
   color: var(--cor-texto-branco);
   display: grid;
   grid-template-columns: 4rem minmax(0, 1fr) auto;
@@ -97,3 +102,75 @@
 .botaoLogout:hover {
   color: var(--cor-verde-destaque);
 }
+
+@media (max-width: 1024px) {
+  .menuEmpresa {
+    max-width: 80px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logoSimbolo {
+    max-width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: var(--espacamento-md) 1rem var(--espacamento-md);
+  }
+
+  .imgEntregador{
+    display: none;
+  }
+
+  .lista {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacamento-sm);
+  }
+
+  .item {
+    justify-content: center;
+    width: 64px;
+    height: 56px;
+    padding: var(--espacamento-sm);
+    border-radius: var(--raio-pequeno);
+  }
+
+  .item span {
+    display: none;
+  }
+
+  .item svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .perfil {
+    display: flex;
+    margin-top:auto;
+    margin-bottom: var(--espacamento-md);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espacamento-md);
+    padding: 0;
+  }
+
+  .iniciais {
+    max-width: 60%;
+    height: 60%;
+  }
+
+  .infoUsuario {
+    display: none;
+  }
+
+  .botaoLogout svg {
+    width: 23px;
+    height: 23px;
+  }
+
+}
+

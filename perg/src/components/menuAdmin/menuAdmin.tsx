@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { TbClipboardData, TbDatabaseCog, TbAlertTriangle, TbApiApp} from "react-icons/tb";
+import {TbClipboardData,TbDatabaseCog,TbAlertTriangle,TbApiApp,} from "react-icons/tb";
 import { SiDatabricks } from "react-icons/si";
 import { MdLogout } from "react-icons/md";
 import { PiBuildings } from "react-icons/pi";
+import { RxHamburgerMenu } from "react-icons/rx";
 import styles from "./menuAdmin.module.css";
+import { useEffect, useState } from "react";
 
 const itensMenu = [
   {
@@ -42,13 +44,68 @@ const itensMenu = [
 export default function MenuAdmin() {
   const router = useRouter();
 
+  const [menuAberto, setMenuAberto] = useState(false);
+
+  //Fechar menu com o esc
+  useEffect(() => {
+    function fecharComEsc(event: KeyboardEvent ){
+      if (event.key == "Escape"){
+        setMenuAberto(false);
+      }
+    }
+    window.addEventListener('keydown', fecharComEsc);
+    return () => {
+      window.addEventListener('keydown', fecharComEsc);
+    }
+  })
+
+  //Fechar menu ao mudar de página
+
   return (
-    <aside className={styles.menuEmpresa} aria-label="Menu principal">
+    <>
+    <header className={styles.cabecalhoMobile}>
+      <img
+          className={styles.logoMobile}
+          src="/assets/logos/logoBranca.png"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <button type="button"
+          className={styles.botaoMenu}
+          onClick={() => setMenuAberto((estado) => !estado)}
+          aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuAberto}
+          aria-controls="menu-admin"><RxHamburgerMenu /></button>
+    </header>
+     {menuAberto && (
+        <button
+          type="button"
+          className={styles.overlay}
+          onClick={() => setMenuAberto(false)}
+          aria-label="Fechar menu"
+          tabIndex={-1}
+        />
+      )}
+
+    <aside id="menuAdmin" className={`${styles.menuEmpresa} ${ menuAberto ? styles.menuAberto : ""}`} aria-label="Menu principal"
+    aria-hidden={
+          typeof window !== "undefined" &&
+          window.matchMedia("(max-width: 640px)").matches
+            ? !menuAberto
+            : undefined
+        }>
       <div className={styles.logoAdmin}>
         <img
           className={styles.logo}
           src="/assets/logos/logoBranca.png"
           alt="Logo do Perg"
+        />
+        <img
+          className={styles.logoSimbolo}
+          src="/assets/logos/simboloBranco.png"
+          alt=""
+          aria-hidden="true"
         />
         <div className={styles.admin}>
           <p>ADMIN</p>
@@ -94,5 +151,6 @@ export default function MenuAdmin() {
         </button>
       </footer>
     </aside>
+    </>
   );
 }
