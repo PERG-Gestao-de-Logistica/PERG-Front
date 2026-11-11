@@ -4,6 +4,7 @@ import "@/styles/home.css";
 import "@/styles/rastreio.css";
 import "@/styles/acompanhamento.css";
 import "@/styles/entregue.css";
+import "@/styles/empresa-configuracao.css";
 import type { AppProps } from "next/app";
 import { Outfit, Urbanist } from "next/font/google";
 

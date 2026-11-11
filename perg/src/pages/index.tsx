@@ -3,7 +3,7 @@
 export async function getServerSideProps() {
   return {
     redirect: {
-      destination: "/entregue",
+      destination: "/empresa-configuracao",
       permanent: false,
     },
   };

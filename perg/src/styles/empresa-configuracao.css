@@ -1,0 +1,568 @@
+
+/* ========================================
+   LAYOUT GERAL
+======================================== */
+
+.empresa-configuracao-layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: #eef5f9;
+  box-sizing: border-box;
+  font-family: "Outfit", "Urbanist", sans-serif;
+  color: #06494c;
+}
+
+/* ========================================
+   SIDEBAR RESERVADA
+======================================== */
+
+.sidebar-placeholder {
+  width: 260px;
+  min-width: 260px;
+  min-height: 100vh;
+  background-color: transparent;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+.conteudo-placeholder {
+  flex: 1;
+  min-width: 0;
+  padding: 32px 28px;
+  box-sizing: border-box;
+  background-color: #eef5f9;
+}
+
+/* ========================================
+   CABEÇALHO RESERVADO
+======================================== */
+
+.cabecalho-placeholder {
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 14px;
+}
+
+.titulo-data-placeholder {
+  flex: 1;
+  min-width: 0;
+  min-height: 65px;
+}
+
+.acoes-header-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+}
+
+.pesquisa-placeholder {
+  width: 230px;
+  height: 36px;
+}
+
+.novo-pedido-placeholder {
+  width: 110px;
+  height: 36px;
+}
+
+.notificacao-placeholder {
+  width: 36px;
+  height: 36px;
+}
+
+/* ========================================
+   ABAS RESERVADAS
+======================================== */
+
+.abas-placeholder {
+  width: 340px;
+  height: 38px;
+  margin-bottom: 24px;
+}
+
+/* ========================================
+   CONTEÚDO DA EMPRESA
+======================================== */
+
+.conteudo-empresa {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   CARDS
+======================================== */
+
+.empresa-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.empresa-card-header {
+  margin-bottom: 16px;
+}
+
+.empresa-card-header h2 {
+  color: #06494c;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.empresa-card-header p {
+  color: #789092;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ========================================
+   DADOS DA EMPRESA
+======================================== */
+
+.dados-empresa-card {
+  width: 100%;
+  min-height: 220px;
+}
+
+.dados-empresa-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* LOGOTIPO */
+
+.empresa-logo-area {
+  width: 100px;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.empresa-logo-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 14px;
+  background-color: #08bdb4;
+  color: #06494c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.empresa-btn-alterar-foto {
+  width: 100%;
+  height: 32px;
+  background: #ffffff;
+  border: 1px solid #d9e7e9;
+  border-radius: 8px;
+  color: #06494c;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.empresa-btn-alterar-foto:hover {
+  background-color: #effafa;
+}
+
+/* FORMULÁRIO DA EMPRESA */
+
+.empresa-form-dados {
+  flex: 1;
+  min-width: 0;
+}
+
+.empresa-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 16px;
+}
+
+/* ========================================
+   CAMPOS
+======================================== */
+
+.empresa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.empresa-field label {
+  color: #06494c;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.empresa-field input,
+.empresa-field select {
+  width: 100%;
+  height: 36px;
+  box-sizing: border-box;
+  border: 1px solid #dce7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 0 12px;
+  color: #28565a;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.empresa-field input:focus,
+.empresa-field select:focus {
+  border-color: #08bdb4;
+}
+
+.empresa-field input:disabled {
+  background-color: #eef4f7;
+  color: #789092;
+  cursor: not-allowed;
+}
+
+.empresa-field input::placeholder {
+  color: #91a8aa;
+}
+
+.empresa-helper-text {
+  font-size: 11px;
+  color: #789092;
+  margin: 10px 0 0;
+}
+
+/* ========================================
+   ÁREA INFERIOR
+======================================== */
+
+.empresa-configuracao-bottom {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* ========================================
+   CRIAR USUÁRIO
+======================================== */
+
+.criar-usuario-card {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.empresa-form-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.usuario-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 16px;
+}
+
+/* SELECT */
+
+.empresa-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.empresa-select-wrapper select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 32px;
+}
+
+.empresa-select-wrapper svg {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #06494c;
+}
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+.empresa-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.empresa-btn-cancelar,
+.empresa-btn-criar {
+  height: 36px;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.empresa-btn-cancelar {
+  background-color: #ffffff;
+  border: 1px solid #dce7eb;
+  color: #06494c;
+}
+
+.empresa-btn-cancelar:hover {
+  background-color: #effafa;
+}
+
+.empresa-btn-criar {
+  background-color: #00494c;
+  border: 1px solid #00494c;
+  color: #ffffff;
+}
+
+.empresa-btn-criar:hover {
+  background-color: #006267;
+}
+
+/* ========================================
+   USUÁRIOS CRIADOS
+======================================== */
+
+.usuarios-criados-card {
+  min-height: 250px;
+}
+
+.usuarios-criados-card .empresa-card-header {
+  border-bottom: 1px solid #e8eff0;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+}
+
+.usuarios-lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.usuario-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 0;
+  border-bottom: 1px solid #edf2f3;
+  min-width: 0;
+}
+
+.usuario-item:last-child {
+  border-bottom: none;
+}
+
+/* AVATAR */
+
+.usuario-avatar {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: #e0eeee;
+  color: #06494c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.usuario-item:first-child .usuario-avatar {
+  background-color: #08bdb4;
+}
+
+/* INFORMAÇÕES */
+
+.usuario-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.usuario-info strong {
+  color: #06494c;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.usuario-info span {
+  color: #789092;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* CARGOS */
+
+.usuario-cargo-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.usuario-cargo-badge.admin {
+  background-color: #00494c;
+  color: #ffffff;
+}
+
+.usuario-cargo-badge.funcionario {
+  background-color: #d2e9e7;
+  color: #06494c;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1100px) {
+  .empresa-configuracao-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar-placeholder {
+    width: 220px;
+    min-width: 220px;
+  }
+
+  .conteudo-placeholder {
+    padding: 24px 18px;
+  }
+
+  .acoes-header-placeholder {
+    gap: 5px;
+  }
+
+  .pesquisa-placeholder {
+    width: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .empresa-configuracao-layout {
+    flex-direction: column;
+  }
+
+  .sidebar-placeholder {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: 0;
+  }
+
+  .conteudo-placeholder {
+    padding: 16px;
+  }
+
+  .cabecalho-placeholder {
+    min-height: 64px;
+    gap: 5px;
+  }
+
+  .titulo-data-placeholder {
+    min-height: 55px;
+  }
+
+  .acoes-header-placeholder {
+    gap: 4px;
+  }
+
+  .pesquisa-placeholder {
+    width: 90px;
+    height: 32px;
+  }
+
+  .novo-pedido-placeholder {
+    width: 65px;
+    height: 32px;
+  }
+
+  .notificacao-placeholder {
+    width: 32px;
+    height: 32px;
+  }
+
+  .abas-placeholder {
+    max-width: 100%;
+    height: 34px;
+  }
+
+  .empresa-card {
+    padding: 16px;
+  }
+
+  .dados-empresa-content {
+    flex-direction: column;
+  }
+
+  .empresa-form-grid,
+  .usuario-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .empresa-logo-area {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .empresa-logo-preview {
+    width: 70px;
+    height: 70px;
+  }
+
+  .empresa-btn-alterar-foto {
+    width: 120px;
+  }
+
+  .usuario-item {
+    gap: 7px;
+  }
+
+  .usuario-cargo-badge {
+    font-size: 9px;
+    padding: 4px 7px;
+  }
+}
