@@ -3,7 +3,7 @@
 export async function getServerSideProps() {
   return {
     redirect: {
-      destination: "/rastreio",
+      destination: "/home",
       permanent: false,
     },
   };

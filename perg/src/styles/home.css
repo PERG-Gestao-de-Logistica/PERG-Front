@@ -1,84 +1,910 @@
-.primeiro-container {
+/* =========================================================
+   HOME / PERG
+   Organização:
+   1. Estrutura das seções
+   2. Conteúdo geral, títulos e textos
+   3. Seção Como funciona
+   4. Cards e planos
+   5. Banner institucional
+   6. Responsividade
+   ========================================================= */
+
+/* ---------- Estrutura das seções ---------- */
+
+.primeiro-container,
+.segundo-container,
+.terceiro-container,
+.quinto-container,
+.sexto-container {
   width: 100%;
   min-height: calc(100vh - 72px);
-  background-color: var(--fundo-claro);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.segundo-container {
-  width: 100%;
-  min-height: calc(100vh - 72px);
+.primeiro-container,
+.segundo-container,
+.quinto-container {
   background-color: var(--fundo-claro);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.terceiro-container {
-  width: 100%;
-  min-height: calc(100vh - 72px);
+.terceiro-container,
+.sexto-container {
   background-color: var(--fundo-verde-claro);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
+.quarto-container {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background-color: var(--verde-escuro);
+}
+
+.sexto-container {
+  padding: 45px 5.5%;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+/* ---------- Primeira, segunda e terceira seções ---------- */
 
 .conteudo-home {
-  width: 89%;
+  width: min(89%, 1400px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
 }
 
-.texto-home {
-  flex: 1;
+.texto-home,
+.imagem-home {
+  flex: 1 1 0;
   min-width: 0;
+}
+
+.texto-home {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .imagem-home {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .imagem-home img {
+  display: block;
   width: 100%;
   max-width: 520px;
   height: auto;
-}
-
-.titulo-principal {
-  font-size: 64px;
-  line-height: 1.25;
-}
-
-.titulo-principal span {
-  color: var(--verde-destaque);
-}
-
-.botoes-home {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  margin-top: 12px;
+  object-fit: contain;
 }
 
 .texto-home-problema {
   text-align: end;
 }
 
+/* ---------- Títulos e textos gerais ---------- */
+
+.titulo-principal {
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  line-height: 1.2;
+}
+
+.titulo-principal span {
+  color: var(--verde-destaque);
+}
+
+.titulo-principal-branco,
+.titulo-principal-ciano {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.25;
+}
+
+.titulo-principal-branco {
+  color: var(--branco);
+}
+
+.titulo-principal-ciano {
+  color: var(--verde-destaque);
+}
+
 .texto {
+  color: var(--verde-escuro);
   font-family: var(--font-texto);
   font-size: var(--tamanho-texto);
   font-weight: 400;
-  color: var(--verde-escuro);
   line-height: 1.5;
+}
+
+.texto-card {
+  color: var(--verde-escuro);
+  font-family: var(--font-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.texto-verde-escuro{
+  color: #03BFB5;
+  font-family: var(--font-texto);
+}
+
+.texto-branco {
+  color: var(--branco);
+  font-family: var(--font-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ---------- Botões da primeira seção ---------- */
+
+.botoes-home {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 12px;
+}
+
+/* ---------- Quarta seção: como funciona ---------- */
+
+.conteudo-quarto-container {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  display: grid;
+  grid-template-columns: minmax(280px, 30%) minmax(0, 1fr);
+}
+
+.parte-esquerda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #102a2c;
+  text-align: center;
+}
+
+.imagem-caminhao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 55px;
+}
+
+.imagem-caminhao img {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+}
+
+.texto-etapas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.parte-direita {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
+  padding: 45px 55px;
+  background-color: var(--verde-escuro);
+}
+
+.etapa-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 230px;
+  text-align: center;
+}
+
+.etapa-item img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.titulo-etapa {
+  margin: 0 0 12px;
+  color: var(--branco);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* ---------- Quinta seção: conteúdo, cards e planos ---------- */
+
+.conteudo-quinto-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(89%, 1400px);
+  padding: 45px 0;
+}
+
+.texto-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-align: start;
+}
+
+.subtitulo-verde-escuro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 9px 24px;
+  border-radius: 10px;
+  background-color: var(--fundo-texto-claro);
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 44px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 340px;
+  padding: 18px;
+  border-radius: 10px;
+  background-color: var(--fundo-texto-claro);
+}
+
+.card-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.card-topo img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.card-topo span {
+  padding: 5px 15px;
+  border-radius: 10px;
+  background-color: var(--verde-destaque);
+  color: var(--verde-escuro);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.card .titulo-principal {
+  margin: 0 0 8px;
+  color: var(--verde-escuro);
+  font-size: clamp(1.35rem, 2vw, 2.1rem);
+  line-height: 1.2;
+}
+
+.card > .subtitulo-verde-escuro {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.lista-funcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.funcao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.funcao img {
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.funcao p,
+.funcao .texto-card {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.card > button {
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+
+/* ---------- Sexta seção: diferenciais ---------- */
+
+.sexto-container .texto-inicial {
+  width: 100%;
+}
+
+.sexto-container .texto-inicial .titulo-principal {
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  line-height: 1.2;
+}
+
+.quatro-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  margin-top: 44px;
+}
+
+.card-sexta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  min-height: 320px;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card-sexta img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.texto-card-sexto {
+  margin-top: 12px;
+  color: var(--verde-escuro);
+  font-family: var(--font-texto);
+  font-size: var(--tamanho-sub-titulo);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.titulo-card-sexto {
+  margin-top: 12px;
+  color: var(--verde-escuro);
+  font-family: var(--font-titulo);
+  font-size: var(--tamanho-titulo-secundario);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ---------- Sétima seção: planos ---------- */
+
+.preco-area {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.espacamento-texto {
+  gap: 12px;
+  color: var(--verde-escuro);
+  font-family: var(--font-titulo);
+  font-size: var(--tamanho-sub-titulo);
+  font-weight: 600;
+}
+
+.setima-secao {
+  margin-top: 25px;
+}
+
+/* ---------- Oitava seção: banner institucional ---------- */
+
+.oitavo-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.conteudo-oitavo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(24px, 5vw, 64px);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 398px;
+  padding: 40px 5.5%;
+  background-image: url("/imagem-fundo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo-banner {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(150px, 19vw, 235px);
+  height: auto;
+  object-fit: contain;
+}
+
+.area-texto-oitava {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  width: min(48%, 600px);
+  text-align: right;
+}
+
+.area-texto-oitava h2 {
+  margin: 0 0 2px;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.area-texto-oitava p {
+  margin: 0;
+  font-size: clamp(0.85rem, 1.3vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* ---------- Nona seção: Perguntas frequentes ---------- */
+
+.nono-container {
+  width: 100%;
+  background-color: #edf4f8;
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+
+.conteudo-nono-container {
+  width: 89%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Título da seção */
+
+.titulo-faq {
+  color: var(--verde-escuro);
+  font-family: var(--font-titulo);
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0 0 15px;
+}
+
+/* Lista de perguntas */
+
+.lista-perguntas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card */
+
+.card-faq {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+
+  background-color: #f4f8fa;
+  border: 1px solid #dce5e9;
+  border-radius: 13px;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.20);
+}
+
+.card-faq-minimizado {
+  width: 100%;
+  padding: 18px;
+  box-sizing: border-box;
+
+  background-color: #f4f8fa;
+  border: 1px solid #dce5e9;
+  border-radius: 13px;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.20);
+}
+
+
+/* Pergunta e botão */
+
+.botao-minimizar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.texto-faq {
+  color: var(--verde-escuro);
+  font-family: var(--font-titulo);
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.faq-toggle {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.faq-toggle img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Resposta */
+
+.resposta-faq {
+  color: #718087;
+  font-family: var(--font-texto);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 8px 0 0;
+}
+
+/* =========================================================
+   MENSAGEM DE ASSINATURA
+   ========================================================= */
+.area-texto-nona {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 50px;
+  height: 45vh;
+  background-color: var(--verde-escuro);
+  width: min(100%, );
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 5%;
+  border-radius: 20px;
+}
+
+.area-texto-nona h2 {
+  margin: 0 0 2px;
+  font-size: clamp(3.6rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.area-texto-nona p {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.5vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+/* ---------- Tablets e telas menores ---------- */
+
+@media (max-width: 1024px) {
+  .conteudo-home {
+    width: 90%;
+    gap: 28px;
+  }
+
+  .titulo-principal {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+  }
+
+  .parte-direita {
+    padding: 40px 30px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .quatro-cards {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    justify-items: center;
+    gap: 20px;
+  }
+
+  .card-sexta {
+    max-width: none;
+  }
+
+  .conteudo-oitavo-container {
+    gap: 32px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .area-texto-oitava {
+    width: 55%;
+  }
+}
+
+/* ---------- Tablets em modo retrato e celulares ---------- */
+
+@media (max-width: 768px) {
+  .primeiro-container,
+  .segundo-container,
+  .terceiro-container,
+  .quinto-container,
+  .sexto-container {
+    min-height: auto;
+  }
+
+  .conteudo-home {
+    flex-direction: column;
+    width: min(90%, 600px);
+    padding: 56px 0;
+  }
+
+  .texto-home,
+  .imagem-home {
+    width: 100%;
+  }
+
+  .imagem-home img {
+    max-width: 460px;
+  }
+
+  .texto-home-problema {
+    text-align: left;
+  }
+
+  .botoes-home {
+    gap: 14px;
+  }
+
+  .conteudo-quarto-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .parte-esquerda {
+    padding: 48px 24px;
+  }
+
+  .imagem-caminhao {
+    margin-bottom: 28px;
+  }
+
+  .parte-direita {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    padding: 44px 24px;
+    gap: 32px 20px;
+  }
+
+  .conteudo-quinto-container {
+    width: 90%;
+    padding: 48px 0;
+  }
+
+  .sexto-container {
+    padding: 48px 5%;
+  }
+
+  .conteudo-oitavo-container {
+    min-height: 360px;
+    padding: 40px 5%;
+  }
+
+  .logo-banner {
+    width: clamp(130px, 25vw, 190px);
+  }
+
+  .area-texto-oitava {
+    width: 58%;
+  }
+
+    .conteudo-nono-container {
+    width: 90%;
+  }
+
+  .titulo-faq {
+    font-size: 26px;
+  }
+
+  .texto-faq {
+    font-size: 12px;
+  }
+
+  .resposta-faq {
+    font-size: 11px;
+  }
+}
+
+
+/* ---------- Celulares ---------- */
+
+@media (max-width: 550px) {
+  .conteudo-home {
+    padding: 42px 0;
+    gap: 30px;
+  }
+
+  .titulo-principal {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+  }
+
+  .titulo-principal-branco,
+  .titulo-principal-ciano {
+    font-size: 2rem;
+  }
+
+  .botoes-home {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .parte-direita {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .imagem-caminhao img {
+    width: 130px;
+  }
+
+  .conteudo-quinto-container {
+    width: 89%;
+    padding: 42px 0;
+  }
+
+  .texto-inicial .titulo-principal,
+  .sexto-container .texto-inicial .titulo-principal {
+    font-size: clamp(1.7rem, 7vw, 2rem);
+  }
+
+  .subtitulo-verde-escuro {
+    font-size: 14px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .card {
+    min-height: 320px;
+    padding: 20px;
+  }
+
+  .card .titulo-principal {
+    font-size: 24px;
+  }
+
+  .quatro-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .card-sexta {
+    min-height: auto;
+    max-width: 100%;
+    padding: 24px 18px;
+  }
+
+  .preco-area {
+    align-items: center;
+  }
+
+  .conteudo-oitavo-container {
+    flex-direction: column;
+    justify-content: center;
+    min-height: auto;
+    padding: 48px 24px;
+    gap: 30px;
+    background-position: center;
+  }
+
+  .logo-banner {
+    width: min(55%, 190px);
+  }
+
+  .area-texto-oitava {
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+  }
+
+  .area-texto-oitava h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .area-texto-oitava p {
+    font-size: 0.9rem;
+  }
+
+    .conteudo-nono-container {
+    width: 92%;
+  }
+
+  .titulo-faq {
+    font-size: 23px;
+  }
+
+  .card-faq {
+    padding: 12px;
+  }
+
+}
+
+
+
+/* ---------- Celulares muito estreitos ---------- */
+
+@media (max-width: 360px) {
+  .conteudo-home,
+  .conteudo-quinto-container {
+    width: 92%;
+  }
+
+  .parte-esquerda {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .parte-direita {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-topo img {
+    width: 58px;
+    height: 58px;
+  }
 }
