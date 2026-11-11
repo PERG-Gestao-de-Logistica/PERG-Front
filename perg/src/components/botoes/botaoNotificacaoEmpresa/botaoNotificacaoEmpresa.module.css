@@ -2,15 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: var(--altura-botao-grande);
   height: var(--altura-botao-grande);
-
   padding: 0;
-
   color: var(--cor-primaria-verde-escuro);
   background-color: var(--cor-superficie-branca);
-
   border: var(--largura-borda) solid var(--cor-borda);
   box-shadow: var(--sombra-interna);
   border-radius: var(--raio-pequeno);

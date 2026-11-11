@@ -24,7 +24,7 @@ body {
   line-height: var(--altura-linha-texto);
 
   color: var(--cor-texto-principal);
-  background-color: var(--cor-primaria-escura);
+  background-color: var(--cor-fundo-claro);
 }
 
 :root {
