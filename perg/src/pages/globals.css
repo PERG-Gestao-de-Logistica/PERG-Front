@@ -24,95 +24,83 @@ body {
   line-height: var(--altura-linha-texto);
 
   color: var(--cor-texto-principal);
-  background-color: var(--cor-fundo-claro);
+  background-color: var(--cor-primaria-escura);
 }
 
-
 :root {
-
-/* ----------------------------
+  /* ----------------------------
 -- CORES E IDENTIDADE VISUAL --
 ------------------------------- */
   --cor-primaria-verde-escuro: #004146;
-  --cor-primaria-escura: #03171A;
-  --cor-primaria-profunda: #11292C;
-  --cor-primaria-secundaria: #062A2E;
+  --cor-primaria-escura: #03171a;
+  --cor-primaria-profunda: #11292c;
+  --cor-primaria-secundaria: #062a2e;
 
   --cor-secundaria-verde: #018076;
-  --cor-verde-destaque: #03BFB5;
-   --cor-verde-hover: #9BD0CD;
+  --cor-verde-destaque: #03bfb5;
+  --cor-verde-hover: #9bd0cd;
 
-  --cor-fundo-claro: #EFF5F9;
-  --cor-superficie-branca: #FFFFFF;
-  --cor-fundo-verde-claro: #E0FCFB;
-  --cor-fundo-input: #CFE8E4;
+  --cor-fundo-claro: #eff5f9;
+  --cor-superficie-branca: #ffffff;
+  --cor-fundo-verde-claro: #e0fcfb;
+  --cor-fundo-input: #cfe8e4;
 
   --cor-texto-principal: #004146;
   --cor-texto-secundario: #949398;
-  --cor-texto-branco: #FFFFFF;
+  --cor-texto-branco: #ffffff;
 
-  --cor-aviso: #FFA43D;
-  --cor-perigo: #FD6554;
-  --cor-informacao: #168BFF;
+  --cor-aviso: #ffa43d;
+  --cor-perigo: #fd6554;
+  --cor-informacao: #168bff;
   --cor-sucesso: #018076;
 
-  --cor-borda: #C7E2E3;
+  --cor-borda: #c7e2e3;
 
-
-/* ------------------
+  /* ------------------
 -- CORES DE STATUS --
 --------------------- */
   --cor-status-novo: #004146;
-  --cor-status-rota: #0088FF;
+  --cor-status-rota: #0088ff;
   --cor-status-roteirizado: var(--cor-texto-branco);
-  --cor-status-disponivel: #34C759;
-  --cor-status-outraLoja: #8A4B00;
-  --cor-status-alto: #DB8B55;
-  --cor-status-medio: #E4B84C;
-  --cor-status-ocorrencia: #FD6554;
+  --cor-status-disponivel: #34c759;
+  --cor-status-outraLoja: #8a4b00;
+  --cor-status-alto: #db8b55;
+  --cor-status-medio: #e4b84c;
+  --cor-status-ocorrencia: #fd6554;
   --cor-status-offline: #949398;
 
-  --fundo-status-novo: #03BFB5;
+  --fundo-status-novo: #03bfb5;
   --fundo-status-roteirizado: #004146;
-  --fundo-status-disponivel: #E0FCFB;
-  --fundo-status-entregue: #D5F5F1;
+  --fundo-status-disponivel: #e0fcfb;
+  --fundo-status-entregue: #d5f5f1;
   --fundo-status-ocorrencia: #eeb7b1;
 
-/* ----------------------
+  /* ----------------------
 -- TIPOGRAFIA — FONTES --
 ------------------------- */
   --fonte-titulo: var(--font-titulo);
   --fonte-texto: var(--font-texto);
 
-
-/* -----------------------
+  /* -----------------------
 -- TIPOGRAFIA — TAMANHO --
 -------------------------- */
-  --tamanho-titulo-principal:
-    clamp(2rem, 1.7rem + 1.5vw, 3rem);
+  --tamanho-titulo-principal: clamp(2rem, 1.7rem + 1.5vw, 3rem);
 
-  --tamanho-subtitulo:
-    clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  --tamanho-subtitulo: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
 
-  --tamanho-titulo-secao:
-    clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  --tamanho-titulo-secao: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
 
-  --tamanho-titulo-card:
-    clamp(0.875rem, 0.82rem + 0.15vw, 1.125rem);
+  --tamanho-titulo-card: clamp(0.875rem, 0.82rem + 0.15vw, 1.125rem);
 
-  --tamanho-texto:
-    clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem);
+  --tamanho-texto: clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem);
 
-  --tamanho-texto-botao:
-    var(--tamanho-titulo-secao);
+  --tamanho-texto-botao: clamp(-0.9rem, 1rem + 0.15vw, 1.3rem);
 
-  --tamanho-texto-auxiliar:
-    clamp(0.6875rem, 0.66rem + 0.08vw, 0.8125rem);
+  --tamanho-texto-auxiliar: clamp(0.6875rem, 0.66rem + 0.08vw, 0.8125rem);
 
-  --tamanho-titulo-destaque:
-    clamp(2rem, 1.4rem + 3vw, 4rem);
+  --tamanho-titulo-destaque: clamp(2rem, 1.4rem + 3vw, 4rem);
 
-/* ---------------------
+  /* ---------------------
 -- TIPOGRAFIA — PESOS --
 ------------------------ */
   --peso-light: 300;
@@ -121,15 +109,14 @@ body {
   --peso-semi-negrito: 600;
   --peso-negrito: 700;
 
-
-/* --------------------
+  /* --------------------
 -- ALTURA DAS LINHAS --
 ----------------------- */
   --altura-linha-titulo: 1.2;
   --altura-linha-subtitulo: 1.3;
   --altura-linha-texto: 1.5;
 
-/* ---------------------
+  /* ---------------------
 -- ESPAÇAMENTO — BASE --
 ------------------------ */
   --espacamento-xs: 0.25rem;
@@ -139,31 +126,27 @@ body {
   --espacamento-xl: 2rem;
   --espacamento-xxl: 2.5rem;
 
-
-/* -------------------------------
+  /* -------------------------------
 -- ESPAÇAMENTO — RESPONSIVIDADE --
 ---------------------------------- */
-  --espacamento-pagina:
-    clamp(1rem, 2vw, 2rem);
+  --espacamento-pagina: clamp(1rem, 2vw, 2rem);
 
-  --espacamento-secao:
-    clamp(1.25rem, 2.5vw, 2.5rem);
+  --espacamento-secao: clamp(1.25rem, 2.5vw, 2.5rem);
 
-  --espacamento-container:
-    clamp(1rem, 1.5vw, 1.5rem);
+  --espacamento-container: clamp(1rem, 1.5vw, 1.5rem);
 
-/* -------------------------------
+  /* -------------------------------
 -- BOTÕES — DIMENSÃO --
 ---------------------------------- */
   --altura-botao-pequeno: 2rem;
   --altura-botao-medio: 2.5rem;
-  --altura-botao-grande: 3rem;
+  --altura-botao-grande: 3.3rem;
 
   --padding-botao-pequeno: 0.75rem;
   --padding-botao-medio: 1rem;
   --padding-botao-grande: 1.5rem;
 
-/* ------------------
+  /* ------------------
 -- RAIOS E LARGURA --
 --------------------- */
   --raio-padrao: 1rem;
@@ -171,21 +154,18 @@ body {
 
   --largura-borda: 1px;
 
-
-/* ----------
+  /* ----------
 -- SOMBRAS --
 ------------- */
-  --sombra-card:
-    0 0 4px 2px rgba(90, 93, 87, 0.25);
+  --sombra-card: 0 0 4px 2px rgba(90, 93, 87, 0.25);
 
-  --sombra-modal:
-    0 8px 32px rgba(2, 26, 29, 0.18);
+  --sombra-modal: 0 8px 32px rgba(2, 26, 29, 0.18);
 
-  --sombra-menu:
-    2px 0 12px rgba(2, 26, 29, 0.08);
+  --sombra-menu: 2px 0 12px rgba(2, 26, 29, 0.08);
 
+  --sombra-interna-destaque: inset 0 0 4px 3px rgba(3, 191, 181, 0.25);
 
-/* -------------
+  /* -------------
 -- TRANSIÇÕES --
 ---------------- */
   --transicao-padrao: all 0.3s ease;
@@ -239,7 +219,6 @@ p {
   line-height: var(--altura-linha-texto);
 }
 
-
 /* ------------
 -- TAGS HTML --
 --------------- */
@@ -250,35 +229,26 @@ select {
   font: inherit;
 }
 
-button {
-  cursor: pointer;
-}
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
-/* img {
-  display: block;
-  max-width: 100%;
-} */
-
-
-/* ---------------------------
--- BOTÕES COMPONENTE GLOBAL --
------------------------------- */
-button {
+  
+  /* ---------------------------
+  -- BOTÕES COMPONENTE GLOBAL --
+  ------------------------------ */
+  button {
+  cursor: pointer;
   font-family: var(--fonte-titulo);
   font-size: var(--tamanho-texto-botao);
   font-weight: var(--peso-semi-negrito);
   line-height: 1;
-
+  border: none;
   transition: var(--transicao-padrao);
 }
 
 button:not(:disabled):hover {
-   transform: scale(1);
+  transform: scale(1);
 }
 
 button:disabled {

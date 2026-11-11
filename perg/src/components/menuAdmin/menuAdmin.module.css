@@ -1,6 +1,6 @@
 .menuEmpresa {
   background-color: var(--cor-primaria-escura);
-  max-width: 18dvw;
+  width: 325px;
   height: 100dvh;
   box-shadow: 5px 10px 15px rgba(3, 191, 181, 0.3);
   border-right: 3px solid rgba(3, 191, 181, 0.3);
@@ -50,6 +50,7 @@
 
 .navegacao {
   width: 100%;
+  flex: 1;
 }
 
 .lista {
@@ -58,6 +59,7 @@
   flex-direction: column;
   list-style: none;
   gap: var(--espacamento-sm);
+  padding: 0;
 }
 
 .item {
@@ -70,6 +72,7 @@
   align-items: center;
   gap: var(--espacamento-md);
   padding: var(--espacamento-sm) var(--espacamento-xl);
+  white-space: nowrap;
 }
 
 .item:hover {
@@ -83,6 +86,10 @@
   outline-offset: 3px;
 }
 
+.item span {
+  overflow: hidden;
+}
+
 .perfil {
   width: 100%;
   height: auto;
@@ -90,16 +97,18 @@
   margin-bottom: var(--espacamento-xl);
   color: var(--cor-texto-branco);
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr) auto;
+  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
   align-items: center;
   padding: 0 var(--espacamento-xl);
+  gap: var(--espacamento-sm);
 }
 
 .iniciais:global(h3),
 :global(h3).iniciais {
   color: var(--cor-texto-branco);
   background-color: var(--cor-verde-destaque);
-  width: 75%;
+  width: 50px;
+  height: 50px;
   border-radius: var(--raio-padrao);
   display: flex;
   justify-content: center;
@@ -141,10 +150,11 @@
 
 @media (max-width: 1024px) {
   .menuEmpresa {
-    max-width: 10vw;
+    width: 80px; 
+    max-width: none;
   }
 
-  .logo {
+  .logo, .admin, .infoUsuario, .item span {
     display: none;
   }
 
@@ -154,16 +164,6 @@
     display: flex;
     justify-content: center;
     margin: var(--espacamento-md) 1rem var(--espacamento-md);
-  }
-
-  .admin {
-    justify-content: center;
-    padding: 0;
-    margin: var(--espacamento-xl) 0;
-  }
-
-  .admin{
-    display: none;
   }
 
   .lista {
@@ -178,10 +178,6 @@
     height: 56px;
     padding: var(--espacamento-sm);
     border-radius: var(--raio-pequeno);
-  }
-
-  .item span {
-    display: none;
   }
 
   .item svg {
@@ -205,10 +201,6 @@
     height: 60%;
   }
 
-  .infoUsuario {
-    display: none;
-  }
-
   .botaoLogout svg {
     width: 23px;
     height: 23px;
@@ -217,8 +209,7 @@
 }
 
 
-@media (max-width: 640px) {
-
+@media (max-width: 640px){
   .cabecalhoMobile {
     position: fixed;
     top: 0;
@@ -243,6 +234,7 @@
     max-height: 42px;
     object-fit: contain;
   }
+
    .botaoMenu {
     display: flex;
     align-items: center;
@@ -264,9 +256,7 @@
     width: 26px;
     height: 26px;
   }
-
-  /* OVERLAY */
-
+  
   .overlay {
     display: block;
 
@@ -282,7 +272,6 @@
     z-index: 1000;
   }
 
-  /* DRAWER */
 
   .menuEmpresa {
     position: fixed;
@@ -311,13 +300,11 @@
     transform: translateX(0);
   }
 
-  /* LOGO FICA NO CABEÇALHO */
 
   .logoAdmin {
     display: none;
   }
 
-  /* NAVEGAÇÃO */
 
   .navegacao {
     margin-top: var(--espacamento-xxl);
@@ -352,13 +339,12 @@
     height: 25px;
   }
 
-  /* PERFIL E SAIR DENTRO DO DRAWER */
 
   .perfil {
     width: 100%;
 
     display: grid;
-    grid-template-columns: 44px minmax(0, 1fr) 40px;
+    grid-template-columns: 5rem minmax(0, 1fr) 1rem;
 
     align-items: center;
     gap: var(--espacamento-sm);
@@ -371,9 +357,8 @@
   }
 
   .iniciais {
-    width: 42px;
-    height: 42px;
-    padding: 0;
+    width: 100px;
+    height: 100px;
   }
 
   .infoUsuario {
@@ -399,7 +384,24 @@
   }
 }
 
-/* REDUÇÃO DE MOVIMENTO */
+@media (max-width: 900px) and (orientation: landscape) {
+  .menuEmpresa {
+    width: min(320px, 80vw);
+    height: 100dvh;
+    overflow-y: auto;
+  }
+
+  .logo
+
+  .lista {
+    gap: var(--espacamento-xs);
+  }
+
+  .perfil {
+    padding: var(--espacamento-md);
+    margin-bottom: var(--espacamento-xs);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .menuEmpresa {
