@@ -1,0 +1,246 @@
+
+.entregue-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fundo-claro);
+}
+
+.entregue-conteudo {
+  width: 100%;
+  min-height: 750px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 20px;
+  background-color: var(--fundo-claro);
+  background-image: url("/fundo-motos.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+/* CONFIRMAÇÃO */
+
+.entregue-confirmacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.check-imagem {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.entregue-confirmacao h1 {
+  font-family: var(--font-titulo);
+  font-size: 40px;
+  font-weight: 700;
+  color: #004448;
+  margin: 0;
+}
+
+.entregue-confirmacao p {
+  font-family: var(--font-texto);
+  font-size: 16px;
+  font-weight: 400;
+  color: #527075;
+  margin: 0;
+}
+
+/* CARD DO PEDIDO */
+
+.pedido-entregue-card {
+  width: 100%;
+  max-width: 550px;
+  min-height: 155px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding: 25px 40px;
+  margin-top: 45px;
+  background-color: #004448;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+}
+
+.pedido-card-icone {
+  width: 85px;
+  height: 85px;
+  min-width: 85px;
+  border-radius: 50%;
+  background-color: #08bdb2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pedido-imagem {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.pedido-card-informacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.pedido-card-informacoes h2 {
+  font-family: var(--font-titulo);
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pedido-card-informacoes p {
+  font-family: var(--font-texto);
+  font-size: 15px;
+  font-weight: 400;
+  color: #c4d9d9;
+  margin: 0;
+}
+
+/* BOTÃO */
+
+.botao-detalhes-pedido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 10px;
+  margin-top: 8px;
+  border: 1px solid #08bdb2;
+  border-radius: 7px;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: var(--font-texto);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botao-detalhes-pedido:hover {
+  background-color: #08716f;
+}
+
+.botao-seta {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #004448;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+/* AGRADECIMENTO */
+
+.entregue-agradecimento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 55px;
+  gap: 12px;
+}
+
+.agradecimento-icone {
+  margin-bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #08bdb2;
+  color: #004448;
+  font-size: 25px;
+}
+
+.entregue-agradecimento h2 {
+  font-family: var(--font-titulo);
+  font-size: 17px;
+  font-weight: 700;
+  color: #004448;
+  margin: 0;
+}
+
+.entregue-agradecimento p {
+  font-family: var(--font-texto);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #718b8e;
+  margin: 0;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+  .entregue-conteudo {
+    min-height: 650px;
+    padding: 45px 18px;
+  }
+
+  .check-imagem {
+    width: 80px;
+    height: 80px;
+  }
+
+  .entregue-confirmacao h1 {
+    font-size: 30px;
+  }
+
+  .entregue-confirmacao p {
+    font-size: 14px;
+  }
+
+  .pedido-entregue-card {
+    max-width: 100%;
+    min-height: 130px;
+    gap: 18px;
+    padding: 20px;
+    margin-top: 35px;
+  }
+
+  .pedido-card-icone {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+  }
+
+  .pedido-imagem {
+    width: 38px;
+    height: 38px;
+  }
+
+  .pedido-card-informacoes h2 {
+    font-size: 14px;
+  }
+
+  .pedido-card-informacoes p {
+    font-size: 13px;
+  }
+
+  .botao-detalhes-pedido {
+    font-size: 11px;
+  }
+
+  .entregue-agradecimento {
+    margin-top: 40px;
+  }
+}
