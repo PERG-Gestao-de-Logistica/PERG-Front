@@ -1,8 +1,13 @@
 
+"use client";
+
+import { useRouter } from "next/navigation";
 import Footer from "@/components/footer";
 import HeaderRastreio from "@/components/headerRastreio";
 
 export default function Rastreio() {
+  const router = useRouter();
+
   return (
     <main>
       <div className="rastreio-primeiro-container">
@@ -51,6 +56,7 @@ export default function Rastreio() {
                 type="button"
                 className="botao-rastreio"
                 aria-label="Consultar rastreamento"
+                onClick={() => router.push("/acompanhamento")}
               >
                 <img
                   src="/icone-seta.png"

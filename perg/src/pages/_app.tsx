@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/componentes.css";
 import "@/styles/home.css";
 import "@/styles/rastreio.css";
+import "@/styles/acompanhamento.css";
 import type { AppProps } from "next/app";
 import { Outfit, Urbanist } from "next/font/google";
 

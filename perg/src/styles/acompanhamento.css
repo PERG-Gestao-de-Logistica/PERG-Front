@@ -1,0 +1,555 @@
+
+/* ======================================
+    TAMANHOS DOS ÍCONES
+====================================== */
+
+:root {
+  --tamanho-icone-etapa: 22px;
+  --tamanho-icone-detalhe: 20px;
+  --tamanho-icone-aviso: 22px;
+  --tamanho-icone-resumo: 22px;
+  --tamanho-icone-mapa: 38px;
+
+  --cor-rastreio-fundo: #eef5f8;
+  --cor-rastreio-destaque: #12bdb2;
+  --cor-rastreio-linha: #12bdb2;
+}
+
+/* ======================================
+   CONTAINER PRINCIPAL
+====================================== */
+
+.acompanhamento-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fundo-claro);
+}
+
+.acompanhamento-conteudo {
+  width: 100%;
+  flex: 1;
+  padding: 40px 7%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: var(--cor-rastreio-fundo);
+}
+
+/* ======================================
+   BOTÃO VOLTAR
+====================================== */
+
+.botao-voltar {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  color: var(--verde-escuro);
+  font-family: var(--font-texto);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botao-voltar:hover {
+  opacity: 0.65;
+  transform: translateX(-3px);
+}
+
+/* ======================================
+   INFORMAÇÕES DO PEDIDO
+====================================== */
+
+.pedido-informacoes {
+  margin-bottom: 45px;
+}
+
+.pedido-informacoes h1 {
+  font-family: var(--font-titulo);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--verde-escuro);
+  margin: 0 0 8px;
+}
+
+.pedido-informacoes h1 span {
+  font-weight: 400;
+}
+
+.pedido-informacoes p {
+  font-family: var(--font-texto);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--verde-escuro);
+  margin: 0;
+}
+
+/* ======================================
+   LINHA DO TEMPO
+====================================== */
+
+.linha-tempo-rastreio {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 65px;
+}
+
+.linha-tempo-conector {
+  position: absolute;
+  top: 20px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background-color: var(--cor-rastreio-linha);
+  z-index: 0;
+}
+
+.etapa-rastreio {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.etapa-icone {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--verde-escuro);
+  border: 3px solid var(--cor-rastreio-destaque);
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.etapa-icone img {
+  width: var(--tamanho-icone-etapa);
+  height: var(--tamanho-icone-etapa);
+  object-fit: contain;
+}
+
+.etapa-rastreio.pendente .etapa-icone {
+  background-color: #a8c2c3;
+  border-color: #a8c2c3;
+}
+
+.etapa-informacoes h3 {
+  font-family: var(--font-texto);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--verde-escuro);
+  margin: 0 0 4px;
+}
+
+.etapa-informacoes p {
+  font-family: var(--font-texto);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--verde-escuro);
+  margin: 0;
+}
+
+/* ======================================
+   MAPA E DETALHES
+====================================== */
+
+.acompanhamento-detalhes {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* ======================================
+   MAPA
+====================================== */
+.mapa-entrega {
+  width: 100%;
+  min-height: 380px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #d0dadd;
+
+  background-image: url("/maps.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mapa-ruas {
+  position: absolute;
+  inset: 0;
+}
+
+.mapa-rua {
+  position: absolute;
+  display: block;
+  height: 8px;
+  background-color: #ffffff;
+  border: 1px solid #d2d9d8;
+  border-radius: 10px;
+}
+
+.rua-um {
+  width: 120%;
+  top: 25%;
+  left: -10%;
+  transform: rotate(-20deg);
+}
+
+.rua-dois {
+  width: 120%;
+  top: 65%;
+  left: -10%;
+  transform: rotate(15deg);
+}
+
+.rua-tres {
+  width: 120%;
+  top: 45%;
+  left: -10%;
+  transform: rotate(70deg);
+}
+
+.rua-quatro {
+  width: 120%;
+  top: 50%;
+  left: -10%;
+  transform: rotate(-55deg);
+}
+
+.rua-cinco {
+  width: 120%;
+  top: 85%;
+  left: -10%;
+  transform: rotate(-10deg);
+}
+
+.mapa-marcador {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.mapa-marcador img {
+  width: var(--tamanho-icone-mapa);
+  height: var(--tamanho-icone-mapa);
+  object-fit: contain;
+}
+
+.mapa-legenda {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--verde-escuro);
+  font-size: 12px;
+  font-family: var(--font-texto);
+  z-index: 3;
+}
+
+/* ======================================
+   DETALHES DA ENTREGA
+====================================== */
+
+.detalhes-entrega {
+  padding: 25px;
+  background-color: var(--verde-escuro);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.detalhes-entrega h2 {
+  font-family: var(--font-titulo);
+  font-size: 23px;
+  font-weight: 600;
+  color: var(--fundo-claro);
+  margin: 0 0 5px;
+}
+
+.detalhe-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.detalhe-icone {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: var(--cor-rastreio-destaque);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.detalhe-icone img {
+  width: var(--tamanho-icone-detalhe);
+  height: var(--tamanho-icone-detalhe);
+  object-fit: contain;
+}
+
+.detalhe-item h3 {
+  font-family: var(--font-texto);
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 3px;
+}
+
+.detalhe-item p {
+  font-family: var(--font-texto);
+  font-size: 13px;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.detalhe-item small {
+  font-family: var(--font-texto);
+  font-size: 11px;
+  color: #b8d8d5;
+}
+
+/* ======================================
+   AVISO DA ENTREGA
+====================================== */
+
+.aviso-entrega {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #0c938d;
+  border-radius: 10px;
+  background-color: rgba(0, 190, 177, 0.08);
+}
+
+.icone-aviso {
+  width: var(--tamanho-icone-aviso);
+  height: var(--tamanho-icone-aviso);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.aviso-entrega p {
+  font-family: var(--font-texto);
+  font-size: 12px;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ======================================
+   RESUMO INFERIOR
+====================================== */
+
+.resumo-entrega {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--verde-escuro);
+  border-radius: 12px;
+  padding: 15px 0;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.resumo-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 25px;
+  border-right: 1px solid #0b918a;
+}
+
+.resumo-item:last-child {
+  border-right: none;
+}
+
+.resumo-icone {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: var(--cor-rastreio-destaque);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.resumo-icone img {
+  width: var(--tamanho-icone-resumo);
+  height: var(--tamanho-icone-resumo);
+  object-fit: contain;
+}
+
+.resumo-item h3 {
+  font-family: var(--font-texto);
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 3px;
+}
+
+.resumo-item p {
+  font-family: var(--font-texto);
+  font-size: 13px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.resumo-item small {
+  font-family: var(--font-texto);
+  font-size: 11px;
+  color: #b8d8d5;
+}
+
+/* ======================================
+   TABLET
+====================================== */
+
+@media (max-width: 1024px) {
+
+  .acompanhamento-conteudo {
+    padding: 35px 5%;
+  }
+
+  .acompanhamento-detalhes {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .detalhes-entrega {
+    padding: 18px;
+    gap: 15px;
+  }
+
+  .resumo-item {
+    padding: 12px;
+  }
+
+}
+
+/* ======================================
+   CELULAR
+====================================== */
+
+@media (max-width: 768px) {
+
+  .acompanhamento-conteudo {
+    padding: 25px 20px;
+  }
+
+  .pedido-informacoes {
+    margin-bottom: 35px;
+  }
+
+  .pedido-informacoes h1 {
+    font-size: 24px;
+  }
+
+  .pedido-informacoes p {
+    font-size: 14px;
+  }
+
+  .linha-tempo-rastreio {
+    margin-bottom: 40px;
+  }
+
+  .linha-tempo-conector {
+    top: 16px;
+  }
+
+  .etapa-icone {
+    width: 34px;
+    height: 34px;
+  }
+
+  .etapa-informacoes h3 {
+    font-size: 11px;
+  }
+
+  .etapa-informacoes p {
+    font-size: 11px;
+  }
+
+  .acompanhamento-detalhes {
+    grid-template-columns: 1fr;
+  }
+
+  .mapa-entrega {
+    min-height: 300px;
+  }
+
+  .detalhes-entrega {
+    padding: 22px;
+  }
+
+  .resumo-entrega {
+    grid-template-columns: 1fr;
+    padding: 10px 15px;
+  }
+
+  .resumo-item {
+    border-right: none;
+    border-bottom: 1px solid #0b918a;
+    padding: 15px 5px;
+  }
+
+  .resumo-item:last-child {
+    border-bottom: none;
+  }
+
+}
+
+/* ======================================
+   CELULARES PEQUENOS
+====================================== */
+
+@media (max-width: 400px) {
+
+  .acompanhamento-conteudo {
+    padding: 20px 14px;
+  }
+
+  .etapa-informacoes h3 {
+    font-size: 10px;
+  }
+
+  .etapa-informacoes p {
+    font-size: 10px;
+  }
+
+  .detalhes-entrega h2 {
+    font-size: 20px;
+  }
+
+}
