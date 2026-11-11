@@ -1,10 +1,14 @@
-import { redirect } from "next/dist/server/api-utils";
+
 
 export async function getServerSideProps() {
   return {
     redirect: {
-      destination: "/home",
+      destination: "/rastreio",
       permanent: false,
     },
   };
+}
+
+export default function RedirectPage() {
+  return null;
 }
