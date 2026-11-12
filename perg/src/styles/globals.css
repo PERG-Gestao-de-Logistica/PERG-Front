@@ -6,6 +6,19 @@
     font-family: var(--font-texto);
 }
 
+p {
+  font-family: var(--font-texto) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-titulo) !important;
+}
+
 :root {
     --fundo-claro: #EFF5F9;
     --verde-escuro: #004146;
@@ -62,4 +75,17 @@
   font-size: var(--tamanho-sub-titulo);
   font-weight: 600;
   color: var(--verde-escuro);
+}
+
+.texto-verde-escuro{
+  color: #03BFB5;
+  font-family: var(--font-texto);
+}
+
+.texto-branco {
+  color: var(--branco);
+  font-family: var(--font-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  line-height: 1.5;
 }
