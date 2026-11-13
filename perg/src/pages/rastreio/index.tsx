@@ -1,85 +1,84 @@
 
-"use client";
-
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import Footer from "@/components/footer";
 import HeaderRastreio from "@/components/headerRastreio";
+import styles from "./rastreio.module.css";
 
 export default function Rastreio() {
   const router = useRouter();
 
   return (
-    <main>
-      <div className="rastreio-primeiro-container">
+    <main className={styles.page}>
+      <div className={styles.rastreioPrimeiroContainer}>
         <HeaderRastreio />
 
-        <div className="parte-toda-rastreio">
+        <div className={styles.parteTodaRastreio}>
 
           {/* LADO ESQUERDO */}
-          <div className="parte-esquerda-rastreio">
+          <div className={styles.parteEsquerdaRastreio}>
 
-            <p className="subtitulo-rastreio">
+            <p className={styles.subtituloRastreio}>
               RASTREAMENTO DE ENTREGA
             </p>
 
-            <h1 className="titulo-principal">
+            <h1 className={styles.tituloPrincipal}>
               Sua entrega,
               <br />
               em{" "}
-              <span className="titulo-principal-destaque">
+              <span className={styles.tituloPrincipalDestaque}>
                 tempo real.
               </span>
             </h1>
 
-            <p className="descricao-rastreio">
+            <p className={styles.descricaoRastreio}>
               Digite o código de rastreamento que você
               recebeu para
               <br />
               consultar seu pedido.
             </p>
 
-            <div className="area-codigo-rastreio">
+            <div className={styles.areaCodigoRastreio}>
 
               <img
-                src="/local-rastreio-icone.png"
+                src="/assets/images/local-rastreio-icone.png"
                 alt=""
-                className="icone-rastreio"
+                className={styles.iconeRastreio}
               />
 
               <input
                 type="text"
                 placeholder="Ex: 7F6V-283C-2D3F"
-                className="input-rastreio"
+                className={styles.inputRastreio}
               />
 
               <button
                 type="button"
-                className="botao-rastreio"
+                className={styles.botaoRastreio}
                 aria-label="Consultar rastreamento"
                 onClick={() => router.push("/acompanhamento")}
               >
                 <img
-                  src="/icone-seta.png"
+                  src="/assets/images/icone-seta.png"
                   alt=""
-                  className="setinha-icone"
+                  className={styles.setinhaIcone}
                 />
               </button>
 
             </div>
 
-            <p className="descricao-rastreio">
+            <p className={styles.descricaoRastreio}>
               O código está no e-mail enviado para você.
             </p>
 
           </div>
 
           {/* LADO DIREITO */}
-          <div className="parte-direita-rastreio">
+          <div className={styles.parteDireitaRastreio}>
 
             <img
-              src="/clienteRastreio.png"
+              src="/assets/images/clienteRastreio.png"
               alt="Ilustração de cliente acompanhando uma entrega"
-              className="imagem-cliente-rastreio"
+              className={styles.imagemClienteRastreio}
             />
 
           </div>
@@ -88,17 +87,17 @@ export default function Rastreio() {
       </div>
 
       {/* MENSAGEM INFORMATIVA */}
-      <div className="rastreio-secundo-container">
+      <div className={styles.rastreioSecundoContainer}>
 
-        <div className="mensagem-rastreio-conteudo">
+        <div className={styles.mensagemRastreioConteudo}>
 
           <img
-            src="/mensagem-icone.png"
+            src="/assets/images/mensagem-icone.png"
             alt=""
-            className="mensagem-imagem-icone"
+            className={styles.mensagemImagemIcone}
           />
 
-          <div className="mensagem-rastreio-texto">
+          <div className={styles.mensagemRastreioTexto}>
 
             <h2>
               Ainda não recebeu o código?

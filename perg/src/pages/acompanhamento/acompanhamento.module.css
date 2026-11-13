@@ -3,34 +3,34 @@
     TAMANHOS DOS ÍCONES
 ====================================== */
 
-:root {
+.page {
   --tamanho-icone-etapa: 22px;
   --tamanho-icone-detalhe: 20px;
   --tamanho-icone-aviso: 22px;
   --tamanho-icone-resumo: 22px;
   --tamanho-icone-mapa: 38px;
 
-  --cor-rastreio-fundo: #eef5f8;
-  --cor-rastreio-destaque: #12bdb2;
-  --cor-rastreio-linha: #12bdb2;
+  --cor-rastreio-fundo: var(--cor-fundo-claro);
+  --cor-rastreio-destaque: var(--cor-verde-destaque);
+  --cor-rastreio-linha: var(--cor-verde-destaque);
 }
 
 /* ======================================
    CONTAINER PRINCIPAL
 ====================================== */
 
-.acompanhamento-container {
+.page .acompanhamentoContainer {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--fundo-claro);
+  background-color: var(--cor-fundo-claro);
 }
 
-.acompanhamento-conteudo {
+.page .acompanhamentoConteudo {
   width: 100%;
   flex: 1;
-  padding: 40px 7%;
+  padding: var(--espacamento-xxl) 7%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -41,23 +41,23 @@
    BOTÃO VOLTAR
 ====================================== */
 
-.botao-voltar {
+.page .botaoVoltar {
   width: fit-content;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--espacamento-sm);
   padding: 10px 0;
   margin-bottom: 20px;
   background: transparent;
   border: none;
-  color: var(--verde-escuro);
-  font-family: var(--font-texto);
-  font-size: 16px;
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
   cursor: pointer;
   transition: 0.3s;
 }
 
-.botao-voltar:hover {
+.page .botaoVoltar:hover {
   opacity: 0.65;
   transform: translateX(-3px);
 }
@@ -66,27 +66,27 @@
    INFORMAÇÕES DO PEDIDO
 ====================================== */
 
-.pedido-informacoes {
+.page .pedidoInformacoes {
   margin-bottom: 45px;
 }
 
-.pedido-informacoes h1 {
-  font-family: var(--font-titulo);
-  font-size: 30px;
+.page .pedidoInformacoes h1 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
   font-weight: 600;
-  color: var(--verde-escuro);
+  color: var(--cor-primaria-verde-escuro);
   margin: 0 0 8px;
 }
 
-.pedido-informacoes h1 span {
+.page .pedidoInformacoes h1 span {
   font-weight: 400;
 }
 
-.pedido-informacoes p {
-  font-family: var(--font-texto);
-  font-size: 16px;
+.page .pedidoInformacoes p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
   font-weight: 300;
-  color: var(--verde-escuro);
+  color: var(--cor-primaria-verde-escuro);
   margin: 0;
 }
 
@@ -94,7 +94,7 @@
    LINHA DO TEMPO
 ====================================== */
 
-.linha-tempo-rastreio {
+.page .linhaTempoRastreio {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -102,7 +102,7 @@
   margin-bottom: 65px;
 }
 
-.linha-tempo-conector {
+.page .linhaTempoConector {
   position: absolute;
   top: 20px;
   left: 5%;
@@ -112,7 +112,7 @@
   z-index: 0;
 }
 
-.etapa-rastreio {
+.page .etapaRastreio {
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -121,44 +121,44 @@
   z-index: 1;
 }
 
-.etapa-icone {
+.page .etapaIcone {
   width: 42px;
   height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--verde-escuro);
+  background-color: var(--cor-primaria-verde-escuro);
   border: 3px solid var(--cor-rastreio-destaque);
   margin-bottom: 12px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
-.etapa-icone img {
+.page .etapaIcone img {
   width: var(--tamanho-icone-etapa);
   height: var(--tamanho-icone-etapa);
   object-fit: contain;
 }
 
-.etapa-rastreio.pendente .etapa-icone {
-  background-color: #a8c2c3;
-  border-color: #a8c2c3;
+.page .etapaRastreio.pendente .etapaIcone {
+  background-color: var(--cor-texto-secundario);
+  border-color: var(--cor-texto-secundario);
 }
 
-.etapa-informacoes h3 {
-  font-family: var(--font-texto);
-  font-size: 15px;
+.page .etapaInformacoes h3 {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-titulo-card);
   font-weight: 600;
-  color: var(--verde-escuro);
+  color: var(--cor-primaria-verde-escuro);
   margin: 0 0 4px;
 }
 
-.etapa-informacoes p {
-  font-family: var(--font-texto);
-  font-size: 13px;
+.page .etapaInformacoes p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
   font-weight: 300;
-  color: var(--verde-escuro);
+  color: var(--cor-primaria-verde-escuro);
   margin: 0;
 }
 
@@ -166,7 +166,7 @@
    MAPA E DETALHES
 ====================================== */
 
-.acompanhamento-detalhes {
+.page .acompanhamentoDetalhes {
   width: 100%;
   display: grid;
   grid-template-columns: 1.35fr 1fr;
@@ -177,70 +177,70 @@
 /* ======================================
    MAPA
 ====================================== */
-.mapa-entrega {
+.page .mapaEntrega {
   width: 100%;
   min-height: 380px;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  border: 1px solid #d0dadd;
+  border: var(--largura-borda) solid var(--cor-borda);
 
-  background-image: url("/maps.png");
+  background-image: url("/assets/images/maps.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.mapa-ruas {
+.page .mapaRuas {
   position: absolute;
   inset: 0;
 }
 
-.mapa-rua {
+.page .mapaRua {
   position: absolute;
   display: block;
   height: 8px;
-  background-color: #ffffff;
-  border: 1px solid #d2d9d8;
+  background-color: var(--cor-superficie-branca);
+  border: var(--largura-borda) solid var(--cor-borda);
   border-radius: 10px;
 }
 
-.rua-um {
+.page .ruaUm {
   width: 120%;
   top: 25%;
   left: -10%;
   transform: rotate(-20deg);
 }
 
-.rua-dois {
+.page .ruaDois {
   width: 120%;
   top: 65%;
   left: -10%;
   transform: rotate(15deg);
 }
 
-.rua-tres {
+.page .ruaTres {
   width: 120%;
   top: 45%;
   left: -10%;
   transform: rotate(70deg);
 }
 
-.rua-quatro {
+.page .ruaQuatro {
   width: 120%;
   top: 50%;
   left: -10%;
   transform: rotate(-55deg);
 }
 
-.rua-cinco {
+.page .ruaCinco {
   width: 120%;
   top: 85%;
   left: -10%;
   transform: rotate(-10deg);
 }
 
-.mapa-marcador {
+.page .mapaMarcador {
   position: absolute;
   top: 48%;
   left: 50%;
@@ -248,22 +248,22 @@
   z-index: 2;
 }
 
-.mapa-marcador img {
+.page .mapaMarcador img {
   width: var(--tamanho-icone-mapa);
   height: var(--tamanho-icone-mapa);
   object-fit: contain;
 }
 
-.mapa-legenda {
+.page .mapaLegenda {
   position: absolute;
   bottom: 15px;
   left: 15px;
   padding: 8px 12px;
   border-radius: 6px;
-  background-color: #ffffff;
-  color: var(--verde-escuro);
-  font-size: 12px;
-  font-family: var(--font-texto);
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-family: var(--fonte-texto);
   z-index: 3;
 }
 
@@ -271,9 +271,9 @@
    DETALHES DA ENTREGA
 ====================================== */
 
-.detalhes-entrega {
+.page .detalhesEntrega {
   padding: 25px;
-  background-color: var(--verde-escuro);
+  background-color: var(--cor-primaria-verde-escuro);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -281,21 +281,21 @@
   box-sizing: border-box;
 }
 
-.detalhes-entrega h2 {
-  font-family: var(--font-titulo);
-  font-size: 23px;
+.page .detalhesEntrega h2 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
   font-weight: 600;
-  color: var(--fundo-claro);
+  color: var(--cor-fundo-claro);
   margin: 0 0 5px;
 }
 
-.detalhe-item {
+.page .detalheItem {
   display: flex;
   align-items: center;
   gap: 13px;
 }
 
-.detalhe-icone {
+.page .detalheIcone {
   width: 36px;
   height: 36px;
   min-width: 36px;
@@ -307,61 +307,61 @@
   overflow: hidden;
 }
 
-.detalhe-icone img {
+.page .detalheIcone img {
   width: var(--tamanho-icone-detalhe);
   height: var(--tamanho-icone-detalhe);
   object-fit: contain;
 }
 
-.detalhe-item h3 {
-  font-family: var(--font-texto);
-  font-size: 15px;
+.page .detalheItem h3 {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-titulo-card);
   font-weight: 500;
-  color: #ffffff;
+  color: var(--cor-texto-branco);
   margin: 0 0 3px;
 }
 
-.detalhe-item p {
-  font-family: var(--font-texto);
-  font-size: 13px;
+.page .detalheItem p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
   font-weight: 300;
-  color: #ffffff;
+  color: var(--cor-texto-branco);
   margin: 0;
   line-height: 1.4;
 }
 
-.detalhe-item small {
-  font-family: var(--font-texto);
-  font-size: 11px;
-  color: #b8d8d5;
+.page .detalheItem small {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-verde-hover);
 }
 
 /* ======================================
    AVISO DA ENTREGA
 ====================================== */
 
-.aviso-entrega {
+.page .avisoEntrega {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 12px;
-  border: 1px solid #0c938d;
+  border: var(--largura-borda) solid var(--cor-secundaria-verde);
   border-radius: 10px;
   background-color: rgba(0, 190, 177, 0.08);
 }
 
-.icone-aviso {
+.page .iconeAviso {
   width: var(--tamanho-icone-aviso);
   height: var(--tamanho-icone-aviso);
   object-fit: contain;
   flex-shrink: 0;
 }
 
-.aviso-entrega p {
-  font-family: var(--font-texto);
-  font-size: 12px;
+.page .avisoEntrega p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
   font-weight: 300;
-  color: #ffffff;
+  color: var(--cor-texto-branco);
   margin: 0;
   line-height: 1.4;
 }
@@ -370,30 +370,30 @@
    RESUMO INFERIOR
 ====================================== */
 
-.resumo-entrega {
+.page .resumoEntrega {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: var(--verde-escuro);
+  background-color: var(--cor-primaria-verde-escuro);
   border-radius: 12px;
   padding: 15px 0;
   box-sizing: border-box;
   margin-bottom: 15px;
 }
 
-.resumo-item {
+.page .resumoItem {
   display: flex;
   align-items: center;
   gap: 13px;
   padding: 12px 25px;
-  border-right: 1px solid #0b918a;
+  border-right: var(--largura-borda) solid var(--cor-secundaria-verde);
 }
 
-.resumo-item:last-child {
+.page .resumoItem:last-child {
   border-right: none;
 }
 
-.resumo-icone {
+.page .resumoIcone {
   width: 36px;
   height: 36px;
   min-width: 36px;
@@ -405,31 +405,31 @@
   overflow: hidden;
 }
 
-.resumo-icone img {
+.page .resumoIcone img {
   width: var(--tamanho-icone-resumo);
   height: var(--tamanho-icone-resumo);
   object-fit: contain;
 }
 
-.resumo-item h3 {
-  font-family: var(--font-texto);
-  font-size: 15px;
+.page .resumoItem h3 {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-titulo-card);
   font-weight: 600;
-  color: #ffffff;
+  color: var(--cor-texto-branco);
   margin: 0 0 3px;
 }
 
-.resumo-item p {
-  font-family: var(--font-texto);
-  font-size: 13px;
-  color: #ffffff;
+.page .resumoItem p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-branco);
   margin: 0;
 }
 
-.resumo-item small {
-  font-family: var(--font-texto);
-  font-size: 11px;
-  color: #b8d8d5;
+.page .resumoItem small {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-verde-hover);
 }
 
 /* ======================================
@@ -438,21 +438,21 @@
 
 @media (max-width: 1024px) {
 
-  .acompanhamento-conteudo {
+  .page .acompanhamentoConteudo {
     padding: 35px 5%;
   }
 
-  .acompanhamento-detalhes {
+  .page .acompanhamentoDetalhes {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
   }
 
-  .detalhes-entrega {
+  .page .detalhesEntrega {
     padding: 18px;
     gap: 15px;
   }
 
-  .resumo-item {
+  .page .resumoItem {
     padding: 12px;
   }
 
@@ -464,67 +464,67 @@
 
 @media (max-width: 768px) {
 
-  .acompanhamento-conteudo {
+  .page .acompanhamentoConteudo {
     padding: 25px 20px;
   }
 
-  .pedido-informacoes {
+  .page .pedidoInformacoes {
     margin-bottom: 35px;
   }
 
-  .pedido-informacoes h1 {
-    font-size: 24px;
+  .page .pedidoInformacoes h1 {
+    font-size: var(--tamanho-titulo-secao);
   }
 
-  .pedido-informacoes p {
-    font-size: 14px;
+  .page .pedidoInformacoes p {
+    font-size: var(--tamanho-texto);
   }
 
-  .linha-tempo-rastreio {
+  .page .linhaTempoRastreio {
     margin-bottom: 40px;
   }
 
-  .linha-tempo-conector {
+  .page .linhaTempoConector {
     top: 16px;
   }
 
-  .etapa-icone {
+  .page .etapaIcone {
     width: 34px;
     height: 34px;
   }
 
-  .etapa-informacoes h3 {
-    font-size: 11px;
+  .page .etapaInformacoes h3 {
+    font-size: var(--tamanho-texto-auxiliar);
   }
 
-  .etapa-informacoes p {
-    font-size: 11px;
+  .page .etapaInformacoes p {
+    font-size: var(--tamanho-texto-auxiliar);
   }
 
-  .acompanhamento-detalhes {
+  .page .acompanhamentoDetalhes {
     grid-template-columns: 1fr;
   }
 
-  .mapa-entrega {
+  .page .mapaEntrega {
     min-height: 300px;
   }
 
-  .detalhes-entrega {
+  .page .detalhesEntrega {
     padding: 22px;
   }
 
-  .resumo-entrega {
+  .page .resumoEntrega {
     grid-template-columns: 1fr;
     padding: 10px 15px;
   }
 
-  .resumo-item {
+  .page .resumoItem {
     border-right: none;
-    border-bottom: 1px solid #0b918a;
+    border-bottom: var(--largura-borda) solid var(--cor-secundaria-verde);
     padding: 15px 5px;
   }
 
-  .resumo-item:last-child {
+  .page .resumoItem:last-child {
     border-bottom: none;
   }
 
@@ -536,20 +536,20 @@
 
 @media (max-width: 400px) {
 
-  .acompanhamento-conteudo {
+  .page .acompanhamentoConteudo {
     padding: 20px 14px;
   }
 
-  .etapa-informacoes h3 {
-    font-size: 10px;
+  .page .etapaInformacoes h3 {
+    font-size: var(--tamanho-texto-auxiliar);
   }
 
-  .etapa-informacoes p {
-    font-size: 10px;
+  .page .etapaInformacoes p {
+    font-size: var(--tamanho-texto-auxiliar);
   }
 
-  .detalhes-entrega h2 {
-    font-size: 20px;
+  .page .detalhesEntrega h2 {
+    font-size: var(--tamanho-titulo-secao);
   }
 
 }
