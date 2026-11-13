@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import type { AppProps } from "next/app";
 import { Outfit, Urbanist } from "next/font/google";
 import { useRouter } from "next/router";
@@ -24,7 +25,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
   //* Define qual layout será chamado na página enquanto não tem o token do usuário
   const renderizarConteudo = () => {
-    if (router.pathname.startsWith("/painelAdmin")) {
+    if (
+      router.pathname.startsWith("/painelAdmin") ||
+      router.pathname === "/alertas-incidentes"
+    ) {
       return (
         <LayoutAdmin>
           <Component {...pageProps} />

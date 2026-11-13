@@ -1,16 +1,17 @@
-import Button from "@/components/botoes";
+import Button from "@/components/botao";
+import styles from "./header.module.css";
 
 export default function Header() {
   return (
-    <header className="header">
-      <div className="header-container">
+    <header className={styles.header}>
+      <div className={styles.container}>
         <img
-          src="/logoCinza.png"
+          src="/assets/logos/logoCinza.png"
           alt="Logo PERG Cinza"
-          className="logo"
+          className={styles.logo}
         />
 
-        <div className="botoes">
+        <div className={styles.actions}>
           <Button variant="principal">
             Assine Agora
           </Button>

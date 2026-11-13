@@ -11,11 +11,11 @@
 
 /* ---------- Estrutura das seções ---------- */
 
-.primeiro-container,
-.segundo-container,
-.terceiro-container,
-.quinto-container,
-.sexto-container {
+.page .primeiroContainer,
+.page .segundoContainer,
+.page .terceiroContainer,
+.page .quintoContainer,
+.page .sextoContainer {
   width: 100%;
   min-height: calc(100vh - 72px);
   display: flex;
@@ -23,24 +23,24 @@
   align-items: center;
 }
 
-.primeiro-container,
-.segundo-container,
-.quinto-container {
-  background-color: var(--fundo-claro);
+.page .primeiroContainer,
+.page .segundoContainer,
+.page .quintoContainer {
+  background-color: var(--cor-fundo-claro);
 }
 
-.terceiro-container,
-.sexto-container {
-  background-color: var(--fundo-verde-claro);
+.page .terceiroContainer,
+.page .sextoContainer {
+  background-color: var(--cor-fundo-verde-claro);
 }
 
-.quarto-container {
+.page .quartoContainer {
   width: 100%;
   min-height: calc(100vh - 72px);
-  background-color: var(--verde-escuro);
+  background-color: var(--cor-primaria-verde-escuro);
 }
 
-.sexto-container {
+.page .sextoContainer {
   padding: 45px 5.5%;
   box-sizing: border-box;
   flex-direction: column;
@@ -48,33 +48,33 @@
 
 /* ---------- Primeira, segunda e terceira seções ---------- */
 
-.conteudo-home {
+.page .conteudoHome {
   width: min(89%, 1400px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: var(--espacamento-xxl);
 }
 
-.texto-home,
-.imagem-home {
+.page .textoHome,
+.page .imagemHome {
   flex: 1 1 0;
   min-width: 0;
 }
 
-.texto-home {
+.page .textoHome {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--espacamento-lg);
 }
 
-.imagem-home {
+.page .imagemHome {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.imagem-home img {
+.page .imagemHome img {
   display: block;
   width: 100%;
   max-width: 520px;
@@ -82,60 +82,68 @@
   object-fit: contain;
 }
 
-.texto-home-problema {
+.page .textoHomeProblema {
   text-align: end;
 }
 
 /* ---------- Títulos e textos gerais ---------- */
 
-.titulo-principal {
-  font-size: clamp(2rem, 4.2vw, 4rem);
+.page .tituloPrincipal {
+  font-size: var(--tamanho-titulo-principal);
   line-height: 1.2;
 }
 
-.titulo-principal span {
-  color: var(--verde-destaque);
+.page h2.tituloPrincipal {
+  font-size: var(--tamanho-subtitulo);
 }
 
-.titulo-principal-branco,
-.titulo-principal-ciano {
+.page .tituloPrincipal span {
+  color: var(--cor-verde-destaque);
+}
+
+.page .tituloPrincipalBranco,
+.page .tituloPrincipalCiano {
   margin: 0;
-  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-size: var(--tamanho-titulo-principal);
   line-height: 1.25;
 }
 
-.titulo-principal-branco {
-  color: var(--branco);
+.page h2.tituloPrincipalBranco {
+  font-size: var(--tamanho-subtitulo);
 }
 
-.titulo-principal-ciano {
-  color: var(--verde-destaque);
+.page .tituloPrincipalBranco {
+  color: var(--cor-texto-branco);
 }
 
-.texto {
-  color: var(--verde-escuro);
-  font-family: var(--font-texto);
+.page .tituloPrincipalCiano {
+  color: var(--cor-verde-destaque);
+}
+
+.page .texto {
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
   font-size: var(--tamanho-texto);
   font-weight: 400;
   line-height: 1.5;
 }
 
-.texto-card {
-  color: var(--verde-escuro);
-  font-family: var(--font-texto);
+.page .textoCard {
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
   font-size: var(--tamanho-texto);
   font-weight: 400;
   line-height: 1.5;
 }
 
-.texto-verde-escuro{
-  color: #03BFB5;
-  font-family: var(--font-texto);
+.page .textoVerdeEscuro{
+  color: var(--cor-verde-destaque);
+  font-family: var(--fonte-texto);
 }
 
-.texto-branco {
-  color: var(--branco);
-  font-family: var(--font-texto);
+.page .textoBranco {
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-texto);
   font-size: var(--tamanho-texto);
   font-weight: 400;
   line-height: 1.5;
@@ -143,7 +151,7 @@
 
 /* ---------- Botões da primeira seção ---------- */
 
-.botoes-home {
+.page .botoesHome {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -153,45 +161,45 @@
 
 /* ---------- Quarta seção: como funciona ---------- */
 
-.conteudo-quarto-container {
+.page .conteudoQuartoContainer {
   width: 100%;
   min-height: calc(100vh - 72px);
   display: grid;
   grid-template-columns: minmax(280px, 30%) minmax(0, 1fr);
 }
 
-.parte-esquerda {
+.page .parteEsquerda {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  background-color: #102a2c;
+  padding: var(--espacamento-xxl);
+  background-color: var(--cor-primaria-profunda);
   text-align: center;
 }
 
-.imagem-caminhao {
+.page .imagemCaminhao {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 55px;
 }
 
-.imagem-caminhao img {
+.page .imagemCaminhao img {
   display: block;
   width: 160px;
   max-width: 100%;
   height: auto;
 }
 
-.texto-etapas {
+.page .textoEtapas {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
 }
 
-.parte-direita {
+.page .parteDireita {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -199,10 +207,10 @@
   align-items: center;
   gap: 30px;
   padding: 45px 55px;
-  background-color: var(--verde-escuro);
+  background-color: var(--cor-primaria-verde-escuro);
 }
 
-.etapa-item {
+.page .etapaItem {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -212,30 +220,38 @@
   text-align: center;
 }
 
-.etapa-item img {
+.page .etapaItem img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-.titulo-etapa {
+.page .tituloEtapa {
   margin: 0 0 12px;
-  color: var(--branco);
-  font-size: 32px;
+  color: var(--cor-texto-branco);
+  font-size: var(--tamanho-titulo-secao);
   font-weight: 600;
 }
 
 /* ---------- Quinta seção: conteúdo, cards e planos ---------- */
 
-.conteudo-quinto-container {
+.page .conteudoQuintoContainer,
+.page .conteudoSextoContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: min(89%, 1400px);
-  padding: 45px 0;
+  padding: var(--espacamento-secao) 0;
 }
 
-.texto-inicial {
+.page .partePreco {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.page .textoInicial {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -243,26 +259,26 @@
   text-align: start;
 }
 
-.subtitulo-verde-escuro {
+.page .subtituloVerdeEscuro {
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
   padding: 9px 24px;
   border-radius: 10px;
-  background-color: var(--fundo-texto-claro);
+  background-color: var(--cor-fundo-input);
   text-align: center;
 }
 
-.cards {
+.page .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: var(--espacamento-md);
   width: 100%;
-  margin-top: 44px;
+  margin-top: var(--espacamento-xxl);
 }
 
-.card {
+.page .card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -270,10 +286,10 @@
   min-height: 340px;
   padding: 18px;
   border-radius: 10px;
-  background-color: var(--fundo-texto-claro);
+  background-color: var(--cor-fundo-input);
 }
 
-.card-topo {
+.page .cardTopo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -282,40 +298,40 @@
   margin-bottom: 22px;
 }
 
-.card-topo img {
+.page .cardTopo img {
   width: 72px;
   height: 72px;
   object-fit: contain;
 }
 
-.card-topo span {
+.page .cardTopo span {
   padding: 5px 15px;
   border-radius: 10px;
-  background-color: var(--verde-destaque);
-  color: var(--verde-escuro);
-  font-size: 17px;
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+  font-size: var(--tamanho-titulo-card);
   font-weight: 600;
 }
 
-.card .titulo-principal {
+.page .card h2.tituloPrincipal {
   margin: 0 0 8px;
-  color: var(--verde-escuro);
-  font-size: clamp(1.35rem, 2vw, 2.1rem);
+  color: var(--cor-primaria-verde-escuro);
+  font-size: var(--tamanho-subtitulo);
   line-height: 1.2;
 }
 
-.card > .subtitulo-verde-escuro {
+.page .card > .subtituloVerdeEscuro {
   display: block;
   width: 100%;
   padding: 0;
   border-radius: 0;
   background: transparent;
-  font-size: 20px;
+  font-size: var(--tamanho-texto);
   line-height: 1.4;
   text-align: left;
 }
 
-.lista-funcoes {
+.page .listaFuncoes {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -324,44 +340,39 @@
   margin-bottom: 18px;
 }
 
-.funcao {
+.page .funcao {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
 
-.funcao img {
+.page .funcao img {
   flex: 0 0 19px;
   width: 19px;
   height: 19px;
   object-fit: contain;
 }
 
-.funcao p,
-.funcao .texto-card {
+.page .funcao p,
+.page .funcao .textoCard {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--tamanho-texto);
   line-height: 1.3;
 }
 
-.card > button {
+.page .card > button {
   margin-top: auto;
   margin-bottom: 12px;
 }
 
 /* ---------- Sexta seção: diferenciais ---------- */
 
-.sexto-container .texto-inicial {
+.page .sextoContainer .textoInicial {
   width: 100%;
 }
 
-.sexto-container .texto-inicial .titulo-principal {
-  font-size: clamp(2rem, 4.2vw, 4rem);
-  line-height: 1.2;
-}
-
-.quatro-cards {
+.page .quatroCards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
@@ -371,7 +382,7 @@
   margin-top: 44px;
 }
 
-.card-sexta {
+.page .cardSexta {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -383,33 +394,33 @@
   text-align: center;
 }
 
-.card-sexta img {
+.page .cardSexta img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-.texto-card-sexto {
+.page .textoCardSexto {
   margin-top: 12px;
-  color: var(--verde-escuro);
-  font-family: var(--font-texto);
-  font-size: var(--tamanho-sub-titulo);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-titulo-secao);
   font-weight: 400;
   line-height: 1.5;
 }
 
-.titulo-card-sexto {
+.page .tituloCardSexto {
   margin-top: 12px;
-  color: var(--verde-escuro);
-  font-family: var(--font-titulo);
-  font-size: var(--tamanho-titulo-secundario);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-subtitulo);
   font-weight: 600;
   line-height: 1.5;
 }
 
 /* ---------- Sétima seção: planos ---------- */
 
-.preco-area {
+.page .precoArea {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -417,27 +428,27 @@
   gap: 6px;
 }
 
-.espacamento-texto {
+.page .espacamentoTexto {
   gap: 12px;
-  color: var(--verde-escuro);
-  font-family: var(--font-titulo);
-  font-size: var(--tamanho-sub-titulo);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
   font-weight: 600;
 }
 
-.setima-secao {
+.page .setimaSecao {
   margin-top: 25px;
 }
 
 /* ---------- Oitava seção: banner institucional ---------- */
 
-.oitavo-container {
+.page .oitavoContainer {
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-.conteudo-oitavo-container {
+.page .conteudoOitavoContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -447,13 +458,13 @@
   width: 100%;
   min-height: 398px;
   padding: 40px 5.5%;
-  background-image: url("/imagem-fundo.png");
+  background-image: url("/assets/images/imagem-fundo.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.logo-banner {
+.page .logoBanner {
   display: block;
   flex: 0 0 auto;
   width: clamp(150px, 19vw, 235px);
@@ -461,7 +472,7 @@
   object-fit: contain;
 }
 
-.area-texto-oitava {
+.page .areaTextoOitava {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -470,30 +481,30 @@
   text-align: right;
 }
 
-.area-texto-oitava h2 {
+.page .areaTextoOitava h2 {
   margin: 0 0 2px;
-  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-size: var(--tamanho-subtitulo);
   font-weight: 700;
   line-height: 1.25;
 }
 
-.area-texto-oitava p {
+.page .areaTextoOitava p {
   margin: 0;
-  font-size: clamp(0.85rem, 1.3vw, 1.15rem);
+  font-size: var(--tamanho-texto);
   font-weight: 300;
   line-height: 1.4;
 }
 
 /* ---------- Nona seção: Perguntas frequentes ---------- */
 
-.nono-container {
+.page .nonoContainer {
   width: 100%;
-  background-color: #edf4f8;
+  background-color: var(--cor-fundo-claro);
   padding: 30px 0;
   box-sizing: border-box;
 }
 
-.conteudo-nono-container {
+.page .conteudoNonoContainer {
   width: 89%;
   max-width: 1100px;
   margin: 0 auto;
@@ -501,17 +512,17 @@
 
 /* Título da seção */
 
-.titulo-faq {
-  color: var(--verde-escuro);
-  font-family: var(--font-titulo);
-  font-size: 50px;
+.page .tituloFaq {
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-principal);
   font-weight: 700;
   margin: 0 0 15px;
 }
 
 /* Lista de perguntas */
 
-.lista-perguntas {
+.page .listaPerguntas {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -519,34 +530,34 @@
 
 /* Card */
 
-.card-faq {
+.page .cardFaq {
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
 
-  background-color: #f4f8fa;
-  border: 1px solid #dce5e9;
+  background-color: var(--cor-superficie-branca);
+  border: var(--largura-borda) solid var(--cor-borda);
   border-radius: 13px;
 
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.20);
+  box-shadow: var(--sombra-card);
 }
 
-.card-faq-minimizado {
+.page .cardFaqMinimizado {
   width: 100%;
   padding: 18px;
   box-sizing: border-box;
 
-  background-color: #f4f8fa;
-  border: 1px solid #dce5e9;
+  background-color: var(--cor-superficie-branca);
+  border: var(--largura-borda) solid var(--cor-borda);
   border-radius: 13px;
 
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.20);
+  box-shadow: var(--sombra-card);
 }
 
 
 /* Pergunta e botão */
 
-.botao-minimizar {
+.page .botaoMinimizar {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -554,15 +565,15 @@
   gap: 15px;
 }
 
-.texto-faq {
-  color: var(--verde-escuro);
-  font-family: var(--font-titulo);
-  font-size: 25px;
+.page .textoFaq {
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-card);
   font-weight: 700;
   margin: 0;
 }
 
-.faq-toggle {
+.page .faqToggle {
   width: 26px;
   height: 26px;
   padding: 0;
@@ -572,7 +583,7 @@
   flex-shrink: 0;
 }
 
-.faq-toggle img {
+.page .faqToggle img {
   display: block;
   width: 100%;
   height: 100%;
@@ -581,10 +592,10 @@
 
 /* Resposta */
 
-.resposta-faq {
-  color: #718087;
-  font-family: var(--font-texto);
-  font-size: 20px;
+.page .respostaFaq {
+  color: var(--cor-texto-secundario);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
   font-weight: 400;
   line-height: 1.4;
   margin: 8px 0 0;
@@ -593,31 +604,31 @@
 /* =========================================================
    MENSAGEM DE ASSINATURA
    ========================================================= */
-.area-texto-nona {
+.page .areaTextoNona {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 50px;
-  height: 45vh;
-  background-color: var(--verde-escuro);
-  width: min(100%, );
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-xxl);
+  min-height: 45vh;
+  background-color: var(--cor-primaria-verde-escuro);
+  width: min(100%, 62.5rem);
   margin: 0 auto;
   text-align: center;
   margin-top: 5%;
   border-radius: 20px;
 }
 
-.area-texto-nona h2 {
+.page .areaTextoNona h2 {
   margin: 0 0 2px;
-  font-size: clamp(3.6rem, 2.8vw, 2.4rem);
+  font-size: var(--tamanho-titulo-principal);
   font-weight: 700;
   line-height: 1.25;
 }
 
-.area-texto-nona p {
+.page .areaTextoNona p {
   margin: 0;
-  font-size: clamp(1.1rem, 1.5vw, 2.2rem);
+  font-size: var(--tamanho-texto);
   font-weight: 300;
   line-height: 1.4;
 }
@@ -629,40 +640,36 @@
 /* ---------- Tablets e telas menores ---------- */
 
 @media (max-width: 1024px) {
-  .conteudo-home {
+  .page .conteudoHome {
     width: 90%;
     gap: 28px;
   }
 
-  .titulo-principal {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-  }
-
-  .parte-direita {
+  .page .parteDireita {
     padding: 40px 30px;
   }
 
-  .cards {
+  .page .cards {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
-  .quatro-cards {
+  .page .quatroCards {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     justify-items: center;
     gap: 20px;
   }
 
-  .card-sexta {
+  .page .cardSexta {
     max-width: none;
   }
 
-  .conteudo-oitavo-container {
+  .page .conteudoOitavoContainer {
     gap: 32px;
     padding-right: 5%;
     padding-left: 5%;
   }
 
-  .area-texto-oitava {
+  .page .areaTextoOitava {
     width: 55%;
   }
 }
@@ -670,174 +677,141 @@
 /* ---------- Tablets em modo retrato e celulares ---------- */
 
 @media (max-width: 768px) {
-  .primeiro-container,
-  .segundo-container,
-  .terceiro-container,
-  .quinto-container,
-  .sexto-container {
+  .page .primeiroContainer,
+.page .segundoContainer,
+.page .terceiroContainer,
+.page .quintoContainer,
+.page .sextoContainer {
     min-height: auto;
   }
 
-  .conteudo-home {
+  .page .conteudoHome {
     flex-direction: column;
     width: min(90%, 600px);
     padding: 56px 0;
   }
 
-  .texto-home,
-  .imagem-home {
+  .page .textoHome,
+.page .imagemHome {
     width: 100%;
   }
 
-  .imagem-home img {
+  .page .imagemHome img {
     max-width: 460px;
   }
 
-  .texto-home-problema {
+  .page .textoHomeProblema {
     text-align: left;
   }
 
-  .botoes-home {
+  .page .botoesHome {
     gap: 14px;
   }
 
-  .conteudo-quarto-container {
+  .page .conteudoQuartoContainer {
     grid-template-columns: 1fr;
     min-height: auto;
   }
 
-  .parte-esquerda {
+  .page .parteEsquerda {
     padding: 48px 24px;
   }
 
-  .imagem-caminhao {
+  .page .imagemCaminhao {
     margin-bottom: 28px;
   }
 
-  .parte-direita {
+  .page .parteDireita {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: auto;
     padding: 44px 24px;
     gap: 32px 20px;
   }
 
-  .conteudo-quinto-container {
+  .page .conteudoQuintoContainer {
     width: 90%;
     padding: 48px 0;
   }
 
-  .sexto-container {
+  .page .sextoContainer {
     padding: 48px 5%;
   }
 
-  .conteudo-oitavo-container {
+  .page .conteudoOitavoContainer {
     min-height: 360px;
     padding: 40px 5%;
   }
 
-  .logo-banner {
+  .page .logoBanner {
     width: clamp(130px, 25vw, 190px);
   }
 
-  .area-texto-oitava {
+  .page .areaTextoOitava {
     width: 58%;
   }
 
-    .conteudo-nono-container {
+    .page .conteudoNonoContainer {
     width: 90%;
   }
 
-  .titulo-faq {
-    font-size: 26px;
-  }
-
-  .texto-faq {
-    font-size: 12px;
-  }
-
-  .resposta-faq {
-    font-size: 11px;
-  }
 }
 
 
 /* ---------- Celulares ---------- */
 
 @media (max-width: 550px) {
-  .conteudo-home {
+  .page .conteudoHome {
     padding: 42px 0;
     gap: 30px;
   }
 
-  .titulo-principal {
-    font-size: clamp(2rem, 9vw, 2.6rem);
-  }
-
-  .titulo-principal-branco,
-  .titulo-principal-ciano {
-    font-size: 2rem;
-  }
-
-  .botoes-home {
+  .page .botoesHome {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .parte-direita {
+  .page .parteDireita {
     grid-template-columns: 1fr;
     gap: 38px;
   }
 
-  .imagem-caminhao img {
+  .page .imagemCaminhao img {
     width: 130px;
   }
 
-  .conteudo-quinto-container {
+  .page .conteudoQuintoContainer {
     width: 89%;
     padding: 42px 0;
   }
 
-  .texto-inicial .titulo-principal,
-  .sexto-container .texto-inicial .titulo-principal {
-    font-size: clamp(1.7rem, 7vw, 2rem);
-  }
-
-  .subtitulo-verde-escuro {
-    font-size: 14px;
-  }
-
-  .cards {
+  .page .cards {
     grid-template-columns: 1fr;
     gap: 20px;
     margin-top: 30px;
   }
 
-  .card {
+  .page .card {
     min-height: 320px;
     padding: 20px;
   }
 
-  .card .titulo-principal {
-    font-size: 24px;
-  }
-
-  .quatro-cards {
+  .page .quatroCards {
     grid-template-columns: 1fr;
     gap: 16px;
     margin-top: 28px;
   }
 
-  .card-sexta {
+  .page .cardSexta {
     min-height: auto;
     max-width: 100%;
     padding: 24px 18px;
   }
 
-  .preco-area {
+  .page .precoArea {
     align-items: center;
   }
 
-  .conteudo-oitavo-container {
+  .page .conteudoOitavoContainer {
     flex-direction: column;
     justify-content: center;
     min-height: auto;
@@ -846,34 +820,26 @@
     background-position: center;
   }
 
-  .logo-banner {
+  .page .logoBanner {
     width: min(55%, 190px);
   }
 
-  .area-texto-oitava {
+  .page .areaTextoOitava {
     align-items: center;
     width: 100%;
     max-width: 480px;
     text-align: center;
   }
 
-  .area-texto-oitava h2 {
-    font-size: clamp(1.5rem, 7vw, 2rem);
+  .page .areaTextoOitava p {
+    font-size: var(--tamanho-texto);
   }
 
-  .area-texto-oitava p {
-    font-size: 0.9rem;
-  }
-
-    .conteudo-nono-container {
+    .page .conteudoNonoContainer {
     width: 92%;
   }
 
-  .titulo-faq {
-    font-size: 23px;
-  }
-
-  .card-faq {
+  .page .cardFaq {
     padding: 12px;
   }
 
@@ -884,26 +850,26 @@
 /* ---------- Celulares muito estreitos ---------- */
 
 @media (max-width: 360px) {
-  .conteudo-home,
-  .conteudo-quinto-container {
+  .page .conteudoHome,
+.page .conteudoQuintoContainer {
     width: 92%;
   }
 
-  .parte-esquerda {
+  .page .parteEsquerda {
     padding-right: 16px;
     padding-left: 16px;
   }
 
-  .parte-direita {
+  .page .parteDireita {
     padding-right: 16px;
     padding-left: 16px;
   }
 
-  .card {
+  .page .card {
     padding: 16px;
   }
 
-  .card-topo img {
+  .page .cardTopo img {
     width: 58px;
     height: 58px;
   }
