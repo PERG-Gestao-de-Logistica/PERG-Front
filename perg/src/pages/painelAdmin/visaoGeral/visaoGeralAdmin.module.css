@@ -1,0 +1,38 @@
+.paginaVisaoGeral {
+  display: flex;
+  min-height: calc(100dvh - 8rem);
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  color: var(--cor-texto-branco);
+}
+
+.paginaVisaoGeral h1{
+  font-size: 15px;
+  color: var(--cor-texto-branco);
+}
+
+.gradePrincipal,
+.gradeInferior {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--espacamento-md);
+}
+
+.cardEmpresas,
+.cardServicos,
+.cardAlertas,
+.cardResumo {
+  min-width: 0;
+  padding: var(--espacamento-md);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  background-color: var(--cor-primaria-profunda);
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+@media (max-width: 720px) {
+  .gradePrincipal,
+  .gradeInferior {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
