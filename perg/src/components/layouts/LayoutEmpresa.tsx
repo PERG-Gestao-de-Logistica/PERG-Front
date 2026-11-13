@@ -7,7 +7,7 @@ interface LayoutEmpresaProps {
 }
 
 
-export default function LayoutAdmin({ children }: LayoutEmpresaProps) {
+export default function LayoutEmpresa({ children }: LayoutEmpresaProps) {
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       <MenuEmpresa />
