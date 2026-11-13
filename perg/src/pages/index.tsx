@@ -1,14 +1,26 @@
-import BotaoNovoPedido from "@/components/botoes/botaoNovoPedido/botaoNovoPedido";
-import MenuAdmin from "../components/menuAdmin/menuAdmin";
-import MenuEmpresa from "../components/menuEmpresa/menuEmpresa";
-import BotaoNotificacaoAdmin from "../components/botoes/botaoNotificacaoAdmin/botaoNotificacaoAdmin";
-import BotaoNotificacaoEmpresa from "../components/botoes/botaoNotificacaoEmpresa/botaoNotificacaoEmpresa";
-import BarraPesquisa from "@/components/barraPesquisa/barraPesquisa";
+//! AVISO: estrutura de teste e validação enquanto não tem a layout
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-    <BarraPesquisa/>
-    </>
+    <div style={{ padding: "40px", fontFamily: "var(--fonte-texto)" }}>
+      <h1 style={{ fontFamily: "var(--fonte-titulo)", marginBottom: "20px" }}>
+        Testes - Estrutura do Projeto
+      </h1>
+
+      <div style={{ display: "flex", gap: "16px" }}>
+        <Link 
+          href="/painelAdmin/visaoGeral"
+        >
+          Testar Painel Admin
+        </Link>
+
+        <Link 
+          href="/painelEmpresa/visaoGeral"
+        >
+          Testar Painel Empresa
+        </Link>
+      </div>
+    </div>
   );
 }

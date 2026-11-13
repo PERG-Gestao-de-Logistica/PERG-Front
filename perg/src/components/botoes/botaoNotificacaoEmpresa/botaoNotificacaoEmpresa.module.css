@@ -16,3 +16,19 @@
   background-color: var(--cor-fundo-verde-claro);
   border-color: var(--cor-secundaria-verde);
 }
+
+.icone {
+  font-size: 1.75rem;
+}
+
+@media (max-width: 640px), (max-height: 500px) {
+  .botao {
+    height: var(--altura-botao-medio);
+    width: var(--altura-botao-medio);
+  }
+
+  .icone {
+    font-size: 1.25rem;
+  }
+}
+

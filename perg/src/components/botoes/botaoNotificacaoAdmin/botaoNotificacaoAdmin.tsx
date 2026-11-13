@@ -1,23 +1,14 @@
 import { IoNotificationsOutline } from "react-icons/io5";
 import styles from "./botaoNotificacaoAdmin.module.css";
 
-interface BotaoNotificacaoAdminProps {
-  quantidade?: number;
-  onClick: () => void;
-}
-
-export default function BotaoNotificacaoAdmin({
-  quantidade = 0,
-  onClick,
-}: BotaoNotificacaoAdminProps) {
+// TODO: implementar lógica de contagem e redirecionar para visualização das notificações admin para monitoramento de infraestrutura -> verificar uso  React-Toastify 
+export default function BotaoNotificacaoAdmin() {
   return (
     <button
       type="button"
       className={styles.botao}
-      aria-label={`Notificações, ${quantidade} não lidas `}
     >
-      <IoNotificationsOutline size={28} />
-      <span> className={styles.inidcador}</span>
+      <IoNotificationsOutline className={styles.icone} />
     </button>
   );
 }

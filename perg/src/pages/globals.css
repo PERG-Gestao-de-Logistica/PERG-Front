@@ -86,7 +86,7 @@ body {
 -------------------------- */
   --tamanho-titulo-principal: clamp(2rem, 1.7rem + 1.5vw, 3rem);
 
-  --tamanho-subtitulo: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  --tamanho-subtitulo: clamp(1em, 1rem + 0.8vw, 1.5rem);
 
   --tamanho-titulo-secao: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
 
@@ -94,7 +94,7 @@ body {
 
   --tamanho-texto: clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem);
 
-  --tamanho-texto-botao: clamp(-0.9rem, 1rem + 0.15vw, 1.3rem);
+  --tamanho-texto-botao: clamp(0.9rem, 1rem + 0.15vw, 1.3rem);
 
   --tamanho-texto-auxiliar: clamp(0.6875rem, 0.66rem + 0.08vw, 0.8125rem);
 
@@ -130,9 +130,7 @@ body {
 -- ESPAÇAMENTO — RESPONSIVIDADE --
 ---------------------------------- */
   --espacamento-pagina: clamp(1rem, 2vw, 2rem);
-
   --espacamento-secao: clamp(1.25rem, 2.5vw, 2.5rem);
-
   --espacamento-container: clamp(1rem, 1.5vw, 1.5rem);
 
   /* -------------------------------
@@ -158,11 +156,8 @@ body {
 -- SOMBRAS --
 ------------- */
   --sombra-card: 0 0 4px 2px rgba(90, 93, 87, 0.25);
-
   --sombra-modal: 0 8px 32px rgba(2, 26, 29, 0.18);
-
   --sombra-menu: 2px 0 12px rgba(2, 26, 29, 0.08);
-
   --sombra-interna-destaque: inset 0 0 4px 3px rgba(3, 191, 181, 0.25);
 
   /* -------------

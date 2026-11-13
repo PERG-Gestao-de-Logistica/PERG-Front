@@ -3,40 +3,42 @@ import { useRouter } from "next/router";
 import {TbClipboardData,TbDatabaseCog,TbAlertTriangle,TbApiApp,} from "react-icons/tb";
 import { SiDatabricks } from "react-icons/si";
 import { MdLogout } from "react-icons/md";
-import { PiBuildings } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import styles from "./menuAdmin.module.css";
 import { useEffect, useState } from "react";
 
+//* // Array de configuração dos links do menu.
 const itensMenu = [
   {
     nome: "Visão Geral",
-    rota: "/visao-geral",
+    rota: "/painelAdmin/visaoGeral",
     icone: TbClipboardData,
   },
   {
     nome: "Tráfego e API",
-    rota: "/trafegoAPI",
+    rota: "/painelAdmin/trafegoAPI",
     icone: TbApiApp,
   },
   {
     nome: "Processamento",
-    rota: "/processamento",
+    rota: "/painelAdmin/processamento",
     icone: SiDatabricks,
   },
-  {
-    nome: "Empresas",
-    rota: "/empresas",
-    icone: PiBuildings,
-  },
-  {
-    nome: "Infraestrutura",
-    rota: "/infraestrutura",
-    icone: TbDatabaseCog,
-  },
+  //! AVISO: Só será utilizado se sobrar tempo para construção da página
+  // {
+  //   nome: "Empresas",
+  //   rota: "/painelAdmin/empresas",
+  //   icone: PiBuildings,
+  // },
+  //! AVISO: Só será utilizado se sobrar tempo para construção da página
+  // {
+  //   nome: "Infraestrutura",
+  //   rota: "/painelAdmin/infraestrutura",
+  //   icone: TbDatabaseCog,
+  // },
   {
     nome: "Alertas",
-    rota: "/Alertas",
+    rota: "/painelAdmin/alertas",
     icone: TbAlertTriangle,
   },
 ];
@@ -46,20 +48,20 @@ export default function MenuAdmin() {
 
   const [menuAberto, setMenuAberto] = useState(false);
 
-  //Fechar menu com o esc
+  //* Fechar menu com o esc
   useEffect(() => {
     function fecharComEsc(event: KeyboardEvent ){
       if (event.key == "Escape"){
         setMenuAberto(false);
       }
     }
+    //* Adiciona o ouvinte de teclado na janela
     window.addEventListener('keydown', fecharComEsc);
+    //* Função de limpeza (cleanup): executada quando o componente desmonta
     return () => {
-      window.addEventListener('keydown', fecharComEsc);
-    }
-  })
-
-  //Fechar menu ao mudar de página
+      window.removeEventListener('keydown', fecharComEsc);
+    };
+  }, []);
 
   return (
     <>
@@ -76,7 +78,7 @@ export default function MenuAdmin() {
           onClick={() => setMenuAberto((estado) => !estado)}
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
           aria-expanded={menuAberto}
-          aria-controls="menu-admin"><RxHamburgerMenu /></button>
+          aria-controls="menuAdmin"><RxHamburgerMenu /></button>
     </header>
      {menuAberto && (
         <button
@@ -88,7 +90,7 @@ export default function MenuAdmin() {
         />
       )}
 
-    <aside id="menuAdmin" className={`${styles.menuEmpresa} ${ menuAberto ? styles.menuAberto : ""}`} aria-label="Menu principal"
+    <aside id="menuAdmin" className={`${styles.menuAdmin} ${ menuAberto ? styles.menuAberto : ""}`} aria-label="Menu principal"
     aria-hidden={
           typeof window !== "undefined" &&
           window.matchMedia("(max-width: 640px)").matches
@@ -138,8 +140,8 @@ export default function MenuAdmin() {
         <h3 className={styles.iniciais}>LS</h3>
 
         <div className={styles.infoUsuario}>
-          <h3 className={styles.nomeEmpresa}>Lucas Santos</h3>
-          <p className={styles.nomeUsuario}>Admin Master</p>
+          <h3 className={styles.nomeUsuario}>Lucas Santos</h3>
+          <p className={styles.nomeEmpresa}>Admin Master</p>
         </div>
 
         <button
