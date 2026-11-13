@@ -8,7 +8,7 @@ export default function Home() {
         Testes - Estrutura do Projeto
       </h1>
 
-      <div style={{ display: "flex", gap: "16px" }}>
+      <div style={{ display: "flex", gap: "16px"}}>
         <Link 
           href="/painelAdmin/visaoGeral"
         >
