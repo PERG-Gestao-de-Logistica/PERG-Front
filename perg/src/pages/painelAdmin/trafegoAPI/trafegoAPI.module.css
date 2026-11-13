@@ -1,0 +1,213 @@
+.paginaTrafego {
+  display: flex;
+  min-height: 28rem;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  color: var(--cor-texto-branco);
+}
+
+.indices {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--espacamento-md);
+}
+
+.indicador {
+  display: flex;
+  min-width: 0;
+  min-height: 5.75rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--espacamento-xs);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  background-color: var(--cor-primaria-profunda);
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+.indicadorTitulo {
+  overflow: hidden;
+  color: var(--cor-texto-secundario);
+  font-family: var(--fonte-texto);
+  font-size: 19px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.indicadorNumero {
+  color: var(--cor-texto-branco); 
+  font-family: var(--fonte-titulo);
+  font-size: 25px;
+  font-weight: var(--peso-semi-negrito);
+  line-height: var(--altura-linha-titulo);
+}
+
+.painelGraficos {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espacamento-md);
+}
+
+.grafico {
+  width: 48%;
+  min-width: 0;
+  padding: var(--espacamento-md);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  background-color: #082d30;
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+.endpoints {
+  width: 48%;
+  min-width: 0;
+  padding: var(--espacamento-xl) var(--espacamento-md);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  background-color: #082d30;
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+.tabelaEndpoints {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+}
+
+.tabelaEndpoints th,
+.tabelaEndpoints td {
+  padding: var(--espacamento-sm);
+  border-bottom: var(--largura-borda) solid #075052;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.tabelaEndpoints th {
+  color: #69c9c5;
+  font-weight: var(--peso-regular);
+  text-transform: uppercase;
+}
+
+.tabelaEndpoints th:first-child,
+.tabelaEndpoints td:first-child {
+  width: 44%;
+  text-align: left;
+}
+
+.tabelaEndpoints tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.graficoVisual {
+  width: 100%;
+  min-width: 0;
+  height: 15rem;
+}
+
+.grafico h2 {
+  margin-bottom: var(--espacamento-md);
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-card);
+}
+
+.latencia {
+  color: var(--cor-aviso);
+}
+
+.erro {
+  color: var(--cor-perigo);
+}
+
+.cardCircular {
+  display: flex;
+  width: min(100%, 32rem);
+  min-width: 0;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-md);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  background-color: #082d30;
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+.graficoCircular {
+  width: 9rem;
+  height: 7rem;
+  flex: 0 0 9rem;
+}
+
+.graficoCircular tspan {
+    font-size:  14px;
+    font-weight: 300;
+    font-family: var(--fonte-titulo);
+}
+
+.legendaCircular {
+  display: grid;
+  flex: 1;
+  gap: var(--espacamento-xs);
+  margin: 0;
+  padding: 0;
+  color: var(--cor-texto-branco);
+  font-size: var(--tamanho-texto-auxiliar);
+  list-style: none;
+  font-family: var(--fonte-texto);
+}
+
+.legendaCircular h2{
+    color: var(--cor-texto-branco);
+}
+
+.legendaCircular li,
+.legendaCircular li span {
+  display: flex;
+  font-family: var(--fonte-texto);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacamento-sm);
+}
+
+.legendaCircular i {
+  width: 0.6rem;
+  height: 0.15rem;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 480px) {
+  .cardCircular {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .graficoCircular {
+    width: 100%;
+    height: 9rem;
+    flex-basis: 9rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .indices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .painelGraficos {
+    flex-direction: column;
+  }
+
+  .grafico,
+  .endpoints {
+    width: 100%;
+  }
+}
