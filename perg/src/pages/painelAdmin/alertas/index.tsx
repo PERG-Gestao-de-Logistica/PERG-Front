@@ -1,16 +1,19 @@
 
-export { default } from "@/pages/alertas-incidentes";
-
-import { alertasDetalhes, alertasExemplo, incidentesExemplos } from "@/mocks/alertas";
-import { corPorIndicador } from "@/types/alerta";
+import {
+  alertasDetalhes,
+  alertasExemplo,
+  incidentesExemplos,
+} from "@/mocks/alertas";
 import type { Alerta } from "@/types/alerta";
+import { corPorIndicador } from "@/types/alerta";
 import { useState } from "react";
+import styles from "./alertas.module.css";
 
-const classePorSeveridade = {
-  Crítico: "critico",
-  Alto: "alto",
-  Médio: "medio",
-  Baixo: "baixo",
+const classePorSeveridade: Record<Alerta["severidade"], string> = {
+  Crítico: styles.critico,
+  Alto: styles.alto,
+  Médio: styles.medio,
+  Baixo: styles.baixo,
 };
 
 export default function AlertasIncidentes() {
@@ -37,121 +40,131 @@ export default function AlertasIncidentes() {
   }
 
   return (
-    <main className="alertas-incidentes">
-      <div className="alertas-incidentes-slot alertas-incidentes-slot-sidebar" />
+    <section className={styles.paginaAlertas}>
+      <div className={styles.indicadores}>
+        {incidentesExemplos.map((incidente) => (
+          <article
+            className={styles.indicador}
+            key={incidente.severidade_incidentes}
+          >
+            <span className={styles.indicadorTitulo}>
+              {incidente.severidade_incidentes}
+            </span>
+            <strong
+              className={`${styles.indicadorNumero} ${
+                styles[corPorIndicador[incidente.severidade_incidentes]]
+              }`}
+            >
+              {incidente.numero_casos}
+            </strong>
+          </article>
+        ))}
+      </div>
 
-      <section className="alertas-incidentes-painel">
-        <header className="alertas-incidentes-barra">
-          <div className="alertas-incidentes-slot alertas-incidentes-slot-busca" />
-          <div className="alertas-incidentes-slot alertas-incidentes-slot-notificacao" />
-        </header>
+      <div className={styles.painelAlertas}>
+        <section className={styles.listaAlertas} aria-label="Lista de alertas">
+          {alertas.map((alerta) => {
+            const classeSeveridade = classePorSeveridade[alerta.severidade];
+            const selecionado = alertaSelecionado?.id === alerta.id;
 
-        <div className="alertas-incidentes-slot-titulos">
-          <div className="alertas-incidentes-slot alertas-incidentes-slot-titulo" />
-          <div className="alertas-incidentes-slot alertas-incidentes-slot-subtitulo" />
-        </div>
-
-        <section className="alertas-incidentes-conteudo">
-          <div className="alertas-incidentes-indicadores">
-            {incidentesExemplos.map((incidente) => (
-              <div
-                className={`alerta-indicador ${corPorIndicador[incidente.severidade_incidentes]}`}
-                key={incidente.id}
+            return (
+              <button
+                className={`${styles.alertaItem} ${
+                  selecionado ? styles.alertaSelecionado : ""
+                }`}
+                key={alerta.id}
+                onClick={() => setAlertaSelecionado(alerta)}
+                type="button"
               >
-                <span>{incidente.severidade_incidentes}</span>
-                <strong>{incidente.numero_casos}</strong>
-              </div>
-            ))}
-          </div>
+                <strong className={`${styles.severidade} ${classeSeveridade}`}>
+                  {alerta.severidade}
+                </strong>
 
-          <div className="alertas-incidentes-grade">
-            <div className="alertas-incidentes-slot alertas-incidentes-slot-lista">
-              {alertas.map((alerta) => {
-                const classe = classePorSeveridade[alerta.severidade];
-                const selecionado = alertaSelecionado?.id === alerta.id;
+                <span className={styles.informacoesAlerta}>
+                  <strong className={styles.tituloAlerta}>{alerta.titulo}</strong>
+                  <span className={styles.origemAlerta}>{alerta.origem}</span>
+                </span>
 
-                return (
-                  <button
-                    type="button"
-                    className={`alerta-card ${selecionado ? "selecionado" : ""}`}
-                    key={alerta.id}
-                    onClick={() => setAlertaSelecionado(alerta)}
-                  >
-                    <strong className={`alerta-severidade ${classe}`}>
-                      {alerta.severidade}
-                    </strong>
-
-                    <div className="alerta-informacoes">
-                      <span>{alerta.titulo}</span>
-                      <span className="texto-cinza-alerta">{alerta.origem}</span>
-                    </div>
-
-                    <span className="texto-cinza-alerta">{alerta.horario}</span>
-
-                    <span className={`alerta-status ${classe}`}>
-                      {alerta.status}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            <div className="alertas-incidentes-slot alertas-incidentes-slot-detalhe">
-              {alertaSelecionado && detalheSelecionado ? (
-                <div className="alerta-detalhe">
-                  <div className="alerta-detalhe-conteudo">
-                    <div className="alerta-detalhe-cabecalho">
-                      <strong
-                        className={`alerta-severidade ${classePorSeveridade[alertaSelecionado.severidade]}`}
-                      >
-                        {alertaSelecionado.severidade.toUpperCase()}
-                      </strong>
-                      <h2>{alertaSelecionado.titulo}</h2>
-                    </div>
-
-                    <p className="detalhe-texto">{detalheSelecionado.Descricao}</p>
-
-                    <div className="alerta-detalhe-evento">
-                      <span>{detalheSelecionado.horario1}</span>
-                      <strong>{detalheSelecionado.acontecimento1}</strong>
-                    </div>
-                    <div className="alerta-detalhe-evento">
-                      <span>{detalheSelecionado.horario2}</span>
-                      <strong>{detalheSelecionado.acontecimento2}</strong>
-                    </div>
-                    <div className="alerta-detalhe-evento">
-                      <span>{detalheSelecionado.horario3}</span>
-                      <strong>{detalheSelecionado.acontecimento3}</strong>
-                    </div>
-                    <div className="alerta-detalhe-evento">
-                      <span>{detalheSelecionado.horario4}</span>
-                      <strong>{detalheSelecionado.acontecimento4}</strong>
-                    </div>
-                  </div>
-
-                  <div className="alerta-detalhe-acoes">
-                    <button
-                      type="button"
-                      className="alerta-botao-resolver"
-                      onClick={marcarComoResolvido}
-                      disabled={alertaSelecionado.status === "Resolvido"}
-                    >
-                      {alertaSelecionado.status === "Resolvido"
-                        ? "Resolvido"
-                        : "Marcar como resolvido"}
-                    </button>
-                    <button type="button" className="alerta-botao-atribuir">
-                      Atribuir
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <p className="texto-espera">Selecione um alerta para ver os detalhes.</p>
-              )}
-            </div>
-          </div>
+                <span className={styles.horarioAlerta}>{alerta.horario}</span>
+                <span className={`${styles.statusAlerta} ${classeSeveridade}`}>
+                  {alerta.status}
+                </span>
+              </button>
+            );
+          })}
         </section>
-      </section>
-    </main>
+
+        <section className={styles.detalheAlerta} aria-label="Detalhes do alerta">
+          {alertaSelecionado && detalheSelecionado ? (
+            <>
+              <div className={styles.conteudoDetalhe}>
+                <div className={styles.cabecalhoDetalhe}>
+                  <strong
+                    className={`${styles.severidade} ${
+                      classePorSeveridade[alertaSelecionado.severidade]
+                    }`}
+                  >
+                    {alertaSelecionado.severidade.toUpperCase()}
+                  </strong>
+                  <h2 className={styles.tituloDetalhe}>
+                    {alertaSelecionado.titulo}
+                  </h2>
+                </div>
+
+                <p className={styles.descricaoDetalhe}>
+                  {detalheSelecionado.Descricao}
+                </p>
+
+                <div className={styles.linhaTempo}>
+                  {[
+                    {
+                      horario: detalheSelecionado.horario1,
+                      acontecimento: detalheSelecionado.acontecimento1,
+                    },
+                    {
+                      horario: detalheSelecionado.horario2,
+                      acontecimento: detalheSelecionado.acontecimento2,
+                    },
+                    {
+                      horario: detalheSelecionado.horario3,
+                      acontecimento: detalheSelecionado.acontecimento3,
+                    },
+                    {
+                      horario: detalheSelecionado.horario4,
+                      acontecimento: detalheSelecionado.acontecimento4,
+                    },
+                  ].map((evento) => (
+                    <div className={styles.evento} key={evento.horario}>
+                      <span>{evento.horario}</span>
+                      <strong>{evento.acontecimento}</strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.acoesDetalhe}>
+                <button
+                  className={styles.botaoResolver}
+                  disabled={alertaSelecionado.status === "Resolvido"}
+                  onClick={marcarComoResolvido}
+                  type="button"
+                >
+                  {alertaSelecionado.status === "Resolvido"
+                    ? "Resolvido"
+                    : "Marcar como resolvido"}
+                </button>
+                <button className={styles.botaoAtribuir} type="button">
+                  Atribuir
+                </button>
+              </div>
+            </>
+          ) : (
+            <p className={styles.detalheVazio}>
+              Selecione um alerta para ver os detalhes.
+            </p>
+          )}
+        </section>
+      </div>
+    </section>
   );
 }
