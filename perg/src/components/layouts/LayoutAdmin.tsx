@@ -10,7 +10,7 @@ interface LayoutAdminProps {
 
 export default function LayoutAdmin({ children }: LayoutAdminProps) {
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#03171a'}}>
       <MenuAdmin />
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <CabecalhoAdmin/>

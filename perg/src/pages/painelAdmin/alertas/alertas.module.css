@@ -1,0 +1,324 @@
+.alertas-incidentes {
+  --alertas-fundo: #031b1d;
+  --alertas-fundo-sidebar: #041f21;
+  --alertas-borda-slot: rgba(3, 191, 181, 0.26);
+  --alertas-slot: rgba(10, 57, 59, 0.35);
+
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--alertas-fundo);
+}
+
+.alertas-incidentes-slot {
+  background-color: var(--alertas-slot);
+  border: 2px solid #06474b;
+  box-shadow: inset 0 0 12px rgba(0, 189, 178, 0.14);
+  border-radius: 10px;
+}
+
+.alertas-incidentes-slot-sidebar {
+  flex: 0 0 260px;
+  min-height: 0vh;
+  height: 100vh;
+  background-color: var(--alertas-fundo-sidebar);
+}
+
+.texto-cinza-alerta{
+    color: rgb(168, 168, 168);
+}
+
+.texto-espera{
+  justify-content: center;
+  align-items: center;
+}
+.alertas-incidentes-painel {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 16px 24px 40px;
+}
+
+.alertas-incidentes-barra {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.alertas-incidentes-slot-busca {
+  width: min(265px, 70%);
+  height: 28px;
+  border-radius: 16px;
+}
+
+.alertas-incidentes-slot-notificacao {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+}
+
+.alertas-incidentes-slot-titulos {
+  min-height: 68px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 7px;
+}
+
+.alertas-incidentes-slot-titulo {
+  width: min(260px, 65%);
+  height: 22px;
+}
+
+.alertas-incidentes-slot-subtitulo {
+  width: min(340px, 80%);
+  height: 14px;
+}
+
+.alertas-incidentes-conteudo {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alertas-incidentes-slot-indicadores {
+  min-height: 65px;
+}
+
+.alertas-incidentes-slot-lista .alerta-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 40px 55px;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 2px;
+  margin: 0;
+  padding: 8px 14px;
+
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: left;
+
+  margin-top: 5px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.alertas-incidentes-grade {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.alerta-informacoes{
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.alertas-incidentes-indicadores {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.alerta-indicador {
+  min-width: 0;
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 14px;
+  background-color: #082d30;
+  border: 2px solid #06474b;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.alerta-indicador.abertos strong { color: #fff; }
+.alerta-indicador.criticos strong { color: #ff5b5b; }
+.alerta-indicador.altos strong { color: #ff8a4c; }
+.alerta-indicador.medios strong { color: #f5c451; }
+.alerta-indicador.baixos strong { color: #57b8ff; }
+.alerta-indicador strong {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.alertas-incidentes-slot-lista,
+.alertas-incidentes-slot-detalhe {
+  min-height: 0;
+  height: 100%;
+}
+
+.alertas-incidentes-slot-lista {
+  overflow-y: auto;
+}
+
+.alertas-incidentes-slot-detalhe {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.alerta-severidade.critico,
+.alerta-status.critico { color: #ff5b5b; }
+
+.alerta-severidade.alto,
+.alerta-status.alto { color: #ff8a4c; }
+
+.alerta-severidade.medio,
+.alerta-status.medio { color: #f5c451; }
+
+.alerta-severidade.baixo,
+.alerta-status.baixo { color: #57b8ff; }
+
+.alertas-incidentes-slot-lista .alerta-card:hover,
+.alertas-incidentes-slot-lista .alerta-card.selecionado {
+  background-color: #0d3d40;
+}
+
+.alertas-incidentes-slot-detalhe .alerta-detalhe {
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  color: #fff;
+}
+
+.alerta-detalhe-conteudo {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.alerta-detalhe-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.alerta-detalhe-cabecalho h2 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.alertas-incidentes-slot-detalhe .alerta-detalhe > p {
+  margin-bottom: 22px;
+  color: #e1eeee;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.alerta-detalhe-evento {
+  display: grid;
+  grid-template-columns: 55px minmax(0, 1fr);
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid #06474b;
+}
+
+.alerta-detalhe-evento span {
+  color: #a8b8b8;
+  font-size: 10px;
+}
+
+.alerta-detalhe-evento strong {
+  color: #fff;
+  font-size: 10px;
+}
+
+.detalhe-texto  {
+  color: #d8d8d8;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+
+.alerta-detalhe-acoes {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.alerta-detalhe-acoes button {
+  min-height: 28px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.alerta-botao-resolver {
+  color: #032426;
+  background-color: #03bfb5;
+  border: 1px solid #03bfb5;
+}
+
+.alerta-botao-resolver:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.alerta-botao-atribuir {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #03bfb5;
+}
+
+.alerta-detalhe-vazio {
+  margin: auto;
+  padding: 16px;
+  color: #a8b8b8;
+  text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  .alertas-incidentes-slot-sidebar {
+    flex-basis: 64px;
+  }
+
+  .alertas-incidentes-painel {
+    padding: 14px 14px 28px;
+  }
+
+  .alertas-incidentes-grade {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alertas-incidentes-slot-lista,
+  .alertas-incidentes-slot-detalhe {
+    min-height: 0;
+  }
+
+  .alertas-incidentes-painel {
+    padding-bottom: 14px;
+  }
+}
