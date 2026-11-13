@@ -1,0 +1,32 @@
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-xs);
+  height: var(--altura-botao-grande);
+  padding: 0 var(--padding-botao-grande);
+  color: var(--cor-texto-branco);
+  background-color: var(--cor-primaria-verde-escuro);
+  border: none;
+  border-radius: var(--raio-padrao);
+  font-size: var(--tamanho-texto-botao);
+}
+
+.botao:hover {
+  background-color: var(--cor-secundaria-verde);
+}
+
+.icone {
+  font-size: 1.75rem;
+}
+
+@media (max-width: 640px), (max-height: 500px) {
+  .botao {
+    height: var(--altura-botao-medio);
+    font-size: 1rem;
+  }
+
+  .icone {
+    font-size: 1rem;
+  }
+}

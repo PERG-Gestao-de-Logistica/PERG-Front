@@ -1,0 +1,360 @@
+.menuEmpresa {
+  background-color: var(--cor-primaria-verde-escuro);
+  width: 330px;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.logo {
+  max-width: 75%;
+  height: auto;
+  margin: var(--espacamento-xl);
+}
+
+.logoSimbolo,
+.cabecalhoMobile,
+.overlay,
+.botaoMenu {
+  display: none;
+}
+
+.navegacao {
+  width: 100%;
+  flex: 1;
+}
+
+.lista {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: var(--espacamento-sm);
+  padding: 0;
+}
+
+.item {
+  width: 100%;
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
+  font-weight: var(--peso-light);
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-sm) var(--espacamento-xl);
+  white-space: nowrap;
+}
+
+.item:hover {
+  color: var(--cor-primaria-verde-escuro);
+  border-radius: 0 var(--raio-padrao) var(--raio-padrao) 0;
+  background-color: var(--cor-verde-destaque);
+}
+
+.item:focus-visible {
+  outline: 3px solid var(--cor-verde-hover);
+  outline-offset: 3px;
+}
+
+.item span {
+  overflow: hidden;
+}
+
+.imgEntregador {
+  max-width: 45%;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.perfil {
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: var(--espacamento-xl);
+  color: var(--cor-texto-branco);
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  align-items: center;
+  padding: 0 var(--espacamento-xl);
+  gap: var(--espacamento-sm);
+}
+
+.iniciais:global(h3),
+:global(h3).iniciais {
+  color: var(--cor-texto-branco);
+  background-color: var(--cor-verde-destaque);
+  width: 50px;
+  height: 50px;
+  border-radius: var(--raio-padrao);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--espacamento-sm);
+}
+
+.nomeEmpresa {
+  color: var(--cor-texto-branco);
+}
+
+.nomeUsuario {
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-light);
+}
+
+.botaoLogout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacamento-xs);
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-branco);
+}
+
+.botaoLogout:hover {
+  color: var(--cor-verde-destaque);
+}
+
+@media (max-width: 1200px) and (min-width: 641px) and (min-height: 501px) {
+  .menuEmpresa {
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .logo,
+  .admin,
+  .infoUsuario,
+  .item span {
+    display: none;
+  }
+
+  .logoSimbolo {
+    display: block;
+    width: 40px;
+    max-width: 40px;
+    height: auto;
+    margin: var(--espacamento-md) auto;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .imgEntregador {
+    display: none;
+  }
+
+  .navegacao {
+    width: 100%;
+  }
+
+  .lista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacamento-sm);
+    padding: 0;
+  }
+
+  .item {
+    justify-content: center;
+    width: 56px;
+    height: 52px;
+    padding: 0;
+    border-radius: var(--raio-pequeno);
+  }
+
+  .item:hover {
+    border-radius: var(--raio-pequeno);
+  }
+
+  .item svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .perfil {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: var(--espacamento-md);
+    gap: var(--espacamento-md);
+    padding: 0;
+  }
+
+  .iniciais:global(h3),
+  :global(h3).iniciais {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+    padding: 0;
+    align-items: center;
+  }
+
+  .botaoLogout svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (max-width: 640px), (max-height: 500px) {
+  .cabecalhoMobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--espacamento-pagina);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor-primaria-verde-escuro);
+    z-index: 999;
+  }
+
+  .logoSimbolo,
+  .logo,
+  .admin,
+  .imgEntregador {
+    display: none;
+  }
+
+  .logoMobile {
+    width: 105px;
+    max-height: 38px;
+    object-fit: contain;
+  }
+
+  .botaoMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    color: var(--cor-texto-branco);
+    cursor: pointer;
+  }
+
+  .botaoMenu svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 23, 26, 0.6);
+    border: none;
+    z-index: 1000;
+  }
+
+  .menuEmpresa {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: min(300px, 65vw);
+    min-width: 0;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+    border-right: none;
+    border-left: 2px solid rgba(3, 191, 181, 0.3);
+  }
+
+  .menuEmpresa.menuAberto {
+    transform: translateX(0);
+  }
+
+  .navegacao {
+    margin-top: var(--espacamento-lg);
+  }
+
+  .lista {
+    width: 100%;
+    align-items: stretch;
+    padding-right: var(--espacamento-sm);
+    gap: var(--espacamento-xs);
+  }
+
+  .item {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--espacamento-xs) var(--espacamento-lg);
+    gap: var(--espacamento-md);
+    border-radius: var(--raio-pequeno);
+  }
+
+  .item span {
+    display: inline;
+  }
+
+  .item svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .perfil {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--espacamento-sm);
+    padding: var(--espacamento-md) var(--espacamento-lg);
+    margin-top: auto;
+    margin-bottom: var(--espacamento-sm);
+    border-top: 1px solid rgba(3, 191, 181, 0.25);
+  }
+
+  .iniciais:global(h3),
+  :global(h3).iniciais {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
+
+  .infoUsuario {
+    display: block;
+    min-width: 0;
+  }
+
+  .nomeEmpresa {
+    font-size: var(--tamanho-texto);
+  }
+
+  .nomeUsuario {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .botaoLogout {
+    justify-self: end;
+  }
+
+  .botaoLogout svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuEmpresa {
+    transition: none;
+  }
+}

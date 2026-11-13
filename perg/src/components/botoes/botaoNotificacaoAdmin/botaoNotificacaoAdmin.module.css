@@ -1,0 +1,31 @@
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--altura-botao-grande);
+  height: var(--altura-botao-grande);
+  padding: 0;
+  color: var(--cor-superficie-branca);
+  background-color: var(--cor-primaria-secundaria);
+  box-shadow: var(--sombra-interna-destaque);
+  border-radius: var(--raio-pequeno);
+}
+
+.botao:hover {
+  background-color: var(--cor-primaria-verde-escuro);
+}
+
+.icone {
+  font-size: 1.75rem;
+}
+
+@media (max-width: 640px), (max-height: 500px) {
+  .botao {
+    height: var(--altura-botao-medio);
+    width: var(--altura-botao-medio);
+  }
+
+  .icone {
+    font-size: 1.25rem;
+  }
+}

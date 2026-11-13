@@ -1,0 +1,67 @@
+.barraPesquisa {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: var(--altura-botao-grande);
+  padding: var(--espacamento-md);
+  color: var(--cor-superficie-branca);
+  background-color: var(--cor-primaria-secundaria);
+  box-shadow: var(--sombra-interna-destaque);
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao-padrao);
+  gap: 10px;
+}
+
+/* * Ativa o destaque verde no container inteiro quando o input interno recebe foco (clique ou Tab) */
+/* ? Diferente do :focus comum (que só funciona no próprio input), o :focus-within "sobe" o estado para o elemento pai */
+.barraPesquisa:focus-within {
+  border-color: var(--cor-secundaria-verde);
+}
+
+.barraPesquisa input {
+  border: none;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-botao);
+  color: var(--cor-superficie-branca);
+  background-color: transparent; /* * Utilizado para não tampar o fundo verde do .barraPesquisa:focus-within*/
+}
+
+.barraPesquisa input::placeholder {
+  color: var(--cor-superficie-branca);
+}
+
+/* * Estiliza o botão nativo de limpar ("X") que aparece ao digitar em inputs do tipo search */
+/* ? Remove a aparência padrão do navegador e aplica um SVG personalizado via mask */
+.barraPesquisa input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-color: var(--cor-superficie-branca);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'></line><line x1='6' y1='6' x2='18' y2='18'></line></svg>")
+    no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><line x1='18' y1='6' x2='6' y2='18'></line><line x1='6' y1='6' x2='18' y2='18'></line></svg>")
+    no-repeat center / contain;
+}
+
+.icone {
+  flex-shrink: 0;
+  color: var(--cor-superficie-branca);
+  font-size: 1.75rem;
+}
+
+@media (max-width: 640px), (max-height: 500px) {
+  .barraPesquisa {
+    height: var(--altura-botao-medio); 
+  }
+
+  .icone {
+  font-size: 1.25rem;
+}
+}
