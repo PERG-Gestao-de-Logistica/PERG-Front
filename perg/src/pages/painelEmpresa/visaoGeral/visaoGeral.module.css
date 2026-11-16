@@ -1,7 +1,8 @@
 .container {
   padding: var(--espacamento-pagina);
   display: grid;
-  grid-template-columns: auto auto;
+   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 1fr);
+  grid-template-rows: minmax(190px, 0.8fr) minmax(280px, 1.2fr);
   gap: var(--espacamento-xl);
 }
 
@@ -10,11 +11,8 @@
   border-radius: var(--raio-padrao);
   padding: var(--espacamento-md);
   gap: var(--espacamento-md);
-  width: 45vw;
   height: 28vh;
   box-shadow: var(--sombra-card);
-  /* display: grid;
-  grid-template-columns: auto auto; */
   display: flex;
   flex-direction: row;
   gap: var(--espacamento-md);
@@ -43,7 +41,7 @@
 }
 
 .icone{
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .imagem {
@@ -55,7 +53,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   height: 28vh;
-  width: 30vw;
+  width: 100%;
   gap: var(--espacamento-xl);
 }
 
@@ -63,7 +61,6 @@
   background-color: var(--cor-texto-branco);
   border-radius: var(--raio-padrao);
   padding: var(--espacamento-md);
-  width: 100%;
   box-shadow: var(--sombra-card);
 }
 
@@ -74,6 +71,24 @@
   padding: var(--espacamento-md);
 }
 
+.rotasHoje header {
+  padding: var(--espacamento-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid px rgb(148, 147, 152, 0.5);
+}
+
+.monitoramento{
+  color: var(--cor-secundaria-verde);
+  font-weight: var(--peso-negrito);
+  cursor: pointer;
+  font-family: var(--fonte-texto);
+}
+
+.monitoramento:hover{
+  color: var(--cor-verde-hover);
+}
 .ocorrencias {
   background-color: var(--cor-verde-article);
   border-radius: var(--raio-padrao);
@@ -84,9 +99,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-weight: var(--peso-regular);
 }
 
 .tituloTexto {
   justify-content: center;
   align-items: center;
 }
+
