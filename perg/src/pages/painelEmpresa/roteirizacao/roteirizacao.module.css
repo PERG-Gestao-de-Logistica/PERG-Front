@@ -1,0 +1,99 @@
+.conteudo {
+  padding: var(--espacamento-pagina);
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1.25fr);
+  gap: var(--espacamento-xl);
+}
+
+.parametrosRotas {
+  display: grid;
+  grid-template-rows: minmax(350px, 1.2fr) minmax(190px, 1.3fr);
+  gap: var(--espacamento-xl);
+}
+
+.parametros header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacamento-md);
+}
+
+.parametros {
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  padding: var(--espacamento-xl);
+  gap: var(--espacamento-xxl);
+}
+
+.parametros p {
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-regular);
+}
+
+.escolhaParametros {
+  display: flex;
+  flex-direction: row;
+  padding: var(--espacamento-md);
+  background-color: var(--cor-borda);
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  border-radius: var(--raio-padrao);
+}
+
+.subtitulo {
+  color: var(--cor-texto-secundario);
+  font-weight: var(--peso-semi-negrito);
+  font-size: var(--tamanho-subtitulo);
+  font-family: var(--fonte-titulo);
+}
+
+.indice {
+  color: var(--cor-primaria-verde-escuro);
+  background-color: transparent;
+  height: 15px;
+  width: 100%;
+}
+
+.indice:hover {
+  background-color: var(---cor-texto-principal);
+  border-radius: var(--raio-padrao);
+  color: var(--cor-texto-branco);
+}
+
+.veiculosDisponiveis {
+  display: flex;
+  flex-direction: row;
+  padding: var(--espacamento-md);
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  border-radius: var(--raio-padrao);
+  align-items: center;
+  gap: var(--espacamento-md);
+}
+
+.icone{
+  font-size: 1rem;
+}
+
+.botaoOtimizarRotas{
+  background-color: var(---cor-verde-destaque);
+  color: var(---cor-verde-destaque);
+  border-radius: var(--raio-padrao);
+  padding: var(--espacamento-md);
+  gap: var(--espacamento-xl);
+}
+
+.iconeBotao{
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.rotasGeradas{
+   background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  padding: var(--espacamento-xl);
+  gap: var(--espacamento-xxl);
+}
