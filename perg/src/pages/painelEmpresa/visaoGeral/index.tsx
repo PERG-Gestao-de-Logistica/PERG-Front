@@ -42,41 +42,75 @@ export default function VisaoGeralEmpresa() {
           className={styles.imagem}
         />
       </article>
-      <article className={styles.kpis}>
-        <div className={styles.bloco}>
-          <header> <HiOutlineArchiveBox className={styles.icone}/><h3>Pedidos Hoje</h3></header>
-          <p>
+      <section className={styles.kpis} aria-label="Indicadores de desempenho">
+        <article className={styles.bloco}>
+          <header className={styles.cabecalhoKpi}>
+            <HiOutlineArchiveBox className={styles.icone} aria-hidden="true" />
+            <h3>Pedidos Hoje</h3>
+          </header>
+
+          <div className={styles.informacao}>
             <data value="3.45">3,45%</data>
-          </p>
-        </div>
-        <div className={styles.bloco}>
-          <header><MdOutlineRoute className={styles.icone}/><h3>Rotas Ativas</h3></header>
-          <h3 className={styles.info}>
-            <data>6</data>
-          </h3>
-        </div>
-        <div className={styles.bloco}>
-          <header><MdOutlineWatchLater className={styles.icone}/><h3>No Prazo</h3></header>
-          <p>
-            <data>97,8%</data>
-          </p>
-        </div>
-        <div className={styles.bloco}>
-          <header><LuMapPin className={styles.icone}/><h3>KM Rodados</h3></header>
-          <p>
-            <data>412</data>
-          </p>
-        </div>
-      </article>
+          </div>
+        </article>
+
+        <article className={styles.bloco}>
+          <header className={styles.cabecalhoKpi}>
+            <MdOutlineRoute className={styles.icone} aria-hidden="true" />
+            <h3>Rotas Ativas</h3>
+          </header>
+
+          <div className={styles.informacao}>
+            <data value="6">9</data>
+            <p>6 em andamento</p>
+          </div>
+        </article>
+
+        <article className={styles.bloco}>
+          <header className={styles.cabecalhoKpi}>
+            <MdOutlineWatchLater className={styles.icone} aria-hidden="true" />
+            <h3>No Prazo</h3>
+          </header>
+
+          <div className={styles.informacao}>
+            <data value="97.8">97,8%</data>
+          </div>
+        </article>
+
+        <article className={styles.bloco}>
+          <header className={styles.cabecalhoKpi}>
+            <LuMapPin className={styles.icone} aria-hidden="true" />
+            <h3>KM Rodados</h3>
+          </header>
+
+          <div className={styles.informacao}>
+            <data value="412">412</data>
+          </div>
+        </article>
+      </section>
       <article className={styles.rotasHoje}>
         <header>
-        <h2 className={styles.subtitulo}>Rotas Hoje</h2>
-        <a className={styles.monitoramento} href="">Ver monitoramento</a>
+          <h2 className={styles.subtitulo}>Rotas Hoje</h2>
+          <a className={styles.monitoramento} href="">
+            Ver monitoramento
+          </a>
         </header>
+        <section>
+          <ul>
+            <li>aaaaaaaaaaaaaaaaaaaaaaaaa</li>
+            <li>aaaaaaaaaaaaaaaaaaaaaaaaa</li>
+          </ul>
+        </section>
       </article>
       <article className={styles.ocorrencias}>
-        <h2 className={styles.subtitulo}>Ocorrências</h2>
-        <img src="/assets/images/entregadorCaixas.png" alt="" />
+        <header>
+          <h2 className={styles.subtitulo}>Ocorrências</h2>
+        </header>
+        <img
+          src="/assets/images/entregadorCaixas.png"
+          className={styles.imagemEntregador}
+          alt=""
+        />
         <div className={styles.tituloTexto}>
           <h3>Nenhuma ocorrência hoje</h3>
           <p>Quando um motorista um problema ele aparece aqui</p>
