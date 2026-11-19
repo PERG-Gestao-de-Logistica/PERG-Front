@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { Outfit, Urbanist } from "next/font/google";
 import { useRouter } from "next/router";
 import LayoutAdmin from "@/components/layouts/LayoutAdmin";
-import LayoutEmpresa from "@/components/layouts/LayoutEmpresa";
+import LayoutEmpresa from "@/components/layouts/painelEmpresa/LayoutEmpresa";
 
 const outfit = Outfit({
   variable: "--fonte-titulo",

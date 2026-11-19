@@ -1,16 +1,25 @@
 .menuEmpresa {
   background-color: var(--cor-primaria-verde-escuro);
-  width: 330px;
+  width: 275px;
   height: 100dvh;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  overflow: hidden;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .logo {
-  max-width: 75%;
+  width: 150px;
+  max-width: 60%;
   height: auto;
   margin: var(--espacamento-xl);
+  flex-shrink: 0;
+  display: block;
 }
 
 .logoSimbolo,
@@ -23,19 +32,21 @@
 .navegacao {
   width: 100%;
   flex: 1;
+  min-height: 0;
 }
 
 .lista {
-  width: 85%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   list-style: none;
-  gap: var(--espacamento-sm);
+  gap: var(--espacamento-xs);
   padding: 0;
 }
 
 .item {
   width: 100%;
+  min-height: 44px;
   color: var(--cor-texto-branco);
   font-family: var(--fonte-titulo);
   font-size: var(--tamanho-titulo-secao);
@@ -43,64 +54,88 @@
   display: flex;
   align-items: center;
   gap: var(--espacamento-md);
-  padding: var(--espacamento-sm) var(--espacamento-xl);
+  padding: var(--espacamento-sm) var(--espacamento-lg);
   white-space: nowrap;
 }
 
 .item:hover {
   color: var(--cor-primaria-verde-escuro);
   border-radius: 0 var(--raio-padrao) var(--raio-padrao) 0;
+  background-color: var(--cor-verde-hover);
+}
+
+.itemAtivo {
+  border-radius: 0 var(--raio-padrao) var(--raio-padrao) 0;
   background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+  font-weight: var(--peso-regular);
 }
 
 .item:focus-visible {
   outline: 3px solid var(--cor-verde-hover);
-  outline-offset: 3px;
+  outline-offset: -3px;
 }
 
 .item span {
-  overflow: hidden;
+  flex: 1;
 }
 
 .imgEntregador {
-  max-width: 45%;
-  margin-bottom: var(--espacamento-xl);
+  display: block;
+  max-width: 90px;
+  width: 30%;
+  height: auto;
+  margin-bottom: var(--espacamento-md);
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .perfil {
   width: 100%;
-  height: auto;
-  margin-top: auto;
+  min-height: 65px;
   margin-bottom: var(--espacamento-xl);
   color: var(--cor-texto-branco);
   display: grid;
-  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  grid-template-columns: 2.75rem minmax(0, 1fr) auto;
   align-items: center;
-  padding: 0 var(--espacamento-xl);
-  gap: var(--espacamento-sm);
+  padding: 0 var(--espacamento-lg);
+  margin-top: auto;
+  margin-bottom: 1rem;
+  gap: var(--espacamento-md);
 }
 
 .iniciais:global(h3),
 :global(h3).iniciais {
   color: var(--cor-texto-branco);
   background-color: var(--cor-verde-destaque);
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: var(--raio-padrao);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: var(--espacamento-sm);
+  flex-shrink: 0;
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.infoUsuario {
+  min-width: 0;
+  gap: var(--espacamento-xs);
 }
 
 .nomeEmpresa {
   color: var(--cor-texto-branco);
+  font-size: var(--tamanho-titulo-secao);
+  line-height: 1.5;
 }
 
 .nomeUsuario {
   color: var(--cor-texto-branco);
   font-family: var(--fonte-texto);
   font-weight: var(--peso-light);
+  font-size: var(--tamanho-texto-auxiliar);
+  line-height: 1.3;
 }
 
 .botaoLogout {
@@ -120,10 +155,7 @@
 @media (max-width: 1200px) and (min-width: 641px) and (min-height: 501px) {
   .menuEmpresa {
     width: 80px;
-    min-width: 80px;
-    max-width: 80px;
     align-items: center;
-    overflow-x: hidden;
   }
 
   .logo,
@@ -143,7 +175,8 @@
     flex-shrink: 0;
   }
 
-  .imgEntregador {
+  .imgEntregador,
+  .infoUsuario {
     display: none;
   }
 
@@ -168,7 +201,8 @@
     border-radius: var(--raio-pequeno);
   }
 
-  .item:hover {
+  .item:hover,
+  .itemAtivo {
     border-radius: var(--raio-pequeno);
   }
 
@@ -211,6 +245,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 4.5rem;
     padding: var(--espacamento-pagina);
     display: flex;
     align-items: center;
@@ -227,6 +262,7 @@
   }
 
   .logoMobile {
+    display: block;
     width: 105px;
     max-height: 38px;
     object-fit: contain;
@@ -265,9 +301,9 @@
     right: 0;
     left: auto;
     width: min(300px, 65vw);
-    min-width: 0;
-    max-width: none;
+    height: 100dvh;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.3s ease;
@@ -282,12 +318,15 @@
 
   .navegacao {
     margin-top: var(--espacamento-lg);
+    width: 100%;
+    flex: 1;
+    min-height: 0;
   }
 
   .lista {
     width: 100%;
     align-items: stretch;
-    padding-right: var(--espacamento-sm);
+    padding-left: var(--espacamento-sm);
     gap: var(--espacamento-xs);
   }
 
@@ -299,7 +338,12 @@
     justify-content: flex-start;
     padding: var(--espacamento-xs) var(--espacamento-lg);
     gap: var(--espacamento-md);
-    border-radius: var(--raio-pequeno);
+    border-radius: 0;
+  }
+
+  .item:hover,
+  .itemAtivo {
+    border-radius: var(--raio-pequeno) 0 0 var(--raio-pequeno);
   }
 
   .item span {
@@ -327,7 +371,7 @@
   :global(h3).iniciais {
     width: 44px;
     height: 44px;
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .infoUsuario {

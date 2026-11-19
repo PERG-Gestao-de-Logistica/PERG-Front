@@ -36,7 +36,7 @@ const itensMenu = [
   },
   {
     nome: "Configurações",
-    rota: "painelEmpresa/configuracoes",
+    rota: "/painelEmpresa/configuracao/perfi",
     icone: IoSettingsOutline,
   },
 ];
@@ -125,7 +125,7 @@ export default function MenuEmpresa() {
                     className={`${styles.item} ${ativo ? styles.itemAtivo : ""}`}
                     aria-current={ativo ? "page" : undefined}
                   >
-                    <Icone aria-hidden="true" size={32} />
+                    <Icone aria-hidden="true" size={28} />
                     <span>{item.nome}</span>
                   </Link>
                 </li>

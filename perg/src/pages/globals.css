@@ -85,11 +85,11 @@ body {
   /* -----------------------
 -- TIPOGRAFIA — TAMANHO --
 -------------------------- */
-  --tamanho-titulo-principal: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+  --tamanho-titulo-principal: clamp(2rem, 1.5em + 1vw, 3rem);
 
   --tamanho-subtitulo: clamp(1em, 1rem + 0.8vw, 1.5rem);
 
-  --tamanho-titulo-secao: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  --tamanho-titulo-secao: clamp(1.125rem, 1rem + 0.5vw, 1.2rem);
 
   --tamanho-titulo-card: clamp(0.875rem, 0.82rem + 0.15vw, 1.125rem);
 

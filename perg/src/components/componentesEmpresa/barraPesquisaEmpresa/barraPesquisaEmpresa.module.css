@@ -29,6 +29,9 @@
   font-family: var(--fonte-texto);
   font-size: var(--tamanho-texto-botao);
   background-color: transparent; /* * Utilizado para não tampar o fundo verde do .barraPesquisa:focus-within*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .barraPesquisa input::placeholder {
@@ -54,15 +57,15 @@
 .icone {
   flex-shrink: 0;
   color: var(--cor-texto-secundario);
-  font-size:  1.75rem;
+  font-size: 1.75rem;
 }
 
 @media (max-width: 640px), (max-height: 500px) {
   .barraPesquisa {
-    height: var(--altura-botao-medio); 
+    height: var(--altura-botao-medio);
   }
 
   .icone {
-  font-size: 1.25rem;
-}
+    font-size: 1.25rem;
+  }
 }
