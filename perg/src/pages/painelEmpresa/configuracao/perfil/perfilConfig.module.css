@@ -1,0 +1,139 @@
+.container {
+  display: grid;
+  grid-template-rows: minmax(0, 1.2fr) minmax(0, 0.5fr);
+  gap: var(--espacamento-lg);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dadosPessoaisSeguranca {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--espacamento-lg);
+}
+
+.dadosPessoais {
+  background-color: var(--cor-superficie-branca);
+  padding: var(--espacamento-md);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--raio-padrao);
+}
+
+.dadosPessoais p{
+    color: var(--cor-texto-secundario);
+    font-weight: var(--peso-light);
+    font-size: 0.95rem;
+}
+
+.perfil {
+  width: 100%;
+  min-height: 65px;
+  color: var(--cor-texto-branco);
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--espacamento-sm);
+}
+
+.iniciais:global(h3),
+:global(h3).iniciais {
+  color: var(--cor-texto-principal);
+  background-color: var(--cor-verde-destaque);
+  width: 45px;
+  height: 45px;
+  border-radius: var(--raio-padrao);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--espacamento-sm);
+  flex-shrink: 0;
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.infoUsuario {
+  min-width: 0;
+  gap: var(--espacamento-xs);
+}
+
+.nomeCargoEmpresa {
+  color: var(--cor-texto-branco);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+}
+
+.nomeUsuario {
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+}
+
+.rotulo {
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  font-family: var(--fonte-titulo);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box; 
+  height: var(--altura-botao-medio);
+  padding: 0 var(--espacamento-md);
+  background-color: var(--cor-superficie-branca);
+  border: var(--largura-borda) solid var(--cor-borda);
+  box-shadow: var(--sombra-interna);
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao-padrao);
+}
+
+.input::placeholder {
+   color: var(--cor-texto-secundario);
+}
+
+.input:focus-within {
+  border-color: var(--cor-secundaria-verde);
+  background-color: var(--cor-fundo-verde-claro);
+}
+
+.seguranca {
+  background-color: var(--cor-superficie-branca);
+  padding: var(--espacamento-md);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--raio-padrao);
+}
+
+.notificacao {
+  background-color: var(--cor-superficie-branca);
+  padding: var(--espacamento-md);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--raio-padrao);
+  width: 100%;
+}
+
+.salvarAlteracao{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.botoes{
+    
+}

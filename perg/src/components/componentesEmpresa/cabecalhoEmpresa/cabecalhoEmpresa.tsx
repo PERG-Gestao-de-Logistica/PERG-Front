@@ -7,7 +7,7 @@ import BotaoNovoPedido from "@/components/botoes/botaoNovoPedido/botaoNovoPedido
 // TODO: implementar lógica dinâmica para visualizar nome do usuário, data de acesso e nome empresa.CONFIG_PAGINAS precisa guardar apenas o título padrão de cada rota. Trazer props para info e função formatação de data e saudação dinâmica conforme horário(bom dia, boa tarde e boa noite)
 const CONFIG_PAGINAS: Record<string, { titulo: string; subtitulo: string }> = {
   "/painelEmpresa/visaoGeral": {
-    titulo: "Bom dia Ana Souza",
+    titulo: "Bom dia, Ana Souza",
     subtitulo: "quinta, 08 de out - Aurora Store",
   },
   "/painelEmpresa/pedidos": {
@@ -26,7 +26,7 @@ const CONFIG_PAGINAS: Record<string, { titulo: string; subtitulo: string }> = {
     titulo: "Entregadores",
     subtitulo: "quinta, 08 de out - Aurora Store",
   },
-  "/painelEmpresa/configuracoes": {
+  "/painelEmpresa/configuracao/perfil": {
     titulo: "Configurações",
     subtitulo: "quinta, 08 de out - Aurora Store",
   },
