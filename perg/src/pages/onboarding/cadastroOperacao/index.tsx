@@ -86,7 +86,7 @@ export default function CadastroOperacao() {
       </aside>
 
       <main className={styles.conteudoPrincipal}>
-        <section className={styles.criarConta} aria-labelledby="tituloOperacao">
+        <section className={styles.criarOperacao} aria-labelledby="tituloOperacao">
           <header className={styles.cabecalho}>
             <img
               src="/assets/logos/logoVerde.png"

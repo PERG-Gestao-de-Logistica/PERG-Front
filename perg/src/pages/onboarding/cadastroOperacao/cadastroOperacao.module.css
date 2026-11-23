@@ -1,8 +1,8 @@
 .container {
   display: flex;
   width: 100%;
+  height: 100vh;
   height: 100dvh;
-  overflow: hidden;
   background-color: var(--cor-superficie-branca);
 }
 
@@ -39,32 +39,36 @@
   flex: 1;
   min-width: 0;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  min-height: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--espacamento-lg) var(--espacamento-pagina);
   background-color: var(--cor-superficie-branca);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--cor-secundaria-verde) var(--cor-superficie-branca);
 }
 
-.criarConta {
+.criarOperacao {
   width: 100%;
-  max-width: 45rem;
-  margin: auto 0;
+  max-width: 32rem;
   display: flex;
   flex-direction: column;
+  margin-block: auto;
 }
 
 .cabecalho {
-  margin-bottom: var(--espacamento-md);
+  margin-bottom: var(--espacamento-sm);
 }
 
 .logo {
   height: auto;
-  width: 11rem;
+  width: 8rem;
   max-width: 100%;
-  margin-bottom: var(--espacamento-md);
+  margin-bottom: var(--espacamento-sm);
   display: block;
 }
 
@@ -76,7 +80,7 @@
 }
 
 .subtitulo {
-  font-size: var(--tamanho-subtitulo);
+  font-size: var(--tamanho-texto);
   color: var(--cor-texto-secundario);
 }
 
@@ -324,16 +328,18 @@
     margin-bottom: var(--espacamento-md);
   }
 
-  .gradeOpcoes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .cardOpcao,
   .botaoVoltar,
   .botaoEntrar,
   .botaoNavegacao {
     height: var(--altura-botao-medio);
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .gradeOpcoes {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
