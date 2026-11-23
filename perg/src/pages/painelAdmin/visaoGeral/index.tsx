@@ -1,5 +1,6 @@
 
 import styles from "./visaoGeralAdmin.module.css";
+import Image from "next/image";
 
 export default function VisaoGeralAdmin() {
   const empresas = [
@@ -19,13 +20,47 @@ export default function VisaoGeralAdmin() {
       indicador: "Risco de cancelar",
       saude: "Risco",
     },
+    {
+      iniciais: "FL",
+      nome: "Farmácia Lapa",
+      plano: "Pro",
+      motivo: "Pico de Importação",
+      indicador: "Risco de cancelar",
+      saude: "Teste",
+    },
+    {
+      iniciais: "FL",
+      nome: "Farmácia Lapa",
+      plano: "Pro",
+      motivo: "Pico de Importação",
+      indicador: "Risco de cancelar",
+      saude: "Atenção",
+    },
+  ];
+
+  const servicos = [
+    { id: 1, servico: "API/Backend", status: "Online" },
+    { id: 2, servico: "API/Backend", status: "Degradado" },
+    { id: 3, servico: "API/Backend", status: "Degradado" },
+    { id: 4, servico: "API/Backend", status: "Degradado" },
+    { id: 5, servico: "API/Backend", status: "Online" },
+    { id: 6, servico: "API/Backend", status: "Degradado" },
+    { id: 7, servico: "API/Backend", status: "Online" },
+  ];
+
+    const recentes = [
+    { id: 1, estado: "Crítico", horario: "16:32", status:"Investigando", descricao: "Latencia p95 acima de 600 ms", afetadas: "37 empresas afetadas"  },
+    { id: 1, estado: "Alto", horario: "16:32", status:"Mitigando", descricao: "Latencia p95 acima de 600 ms", afetadas: "37 empresas afetadas"  },
   ];
 
   return (
     <main className={styles.paginaVisaoGeral}>
 
       {/* GRADE PRINCIPAL */}
-      <section className={styles.gradePrincipal} aria-label="Resumo da operação">
+      <section
+        className={styles.gradePrincipal}
+        aria-label="Resumo da operação"
+      >
 
         {/* CARD EMPRESAS */}
         <article className={styles.cardEmpresas}>
@@ -35,15 +70,18 @@ export default function VisaoGeralAdmin() {
             <a href="#">Ver todos</a>
           </div>
 
-         <div className={styles.colunas}>
+          <div className={styles.colunas}>
             <span>EMPRESAS</span>
             <span>MOTIVO</span>
             <span>INDICADOR</span>
             <span>SAÚDE</span>
           </div>
 
-          {empresas.map((empresa) => (
-            <div className={styles.linha} key={empresa.nome}>
+          {empresas.map((empresa, index) => (
+            <div
+              className={styles.linha}
+              key={`${empresa.nome}-${index}`}
+            >
 
               <div className={styles.empresa}>
                 <span className={styles.avatar}>
@@ -51,18 +89,14 @@ export default function VisaoGeralAdmin() {
                 </span>
 
                 <div className={styles.area_empresa}>
-
-                <strong>{empresa.nome}</strong>
-
-                <span>{empresa.plano}</span>
-
-              </div>
-
+                  <strong>{empresa.nome}</strong>
+                  <span>{empresa.plano}</span>
+                </div>
               </div>
 
               <span className={styles.motivo}>
                 {empresa.motivo}
-                </span>
+              </span>
 
               <span className={styles.indicador}>
                 {empresa.indicador}
@@ -79,7 +113,9 @@ export default function VisaoGeralAdmin() {
               >
                 {empresa.saude}
               </span>
-                  <span className={styles.seta}>›</span>
+
+              <span className={styles.seta}>›</span>
+
             </div>
           ))}
 
@@ -87,25 +123,109 @@ export default function VisaoGeralAdmin() {
 
         {/* CARD STATUS DOS SERVIÇOS */}
         <article className={styles.cardServicos}>
-          <h1>Status dos serviços</h1>
-          {/* Aqui você colocará os serviços e seus status. */}
+
+          <div className={styles.cabecalho_visao}>
+            <h1>Status dos serviços</h1>
+            <span className={styles.atualizadoAgora}>
+              atualizado agora
+            </span>
+          </div>
+
+          <div className={styles.listaServicos}>
+
+            {servicos.map((servico) => (
+              <div
+                className={styles.linhaServico}
+                key={servico.id}
+              >
+
+                <div className={styles.nomeServico}>
+
+                  <span
+                    className={
+                      servico.status === "Online"
+                        ? styles.pontoOnline
+                        : styles.pontoDegradado
+                    }
+                    aria-hidden="true"
+                  />
+
+                  <span>{servico.servico}</span>
+
+                </div>
+
+
+                <span
+                  className={
+                    servico.status === "Online"
+                      ? styles.statusOnline
+                      : styles.statusDegradado
+                  }
+                >
+                  {servico.status}
+                </span>
+              </div>  
+            
+            ))}
+
+          </div>
+
         </article>
 
       </section>
 
       {/* GRADE INFERIOR */}
-      <section className={styles.gradeInferior} aria-label="Atividade recente">
+      <section
+        className={styles.gradeInferior}
+        aria-label="Atividade recente"
+      >
 
         {/* CARD ALERTAS */}
         <article className={styles.cardAlertas}>
-          <h1>Alertas recentes</h1>
-          {/* Aqui você colocará os alertas recentes. */}
-        </article>
+        <div className={styles.cabecalho_visao}>
+            <h1>Alertas Recentes</h1>
+            <span className={styles.atualizadoAgora}>
+              Ver todos
+            </span>
+          </div>
+
+        <div className={styles.areaCard}>
+
+           {recentes.map((alerta) => (
+    <div className={styles.mini_card} key={alerta.id}>
+      <div className={styles.area_status} data-estado={alerta.estado}>
+        <span className={styles.estadoBadge}>{alerta.estado}</span>
+        <span>{alerta.horario}</span>
+        <span>{alerta.status}</span>
+      </div>
+
+      <p className={styles.afetadas_texto}>{alerta.descricao}</p>
+      <span className={styles.descricao_texto}>{alerta.afetadas}</span>
+     </div>
+     
+   ))}
+   </div>
+  </article>
 
         {/* CARD RESUMO */}
         <article className={styles.cardResumo}>
-          <h1>Resumo</h1>
-          {/* Aqui você colocará o resumo/indicador de empresas. */}
+        <div className={styles.resumoArea}>
+          <Image
+           src="/assets/images/empresas.png"
+           alt="Descrição da imagem"
+          width={160}
+          height={160}
+          />
+          <div className={styles.resumoTexto}>
+              <h1>
+                409 empresas sem problemas
+              </h1>
+          <span className={styles.descricao_texto}>
+                  Pedidos, rotas e notificações funcionando normalmente.
+          </span>
+
+          </div>
+        </div>
         </article>
 
       </section>

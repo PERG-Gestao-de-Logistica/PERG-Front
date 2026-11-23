@@ -65,6 +65,7 @@
   text-decoration: none;
 }
 
+
 /* ========================================== */
 /* COLUNAS DA TABELA */
 /* ========================================== */
@@ -76,6 +77,97 @@
   align-items: center;
   gap: 8px;
 }
+
+.atualizadoAgora {
+  font-size: 12px;
+  color: var(--cor-verde-destaque);
+}
+
+/* ========================================== */
+/* ÁREA DOS ALERTAS */
+/* ========================================== */
+
+.areaCard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.mini_card {
+  background-color: #0A3539;
+  border-radius: 20px;
+  min-height: 100px;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+
+.linhaServico {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  align-items: center;
+  gap: 12px;
+  min-height: 39px;
+  padding: 7px 0;
+  border-bottom: 1px solid color-mix(
+    in srgb,
+    var(--cor-verde-destaque) 15%,
+    transparent
+  );
+}
+
+.linhaServico:last-child {
+  border-bottom: none;
+}
+
+.nomeServico {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 14px;
+}
+
+.pontoOnline,
+.pontoDegradado {
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.pontoOnline {
+  background-color: var(--cor-verde-destaque);
+}
+
+.pontoDegradado {
+  background-color: #ff9f35;
+}
+
+.statusOnline,
+.statusDegradado {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--cor-verde-destaque);
+  text-align: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.statusOnline {
+  color: var(--cor-verde-destaque);
+   font-size: 14px;
+}
+
+.statusDegradado {
+  color: #ff9f35;
+  font-size: 14px;
+}
+
 
 .colunas {
   padding: 0 0 10px;
@@ -134,6 +226,51 @@
   border-radius: 8px;
   font-size: 10px;
   font-weight: 600;
+}
+
+
+.area_status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.estadoBadge {
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: #021A1D;
+  font-weight: 700;
+}
+
+.descricao_texto{
+  color: var(--cor-texto-secundario);
+}
+.area_status[data-estado="Crítico"] {
+  color: #FF6868;
+}
+.area_status[data-estado="Crítico"] .estadoBadge {
+  background-color: #FF6868;
+}
+
+.area_status[data-estado="Alto"] {
+  color: #FF9F35;
+}
+.area_status[data-estado="Alto"] .estadoBadge {
+  background-color: #FF9F35;
+}
+
+.area_status[data-estado="Médio"] {
+  color: #FFB547;
+}
+.area_status[data-estado="Médio"] .estadoBadge {
+  background-color: #FFB547;
+}
+
+.area_status[data-estado="Aberto"] {
+  color: #6C9BFF;
+}
+.area_status[data-estado="Aberto"] .estadoBadge {
+  background-color: #6C9BFF;
 }
 
 .area_empresa {
@@ -210,24 +347,214 @@
   text-align: right;
 }
 
+
 /* ========================================== */
-/* RESPONSIVIDADE */
+/* CARD EMPRESA */
+/* ========================================== */
+  .resumoArea{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .resumoTexto{
+    margin-top: 20px;
+  }
+
+
+/* ========================================== */
+/* RESPONSIVIDADE - NOTEBOOKS E TELAS MENORES */
 /* ========================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+
+  /* Ajuste das grades principais */
+  .gradePrincipal,
+  .gradeInferior {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Empresas com rolagem horizontal */
   .cardEmpresas {
     overflow-x: auto;
   }
 
   .colunas,
   .linha {
-    min-width: 520px;
+    min-width: 600px;
+  }
+
+  /* Cards de alertas */
+  .mini_card {
+    min-height: 100px;
   }
 }
 
+
+/* ========================================== */
+/* RESPONSIVIDADE - TABLETS */
+/* ========================================== */
+
+@media (max-width: 900px) {
+
+  .paginaVisaoGeral {
+    gap: var(--espacamento-md);
+    min-height: auto;
+  }
+
+  /* Cards ocupam toda a largura */
+  .cardEmpresas,
+  .cardServicos,
+  .cardAlertas,
+  .cardResumo {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Área de alertas */
+  .areaCard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mini_card {
+    min-height: 110px;
+  }
+
+}
+
+
+/* ========================================== */
+/* RESPONSIVIDADE - CELULARES */
+/* ========================================== */
+
 @media (max-width: 720px) {
+
+  /* Estrutura geral */
+  .paginaVisaoGeral {
+    width: 100%;
+    gap: 16px;
+  }
+
   .gradePrincipal,
   .gradeInferior {
     grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
+
+  /* Cards */
+  .cardEmpresas,
+  .cardServicos,
+  .cardAlertas,
+  .cardResumo {
+    padding: 14px;
+    border-radius: var(--raio-padrao);
+  }
+
+  /* Empresas */
+  .cardEmpresas {
+    overflow-x: auto;
+  }
+
+  .colunas,
+  .linha {
+    min-width: 600px;
+  }
+
+  /* Cabeçalhos */
+  .cabecalho_visao {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .cabecalho_visao h1 {
+    font-size: 13px;
+  }
+
+  /* Serviços */
+  .linhaServico {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .nomeServico {
+    font-size: 13px;
+  }
+
+  .statusOnline,
+  .statusDegradado {
+    font-size: 12px;
+  }
+
+  /* Alertas */
+  .areaCard {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .mini_card {
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+  }
+
+}
+
+
+/* ========================================== */
+/* RESPONSIVIDADE - CELULARES PEQUENOS */
+/* ========================================== */
+
+@media (max-width: 480px) {
+
+  .cardEmpresas,
+  .cardServicos,
+  .cardAlertas,
+  .cardResumo {
+    padding: 12px;
+  }
+
+  .cabecalho_visao {
+    align-items: flex-start;
+  }
+
+  .cabecalho_visao h1 {
+    font-size: 12px;
+  }
+
+  .cabecalho_visao a,
+  .atualizadoAgora {
+    font-size: 11px;
+  }
+
+  /* Indicadores dos serviços */
+  .linhaServico {
+    min-height: 35px;
+  }
+
+  .pontoOnline,
+  .pontoDegradado {
+    width: 10px;
+    height: 10px;
+    flex-basis: 10px;
+  }
+
+  /* Alertas */
+  .area_status {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .estadoBadge {
+    padding: 3px 7px;
+    font-size: 10px;
+  }
+
+  .afetadas_texto {
+    font-size: 12px;
+  }
+
+  .descricao_texto {
+    font-size: 11px;
+  }
+
 }
