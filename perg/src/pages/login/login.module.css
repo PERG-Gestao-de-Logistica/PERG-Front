@@ -1,8 +1,8 @@
 .container {
   display: flex;
   width: 100%;
-  height: 100dvh;
-  overflow: hidden; 
+  height: 100vh;
+  overflow: hidden;
   background-color: var(--cor-superficie-branca);
 }
 
@@ -39,20 +39,20 @@
   flex: 1;
   min-width: 0;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--espacamento-xl) var(--espacamento-pagina);
   background-color: var(--cor-superficie-branca);
+  padding: var(--espacamento-pagina);
 }
 
 .login {
   width: 100%;
-  max-width: 28rem; 
-  margin: auto 0;
+  max-width: 40%;
+  max-height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -70,7 +70,7 @@
 }
 
 .cabecalho .titulo {
-  font-size: var(--tamanho-titulo-principal); 
+  font-size: var(--tamanho-titulo-principal);
   font-weight: var(--peso-negrito);
   color: var(--cor-primaria-verde-escuro);
   margin-bottom: var(--espacamento-xs);
@@ -189,7 +189,7 @@
 
 .input {
   width: 100%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   height: var(--altura-botao-grande);
   padding: 0 var(--espacamento-md);
   background-color: var(--cor-fundo-input);
