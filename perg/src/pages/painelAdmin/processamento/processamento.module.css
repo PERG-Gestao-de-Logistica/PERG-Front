@@ -1,0 +1,221 @@
+
+/* ==========================================
+   PÁGINA - FILAS E PROCESSAMENTO
+========================================== */
+
+.pagina {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 8rem);
+  gap: var(--espacamento-sm);
+  color: var(--cor-texto-branco);
+  font-family: Outfit, sans-serif;
+}
+
+/* ==========================================
+   CARDS DE MÉTRICAS
+========================================== */
+
+.metricas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--espacamento-sm);
+}
+
+.cardMetrica {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--espacamento-xs);
+  min-height: 88px;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+
+  background-color: var(--cor-primaria-profunda);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+.cardMetrica span {
+  color: var(--cor-texto-secundario);
+  font-family: Urbanist, sans-serif;
+  font-size: 12px;
+  font-weight: var(--peso-medio);
+}
+
+.cardMetrica strong {
+  color: var(--cor-texto-branco);
+  font-family: Outfit, sans-serif;
+  font-size: 22px;
+  font-weight: var(--peso-negrito);
+  line-height: 1;
+}
+
+.valorLaranja {
+  color: var(--cor-aviso) !important;
+}
+
+.valorVermelho {
+  color: var(--cor-perigo) !important;
+}
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.conteudo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--espacamento-sm);
+  align-items: stretch;
+}
+
+/* ==========================================
+   CARD DO GRÁFICO
+========================================== */
+
+.cardGrafico {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  min-width: 0;
+  height: 267px;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+
+  background-color: var(--cor-primaria-profunda);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+.cardGrafico h2 {
+  color: var(--cor-texto-branco);
+  font-family: Outfit, sans-serif;
+  font-size: 14px;
+  font-weight: var(--peso-semi-negrito);
+}
+
+.grafico {
+  width: 100%;
+  height: 205px;
+  min-width: 0;
+}
+
+/* ==========================================
+   CARD DA TABELA DE FILAS
+========================================== */
+
+.cardFilas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  min-width: 0;
+  height: 267px;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+
+  background-color: var(--cor-primaria-profunda);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+.cardFilas h2 {
+  color: var(--cor-texto-branco);
+  font-family: Outfit, sans-serif;
+  font-size: 14px;
+  font-weight: var(--peso-semi-negrito);
+}
+
+.tabelaContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabela th {
+  padding: 9px 4px;
+  color: var(--cor-verde-hover);
+  font-family: Outfit, sans-serif;
+  font-size: 9px;
+  font-weight: var(--peso-medio);
+  text-transform: uppercase;
+  border-bottom: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  white-space: nowrap;
+}
+
+.tabela td {
+  padding: 9px 4px;
+  color: var(--cor-texto-branco);
+  font-family: Urbanist, sans-serif;
+  font-size: 11px;
+  border-bottom: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  white-space: nowrap;
+}
+
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================
+   CORES DOS STATUS
+========================================== */
+
+.falhaAlta,
+.statusRevisao {
+  color: var(--cor-perigo);
+  font-weight: var(--peso-semi-negrito);
+}
+
+.statusNormal {
+  color: var(--cor-verde-destaque);
+  font-weight: var(--peso-semi-negrito);
+}
+
+.statusAtencao {
+  color: var(--cor-aviso);
+  font-weight: var(--peso-semi-negrito);
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 900px) {
+  .metricas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .cardGrafico,
+  .cardFilas {
+    height: auto;
+    min-height: 262px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metricas {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo h1 {
+    font-size: 1.6rem;
+  }
+
+  .cardMetrica {
+    min-height: 100px;
+  }
+
+  .cardGrafico,
+  .cardFilas {
+    padding: var(--espacamento-sm);
+  }
+}
