@@ -2,10 +2,31 @@
 import HeaderRastreio from "@/components/headerRastreio";
 import Footer from "@/components/footer";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { rastreioService } from "@/services/rastreioService";
+import type { Rastreio } from "@/@types/rastreio";
+import { hora } from "@/utils/rastreio";
 import styles from "./entregue.module.css";
 
 export default function Entregue() {
   const router = useRouter();
+  const token = typeof router.query.token === "string" ? router.query.token : "";
+  const [pedido, setPedido] = useState<Rastreio | null>(null);
+
+  useEffect(() => {
+    if (!router.isReady) return;
+    if (!token) {
+      router.replace("/rastreio");
+      return;
+    }
+    rastreioService
+      .obter(token)
+      .then((r) => {
+        if (r.status !== "Entregue") router.replace(`/acompanhamento?token=${encodeURIComponent(token)}`);
+        else setPedido(r);
+      })
+      .catch(() => router.replace(`/acompanhamento?token=${encodeURIComponent(token)}`));
+  }, [router, token]);
 
   return (
     <div className={styles.page}>
@@ -39,13 +60,13 @@ export default function Entregue() {
           </div>
 
           <div className={styles.pedidoCardInformacoes}>
-            <h2>Pedido #7F6V-283C</h2>
+            <h2>Pedido #{pedido?.numeroPedido ?? "..."}</h2>
 
-            <p>Entregue em 16:45</p>
+            <p>Entregue às {hora(pedido?.entregueEm)}</p>
 
             <button
               className={styles.botaoDetalhesPedido}
-              onClick={() => router.push("/acompanhamento")}
+              onClick={() => router.push(`/acompanhamento?token=${encodeURIComponent(token)}&detalhes=1`)}
             >
               Ver detalhes do pedido
               <span className={styles.botaoSeta}>➜</span>

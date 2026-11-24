@@ -1,5 +1,9 @@
 
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { rastreioService } from "@/services/rastreioService";
+import type { Rastreio } from "@/@types/rastreio";
+import { aviso, hora, horaDoStatus, nomeModalidade, previsao } from "@/utils/rastreio";
 import HeaderRastreio from "@/components/headerRastreio";
 import Footer from "@/components/footer";
 import styles from "./acompanhamento.module.css";
@@ -27,42 +31,73 @@ const ICONES = {
 };
 
 // ======================================
-// ETAPAS DO RASTREAMENTO
+// ETAPAS DO RASTREAMENTO (a partir do status e dos horários da API)
 // ======================================
+type SituacaoEtapa = "concluido" | "atual" | "pendente";
 
-const etapas = [
-  {
-    numero: "01",
-    titulo: "Pedido recebido",
-    horario: "10:33",
-    icone: ICONES.pedidoRecebido,
-    status: "concluido",
-  },
-  {
-    numero: "02",
-    titulo: "Em rota",
-    horario: "11:24",
-    icone: ICONES.emRota,
-    status: "concluido",
-  },
-  {
-    numero: "03",
-    titulo: "Em entrega",
-    horario: "15:57",
-    icone: ICONES.emEntrega,
-    status: "atual",
-  },
-  {
-    numero: "04",
-    titulo: "Entregue",
-    horario: "--:--",
-    icone: ICONES.entregue,
-    status: "pendente",
-  },
-];
+function montarEtapas(r: Rastreio) {
+  const entregue = r.status === "Entregue";
+  const emRota = r.status === "EmRota" || entregue;
+  const proxima = r.status === "EmRota" && r.entregasAntes === 0;
+  const situacao = (concluida: boolean, atual: boolean): SituacaoEtapa =>
+    concluida ? "concluido" : atual ? "atual" : "pendente";
+
+  return [
+    { numero: "01", titulo: "Pedido recebido", horario: hora(r.eventos[0]?.ocorridoEm), icone: ICONES.pedidoRecebido, status: situacao(true, false) },
+    { numero: "02", titulo: "Em rota", horario: emRota ? horaDoStatus(r, "EmRota") ?? "--:--" : "--:--", icone: ICONES.emRota, status: situacao(emRota && (proxima || entregue), emRota) },
+    { numero: "03", titulo: "Em entrega", horario: proxima ? "agora" : "--:--", icone: ICONES.emEntrega, status: situacao(entregue, proxima) },
+    { numero: "04", titulo: "Entregue", horario: hora(r.entregueEm), icone: ICONES.entregue, status: situacao(entregue, false) },
+  ];
+}
+
+const ATUALIZAR_A_CADA_MS = 30_000;
 
 export default function Acompanhamento() {
   const router = useRouter();
+  const token = typeof router.query.token === "string" ? router.query.token : "";
+  const [pedido, setPedido] = useState<Rastreio | null>(null);
+  const [erro, setErro] = useState("");
+
+  // Busca ao abrir e atualiza a cada 30 s enquanto o pedido não termina
+  useEffect(() => {
+    if (!router.isReady) return;
+    if (!token) {
+      router.replace("/rastreio");
+      return;
+    }
+    let ativo = true;
+    let intervalo: ReturnType<typeof setInterval> | undefined;
+    const buscar = () =>
+      rastreioService
+        .obter(token)
+        .then((r) => {
+          if (!ativo) return;
+          if (r.status === "Entregue" && !router.query.detalhes) {
+            router.replace(`/entregue?token=${encodeURIComponent(token)}`);
+            return;
+          }
+          setPedido(r);
+          if (r.status === "Entregue" || r.status === "Cancelado") clearInterval(intervalo);
+        })
+        .catch((e) => {
+          if (!ativo) return;
+          setErro(
+            (e as { status?: number }).status === 404
+              ? "Não encontramos esse pedido. Confira o código ou o link do e-mail."
+              : (e as Error).message,
+          );
+          clearInterval(intervalo);
+        });
+    buscar();
+    intervalo = setInterval(buscar, ATUALIZAR_A_CADA_MS);
+    return () => {
+      ativo = false;
+      clearInterval(intervalo);
+    };
+  }, [router, token]);
+
+  const etapas = pedido ? montarEtapas(pedido) : [];
+  const local = [pedido?.bairro, pedido?.cidade].filter(Boolean).join(" - ");
 
   return (
     <div className={styles.page}>
@@ -85,11 +120,11 @@ export default function Acompanhamento() {
         <div className={styles.pedidoInformacoes}>
 
           <h1>
-            Pedido <span>#7F6V-283C</span>
+            Pedido <span>{pedido ? `#${pedido.numeroPedido}` : ""}</span>
           </h1>
 
-          <p>
-            Previsão de chegada hoje, 16:30–17:00
+          <p role={erro ? "alert" : undefined}>
+            {erro || (pedido ? previsao(pedido) : "Carregando...")}
           </p>
 
         </div>
@@ -102,7 +137,7 @@ export default function Acompanhamento() {
           {etapas.map((etapa) => (
             <div
               key={etapa.numero}
-              className={`etapa-rastreio ${etapa.status}`}
+              className={`${styles.etapaRastreio} ${styles[etapa.status] ?? ""}`}
             >
 
               <div className={styles.etapaIcone}>
@@ -146,45 +181,7 @@ export default function Acompanhamento() {
 
             <h2>Detalhes da entrega</h2>
 
-            <div className={styles.detalheItem}>
-
-              <div className={styles.detalheIcone}>
-                <img src={ICONES.entregador} alt="" />
-              </div>
-
-              <div>
-                <h3>Entregador</h3>
-                <p>Carlos Lima</p>
-                <small>★ 4.9 (120 entregas)</small>
-              </div>
-
-            </div>
-
-            <div className={styles.detalheItem}>
-
-              <div className={styles.detalheIcone}>
-                <img src={ICONES.veiculo} alt="" />
-              </div>
-
-              <div>
-                <h3>Veículo</h3>
-                <p>Honda Biz - Placa FFX-2H34</p>
-              </div>
-
-            </div>
-
-            <div className={styles.detalheItem}>
-
-              <div className={styles.detalheIcone}>
-                <img src={ICONES.telefone} alt="" />
-              </div>
-
-              <div>
-                <h3>Telefone do entregador</h3>
-                <p>(11) 91111-1111</p>
-              </div>
-
-            </div>
+            {/* Entregador, veículo e telefone: a API de rastreio ainda não devolve */}
 
             <div className={styles.detalheItem}>
 
@@ -194,11 +191,7 @@ export default function Acompanhamento() {
 
               <div>
                 <h3>Endereço de entrega</h3>
-                <p>
-                  Rua Augusta, 1234
-                  <br />
-                  Bela Vista - São Paulo/SP
-                </p>
+                <p>{local || "--"}</p>
               </div>
 
             </div>
@@ -213,7 +206,13 @@ export default function Acompanhamento() {
               />
 
               <p>
-                Fique tranquilo! O entregador já está em rota e logo chegará.
+                {pedido ? aviso(pedido) : ""}
+                {pedido?.pinEntrega && pedido.status === "EmRota" && (
+                  <>
+                    <br />
+                    Código de entrega: <strong>{pedido.pinEntrega}</strong>. Informe ao entregador.
+                  </>
+                )}
               </p>
 
             </div>
@@ -233,22 +232,8 @@ export default function Acompanhamento() {
 
             <div>
               <h3>Pedido</h3>
-              <p>#7F6V-283C</p>
-              <small>2 itens - R$ 149,90</small>
-            </div>
-
-          </div>
-
-          <div className={styles.resumoItem}>
-
-            <div className={styles.resumoIcone}>
-              <img src={ICONES.entrega} alt="" />
-            </div>
-
-            <div>
-              <h3>Entrega</h3>
-              <p>Carlos Lima</p>
-              <small>Honda Biz - FFX-2H34</small>
+              <p>{pedido ? `#${pedido.numeroPedido}` : ""}</p>
+              <small>{pedido ? nomeModalidade[pedido.modalidade] : ""}</small>
             </div>
 
           </div>
@@ -261,8 +246,8 @@ export default function Acompanhamento() {
 
             <div>
               <h3>Loja</h3>
-              <p>Tech Store</p>
-              <small>São Paulo/SP</small>
+              <p>{pedido?.nomeLoja ?? ""}</p>
+              <small>{pedido?.cidade ?? ""}</small>
             </div>
 
           </div>

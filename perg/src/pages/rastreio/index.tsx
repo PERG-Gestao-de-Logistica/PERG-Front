@@ -1,11 +1,21 @@
 
+import { useState } from "react";
 import { useRouter } from "next/router";
+import { extrairToken } from "@/services/rastreioService";
 import Footer from "@/components/footer";
 import HeaderRastreio from "@/components/headerRastreio";
 import styles from "./rastreio.module.css";
 
 export default function Rastreio() {
   const router = useRouter();
+  const [codigo, setCodigo] = useState("");
+  const [erro, setErro] = useState("");
+
+  const consultar = () => {
+    const token = extrairToken(codigo);
+    if (!token) return setErro("Digite o código ou cole o link do e-mail.");
+    router.push(`/acompanhamento?token=${encodeURIComponent(token)}`);
+  };
 
   return (
     <main className={styles.page}>
@@ -47,15 +57,21 @@ export default function Rastreio() {
 
               <input
                 type="text"
-                placeholder="Ex: 7F6V-283C-2D3F"
+                placeholder="Cole o código ou o link do e-mail"
                 className={styles.inputRastreio}
+                value={codigo}
+                onChange={(e) => {
+                  setCodigo(e.target.value);
+                  setErro("");
+                }}
+                onKeyDown={(e) => e.key === "Enter" && consultar()}
               />
 
               <button
                 type="button"
                 className={styles.botaoRastreio}
                 aria-label="Consultar rastreamento"
-                onClick={() => router.push("/acompanhamento")}
+                onClick={consultar}
               >
                 <img
                   src="/assets/images/icone-seta.png"
@@ -65,6 +81,12 @@ export default function Rastreio() {
               </button>
 
             </div>
+
+            {erro && (
+              <p role="alert" style={{ color: "var(--cor-perigo)", fontSize: 14, margin: 0 }}>
+                {erro}
+              </p>
+            )}
 
             <p className={styles.descricaoRastreio}>
               O código está no e-mail enviado para você.
