@@ -28,14 +28,7 @@ export default function VisaoGeralAdmin() {
       indicador: "Risco de cancelar",
       saude: "Teste",
     },
-    {
-      iniciais: "FL",
-      nome: "Farmácia Lapa",
-      plano: "Pro",
-      motivo: "Pico de Importação",
-      indicador: "Risco de cancelar",
-      saude: "Atenção",
-    },
+
   ];
 
   const servicos = [
@@ -45,7 +38,7 @@ export default function VisaoGeralAdmin() {
     { id: 4, servico: "API/Backend", status: "Degradado" },
     { id: 5, servico: "API/Backend", status: "Online" },
     { id: 6, servico: "API/Backend", status: "Degradado" },
-    { id: 7, servico: "API/Backend", status: "Online" },
+   
   ];
 
     const recentes = [
@@ -56,9 +49,10 @@ export default function VisaoGeralAdmin() {
   return (
     <main className={styles.paginaVisaoGeral}>
 
+    <section className={styles.gradePrincipal}>
       {/* GRADE PRINCIPAL */}
       <section
-        className={styles.gradePrincipal}
+        className={styles.gradeSuperior}
         aria-label="Resumo da operação"
       >
 
@@ -71,10 +65,10 @@ export default function VisaoGeralAdmin() {
           </div>
 
           <div className={styles.colunas}>
-            <span>EMPRESAS</span>
-            <span>MOTIVO</span>
-            <span>INDICADOR</span>
-            <span>SAÚDE</span>
+            <p>EMPRESAS</p>
+            <p>MOTIVO</p>
+            <p>INDICADOR</p>
+            <p>SAÚDE</p>
           </div>
 
           {empresas.map((empresa, index) => (
@@ -84,25 +78,25 @@ export default function VisaoGeralAdmin() {
             >
 
               <div className={styles.empresa}>
-                <span className={styles.avatar}>
+                <p className={styles.avatar}>
                   {empresa.iniciais}
-                </span>
+                </p>
 
                 <div className={styles.area_empresa}>
                   <strong>{empresa.nome}</strong>
-                  <span>{empresa.plano}</span>
+                  <p className={styles.plano}>{empresa.plano}</p>
                 </div>
               </div>
 
-              <span className={styles.motivo}>
+              <p className={styles.motivo}>
                 {empresa.motivo}
-              </span>
+              </p>
 
-              <span className={styles.indicador}>
+              <p className={styles.indicador}>
                 {empresa.indicador}
-              </span>
+              </p>
 
-              <span
+              <p
                 className={
                   empresa.saude === "Risco"
                     ? styles.saudeRisco
@@ -112,9 +106,9 @@ export default function VisaoGeralAdmin() {
                 }
               >
                 {empresa.saude}
-              </span>
+              </p>
 
-              <span className={styles.seta}>›</span>
+              <p className={styles.seta}>›</p>
 
             </div>
           ))}
@@ -126,9 +120,9 @@ export default function VisaoGeralAdmin() {
 
           <div className={styles.cabecalho_visao}>
             <h1>Status dos serviços</h1>
-            <span className={styles.atualizadoAgora}>
+            <p className={styles.atualizadoAgora}>
               atualizado agora
-            </span>
+            </p>
           </div>
 
           <div className={styles.listaServicos}>
@@ -141,7 +135,7 @@ export default function VisaoGeralAdmin() {
 
                 <div className={styles.nomeServico}>
 
-                  <span
+                  <p
                     className={
                       servico.status === "Online"
                         ? styles.pontoOnline
@@ -150,12 +144,12 @@ export default function VisaoGeralAdmin() {
                     aria-hidden="true"
                   />
 
-                  <span>{servico.servico}</span>
+                  <p>{servico.servico}</p>
 
                 </div>
 
 
-                <span
+                <p
                   className={
                     servico.status === "Online"
                       ? styles.statusOnline
@@ -163,7 +157,7 @@ export default function VisaoGeralAdmin() {
                   }
                 >
                   {servico.status}
-                </span>
+                </p>
               </div>  
             
             ))}
@@ -184,9 +178,9 @@ export default function VisaoGeralAdmin() {
         <article className={styles.cardAlertas}>
         <div className={styles.cabecalho_visao}>
             <h1>Alertas Recentes</h1>
-            <span className={styles.atualizadoAgora}>
+            <p className={styles.atualizadoAgora}>
               Ver todos
-            </span>
+            </p>
           </div>
 
         <div className={styles.areaCard}>
@@ -194,13 +188,13 @@ export default function VisaoGeralAdmin() {
            {recentes.map((alerta) => (
     <div className={styles.mini_card} key={alerta.id}>
       <div className={styles.area_status} data-estado={alerta.estado}>
-        <span className={styles.estadoBadge}>{alerta.estado}</span>
-        <span>{alerta.horario}</span>
-        <span>{alerta.status}</span>
+        <p className={styles.estadoBadge}>{alerta.estado}</p>
+        <p>{alerta.horario}</p>
+        <p>{alerta.status}</p>
       </div>
 
       <p className={styles.afetadas_texto}>{alerta.descricao}</p>
-      <span className={styles.descricao_texto}>{alerta.afetadas}</span>
+      <p className={styles.descricao_texto}>{alerta.afetadas}</p>
      </div>
      
    ))}
@@ -220,16 +214,16 @@ export default function VisaoGeralAdmin() {
               <h1>
                 409 empresas sem problemas
               </h1>
-          <span className={styles.descricao_texto}>
+          <p className={styles.descricao_texto}>
                   Pedidos, rotas e notificações funcionando normalmente.
-          </span>
+          </p>
 
           </div>
         </div>
         </article>
 
       </section>
-
+  </section>
     </main>
   );
 }
