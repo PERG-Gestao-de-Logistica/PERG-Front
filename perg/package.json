@@ -17,6 +17,7 @@
     "react-router-dom": "^7.18.5",
     "react-toastify": "^11.1.0",
     "recharts": "^3.11.0"
+
   },
   "devDependencies": {
     "@types/node": "^20",
