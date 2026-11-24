@@ -23,7 +23,9 @@ export function previsao(r: Rastreio) {
   }
   if (r.status === "EmRota" && r.entregasAntes !== null) {
     if (r.entregasAntes === 0) return "Você é a próxima entrega!";
-    return `Faltam ${r.entregasAntes} ${r.entregasAntes === 1 ? "entrega" : "entregas"} antes da sua.`;
+    return r.entregasAntes === 1
+      ? "Falta 1 entrega antes da sua."
+      : `Faltam ${r.entregasAntes} entregas antes da sua.`;
   }
   if (r.modalidade === "Retirada") return "Pedido para retirada na loja.";
   return "Seu pedido está sendo preparado para sair.";
