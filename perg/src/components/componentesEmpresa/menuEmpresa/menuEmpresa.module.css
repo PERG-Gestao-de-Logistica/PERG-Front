@@ -100,7 +100,6 @@
   align-items: center;
   padding: 0 var(--espacamento-lg);
   margin-top: auto;
-  margin-bottom: 1rem;
   gap: var(--espacamento-md);
 }
 
