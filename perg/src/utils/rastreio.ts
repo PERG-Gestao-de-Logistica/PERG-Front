@@ -22,10 +22,10 @@ export function previsao(r: Rastreio) {
     return `Previsão de chegada ${dia}, ${hora(r.janelaInicio)}–${hora(r.janelaFim)}`;
   }
   if (r.status === "EmRota" && r.entregasAntes !== null) {
-    if (r.entregasAntes === 0) return "Você é a próxima entrega!";
-    return r.entregasAntes === 1
-      ? "Falta 1 entrega antes da sua."
-      : `Faltam ${r.entregasAntes} entregas antes da sua.`;
+    const chegada = r.chegadaPrevista ? ` Previsão de chegada por volta de ${hora(r.chegadaPrevista)}.` : "";
+    if (r.entregasAntes === 0) return `Você é a próxima entrega!${chegada}`;
+    if (r.entregasAntes === 1) return `Falta 1 entrega antes da sua.${chegada}`;
+    return `Faltam ${r.entregasAntes} entregas antes da sua.${chegada}`;
   }
   if (r.modalidade === "Retirada") return "Pedido para retirada na loja.";
   return "Seu pedido está sendo preparado para sair.";
@@ -44,3 +44,29 @@ export const nomeModalidade = {
   Agendada: "Entrega agendada",
   Retirada: "Retirada na loja",
 } as const;
+
+const TIPOS_VEICULO: Record<string, string> = {
+  bike: "Bike",
+  moto: "Moto",
+  carro: "Carro",
+  van: "Van",
+  caminhao: "Caminhão",
+};
+
+// "Honda Biz - Placa FFX2H34" / "Moto - Placa FFX2H34"
+export function descricaoVeiculo(e: NonNullable<Rastreio["entregador"]>) {
+  const nome = e.veiculoModelo || (e.veiculoTipo ? TIPOS_VEICULO[e.veiculoTipo.toLowerCase()] ?? e.veiculoTipo : "");
+  return [nome, e.veiculoPlaca ? `Placa ${e.veiculoPlaca}` : ""].filter(Boolean).join(" - ");
+}
+
+// "★ 4.9 (120 entregas)"
+export function avaliacaoEntregador(e: NonNullable<Rastreio["entregador"]>) {
+  const entregas = `${e.totalEntregas} ${e.totalEntregas === 1 ? "entrega" : "entregas"}`;
+  return e.notaMedia ? `★ ${e.notaMedia.toFixed(1)} (${entregas})` : entregas;
+}
+
+// "Rua Augusta, 1500 - Apto 12"
+export function enderecoRua(r: Rastreio) {
+  if (!r.logradouro) return "";
+  return [r.logradouro + (r.numero ? `, ${r.numero}` : ""), r.complemento].filter(Boolean).join(" - ");
+}

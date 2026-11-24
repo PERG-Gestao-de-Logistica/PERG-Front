@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { rastreioService } from "@/services/rastreioService";
 import type { Rastreio } from "@/@types/rastreio";
-import { aviso, hora, horaDoStatus, nomeModalidade, previsao } from "@/utils/rastreio";
+import { avaliacaoEntregador, aviso, descricaoVeiculo, enderecoRua, hora, horaDoStatus, nomeModalidade, previsao } from "@/utils/rastreio";
 import HeaderRastreio from "@/components/headerRastreio";
 import Footer from "@/components/footer";
 import styles from "./acompanhamento.module.css";
@@ -181,7 +181,37 @@ export default function Acompanhamento() {
 
             <h2>Detalhes da entrega</h2>
 
-            {/* Entregador, veículo e telefone: a API de rastreio ainda não devolve */}
+            {/* Telefone do entregador não aparece: o link pode ser aberto por qualquer pessoa */}
+            {pedido?.entregador && (
+              <div className={styles.detalheItem}>
+
+                <div className={styles.detalheIcone}>
+                  <img src={ICONES.entregador} alt="" />
+                </div>
+
+                <div>
+                  <h3>Entregador</h3>
+                  <p>{pedido.entregador.nome}</p>
+                  <small>{avaliacaoEntregador(pedido.entregador)}</small>
+                </div>
+
+              </div>
+            )}
+
+            {pedido?.entregador && descricaoVeiculo(pedido.entregador) && (
+              <div className={styles.detalheItem}>
+
+                <div className={styles.detalheIcone}>
+                  <img src={ICONES.veiculo} alt="" />
+                </div>
+
+                <div>
+                  <h3>Veículo</h3>
+                  <p>{descricaoVeiculo(pedido.entregador)}</p>
+                </div>
+
+              </div>
+            )}
 
             <div className={styles.detalheItem}>
 
@@ -191,7 +221,15 @@ export default function Acompanhamento() {
 
               <div>
                 <h3>Endereço de entrega</h3>
-                <p>{local || "--"}</p>
+                <p>
+                  {pedido && enderecoRua(pedido) && (
+                    <>
+                      {enderecoRua(pedido)}
+                      <br />
+                    </>
+                  )}
+                  {local || "--"}
+                </p>
               </div>
 
             </div>
@@ -237,6 +275,22 @@ export default function Acompanhamento() {
             </div>
 
           </div>
+
+          {pedido?.entregador && (
+            <div className={styles.resumoItem}>
+
+              <div className={styles.resumoIcone}>
+                <img src={ICONES.entrega} alt="" />
+              </div>
+
+              <div>
+                <h3>Entrega</h3>
+                <p>{pedido.entregador.nome}</p>
+                <small>{descricaoVeiculo(pedido.entregador)}</small>
+              </div>
+
+            </div>
+          )}
 
           <div className={styles.resumoItem}>
 

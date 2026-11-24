@@ -6,11 +6,23 @@ export interface Rastreio {
   nomeLoja: string;
   status: StatusPedido;
   modalidade: "MesmoDia" | "Agendada" | "Retirada";
+  logradouro: string | null;
+  numero: string | null;
+  complemento: string | null;
   bairro: string | null;
   cidade: string | null;
   janelaInicio: string | null;
   janelaFim: string | null;
   entregueEm: string | null;
+  chegadaPrevista: string | null;
+  entregador: {
+    nome: string;
+    veiculoTipo: string | null;
+    veiculoModelo: string | null;
+    veiculoPlaca: string | null;
+    notaMedia: number | null;
+    totalEntregas: number;
+  } | null;
   pinEntrega: string | null;
   entregasAntes: number | null;
   posicaoEntregador: { latitude: number; longitude: number; atualizadaEm: string } | null;
