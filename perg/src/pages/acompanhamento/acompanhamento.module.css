@@ -553,3 +553,51 @@
   }
 
 }
+
+/* ======================================
+   CÓDIGO DE ENTREGA (PIN)
+====================================== */
+
+.page .pinEntrega {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 12px 20px;
+  border: 2px solid var(--cor-verde-destaque);
+  border-radius: 12px;
+  background-color: var(--cor-fundo-verde-claro);
+}
+
+.page .pinRotulo {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.page .pinRotulo strong {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: 600;
+}
+
+.page .pinCodigo {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--cor-primaria-verde-escuro);
+}
+
+@media (max-width: 640px) {
+  .page .pinEntrega {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .page .pinCodigo {
+    font-size: 1.6rem;
+  }
+}

@@ -11,6 +11,8 @@ export interface Rastreio {
   complemento: string | null;
   bairro: string | null;
   cidade: string | null;
+  latitude: number | null;
+  longitude: number | null;
   janelaInicio: string | null;
   janelaFim: string | null;
   entregueEm: string | null;

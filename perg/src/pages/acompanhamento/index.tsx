@@ -1,6 +1,8 @@
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { usePosicaoTempoReal } from "@/hooks/usePosicaoTempoReal";
 import { rastreioService } from "@/services/rastreioService";
 import type { Rastreio } from "@/@types/rastreio";
 import { avaliacaoEntregador, aviso, descricaoVeiculo, enderecoRua, hora, horaDoStatus, nomeModalidade, previsao } from "@/utils/rastreio";
@@ -52,6 +54,8 @@ function montarEtapas(r: Rastreio) {
 
 const ATUALIZAR_A_CADA_MS = 30_000;
 
+const MapaRastreio = dynamic(() => import("@/components/mapaRastreio"), { ssr: false });
+
 export default function Acompanhamento() {
   const router = useRouter();
   const token = typeof router.query.token === "string" ? router.query.token : "";
@@ -96,6 +100,14 @@ export default function Acompanhamento() {
     };
   }, [router, token]);
 
+  // Tempo real só com o pedido em rota; a posição inicial vem da própria consulta
+  const posicaoAoVivo = usePosicaoTempoReal(token, pedido?.status === "EmRota");
+  const posicaoEntregador = posicaoAoVivo ?? pedido?.posicaoEntregador ?? null;
+  const destino =
+    pedido?.latitude != null && pedido?.longitude != null
+      ? { latitude: pedido.latitude, longitude: pedido.longitude }
+      : null;
+
   const etapas = pedido ? montarEtapas(pedido) : [];
   const local = [pedido?.bairro, pedido?.cidade].filter(Boolean).join(" - ");
 
@@ -126,6 +138,18 @@ export default function Acompanhamento() {
           <p role={erro ? "alert" : undefined}>
             {erro || (pedido ? previsao(pedido) : "Carregando...")}
           </p>
+
+          {pedido?.pinEntrega && pedido.status === "EmRota" && (
+            <div className={styles.pinEntrega}>
+              <div className={styles.pinRotulo}>
+                <strong>Código de entrega</strong>
+                <span>Informe ao entregador na hora de receber</span>
+              </div>
+              <span className={styles.pinCodigo} aria-label={`Código de entrega ${pedido.pinEntrega.split("").join(" ")}`}>
+                {pedido.pinEntrega}
+              </span>
+            </div>
+          )}
 
         </div>
 
@@ -163,15 +187,19 @@ export default function Acompanhamento() {
           {/* MAPA */}
           <div className={styles.mapaEntrega}>
 
-            <div className={styles.mapaMarcador}>
-              <img
-                src={ICONES.endereco}
-                alt="Localização da entrega"
-              />
-            </div>
+            {destino ? (
+              <MapaRastreio destino={destino} entregador={posicaoEntregador} />
+            ) : (
+              <div className={styles.mapaMarcador}>
+                <img
+                  src={ICONES.endereco}
+                  alt="Localização da entrega"
+                />
+              </div>
+            )}
 
             <div className={styles.mapaLegenda}>
-              Local de entrega
+              {posicaoEntregador ? "Entregador a caminho" : "Local de entrega"}
             </div>
 
           </div>
@@ -245,12 +273,6 @@ export default function Acompanhamento() {
 
               <p>
                 {pedido ? aviso(pedido) : ""}
-                {pedido?.pinEntrega && pedido.status === "EmRota" && (
-                  <>
-                    <br />
-                    Código de entrega: <strong>{pedido.pinEntrega}</strong>. Informe ao entregador.
-                  </>
-                )}
               </p>
 
             </div>
