@@ -1,4 +1,3 @@
-
 import {
   alertasDetalhes,
   alertasExemplo,
