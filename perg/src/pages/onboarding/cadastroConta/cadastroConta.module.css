@@ -367,3 +367,36 @@
     font-size: 0.7rem;
   }
 }
+
+/* Aceite dos termos */
+.rotuloTermos {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacamento-sm);
+  margin-top: var(--espacamento-xs);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+  line-height: 1.4;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkboxTermos {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+  accent-color: var(--cor-primaria-verde-escuro);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.destaqueTermos {
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-secundaria-verde);
+}
+
+.rotuloTermos:hover .destaqueTermos {
+  color: var(--cor-verde-destaque);
+}

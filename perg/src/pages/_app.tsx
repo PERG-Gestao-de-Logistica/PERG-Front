@@ -5,6 +5,9 @@ import { Outfit, Urbanist } from "next/font/google";
 import { useRouter } from "next/router";
 import LayoutAdmin from "@/components/layouts/LayoutAdmin";
 import LayoutEmpresa from "@/components/layouts/LayoutEmpresa";
+import RotaProtegida from "@/components/rotaProtegida";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { OnboardingProvider } from "@/contexts/OnboardingContext";
 
 const outfit = Outfit({
   variable: "--fonte-titulo",
@@ -38,9 +41,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
     if (router.pathname.startsWith("/painelEmpresa")) {
       return (
-        <LayoutEmpresa>
-          <Component {...pageProps} />
-        </LayoutEmpresa>
+        <RotaProtegida>
+          <LayoutEmpresa>
+            <Component {...pageProps} />
+          </LayoutEmpresa>
+        </RotaProtegida>
       );
     }
 
@@ -49,7 +54,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className={`${outfit.variable} ${urbanist.variable}`}>
-      {renderizarConteudo()}
+      <AuthProvider>
+        <OnboardingProvider>{renderizarConteudo()}</OnboardingProvider>
+      </AuthProvider>
     </div>
   );
 }

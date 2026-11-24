@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useOnboarding } from "@/contexts/OnboardingContext";
 
 const opcoesAcesso = [
   { nome: "Entrar", rota: "/login" },
@@ -17,6 +18,21 @@ export default function CadastroConta() {
   const rotaAtual =
     router.pathname || router.asPath || "/onboarding/cadastroConta";
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const { dados, salvar } = useOnboarding();
+  const [nome, setNome] = useState(dados.conta?.nome ?? "");
+  const [email, setEmail] = useState(dados.conta?.email ?? "");
+  const [telefone, setTelefone] = useState(dados.conta?.telefone ?? "");
+  const [senha, setSenha] = useState(dados.conta?.senha ?? "");
+  const [aceitouTermos, setAceitouTermos] = useState(dados.conta?.aceitouTermos ?? false);
+  const [erro, setErro] = useState("");
+
+  function continuar(evento: React.FormEvent) {
+    evento.preventDefault();
+    if (senha.length < 8) return setErro("A senha precisa ter pelo menos 8 caracteres.");
+    if (!aceitouTermos) return setErro("É preciso aceitar os termos de uso.");
+    salvar({ conta: { nome, email, telefone, senha, aceitouTermos } });
+    router.push("/onboarding/cadastroEmpresa");
+  }
 
   // Etapa atual (0 = Conta)
   const etapaAtual = 0;
@@ -121,7 +137,7 @@ export default function CadastroConta() {
             <span className={styles.divisorTexto}>ou com e-mail</span>
           </div>
 
-          <form className={styles.formulario}>
+          <form className={styles.formulario} onSubmit={continuar}>
             <div className={styles.campo}>
               <label htmlFor="nome" className={styles.rotulo}>
                 Nome completo
@@ -132,6 +148,9 @@ export default function CadastroConta() {
                 type="text"
                 placeholder="Digite seu nome completo"
                 className={styles.input}
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                required
               />
             </div>
 
@@ -146,6 +165,9 @@ export default function CadastroConta() {
                   type="email"
                   placeholder="Digite seu e-mail"
                   className={styles.input}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
 
@@ -159,6 +181,8 @@ export default function CadastroConta() {
                   type="tel"
                   placeholder="(11) 98234-5294"
                   className={styles.input}
+                  value={telefone}
+                  onChange={(e) => setTelefone(e.target.value)}
                 />
               </div>
             </div>
@@ -174,6 +198,10 @@ export default function CadastroConta() {
                   type={mostrarSenha ? "text" : "password"}
                   placeholder="Digite sua senha"
                   className={styles.input}
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  minLength={8}
+                  required
                 />
                 <button
                   type="button"
@@ -189,6 +217,27 @@ export default function CadastroConta() {
                 </button>
               </div>
             </div>
+
+            <label htmlFor="termos" className={styles.rotuloTermos}>
+              <input
+                id="termos"
+                type="checkbox"
+                className={styles.checkboxTermos}
+                checked={aceitouTermos}
+                onChange={(e) => setAceitouTermos(e.target.checked)}
+              />
+              <span>
+                Li e aceito os{" "}
+                <span className={styles.destaqueTermos}>termos de uso</span> e a{" "}
+                <span className={styles.destaqueTermos}>política de privacidade</span>
+              </span>
+            </label>
+
+            {erro && (
+              <p role="alert" style={{ color: "#d33", fontSize: 14, margin: 0 }}>
+                {erro}
+              </p>
+            )}
 
             <button type="submit" className={styles.botaoEntrar}>
               Continuar

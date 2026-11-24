@@ -2,6 +2,8 @@ import { useState } from "react";
 import styles from "./cadastroEmpresa.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useOnboarding } from "@/contexts/OnboardingContext";
+import { SEGMENTOS, type SegmentoEmpresa } from "@/@types/autenticacao";
 
 const opcoesAcesso = [
   { nome: "Entrar", rota: "/login" },
@@ -18,17 +20,21 @@ export default function CadastroEmpresa() {
     "/onboarding/cadastroEmpresa"
   );
 
-  const [cnpj, setCnpj] = useState("");
-  const [razaoSocial, setRazaoSocial] = useState("");
-  const [nomeFantasia, setNomeFantasia] = useState("");
-  const [segmento, setSegmento] = useState("Alimentação");
-  const [pedidosPorDia, setPedidosPorDia] = useState("100 a 500");
+  const { dados, salvar } = useOnboarding();
+  const [cnpj, setCnpj] = useState(dados.empresa?.cnpj ?? "");
+  const [razaoSocial, setRazaoSocial] = useState(dados.empresa?.razaoSocial ?? "");
+  const [nomeFantasia, setNomeFantasia] = useState(dados.empresa?.nomeFantasia ?? "");
+  const [segmento, setSegmento] = useState<SegmentoEmpresa>(dados.empresa?.segmento ?? "Alimentacao");
+  const [pedidosPorDia, setPedidosPorDia] = useState(dados.empresa?.faixaPedidosDia ?? "100 a 500");
+  const [erro, setErro] = useState("");
 
   // Etapa atual (1 = Empresa)
   const etapaAtual = 1;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (cnpj.replace(/\D/g, "").length !== 14) return setErro("Digite os 14 números do CNPJ.");
+    salvar({ empresa: { cnpj, razaoSocial, nomeFantasia, segmento, faixaPedidosDia: pedidosPorDia } });
     router.push("/onboarding/cadastroOperacao");
   };
 
@@ -135,6 +141,7 @@ export default function CadastroEmpresa() {
                 value={cnpj}
                 onChange={(e) => setCnpj(e.target.value)}
                 className={styles.input}
+                required
               />
             </div>
 
@@ -151,6 +158,7 @@ export default function CadastroEmpresa() {
                   value={razaoSocial}
                   onChange={(e) => setRazaoSocial(e.target.value)}
                   className={styles.input}
+                  required
                 />
               </div>
 
@@ -166,6 +174,7 @@ export default function CadastroEmpresa() {
                   value={nomeFantasia}
                   onChange={(e) => setNomeFantasia(e.target.value)}
                   className={styles.input}
+                  required
                 />
               </div>
             </div>
@@ -179,19 +188,14 @@ export default function CadastroEmpresa() {
                   id="segmento"
                   name="segmento"
                   value={segmento}
-                  onChange={(e) => setSegmento(e.target.value)}
+                  onChange={(e) => setSegmento(e.target.value as SegmentoEmpresa)}
                   className={`${styles.input} ${styles.select}`}
                 >
-                  <option value="Alimentação">Alimentação</option>
-                  <option value="Farmácia">Farmácia</option>
-                  <option value="E-commerce e Varejo">
-                    E-commerce e Varejo
-                  </option>
-                  <option value="Supermercado">Supermercado</option>
-                  <option value="Documentos e Serviços">
-                    Documentos e Serviços
-                  </option>
-                  <option value="Outro">Outro</option>
+                  {SEGMENTOS.map((s) => (
+                    <option key={s.valor} value={s.valor}>
+                      {s.rotulo}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -213,6 +217,12 @@ export default function CadastroEmpresa() {
                 </select>
               </div>
             </div>
+
+            {erro && (
+              <p role="alert" style={{ color: "#d33", fontSize: 14, margin: 0 }}>
+                {erro}
+              </p>
+            )}
 
             <div className={styles.grupoBotoes}>
               <Link

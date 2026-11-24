@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./cadastroOperacao.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useOnboarding } from "@/contexts/OnboardingContext";
 import {
   IoCheckmarkCircle,
   IoCalendarOutline,
@@ -48,9 +49,11 @@ export default function CadastroOperacao() {
     "/onboarding/cadastroOperacao"
   );
 
-  const [entregasSelecionadas, setEntregasSelecionadas] = useState<string[]>([]);
-  const [canaisSelecionados, setCanaisSelecionados] = useState<string[]>([]);
-  const [veiculosSelecionados, setVeiculosSelecionados] = useState<string[]>([]);
+  const { dados, salvar } = useOnboarding();
+  const [entregasSelecionadas, setEntregasSelecionadas] = useState<string[]>(dados.operacao?.entregas ?? []);
+  const [canaisSelecionados, setCanaisSelecionados] = useState<string[]>(dados.operacao?.canais ?? []);
+  const [veiculosSelecionados, setVeiculosSelecionados] = useState<string[]>(dados.operacao?.veiculos ?? []);
+  const [erro, setErro] = useState("");
 
   // Etapa atual (2 = Operação)
   const etapaAtual = 2;
@@ -67,6 +70,9 @@ export default function CadastroOperacao() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (entregasSelecionadas.length === 0) return setErro("Escolha ao menos uma forma de entrega.");
+    if (veiculosSelecionados.length === 0) return setErro("Escolha ao menos um tipo de veículo.");
+    salvar({ operacao: { entregas: entregasSelecionadas, canais: canaisSelecionados, veiculos: veiculosSelecionados } });
     router.push("/onboarding/cadastroPontoColeta");
   };
 
@@ -263,6 +269,12 @@ export default function CadastroOperacao() {
                 })}
               </div>
             </fieldset>
+
+            {erro && (
+              <p role="alert" style={{ color: "#d33", fontSize: 14, margin: 0 }}>
+                {erro}
+              </p>
+            )}
 
             <div className={styles.grupoBotoes}>
               <Link
