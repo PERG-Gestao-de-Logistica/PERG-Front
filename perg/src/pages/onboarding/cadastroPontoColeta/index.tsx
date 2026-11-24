@@ -32,8 +32,6 @@ export default function CadastroPontoColeta() {
   const [bairro, setBairro] = useState("");
   const [cidade, setCidade] = useState("");
   const [uf, setUf] = useState("");
-  const [abreSabado, setAbreSabado] = useState(false);
-  const [abreDomingo, setAbreDomingo] = useState(false);
   const [erro, setErro] = useState("");
   const [enviando, setEnviando] = useState(false);
 
@@ -65,7 +63,7 @@ export default function CadastroPontoColeta() {
     try {
       const cadastro = montarCadastro({
         cep, logradouro: endereco, numero, complemento, bairro, cidade, uf,
-        abre: abreAs, fecha: fechaAs, abreSabado, abreDomingo,
+        abre: abreAs, fecha: fechaAs,
       });
       await autenticacaoService.cadastrarEmpresa(cadastro);
       await entrar(cadastro.responsavel.email, cadastro.responsavel.senha);
@@ -307,17 +305,6 @@ export default function CadastroPontoColeta() {
                   />
                 </div>
               </div>
-            </div>
-
-            <div style={{ display: "flex", gap: 24, fontSize: 14 }}>
-              <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
-                <input type="checkbox" checked={abreSabado} onChange={(e) => setAbreSabado(e.target.checked)} />
-                Abre aos sábados
-              </label>
-              <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
-                <input type="checkbox" checked={abreDomingo} onChange={(e) => setAbreDomingo(e.target.checked)} />
-                Abre aos domingos
-              </label>
             </div>
 
             {erro && (

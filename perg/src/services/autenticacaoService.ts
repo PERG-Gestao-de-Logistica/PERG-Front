@@ -10,6 +10,12 @@ export const autenticacaoService = {
   trocarSenha: (senhaAtual: string, novaSenha: string) =>
     api.put<{ mensagem: string }>("/api/Usuarios/eu/senha", { senhaAtual, novaSenha }),
 
+  // idToken = "credential" devolvido pelo botão do Google. Só entra quem já tem conta.
+  loginGoogle: (idToken: string) =>
+    api.post<RespostaLogin>("/api/Usuarios/login-google", { idToken }),
+
+  configGoogle: () => api.get<{ clientId: string }>("/api/Usuarios/login-google/config"),
+
   // Manda um código de 6 dígitos para o e-mail (vale 15 minutos)
   esqueciSenha: (email: string) =>
     api.post<{ mensagem: string }>("/api/Usuarios/esqueci-senha", { email }),

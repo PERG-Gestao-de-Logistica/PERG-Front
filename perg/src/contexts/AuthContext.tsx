@@ -9,6 +9,7 @@ interface AuthContextData {
   carregando: boolean;
   logado: boolean;
   entrar: (email: string, senha: string) => Promise<UsuarioLogado>;
+  entrarComGoogle: (idToken: string) => Promise<UsuarioLogado>;
   sair: () => void;
   atualizarUsuario: () => Promise<void>;
 }
@@ -45,17 +46,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => definirAoExpirar(null);
   }, [sair]);
 
-  const entrar = async (email: string, senha: string) => {
-    const resposta = await autenticacaoService.login(email, senha);
-    token.salvar(resposta.token);
+  const concluirLogin = async (novoToken: string) => {
+    token.salvar(novoToken);
     const eu = await autenticacaoService.eu();
     setUsuario(eu);
     return eu;
   };
 
+  const entrar = async (email: string, senha: string) =>
+    concluirLogin((await autenticacaoService.login(email, senha)).token);
+
+  const entrarComGoogle = async (idToken: string) =>
+    concluirLogin((await autenticacaoService.loginGoogle(idToken)).token);
+
   return (
     <AuthContext.Provider
-      value={{ usuario, carregando, logado: !!usuario, entrar, sair, atualizarUsuario }}
+      value={{ usuario, carregando, logado: !!usuario, entrar, entrarComGoogle, sair, atualizarUsuario }}
     >
       {children}
     </AuthContext.Provider>

@@ -5,6 +5,7 @@ import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
+import BotaoGoogleLogin from "@/components/botaoGoogleLogin";
 
 const opcoesAcesso = [
   { nome: "Entrar", rota: "/login" },
@@ -15,12 +16,25 @@ export default function Login() {
   const router = useRouter();
   const rotaAtual = router.pathname || "/login";
   const [mostrarSenha, setMostrarSenha] = useState(false);
-  const { entrar } = useAuth();
+  const { entrar, entrarComGoogle } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
   const [enviando, setEnviando] = useState(false);
   const senhaRedefinida = router.query.senhaRedefinida === "1";
+
+  async function entrarGoogle(idToken: string) {
+    setErro("");
+    setEnviando(true);
+    try {
+      await entrarComGoogle(idToken);
+      router.push("/painelEmpresa/visaoGeral");
+    } catch (e) {
+      setErro((e as Error).message);
+    } finally {
+      setEnviando(false);
+    }
+  }
 
   async function enviar(evento: React.FormEvent) {
     evento.preventDefault();
@@ -88,10 +102,12 @@ export default function Login() {
           </nav>
 
           <div className={styles.autenticacao}>
-            <button type="button" className={styles.botaoGoogle}>
-              <FcGoogle className={styles.iconeGoogle} />
-              <span>Entrar com Google</span>
-            </button>
+            <BotaoGoogleLogin aoReceberToken={entrarGoogle} aoFalhar={setErro}>
+              <button type="button" className={styles.botaoGoogle} tabIndex={-1}>
+                <FcGoogle className={styles.iconeGoogle} />
+                <span>Entrar com Google</span>
+              </button>
+            </BotaoGoogleLogin>
           </div>
 
           <div className={styles.divisor} role="separator">

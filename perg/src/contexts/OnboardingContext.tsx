@@ -22,8 +22,6 @@ export interface PontoColeta {
   uf: string;
   abre: string;
   fecha: string;
-  abreSabado: boolean;
-  abreDomingo: boolean;
 }
 
 interface OnboardingContextData {
@@ -96,6 +94,9 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
         complemento: ponto.complemento || undefined,
         abre: comSegundos(ponto.abre),
         fecha: comSegundos(ponto.fecha),
+        // A tela não pergunta: a loja ajusta depois em Configurações > Origens
+        abreSabado: false,
+        abreDomingo: false,
       },
     };
   };

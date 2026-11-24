@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./cadastroConta.module.css";
-import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -124,17 +123,6 @@ export default function CadastroConta() {
                 </div>
               );
             })}
-          </div>
-
-          <div className={styles.autenticacao}>
-            <button type="button" className={styles.botaoGoogle}>
-              <FcGoogle className={styles.iconeGoogle} />
-              <span>Cadastrar com Google</span>
-            </button>
-          </div>
-
-          <div className={styles.divisor} role="separator">
-            <span className={styles.divisorTexto}>ou com e-mail</span>
           </div>
 
           <form className={styles.formulario} onSubmit={continuar}>

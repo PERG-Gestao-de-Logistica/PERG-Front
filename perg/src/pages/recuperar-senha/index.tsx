@@ -9,7 +9,7 @@ import { autenticacaoService } from "@/services/autenticacaoService";
 function mascararEmail(email: string) {
   const [nome, dominio] = email.split("@");
   if (!dominio) return email;
-  return `${nome.slice(0, 2)}${"*".repeat(Math.max(nome.length - 2, 3))}@${dominio}`;
+  return `${nome.slice(0, 2)}*****@${dominio}`;
 }
 
 // Etapa 1: e-mail → código por e-mail. Etapa 2: código + nova senha.
