@@ -2,22 +2,24 @@
 import HeaderRastreio from "@/components/headerRastreio";
 import Footer from "@/components/footer";
 import { useRouter } from "next/router";
+import styles from "./entregue.module.css";
 
 export default function Entregue() {
   const router = useRouter();
 
   return (
-    <main className="entregue-container">
+    <div className={styles.page}>
+    <main className={styles.entregueContainer}>
       <HeaderRastreio />
 
-      <section className="entregue-conteudo">
+      <section className={styles.entregueConteudo}>
 
         {/* Confirmação */}
-        <div className="entregue-confirmacao">
+        <div className={styles.entregueConfirmacao}>
           <img
-            src="/check-icon.png"
+            src="/assets/images/check-icon.png"
             alt="Pedido entregue"
-            className="check-imagem"
+            className={styles.checkImagem}
           />
 
           <h1>Pedido Entregue!</h1>
@@ -26,38 +28,38 @@ export default function Entregue() {
         </div>
 
         {/* Card do pedido */}
-        <div className="pedido-entregue-card">
+        <div className={styles.pedidoEntregueCard}>
 
-          <div className="pedido-card-icone">
+          <div className={styles.pedidoCardIcone}>
             <img
-              src="/pedido-icone.png"
+              src="/assets/images/pedido-icone.png"
               alt="Ícone do pedido"
-              className="pedido-imagem"
+              className={styles.pedidoImagem}
             />
           </div>
 
-          <div className="pedido-card-informacoes">
+          <div className={styles.pedidoCardInformacoes}>
             <h2>Pedido #7F6V-283C</h2>
 
             <p>Entregue em 16:45</p>
 
             <button
-              className="botao-detalhes-pedido"
+              className={styles.botaoDetalhesPedido}
               onClick={() => router.push("/acompanhamento")}
             >
               Ver detalhes do pedido
-              <span className="botao-seta">➜</span>
+              <span className={styles.botaoSeta}>➜</span>
             </button>
           </div>
 
         </div>
 
         {/* Agradecimento */}
-        <div className="entregue-agradecimento">
+        <div className={styles.entregueAgradecimento}>
 
-          <div className="agradecimento-icone">
+          <div className={styles.agradecimentoIcone}>
             <img 
-            src="/mao-icone.png"
+            src="/assets/images/mao-icone.png"
              alt=""
               />
           </div>
@@ -76,5 +78,6 @@ export default function Entregue() {
 
       <Footer />
     </main>
+    </div>
   );
 }

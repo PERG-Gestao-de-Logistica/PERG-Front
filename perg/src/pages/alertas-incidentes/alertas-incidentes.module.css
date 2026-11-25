@@ -29,14 +29,9 @@
 }
 
 .texto-espera{
-  height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: var(--branco);
 }
-
 .alertas-incidentes-painel {
   flex: 1;
   min-height: 0;

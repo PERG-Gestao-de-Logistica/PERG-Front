@@ -26,7 +26,7 @@ const CONFIG_PAGINAS: Record<string, { titulo: string; subtitulo: string }> = {
     titulo: "Entregadores",
     subtitulo: "quinta, 08 de out - Aurora Store",
   },
-  "/painelEmpresa/configuracoes": {
+  "/painelEmpresa/configuracao/perfil": {
     titulo: "Configurações",
     subtitulo: "quinta, 08 de out - Aurora Store",
   },

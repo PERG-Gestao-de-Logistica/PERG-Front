@@ -1,0 +1,246 @@
+
+.page .entregueContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-fundo-claro);
+}
+
+.page .entregueConteudo {
+  width: 100%;
+  min-height: 750px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 20px;
+  background-color: var(--cor-fundo-claro);
+  background-image: url("/assets/images/fundo-motos.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+/* CONFIRMAÇÃO */
+
+.page .entregueConfirmacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.page .checkImagem {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.page .entregueConfirmacao h1 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-principal);
+  font-weight: 700;
+  color: var(--cor-primaria-verde-escuro);
+  margin: 0;
+}
+
+.page .entregueConfirmacao p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+/* CARD DO PEDIDO */
+
+.page .pedidoEntregueCard {
+  width: 100%;
+  max-width: 550px;
+  min-height: 155px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding: 25px 40px;
+  margin-top: 45px;
+  background-color: var(--cor-primaria-verde-escuro);
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+}
+
+.page .pedidoCardIcone {
+  width: 85px;
+  height: 85px;
+  min-width: 85px;
+  border-radius: 50%;
+  background-color: var(--cor-verde-destaque);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page .pedidoImagem {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.page .pedidoCardInformacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.page .pedidoCardInformacoes h2 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-card);
+  font-weight: 600;
+  color: var(--cor-texto-branco);
+  margin: 0;
+}
+
+.page .pedidoCardInformacoes p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+/* BOTÃO */
+
+.page .botaoDetalhesPedido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 10px;
+  margin-top: 8px;
+  border: var(--largura-borda) solid var(--cor-verde-destaque);
+  border-radius: 7px;
+  background-color: transparent;
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.page .botaoDetalhesPedido:hover {
+  background-color: var(--cor-secundaria-verde);
+}
+
+.page .botaoSeta {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--tamanho-texto-auxiliar);
+}
+
+/* AGRADECIMENTO */
+
+.page .entregueAgradecimento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 55px;
+  gap: 12px;
+}
+
+.page .agradecimentoIcone {
+  margin-bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.page .entregueAgradecimento h2 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-card);
+  font-weight: 700;
+  color: var(--cor-primaria-verde-escuro);
+  margin: 0;
+}
+
+.page .entregueAgradecimento p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+  .page .entregueConteudo {
+    min-height: 650px;
+    padding: 45px 18px;
+  }
+
+  .page .checkImagem {
+    width: 80px;
+    height: 80px;
+  }
+
+  .page .entregueConfirmacao h1 {
+    font-size: var(--tamanho-titulo-principal);
+  }
+
+  .page .entregueConfirmacao p {
+    font-size: var(--tamanho-texto);
+  }
+
+  .page .pedidoEntregueCard {
+    max-width: 100%;
+    min-height: 130px;
+    gap: 18px;
+    padding: 20px;
+    margin-top: 35px;
+  }
+
+  .page .pedidoCardIcone {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+  }
+
+  .page .pedidoImagem {
+    width: 38px;
+    height: 38px;
+  }
+
+  .page .pedidoCardInformacoes h2 {
+    font-size: var(--tamanho-texto);
+  }
+
+  .page .pedidoCardInformacoes p {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .page .botaoDetalhesPedido {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .page .entregueAgradecimento {
+    margin-top: 40px;
+  }
+}

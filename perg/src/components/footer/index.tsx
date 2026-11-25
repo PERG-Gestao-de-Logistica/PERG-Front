@@ -1,23 +1,25 @@
+import styles from "./footer.module.css";
+
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-logo">
+    <footer className={styles.footer}>
+      <div className={styles.logoContainer}>
         <img
-          src="/c5Verde.png"
+          src="/assets/logos/c5Verde.png"
           alt="Logo C5 Solutions"
-          className="logo"
+          className={styles.logo}
         />
       </div>
 
-      <div className="footer-informacoes">
-        <p className="texto-apagado">
+      <div className={styles.information}>
+        <p className={styles.mutedText}>
           Tecnologia para conectar toda a
           <br />
           operação de entrega.
         </p>
       </div>
 
-      <nav className="opcoes-footer">
+      <nav className={styles.links}>
         <a href="#produto">Produto</a>
         <a href="#solucoes">Soluções</a>
         <a href="#empresa">Empresa</a>

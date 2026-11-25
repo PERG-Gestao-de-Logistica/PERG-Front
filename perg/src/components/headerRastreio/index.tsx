@@ -1,16 +1,16 @@
-import Button from "@/components/botao";
+import styles from "./headerRastreio.module.css";
 
 export default function HeaderRastreio() {
   return (
-    <header className="header-rastreio">
-      <div className="header-rastreio-container">
+    <header className={styles.header}>
+      <div className={styles.container}>
         <img
-          src="/logoCinza.png"
+          src="/assets/logos/logoCinza.png"
           alt="Logo PERG Cinza"
-          className="logo-header-rastreio"
+          className={styles.logo}
         />
 
-        <p className="texto-header-rastreio">
+        <p className={styles.title}>
           Acompanhe sua entrega
         </p>
 

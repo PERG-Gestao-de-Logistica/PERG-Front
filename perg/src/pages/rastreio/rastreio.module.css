@@ -1,41 +1,41 @@
 
-.rastreio-primeiro-container {
+.page .rastreioPrimeiroContainer {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--fundo-claro);
+  background-color: var(--cor-fundo-claro);
   box-sizing: border-box;
 }
 
-.rastreio-secundo-container {
+.page .rastreioSecundoContainer {
   width: 100%;
   min-height: 30vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--verde-escuro);
-  padding: 40px;
+  background-color: var(--cor-primaria-verde-escuro);
+  padding: var(--espacamento-xxl);
   box-sizing: border-box;
 }
 
-.titulo-principal {
-  font-size: 104px;
+.page .rastreioPrimeiroContainer .tituloPrincipal {
+  font-size: var(--tamanho-titulo-destaque);
   font-weight: 500;
-  font-family: var(--font-titulo);
-  color: var(--verde-escuro);
+  font-family: var(--fonte-titulo);
+  color: var(--cor-primaria-verde-escuro);
   margin: 20px 0;
   line-height: 1.1;
 }
 
-.titulo-principal-destaque {
-  color: var(--verde-escuro);
+.page .tituloPrincipalDestaque {
+  color: var(--cor-primaria-verde-escuro);
 }
 
-.parte-toda-rastreio {
+.page .parteTodaRastreio {
   width: 100%;
   flex: 1;
-  padding: 40px;
+  padding: var(--espacamento-xxl);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -44,7 +44,7 @@
   gap: 30px;
 }
 
-.parte-esquerda-rastreio {
+.page .parteEsquerdaRastreio {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@
   box-sizing: border-box;
 }
 
-.parte-direita-rastreio {
+.page .parteDireitaRastreio {
   width: 50%;
   display: flex;
   align-items: center;
@@ -61,26 +61,26 @@
   box-sizing: border-box;
 }
 
-.subtitulo-rastreio {
-  font-size: 34px;
+.page .subtituloRastreio {
+  font-size: var(--tamanho-subtitulo);
   font-weight: 500;
-  font-family: var(--font-texto);
-  color: var(--verde-escuro);
+  font-family: var(--fonte-texto);
+  color: var(--cor-primaria-verde-escuro);
   text-align: center;
 }
 
-.descricao-rastreio {
+.page .descricaoRastreio {
   width: 85%;
-  font-size: 28px;
+  font-size: var(--tamanho-texto);
   font-weight: 300;
-  font-family: var(--font-texto);
-  color: var(--verde-escuro);
+  font-family: var(--fonte-texto);
+  color: var(--cor-primaria-verde-escuro);
   text-align: left;
   margin-top: 30px;
   line-height: 1.4;
 }
 
-.area-codigo-rastreio {
+.page .areaCodigoRastreio {
   width: 85%;
   max-width: 500px;
   min-height: 60px;
@@ -91,38 +91,38 @@
   margin-top: 35px;
   padding: 0 15px;
   border-radius: 10px;
-  border: 2px solid var(--verde-escuro);
+  border: 2px solid var(--cor-primaria-verde-escuro);
   box-sizing: border-box;
   box-shadow: 0 0 18px 5px rgba(0, 16, 17, 0.15);
 }
 
-.input-rastreio {
+.page .inputRastreio {
   width: 100%;
   height: 50px;
   padding: 0 20px;
-  background-color: var(--fundo-claro);
+  background-color: var(--cor-fundo-claro);
   border: none;
-  font-family: var(--font-texto);
-  font-size: 16px;
-  color: var(--verde-escuro);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+  color: var(--cor-primaria-verde-escuro);
   outline: none;
   box-sizing: border-box;
 }
 
-.input-rastreio::placeholder {
-  color: var(--verde-escuro);
-  font-size: 18px;
+.page .inputRastreio::placeholder {
+  color: var(--cor-primaria-verde-escuro);
+  font-size: var(--tamanho-texto);
   font-weight: 300;
 }
 
-.icone-rastreio {
+.page .iconeRastreio {
   width: 25px;
   height: 25px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-.botao-rastreio {
+.page .botaoRastreio {
   border: none;
   background: transparent;
   padding: 5px;
@@ -133,27 +133,27 @@
   cursor: pointer;
 }
 
-.setinha-icone {
+.page .setinhaIcone {
   width: 25px;
   height: 25px;
   object-fit: contain;
 }
 
-.imagem-cliente-rastreio {
+.page .imagemClienteRastreio {
   width: 85%;
   max-width: 600px;
   height: auto;
   object-fit: contain;
 }
 
-.mensagem-imagem-icone {
+.page .mensagemImagemIcone {
   width: 145px;
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-.mensagem-rastreio-conteudo {
+.page .mensagemRastreioConteudo {
   width: 85%;
   min-height: 25vh;
   display: flex;
@@ -163,25 +163,25 @@
   margin: 0 auto;
 }
 
-.mensagem-rastreio-texto {
+.page .mensagemRastreioTexto {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.mensagem-rastreio-texto h2 {
-  font-family: var(--font-titulo);
-  font-size: 44px;
+.page .mensagemRastreioTexto h2 {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
   font-weight: 600;
-  color: var(--fundo-claro);
+  color: var(--cor-fundo-claro);
   margin: 0 0 5px 0;
 }
 
-.mensagem-rastreio-texto p {
-  font-family: var(--font-texto);
-  font-size: 24px;
+.page .mensagemRastreioTexto p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
   font-weight: 300;
-  color: var(--fundo-claro);
+  color: var(--cor-fundo-claro);
   margin: 0;
   line-height: 1.4;
 }
@@ -189,104 +189,81 @@
 /* TABLETS */
 
 @media (max-width: 1024px) {
-  .titulo-principal {
-    font-size: 72px;
-  }
-
-  .subtitulo-rastreio {
-    font-size: 26px;
-  }
-
-  .descricao-rastreio {
-    font-size: 21px;
-  }
-
-  .mensagem-rastreio-texto h2 {
-    font-size: 34px;
-  }
-
-  .mensagem-rastreio-texto p {
-    font-size: 20px;
-  }
 }
 
 /* CELULARES */
 
 @media (max-width: 768px) {
-  .parte-toda-rastreio {
+  .page .parteTodaRastreio {
     flex-direction: column;
     padding: 30px 20px;
     gap: 30px;
   }
 
-  .parte-esquerda-rastreio,
-  .parte-direita-rastreio {
+  .page .parteEsquerdaRastreio,
+.page .parteDireitaRastreio {
     width: 100%;
   }
 
-  .titulo-principal {
-    font-size: 52px;
+  .page .rastreioPrimeiroContainer .tituloPrincipal {
     text-align: center;
   }
 
-  .subtitulo-rastreio {
-    font-size: 22px;
+  .page .subtituloRastreio {
     text-align: center;
   }
 
-  .descricao-rastreio {
+  .page .descricaoRastreio {
     width: 100%;
-    font-size: 18px;
     text-align: center;
     margin-top: 20px;
   }
 
-  .descricao-rastreio br {
+  .page .descricaoRastreio br {
     display: none;
   }
 
-  .area-codigo-rastreio {
+  .page .areaCodigoRastreio {
     width: 100%;
     margin-top: 25px;
   }
 
-  .input-rastreio {
+  .page .inputRastreio {
     padding: 0 10px;
-    font-size: 14px;
   }
 
-  .input-rastreio::placeholder {
-    font-size: 14px;
+  .page .inputRastreio::placeholder {
+    font-size: var(--tamanho-texto);
   }
 
-  .imagem-cliente-rastreio {
+  .page .imagemClienteRastreio {
     width: 100%;
     max-width: 450px;
   }
 
-  .rastreio-secundo-container {
+  .page .rastreioSecundoContainer {
     padding: 30px 20px;
   }
 
-  .mensagem-rastreio-conteudo {
+  .page .mensagemRastreioConteudo {
     width: 100%;
     min-height: auto;
     gap: 15px;
   }
 
-  .mensagem-imagem-icone {
+  .page .mensagemImagemIcone {
     width: 75px;
   }
 
-  .mensagem-rastreio-texto h2 {
-    font-size: 25px;
+  .page .mensagemRastreioTexto h2 {
+    font-size: var(--tamanho-titulo-secao);
   }
 
-  .mensagem-rastreio-texto p {
-    font-size: 16px;
+  .page .mensagemRastreioTexto p {
+    font-size: var(--tamanho-texto);
   }
 
-  .mensagem-rastreio-texto br {
+  .page .mensagemRastreioTexto br {
     display: none;
   }
 }
@@ -294,24 +271,16 @@
 /* CELULARES PEQUENOS */
 
 @media (max-width: 480px) {
-  .titulo-principal {
-    font-size: 42px;
-  }
-
-  .subtitulo-rastreio {
-    font-size: 18px;
-  }
-
-  .mensagem-rastreio-conteudo {
+  .page .mensagemRastreioConteudo {
     flex-direction: column;
     text-align: center;
   }
 
-  .mensagem-imagem-icone {
+  .page .mensagemImagemIcone {
     width: 65px;
   }
 
-  .mensagem-rastreio-texto h2 {
-    font-size: 23px;
+  .page .mensagemRastreioTexto h2 {
+    font-size: var(--tamanho-titulo-secao);
   }
 }

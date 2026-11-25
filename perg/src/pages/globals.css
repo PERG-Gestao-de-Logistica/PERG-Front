@@ -89,7 +89,7 @@ body {
 
   --tamanho-subtitulo: clamp(1em, 1rem + 0.8vw, 1.5rem);
 
-  --tamanho-titulo-secao: clamp(1.125rem, 1rem + 0.5vw, 1.2rem);
+  --tamanho-titulo-secao: clamp(1.125rem, 1rem, 1.2rem);
 
   --tamanho-titulo-card: clamp(0.875rem, 0.82rem + 0.15vw, 1.125rem);
 

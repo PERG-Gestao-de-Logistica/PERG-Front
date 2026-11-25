@@ -2,6 +2,7 @@
 import { useRouter } from "next/router";
 import HeaderRastreio from "@/components/headerRastreio";
 import Footer from "@/components/footer";
+import styles from "./acompanhamento.module.css";
 
 // ======================================
 // CAMINHOS DAS IMAGENS
@@ -9,20 +10,20 @@ import Footer from "@/components/footer";
 // ======================================
 
 const ICONES = {
-  pedidoRecebido: "/sacola-icone.png",
-  emRota: "/caminhao-icone.png",
-  emEntrega: "/caminhao-rapido-icone.png",
-  entregue: "/entregue-icone.png",
+  pedidoRecebido: "/assets/images/sacola-icone.png",
+  emRota: "/assets/images/caminhao-icone.png",
+  emEntrega: "/assets/images/caminhao-rapido-icone.png",
+  entregue: "/assets/images/entregue-icone.png",
 
-  entregador: "/entregador.png",
-  veiculo: "/veiculo-icone.png",
-  telefone: "/telefone-icone.png",
-  endereco: "/endereco-icone.png",
-  informacao: "/informacao-icone.png",
+  entregador: "/assets/images/entregador.png",
+  veiculo: "/assets/images/veiculo-icone.png",
+  telefone: "/assets/images/telefone-icone.png",
+  endereco: "/assets/images/endereco-icone.png",
+  informacao: "/assets/images/Informacao-icone.png",
 
-  pedido: "/pedido-icone.png",
-  entrega: "/entrega-icone.png",
-  loja: "/pedido-icone.png",
+  pedido: "/assets/images/pedido-icone.png",
+  entrega: "/assets/images/entrega-icone.png",
+  loja: "/assets/images/pedido-icone.png",
 };
 
 // ======================================
@@ -64,23 +65,24 @@ export default function Acompanhamento() {
   const router = useRouter();
 
   return (
-    <main className="acompanhamento-container">
+    <div className={styles.page}>
+    <main className={styles.acompanhamentoContainer}>
 
       <HeaderRastreio />
 
-      <section className="acompanhamento-conteudo">
+      <section className={styles.acompanhamentoConteudo}>
 
         {/* VOLTAR */}
         <button
           type="button"
-          className="botao-voltar"
+          className={styles.botaoVoltar}
           onClick={() => router.push("/rastreio")}
         >
           ← Voltar
         </button>
 
         {/* INFORMAÇÕES DO PEDIDO */}
-        <div className="pedido-informacoes">
+        <div className={styles.pedidoInformacoes}>
 
           <h1>
             Pedido <span>#7F6V-283C</span>
@@ -93,9 +95,9 @@ export default function Acompanhamento() {
         </div>
 
         {/* LINHA DO TEMPO */}
-        <div className="linha-tempo-rastreio">
+        <div className={styles.linhaTempoRastreio}>
 
-          <div className="linha-tempo-conector"></div>
+          <div className={styles.linhaTempoConector}></div>
 
           {etapas.map((etapa) => (
             <div
@@ -103,14 +105,14 @@ export default function Acompanhamento() {
               className={`etapa-rastreio ${etapa.status}`}
             >
 
-              <div className="etapa-icone">
+              <div className={styles.etapaIcone}>
                 <img
                   src={etapa.icone}
                   alt=""
                 />
               </div>
 
-              <div className="etapa-informacoes">
+              <div className={styles.etapaInformacoes}>
                 <h3>{etapa.titulo}</h3>
                 <p>{etapa.horario}</p>
               </div>
@@ -121,32 +123,32 @@ export default function Acompanhamento() {
         </div>
 
         {/* MAPA E DETALHES */}
-        <div className="acompanhamento-detalhes">
+        <div className={styles.acompanhamentoDetalhes}>
 
           {/* MAPA */}
-          <div className="mapa-entrega">
+          <div className={styles.mapaEntrega}>
 
-            <div className="mapa-marcador">
+            <div className={styles.mapaMarcador}>
               <img
                 src={ICONES.endereco}
                 alt="Localização da entrega"
               />
             </div>
 
-            <div className="mapa-legenda">
+            <div className={styles.mapaLegenda}>
               Local de entrega
             </div>
 
           </div>
 
           {/* DETALHES DA ENTREGA */}
-          <div className="detalhes-entrega">
+          <div className={styles.detalhesEntrega}>
 
             <h2>Detalhes da entrega</h2>
 
-            <div className="detalhe-item">
+            <div className={styles.detalheItem}>
 
-              <div className="detalhe-icone">
+              <div className={styles.detalheIcone}>
                 <img src={ICONES.entregador} alt="" />
               </div>
 
@@ -158,9 +160,9 @@ export default function Acompanhamento() {
 
             </div>
 
-            <div className="detalhe-item">
+            <div className={styles.detalheItem}>
 
-              <div className="detalhe-icone">
+              <div className={styles.detalheIcone}>
                 <img src={ICONES.veiculo} alt="" />
               </div>
 
@@ -171,9 +173,9 @@ export default function Acompanhamento() {
 
             </div>
 
-            <div className="detalhe-item">
+            <div className={styles.detalheItem}>
 
-              <div className="detalhe-icone">
+              <div className={styles.detalheIcone}>
                 <img src={ICONES.telefone} alt="" />
               </div>
 
@@ -184,9 +186,9 @@ export default function Acompanhamento() {
 
             </div>
 
-            <div className="detalhe-item">
+            <div className={styles.detalheItem}>
 
-              <div className="detalhe-icone">
+              <div className={styles.detalheIcone}>
                 <img src={ICONES.endereco} alt="" />
               </div>
 
@@ -202,12 +204,12 @@ export default function Acompanhamento() {
             </div>
 
             {/* AVISO */}
-            <div className="aviso-entrega">
+            <div className={styles.avisoEntrega}>
 
               <img
                 src={ICONES.informacao}
                 alt=""
-                className="icone-aviso"
+                className={styles.iconeAviso}
               />
 
               <p>
@@ -221,11 +223,11 @@ export default function Acompanhamento() {
         </div>
 
         {/* RESUMO INFERIOR */}
-        <div className="resumo-entrega">
+        <div className={styles.resumoEntrega}>
 
-          <div className="resumo-item">
+          <div className={styles.resumoItem}>
 
-            <div className="resumo-icone">
+            <div className={styles.resumoIcone}>
               <img src={ICONES.pedido} alt="" />
             </div>
 
@@ -237,9 +239,9 @@ export default function Acompanhamento() {
 
           </div>
 
-          <div className="resumo-item">
+          <div className={styles.resumoItem}>
 
-            <div className="resumo-icone">
+            <div className={styles.resumoIcone}>
               <img src={ICONES.entrega} alt="" />
             </div>
 
@@ -251,9 +253,9 @@ export default function Acompanhamento() {
 
           </div>
 
-          <div className="resumo-item">
+          <div className={styles.resumoItem}>
 
-            <div className="resumo-icone">
+            <div className={styles.resumoIcone}>
               <img src={ICONES.loja} alt="" />
             </div>
 
@@ -272,5 +274,6 @@ export default function Acompanhamento() {
       <Footer />
 
     </main>
+    </div>
   );
 }
