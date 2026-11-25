@@ -1,31 +1,64 @@
+export const STATUS_CONFIG = {
+  // * Status de rotas
+  emRota: {
+    label: "Em rota",
+    variant: "emRota",
+  },
 
-export const StatusPedido = {
-  NOVO: "novo",
-  ROTEIRIZADO: "roteirizado",
-  EM_ROTA: "em rota",
-  ENTREGUE: "entregue",
-  OCORRENCIA: "ocorrencia",
-} as const;
+  aguardando: {
+    label: "Aguardando",
+    variant: "aguardando",
+  },
 
-export const StatusEntregador = {
-  DISPONIVEL: "disponivel",
-  EM_ROTA: "em rota",
-  OFFLINE: "offline",
-  OUTRA_LOJA: "outra loja",
-} as const;
+  concluida: {
+    label: "Concluída",
+    variant: "concluida",
+  },
 
-export const StatusAlerta = {
-  CRITICO: "critico",
-  ALTO: "alto",
-  MEDIO: "medio",
-  BAIXO: "baixo",
-} as const;
+  // * Status de pedidos
+  novo: {
+    label: "Novo",
+    variant: "novo",
+  },
 
-export type StatusPedidoType =
-  typeof StatusPedido[keyof typeof StatusPedido];
+  roteirizado: {
+    label: "Roteirizado",
+    variant: "roteirizado",
+  },
 
-export type StatusEntregadorType =
-  typeof StatusEntregador[keyof typeof StatusEntregador];
+  entregue: {
+    label: "Entregue",
+    variant: "entregue",
+  },
 
-export type StatusAlertaType =
-  typeof StatusAlerta[keyof typeof StatusAlerta];
+  ocorrencia: {
+    label: "Ocorrência",
+    variant: "ocorrencia",
+  },
+
+  // * Status de entregadores
+  disponivel: {
+    label: "Disponível",
+    variant: "disponivel",
+  },
+
+  outraLoja: {
+    label: "Outra loja",
+    variant: "outraLoja",
+  },
+
+  offline: {
+    label: "Offline",
+    variant: "offline",
+  },
+
+   emRotaAzul: {
+    label: "Em rota",
+    variant: "emRotaAzul",
+  },
+};
+
+export const STATUS_DESCONHECIDO = {
+  label: "Não identificado",
+  variant: "desconhecido",
+};

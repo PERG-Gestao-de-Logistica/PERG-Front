@@ -8,6 +8,8 @@ import styles from "./visaoGeral.module.css";
 import { HiOutlineArchiveBox } from "react-icons/hi2";
 import { MdOutlineRoute, MdOutlineWatchLater } from "react-icons/md";
 import { LuMapPin } from "react-icons/lu";
+import CardRotasHoje from "@/components/componentesEmpresa/cardRotasHoje/cardRotasHoje";
+import CardOcorrencia from "@/components/componentesEmpresa/cardOcorrencia/cardOcorrência";
 
 export default function VisaoGeralEmpresa() {
   return (
@@ -28,7 +30,7 @@ export default function VisaoGeralEmpresa() {
             </li>
             <li>
               <TbCircleNumber3 className={styles.icone} />
-              Convitar o primeiro motorista
+              Convidar o primeiro motorista
             </li>
             <li>
               <TbCircleNumber4 className={styles.icone} />
@@ -50,7 +52,7 @@ export default function VisaoGeralEmpresa() {
           </header>
 
           <div className={styles.informacao}>
-            <data value="3.45">3,45%</data>
+            <data value="278">278</data>
           </div>
         </article>
 
@@ -60,8 +62,8 @@ export default function VisaoGeralEmpresa() {
             <h3>Rotas Ativas</h3>
           </header>
 
-          <div className={styles.informacao}>
-            <data value="6">9</data>
+          <div className={`${styles.informacao} ${styles.informacaoRotas}`}>
+            <data value="9">9</data>
             <p>6 em andamento</p>
           </div>
         </article>
@@ -88,34 +90,8 @@ export default function VisaoGeralEmpresa() {
           </div>
         </article>
       </section>
-      <article className={styles.rotasHoje}>
-        <header>
-          <h2 className={styles.subtitulo}>Rotas Hoje</h2>
-          <a className={styles.monitoramento} href="">
-            Ver monitoramento
-          </a>
-        </header>
-        <section>
-          <ul>
-            <li>aaaaaaaaaaaaaaaaaaaaaaaaa</li>
-            <li>aaaaaaaaaaaaaaaaaaaaaaaaa</li>
-          </ul>
-        </section>
-      </article>
-      <article className={styles.ocorrencias}>
-        <header>
-          <h2 className={styles.subtitulo}>Ocorrências</h2>
-        </header>
-        <img
-          src="/assets/images/entregadorCaixas.png"
-          className={styles.imagemEntregador}
-          alt=""
-        />
-        <div className={styles.tituloTexto}>
-          <h3>Nenhuma ocorrência hoje</h3>
-          <p>Quando um motorista um problema ele aparece aqui</p>
-        </div>
-      </article>
+      <CardRotasHoje />
+      <CardOcorrencia />
     </main>
   );
 }

@@ -36,7 +36,7 @@ const itensMenu = [
   },
   {
     nome: "Configurações",
-    rota: "/painelEmpresa/configuracao/perfi",
+    rota: "/painelEmpresa/configuracao/perfil",
     icone: IoSettingsOutline,
   },
 ];
