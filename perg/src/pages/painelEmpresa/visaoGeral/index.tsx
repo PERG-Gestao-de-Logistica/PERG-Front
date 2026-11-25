@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import {
+  TbCircleCheck,
   TbCircleNumber1,
   TbCircleNumber2,
   TbCircleNumber3,
@@ -10,32 +12,70 @@ import { MdOutlineRoute, MdOutlineWatchLater } from "react-icons/md";
 import { LuMapPin } from "react-icons/lu";
 import CardRotasHoje from "@/components/componentesEmpresa/cardRotasHoje/cardRotasHoje";
 import CardOcorrencia from "@/components/componentesEmpresa/cardOcorrencia/cardOcorrência";
+import { painelService } from "@/services/painelService";
+import type { ResumoPainel } from "@/@types/painel";
+
+const ATUALIZAR_A_CADA_MS = 60_000;
+
+const numero = (valor: number) => valor.toLocaleString("pt-BR");
 
 export default function VisaoGeralEmpresa() {
+  const [resumo, setResumo] = useState<ResumoPainel | null>(null);
+  const [erro, setErro] = useState("");
+
+  // Busca ao abrir e atualiza a cada minuto
+  useEffect(() => {
+    let ativo = true;
+    const buscar = () =>
+      painelService
+        .resumo()
+        .then((r) => {
+          if (!ativo) return;
+          setResumo(r);
+          setErro("");
+        })
+        .catch((e) => ativo && setErro((e as Error).message));
+    buscar();
+    const intervalo = setInterval(buscar, ATUALIZAR_A_CADA_MS);
+    return () => {
+      ativo = false;
+      clearInterval(intervalo);
+    };
+  }, []);
+
+  const passos = resumo
+    ? [
+        { feito: resumo.primeirosPassos.contaCriada, texto: "Criar conta", Icone: TbCircleNumber1 },
+        { feito: resumo.primeirosPassos.pontoColetaCadastrado, texto: "Cadastrar ponto de coleta", Icone: TbCircleNumber2 },
+        { feito: resumo.primeirosPassos.entregadorFavorito, texto: "Convidar o primeiro motorista", Icone: TbCircleNumber3 },
+        { feito: resumo.primeirosPassos.pedidoCriado, texto: "Importar pedidos", Icone: TbCircleNumber4 },
+      ]
+    : [];
+  const feitos = passos.filter((p) => p.feito).length;
+  const mostrarPrimeirosPassos = resumo !== null && feitos < passos.length;
+  const valor = (n: number | undefined) => (resumo ? numero(n ?? 0) : "--");
+
   return (
     <main className={styles.container}>
+      {erro && (
+        <p role="alert" style={{ color: "var(--cor-perigo)", margin: 0 }}>
+          Não foi possível carregar a visão geral: {erro}
+        </p>
+      )}
+      {mostrarPrimeirosPassos && (
       <article className={styles.primeirosPassos}>
         <div className={styles.conteudo}>
-          <h3 className={styles.titulo}>Primeiros Passos 2 - 4</h3>
+          <h3 className={styles.titulo}>Primeiros Passos {feitos} - {passos.length}</h3>
           <h2 className={styles.subtitulo}>
             Falta pouco para a sua primeira rota
           </h2>
           <ul className={styles.lista}>
-            <li>
-              <TbCircleNumber1 className={styles.icone} /> Criar conta
-            </li>
-            <li>
-              <TbCircleNumber2 className={styles.icone} />
-              Cadastrar ponto de coleta
-            </li>
-            <li>
-              <TbCircleNumber3 className={styles.icone} />
-              Convidar o primeiro motorista
-            </li>
-            <li>
-              <TbCircleNumber4 className={styles.icone} />
-              Importar pedidos
-            </li>
+            {passos.map(({ feito, texto, Icone }) => (
+              <li key={texto} style={feito ? { opacity: 0.6, textDecoration: "line-through" } : undefined}>
+                {feito ? <TbCircleCheck className={styles.icone} /> : <Icone className={styles.icone} />}
+                {texto}
+              </li>
+            ))}
           </ul>
         </div>
         <img
@@ -44,6 +84,7 @@ export default function VisaoGeralEmpresa() {
           className={styles.imagem}
         />
       </article>
+      )}
       <section className={styles.kpis} aria-label="Indicadores de desempenho">
         <article className={styles.bloco}>
           <header className={styles.cabecalhoKpi}>
@@ -52,7 +93,7 @@ export default function VisaoGeralEmpresa() {
           </header>
 
           <div className={styles.informacao}>
-            <data value="278">278</data>
+            <data value={resumo?.pedidosHoje ?? ""}>{valor(resumo?.pedidosHoje)}</data>
           </div>
         </article>
 
@@ -63,8 +104,8 @@ export default function VisaoGeralEmpresa() {
           </header>
 
           <div className={`${styles.informacao} ${styles.informacaoRotas}`}>
-            <data value="9">9</data>
-            <p>6 em andamento</p>
+            <data value={resumo?.rotasAtivas ?? ""}>{valor(resumo?.rotasAtivas)}</data>
+            <p>{resumo ? `${resumo.rotasEmAndamento} em andamento` : ""}</p>
           </div>
         </article>
 
@@ -75,7 +116,9 @@ export default function VisaoGeralEmpresa() {
           </header>
 
           <div className={styles.informacao}>
-            <data value="97.8">97,8%</data>
+            <data value={resumo?.noPrazoPercentual ?? ""}>
+              {resumo?.noPrazoPercentual != null ? `${numero(resumo.noPrazoPercentual)}%` : "--"}
+            </data>
           </div>
         </article>
 
@@ -86,12 +129,12 @@ export default function VisaoGeralEmpresa() {
           </header>
 
           <div className={styles.informacao}>
-            <data value="412">412</data>
+            <data value={resumo?.kmRodados ?? ""}>{valor(resumo?.kmRodados)}</data>
           </div>
         </article>
       </section>
-      <CardRotasHoje />
-      <CardOcorrencia />
+      <CardRotasHoje rotas={resumo?.rotasHoje ?? null} />
+      <CardOcorrencia ocorrencias={resumo?.ocorrenciasAbertas ?? null} />
     </main>
   );
 }

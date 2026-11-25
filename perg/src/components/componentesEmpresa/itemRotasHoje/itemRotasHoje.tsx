@@ -4,17 +4,26 @@ import { TbSteeringWheel } from "react-icons/tb";
 
 import Status from "../../status/status";
 import styles from "./itemRotasHoje.module.css";
+import type { RotaHoje, StatusRota, TipoVeiculo } from "@/@types/painel";
 
-const VEICULO_ICONS = {
-  moto: FaMotorcycle,
-  carro: FaCarSide,
-  van: FaTruck,
-  bicicleta: FaBicycle,
-  caminhao: FaTruck,
+const VEICULO_ICONS: Record<TipoVeiculo, typeof FaMotorcycle> = {
+  Moto: FaMotorcycle,
+  Carro: FaCarSide,
+  Van: FaTruck,
+  Bike: FaBicycle,
+  Caminhao: FaTruck,
 };
 
-export default function RotaItem({ rota }) {
-  const IconeVeiculo = VEICULO_ICONS[rota.veiculo] ?? TbSteeringWheel;
+// Status da API -> chaves do componente Status
+function statusVisual(status: StatusRota) {
+  if (status === "EmAndamento") return "emRota";
+  if (status === "Concluida") return "concluida";
+  return "aguardando";
+}
+
+export default function RotaItem({ rota }: { rota: RotaHoje }) {
+  const IconeVeiculo = VEICULO_ICONS[rota.tipoVeiculo] ?? TbSteeringWheel;
+  const paradas = `${rota.paradas} ${rota.paradas === 1 ? "parada" : "paradas"}`;
 
   return (
     <li className={styles.item}>
@@ -24,22 +33,22 @@ export default function RotaItem({ rota }) {
 
       <div className={styles.informacoes}>
         <h3>
-          {rota.codigo} - {rota.motorista}
+          {rota.codigo} - {rota.entregadorNome ?? "Sem entregador"}
         </h3>
 
         <p>
-          {rota.paradas} paradas · {rota.regiao}
+          {rota.regiao ? `${paradas} · ${rota.regiao}` : paradas}
         </p>
       </div>
 
       <progress
         className={styles.progresso}
-        value={rota.progresso ?? 0}
+        value={rota.progresso}
         max="100"
-        aria-label={`Progresso da rota ${rota.codigo}`}
+        aria-label={`Progresso da rota ${rota.codigo}: ${rota.progresso}%`}
       />
 
-      <Status status={rota.status} />
+      <Status status={statusVisual(rota.status)} />
     </li>
   );
 }
