@@ -47,7 +47,7 @@
 .verificacoDuasEtapas {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--espacamento-xs);
 }
 
 .dadosPessoais {
@@ -59,6 +59,12 @@
   gap: var(--espacamento-md);
   border-radius: var(--raio-padrao);
   box-shadow: var(--sombra-card);
+}
+
+.dadosPessoais h2,
+.seguranca h2,
+.notificacao  h2 {
+  font-size: var(--tamanho-titulo-secao);
 }
 
 .dadosPessoais header {
@@ -84,15 +90,15 @@
 :global(h3).iniciais {
   color: var(--cor-texto-principal);
   background-color: var(--cor-verde-destaque);
-  width: 48px;
-  height: 48px;
+  width: 6rem;
+  height: 6rem;
   border-radius: var(--raio-pequeno);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   font-family: var(--fonte-titulo);
-  font-size: var(--tamanho-titulo-secao);
+  font-size: var(--tamanho-subtitulo);
   font-weight: var(--peso-negrito);
 }
 
@@ -131,7 +137,7 @@
 }
 
 .rotulo {
-  font-size: var(--tamanho-texto);
+ font-size: calc(var(--tamanho-texto) - 0.15rem);
   font-weight: var(--peso-negrito);
   font-family: var(--fonte-titulo);
   color: var(--cor-primaria-verde-escuro);
@@ -147,7 +153,7 @@
   border: var(--largura-borda) solid transparent;
   border-radius: var(--raio-pequeno);
   font-family: var(--fonte-texto);
-  font-size: var(--tamanho-texto);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
   transition: var(--transicao-padrao);
 }
 
@@ -485,7 +491,6 @@
     gap: var(--espacamento-md);
   }
 
-  /* Ajuste no banner de 2FA para não espremer o texto */
   .bannerSeguranca {
     flex-wrap: wrap;
     gap: var(--espacamento-sm);
@@ -502,13 +507,11 @@
     margin-top: var(--espacamento-xs);
   }
 
-  /* Ajuste nos itens de notificação */
   .itemNotificacao {
     align-items: flex-start;
     gap: var(--espacamento-sm);
   }
 
-  /* Barra de ações inferior empilhada */
   .salvarAlteracao {
     flex-direction: column;
     align-items: stretch;
