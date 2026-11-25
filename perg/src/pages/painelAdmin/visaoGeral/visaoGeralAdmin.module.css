@@ -199,9 +199,19 @@
 /* LINHAS DAS EMPRESAS */
 /* ========================================== */
 
+
+.empresasLinhas{
+  max-height: calc(3 * 69px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  scrollbar-color: var(--cor-verde-destaque) var(--cor-primaria-secundaria);
+}
+
+
 .linha {
   min-height: 39px;
-  padding: 7px 0;
+  padding: 12px 0;
   border-bottom: 1px solid color-mix(
     in srgb,
     var(--cor-verde-destaque) 15%,
@@ -286,7 +296,6 @@
 .area_empresa {
   display: flex;
   flex-direction: column;
-  gap: var(--espacamento-md)
   min-width: 0;
 }
 

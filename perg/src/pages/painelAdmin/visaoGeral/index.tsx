@@ -29,6 +29,15 @@ export default function VisaoGeralAdmin() {
       saude: "Teste",
     },
 
+      {
+      iniciais: "FL",
+      nome: "Farmácia Lapa",
+      plano: "Pro",
+      motivo: "Pico de Importação",
+      indicador: "Risco de cancelar",
+      saude: "Teste",
+    },
+
   ];
 
   const servicos = [
@@ -71,6 +80,7 @@ export default function VisaoGeralAdmin() {
             <p>SAÚDE</p>
           </div>
 
+      <div className={styles.empresasLinhas}>
           {empresas.map((empresa, index) => (
             <div
               className={styles.linha}
@@ -112,6 +122,8 @@ export default function VisaoGeralAdmin() {
 
             </div>
           ))}
+
+          </div>
 
         </article>
 

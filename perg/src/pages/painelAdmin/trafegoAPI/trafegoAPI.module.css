@@ -13,6 +13,14 @@
   gap: var(--espacamento-md);
 }
 
+.conteudo{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: var(--espacamento-lg);
+}
+
+
 .indicador {
   display: flex;
   min-width: 0;
@@ -46,6 +54,8 @@
 
 .painelGraficos {
   display: flex;
+  width: 100%;
+  flex-direction: column;
   min-width: 0;
   min-height: 0;
   flex: 1;
@@ -54,24 +64,57 @@
   gap: var(--espacamento-md);
 }
 
+.linhaEndPoints{
+  background-color: var(--cor-primaria-secundaria);
+}
+
 .grafico {
-  width: 48%;
+  width: 100%;
+  height: 100%;
   min-width: 0;
-  padding: var(--espacamento-md);
+  height: 50vh;
+  padding: 20px;
   border: var(--largura-borda) solid var(--cor-primaria-secundaria);
   border-radius: var(--raio-padrao);
-  background-color: #082d30;
+  background-color: var(--cor-primaria-secundaria);
   box-shadow: var(--sombra-interna-destaque);
 }
 
 .endpoints {
-  width: 48%;
+  width: 100%;
+  height: 100%;
   min-width: 0;
-  padding: var(--espacamento-xl) var(--espacamento-md);
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   border: var(--largura-borda) solid var(--cor-primaria-secundaria);
   border-radius: var(--raio-padrao);
-  background-color: #082d30;
+  background-color: var(--cor-primaria-secundaria);
   box-shadow: var(--sombra-interna-destaque);
+}
+
+.tabelaEndpointsContainer {
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-primaria-verde-escuro) var(--cor-primaria-secundaria);
+  padding-right: 10px;
+}
+
+.tabelaEndpointsContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tabelaEndpointsContainer::-webkit-scrollbar-track {
+  background-color: var(--cor-primaria-secundaria);
+  border-radius: var(--raio-pequeno);
+}
+
+.tabelaEndpointsContainer::-webkit-scrollbar-thumb {
+  background-color: var(--cor-verde-destaque);
+  border-radius: var(--raio-pequeno);
 }
 
 .tabelaEndpoints {
@@ -80,7 +123,6 @@
   table-layout: fixed;
   color: var(--cor-texto-branco);
   font-family: var(--fonte-texto);
-  font-size: var(--tamanho-texto-auxiliar);
 }
 
 .tabelaEndpoints th,
@@ -89,9 +131,14 @@
   border-bottom: var(--largura-borda) solid #075052;
   text-align: center;
   overflow-wrap: anywhere;
+  font-size: 16px;
 }
 
 .tabelaEndpoints th {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background-color: #082d30;
   color: #69c9c5;
   font-weight: var(--peso-regular);
   text-transform: uppercase;
@@ -110,7 +157,7 @@
 .graficoVisual {
   width: 100%;
   min-width: 0;
-  height: 15rem;
+  height: 17rem;
 }
 
 .grafico h2 {
@@ -119,6 +166,14 @@
   font-family: var(--fonte-titulo);
   font-size: var(--tamanho-titulo-card);
 }
+
+.endpoints h2 {
+  margin-bottom: var(--espacamento-md);
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-card);
+}
+
 
 .latencia {
   color: var(--cor-aviso);
@@ -130,14 +185,15 @@
 
 .cardCircular {
   display: flex;
-  width: min(100%, 32rem);
+  width: 100%;
+  height: 100%;
   min-width: 0;
   align-items: center;
-  gap: var(--espacamento-md);
-  padding: var(--espacamento-md);
+  gap: var(--espacamento-xl);
+  padding: var(--espacamento-xs);
   border: var(--largura-borda) solid var(--cor-primaria-secundaria);
   border-radius: var(--raio-padrao);
-  background-color: #082d30;
+  background-color: var(--cor-primaria-secundaria);
   box-shadow: var(--sombra-interna-destaque);
 }
 
@@ -155,7 +211,6 @@
 
 .legendaCircular {
   display: grid;
-  flex: 1;
   gap: var(--espacamento-xs);
   margin: 0;
   padding: 0;
@@ -175,7 +230,8 @@
   font-family: var(--fonte-texto);
   align-items: center;
   justify-content: space-between;
-  gap: var(--espacamento-sm);
+  gap: var(--espacamento-xl);
+  font-size: var(--tamanho-titulo-card);
 }
 
 .legendaCircular i {
