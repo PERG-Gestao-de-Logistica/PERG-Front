@@ -1,5 +1,6 @@
 import Button from "@/components/botao";
 import styles from "./header.module.css";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -12,13 +13,13 @@ export default function Header() {
         />
 
         <div className={styles.actions}>
-          <Button variant="principal">
-            Assine Agora
-          </Button>
+          <Link href="/onboarding/cadastroConta">
+            <Button variant="principal">Assine Agora</Button>
+          </Link>
 
-          <Button variant="texto">
-            Entrar
-          </Button>
+          <Link href="/login">
+            <Button variant="texto">Entrar</Button>
+          </Link>
         </div>
       </div>
     </header>

@@ -1,4 +1,6 @@
+import Button from "@/components/botao";
 import styles from "./headerRastreio.module.css";
+import Link from "next/link";
 
 export default function HeaderRastreio() {
   return (
@@ -10,11 +12,11 @@ export default function HeaderRastreio() {
           className={styles.logo}
         />
 
-        <p className={styles.title}>
-          Acompanhe sua entrega
-        </p>
-
-
+        <div className={styles.actions}>
+          <Link href="/navegador/acompanharEntrega">
+            <Button variant="texto">Acompanhe sua entrega</Button>
+          </Link>
+        </div>
       </div>
     </header>
   );

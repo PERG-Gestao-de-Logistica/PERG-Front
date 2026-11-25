@@ -11,6 +11,11 @@
 
 /* ---------- Estrutura das seções ---------- */
 
+.page{
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+}
 .page .primeiroContainer,
 .page .segundoContainer,
 .page .terceiroContainer,

@@ -1,10 +1,12 @@
 // ==========================================
 // IMPORTAÇÕES
 // ==========================================
-import Header from "@/components/header";
+import Header from "@/components/componentesNavegador/header/header";
 import Button from "@/components/botao";
-import Footer from "@/components/footer";
+import Footer from "@/components/componentesNavegador/footer/footer";
 import styles from "./home.module.css";
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className={styles.page}>
@@ -23,18 +25,18 @@ export default function Home() {
               Todas as entregas na <span>rota certa</span>
             </h1>
             <p className={styles.texto}>
-              O PERG conecta lojistas, entregadores e clientes em uma
-              plataforma de gestão logística que transforma pedidos em
-              rotas, rotas em entregas e entregas em visibilidade.
+              O PERG conecta lojistas, entregadores e clientes em uma plataforma
+              de gestão logística que transforma pedidos em rotas, rotas em
+              entregas e entregas em visibilidade.
             </p>
             {/* Botões de apresentação */}
             <div className={styles.botoesHome}>
-              <Button variant="principal">
-                Conheça Nossas Soluções
-              </Button>
-              <Button variant="texto">
-                Quero assinar agora
-              </Button>
+              {/* <Link href={solucao}> */}
+              <Button variant="principal">Conheça Nossas Soluções</Button>
+              {/* </Link> */}
+              <Link href="/onboarding/cadastroConta">
+                <Button variant="texto">Quero assinar agora</Button>
+              </Link>
             </div>
           </div>
           {/* Imagem de localização */}
@@ -60,22 +62,18 @@ export default function Home() {
           </div>
           {/* Textos sobre o problema */}
           <div className={`${styles.textoHome} ${styles.textoHomeProblema}`}>
-            <h1 className={styles.tituloPrincipal}>
-              O Problema
-            </h1>
+            <h1 className={styles.tituloPrincipal}>O Problema</h1>
             <h2 className={styles.tituloPrincipal}>
               Mais pedidos. Mais entregas. Mais complexidade.
             </h2>
             <p className={styles.texto}>
-              À medida que o negócio cresce, a operação logística
-              precisa lidar com um volume cada vez maior de pedidos
-              e informações.
+              À medida que o negócio cresce, a operação logística precisa lidar
+              com um volume cada vez maior de pedidos e informações.
             </p>
             <p className={styles.texto}>
-              Quando essas etapas não estão integradas, o lojista
-              perde visibilidade da operação, aumenta a dependência
-              de processos manuais e encontra dificuldades para
-              alavancar seu negócio.
+              Quando essas etapas não estão integradas, o lojista perde
+              visibilidade da operação, aumenta a dependência de processos
+              manuais e encontra dificuldades para alavancar seu negócio.
             </p>
           </div>
         </section>
@@ -87,25 +85,22 @@ export default function Home() {
         <section className={styles.conteudoHome}>
           {/* Textos sobre a solução */}
           <div className={styles.textoHome}>
-            <h1 className={styles.tituloPrincipal}>
-              A Solução
-            </h1>
+            <h1 className={styles.tituloPrincipal}>A Solução</h1>
             <h2 className={styles.tituloPrincipal}>
               Uma plataforma. Toda a operação de entrega.
             </h2>
             <p className={styles.texto}>
-              O PERG centraliza a gestão logística e conecta cada
-              etapa da operação em um único fluxo.
+              O PERG centraliza a gestão logística e conecta cada etapa da
+              operação em um único fluxo.
             </p>
             <p className={styles.texto}>
-              O lojista organiza seus pedidos, transforma pedidos
-              em rotas, direciona cada rota para o entregador e
-              acompanha o andamento das entregas.
+              O lojista organiza seus pedidos, transforma pedidos em rotas,
+              direciona cada rota para o entregador e acompanha o andamento das
+              entregas.
             </p>
             <p className={styles.texto}>
-              Ao mesmo tempo, o entregador recebe sua operação pelo
-              aplicativo e o cliente pode acompanhar seu pedido por
-              meio do rastreamento.
+              Ao mesmo tempo, o entregador recebe sua operação pelo aplicativo e
+              o cliente pode acompanhar seu pedido por meio do rastreamento.
             </p>
           </div>
           {/* Imagem da plataforma */}
@@ -133,70 +128,46 @@ export default function Home() {
             </div>
             {/* Texto principal da seção */}
             <div className={styles.textoEtapas}>
-              <h1 className={styles.tituloPrincipalBranco}>
-                Do pedido à
-              </h1>
-              <h1 className={styles.tituloPrincipalCiano}>
-                porta do cliente
-              </h1>
+              <h1 className={styles.tituloPrincipalBranco}>Do pedido à</h1>
+              <h1 className={styles.tituloPrincipalCiano}>porta do cliente</h1>
             </div>
           </div>
           {/* LADO DIREITO - ETAPAS DA ENTREGA */}
           <div className={styles.parteDireita}>
             {/* ETAPA 1 - CONECTE */}
             <div className={styles.etapaItem}>
-              <img
-                src="/assets/images/numero1-icone.png"
-                alt="Número 1"
-              />
-              <h2 className={styles.tituloPrincipalBranco}>
-                Conecte
-              </h2>
+              <img src="/assets/images/numero1-icone.png" alt="Número 1" />
+              <h2 className={styles.tituloPrincipalBranco}>Conecte</h2>
               <p className={styles.textoBranco}>
-                Cadastre sua loja na nossa plataforma para
-                visualizar seus pedidos
+                Cadastre sua loja na nossa plataforma para visualizar seus
+                pedidos
               </p>
             </div>
             {/* ETAPA 2 - ROTEIRIZE */}
             <div className={styles.etapaItem}>
-              <img
-                src="/assets/images/numero2-icone.png"
-                alt="Número 2"
-              />
-              <h2 className={styles.tituloPrincipalBranco}>
-                Roteirize
-              </h2>
+              <img src="/assets/images/numero2-icone.png" alt="Número 2" />
+              <h2 className={styles.tituloPrincipalBranco}>Roteirize</h2>
               <p className={styles.textoBranco}>
-                Rotas otimizadas por custo, tempo ou km,
-                respeitando janelas, peso e regras.
+                Rotas otimizadas por custo, tempo ou km, respeitando janelas,
+                peso e regras.
               </p>
             </div>
             {/* ETAPA 3 - DESPACHE */}
             <div className={styles.etapaItem}>
-              <img
-                src="/assets/images/numero3-icone.png"
-                alt="Número 3"
-              />
-              <h2 className={styles.tituloPrincipalBranco}>
-                Despache
-              </h2>
+              <img src="/assets/images/numero3-icone.png" alt="Número 3" />
+              <h2 className={styles.tituloPrincipalBranco}>Despache</h2>
               <p className={styles.textoBranco}>
-                Cada rota vai para o motorista certo da sua equipe,
-                em um clique ou automático.
+                Cada rota vai para o motorista certo da sua equipe, em um clique
+                ou automático.
               </p>
             </div>
             {/* ETAPA 4 - ACOMPANHE */}
             <div className={styles.etapaItem}>
-              <img
-                src="/assets/images/numero4-icone.png"
-                alt="Número 4"
-              />
-              <h2 className={styles.tituloPrincipalBranco}>
-                Acompanhe
-              </h2>
+              <img src="/assets/images/numero4-icone.png" alt="Número 4" />
+              <h2 className={styles.tituloPrincipalBranco}>Acompanhe</h2>
               <p className={styles.textoBranco}>
-                Link de rastreio com previsão de chegada e
-                comprovante digital no fim.
+                Link de rastreio com previsão de chegada e comprovante digital
+                no fim.
               </p>
             </div>
           </div>
@@ -215,9 +186,7 @@ export default function Home() {
             <h1 className={styles.tituloPrincipal}>
               Cada pessoa da entrega com a
             </h1>
-            <h1 className={styles.tituloPrincipal}>
-              ferramenta certa.
-            </h1>
+            <h1 className={styles.tituloPrincipal}>ferramenta certa.</h1>
           </div>
           {/* CARDS DAS TRÊS FRENTES */}
           <div className={styles.cards}>
@@ -229,9 +198,7 @@ export default function Home() {
                   alt="Ícone de configuração"
                 />
               </div>
-              <h2 className={styles.tituloPrincipal}>
-                Para a Operação
-              </h2>
+              <h2 className={styles.tituloPrincipal}>Para a Operação</h2>
               <p className={styles.subtituloVerdeEscuro}>
                 O SaaS onde os pedidos viram rotas.
               </p>
@@ -251,9 +218,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Botão da operação */}
-              <Button variant="principal">
-                Ver Portal →
-              </Button>
+              <Button variant="principal">Ver Portal →</Button>
             </div>
             {/* CARD 2 - MOTORISTA */}
             <div className={styles.card}>
@@ -264,9 +229,7 @@ export default function Home() {
                 />
                 <span>Aplicativo</span>
               </div>
-              <h2 className={styles.tituloPrincipal}>
-                Para o Motorista
-              </h2>
+              <h2 className={styles.tituloPrincipal}>Para o Motorista</h2>
               <p className={styles.subtituloVerdeEscuro}>
                 A rota do dia na palma da sua mão.
               </p>
@@ -286,9 +249,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Botão do motorista */}
-              <Button variant="principal">
-                Ver App →
-              </Button>
+              <Button variant="principal">Ver App →</Button>
             </div>
             {/* CARD 3 - CLIENTE */}
             <div className={styles.card}>
@@ -299,9 +260,7 @@ export default function Home() {
                 />
                 <span>Link por e-mail</span>
               </div>
-              <h2 className={styles.tituloPrincipal}>
-                Para o Cliente
-              </h2>
+              <h2 className={styles.tituloPrincipal}>Para o Cliente</h2>
               <p className={styles.subtituloVerdeEscuro}>
                 Sem app, direto pelo navegador do seu dispositivo.
               </p>
@@ -321,78 +280,64 @@ export default function Home() {
                 </div>
               </div>
               {/* Botão do cliente */}
-              <Button variant="principal">
-                Abrir no Navegador →
-              </Button>
+              <Link href="/navegador/rastreamento">
+                <Button variant="principal">Abrir no Navegador →</Button>
+              </Link>
             </div>
           </div>
         </section>
       </div>
-         {/* ========================================== */}
+      {/* ========================================== */}
       {/* SEXTA SEÇÃO - 4 DIFERENCIAIS  */}
       {/* ========================================== */}
       <div className={styles.sextoContainer}>
         <section className={styles.conteudoSextoContainer}>
           {/* TÍTULOS DA SEÇÃO */}
           <div className={styles.textoInicial}>
-            <h1 className={styles.tituloPrincipal}>
-              VALOR PARA O LOJISTA
-            </h1>
+            <h1 className={styles.tituloPrincipal}>VALOR PARA O LOJISTA</h1>
             <h1 className={styles.tituloPrincipal}>
               Mais controle. Mais autonomia.
             </h1>
-            <h1 className={styles.tituloPrincipal}>
-              Menos Dificuldade.
-            </h1>
+            <h1 className={styles.tituloPrincipal}>Menos Dificuldade.</h1>
           </div>
           {/* CARDS DAS QUATRO FRENTES */}
-            <div className={styles.quatroCards}>
-              <div className={styles.cardSexta}>
-                <img src="/assets/images/caixa-icone.png" alt="" />
-                   <h1 className={styles.tituloCardSexto}>
-                      Centralização
-                     </h1>
-            <p className={styles.textoCardSexto}>
-              Todos os pedidos e informações da&#x20;
-              operação reunidos em um único ambiente.
-            </p>
-              </div>
-              <div className={styles.cardSexta}>
-                <img src="/assets/images/olho-icone.png" alt="" />
-                   <h1 className={styles.tituloCardSexto}>
-                      Visibilidade
-                     </h1>
-            <p className={styles.textoCardSexto}>
-         Acompanhamento do status das entregas
-          e maior controle sobre a operação.
-            </p>
-              </div>
-              <div className={styles.cardSexta}>
-                <img src="/assets/images/velocimetro-icone.png" alt="" />
-                   <h1 className={styles.tituloCardSexto}>
-                      Eficiência
-                     </h1>
-            <p className={styles.textoCardSexto}>
-          Rotas organizadas de acordo com
-           as características da operação.
-            </p>
-              </div>
-                      <div className={styles.cardSexta}>
-                <img src="/assets/images/pessoa-icone.png" alt="" />
-                   <h1 className={styles.tituloCardSexto}>
-                      Autonomia
-                     </h1>
-            <p className={styles.textoCardSexto}>
-          Gerenciamento da operação sem&#x20;
-          depender de processos manuais.
-            </p>
-              </div>
+          <div className={styles.quatroCards}>
+            <div className={styles.cardSexta}>
+              <img src="/assets/images/caixa-icone.png" alt="" />
+              <h1 className={styles.tituloCardSexto}>Centralização</h1>
+              <p className={styles.textoCardSexto}>
+                Todos os pedidos e informações da&#x20; operação reunidos em um
+                único ambiente.
+              </p>
             </div>
+            <div className={styles.cardSexta}>
+              <img src="/assets/images/olho-icone.png" alt="" />
+              <h1 className={styles.tituloCardSexto}>Visibilidade</h1>
+              <p className={styles.textoCardSexto}>
+                Acompanhamento do status das entregas e maior controle sobre a
+                operação.
+              </p>
+            </div>
+            <div className={styles.cardSexta}>
+              <img src="/assets/images/velocimetro-icone.png" alt="" />
+              <h1 className={styles.tituloCardSexto}>Eficiência</h1>
+              <p className={styles.textoCardSexto}>
+                Rotas organizadas de acordo com as características da operação.
+              </p>
+            </div>
+            <div className={styles.cardSexta}>
+              <img src="/assets/images/pessoa-icone.png" alt="" />
+              <h1 className={styles.tituloCardSexto}>Autonomia</h1>
+              <p className={styles.textoCardSexto}>
+                Gerenciamento da operação sem&#x20; depender de processos
+                manuais.
+              </p>
+            </div>
+          </div>
         </section>
       </div>
-       <div className={styles.quintoContainer}>
+      {/* <div className={styles.quintoContainer}>
         <section className={styles.conteudoQuintoContainer}>
-          {/* TÍTULOS DA SEÇÃO */}
           <div className={styles.textoInicial}>
             <h1 className={styles.subtituloVerdeEscuro}>
              Planos
@@ -404,9 +349,7 @@ export default function Home() {
               operação
             </h1>
           </div>
-          {/* CARDS DAS TRÊS FRENTES */}
           <div className={styles.cards}>
-            {/* CARD 1 - STANDARD */}
             <div className={styles.card}>
               <div className={styles.cardTopo}>
                 <img
@@ -439,7 +382,6 @@ export default function Home() {
                   O QUE ESTÁ INCLUSO:
               </p>
           
-              {/* Funcionalidades da operação */}
               <div className={styles.listaFuncoes}>
                 <div className={styles.funcao}>
                   <img src="/assets/images/check.png" alt="Verificado" />
@@ -459,7 +401,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-              {/* CARD 2 - PROFESSIONAL */}
                  <div className={styles.card}>
               <div className={styles.cardTopo}>
                 <img
@@ -491,8 +432,6 @@ export default function Home() {
                <p className={`${styles.subtituloVerdeEscuro} ${styles.setimaSecao}`}>
                   O QUE ESTÁ INCLUSO:
               </p>
-          
-              {/* Funcionalidades da operação */}
               <div className={styles.listaFuncoes}>
                 <div className={styles.funcao}>
                   <img src="/assets/images/check.png" alt="Verificado" />
@@ -512,8 +451,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-                  {/* CARD 3 - ENTERPRISE */}
                  <div className={styles.card}>
               <div className={styles.cardTopo}>
                 <img
@@ -543,7 +480,6 @@ export default function Home() {
                   O QUE ESTÁ INCLUSO:
               </p>
           
-              {/* Funcionalidades da operação */}
               <div className={styles.listaFuncoes}>
                 <div className={styles.funcao}>
                   <img src="/assets/images/check.png" alt="Verificado" />
@@ -565,130 +501,111 @@ export default function Home() {
             </div>
           </div>
         </section>
+      </div> */}
+
+      <div className={styles.oitavoContainer}>
+        <section className={styles.conteudoOitavoContainer}>
+          <img
+            src="/assets/logos/c5Branco.png"
+            className={styles.logoBanner}
+            alt="Logo C5 Solutions"
+          />
+
+          <div className={styles.areaTextoOitava}>
+            <h2 className={styles.tituloPrincipalBranco}>
+              Tecnologia aplicada a
+              <br />
+              desafios reais.
+            </h2>
+
+            <p className={styles.textoBranco}>
+              A C5 Solutions desenvolve soluções digitais para otimizar
+              processos, conectar operações e gerar valor para seus clientes.
+            </p>
+
+            <p className={styles.textoBranco}>
+              O PERG é a nossa solução para transformar a gestão logística em
+              uma operação integrada, estruturada e preparada para crescer.
+            </p>
+          </div>
+        </section>
       </div>
 
-<div className={styles.oitavoContainer}>
-  <section className={styles.conteudoOitavoContainer}>
+      <div className={styles.nonoContainer}>
+        <section className={styles.conteudoNonoContainer}>
+          <h2 className={styles.tituloFaq}>Perguntas frequentes</h2>
 
-    <img
-      src="/assets/logos/c5Branco.png"
-      className={styles.logoBanner}
-      alt="Logo C5 Solutions"
-    />
+          <div className={styles.listaPerguntas}>
+            <div className={styles.cardFaq}>
+              <div className={styles.botaoMinimizar}>
+                <p className={styles.textoFaq}>
+                  Funciona para qualquer tipo de veículo?
+                </p>
 
-    <div className={styles.areaTextoOitava}>
-      <h2 className={styles.tituloPrincipalBranco}>
-        Tecnologia aplicada a
-        <br />
-         desafios reais.
-      </h2>
+                <button className={styles.faqToggle} type="button">
+                  <img
+                    src="/assets/images/botao-menos.png"
+                    alt="Minimizar pergunta"
+                  />
+                </button>
+              </div>
 
-      <p className={styles.textoBranco}>
-        A C5 Solutions desenvolve soluções digitais para otimizar
-        processos, conectar operações e gerar valor para seus
-        clientes.
-      </p>
+              <p className={styles.respostaFaq}>
+                Sim. Motos, carros, vans e caminhões, cada um com capacidade,
+                volume e jornada próprios. O otimizador monta as rotas só com os
+                veículos que você escolher.
+              </p>
+            </div>
+            <div className={styles.cardFaqMinimizado}>
+              <div className={styles.botaoMinimizar}>
+                <p className={styles.textoFaq}>Posso cancelar quando quiser?</p>
+                <button className={styles.faqToggle} type="button">
+                  <img src="/assets/images/botao-mais.png" alt=" pergunta" />
+                </button>
+              </div>
+            </div>
 
-      <p className={styles.textoBranco}>
-        O PERG é a nossa solução para transformar a gestão
-        logística em uma operação integrada, estruturada e
-        preparada para crescer.
-      </p>
-    </div>
+            <div className={styles.cardFaqMinimizado}>
+              <div className={styles.botaoMinimizar}>
+                <p className={styles.textoFaq}>
+                  O cliente final precisa baixar algum app?
+                </p>
+                <button className={styles.faqToggle} type="button">
+                  <img src="/assets/images/botao-mais.png" alt="" />
+                </button>
+              </div>
+            </div>
 
-  </section>
-</div>
+            <div className={styles.cardFaqMinimizado}>
+              <div className={styles.botaoMinimizar}>
+                <p className={styles.textoFaq}>
+                  E se o motorista ficar sem internet?
+                </p>
+                <button className={styles.faqToggle} type="button">
+                  <img src="/assets/images/botao-mais.png" alt=" pergunta" />
+                </button>
+              </div>
+            </div>
+          </div>
 
-<div className={styles.nonoContainer}>
-  <section className={styles.conteudoNonoContainer}>
-
-    <h2 className={styles.tituloFaq}>
-      Perguntas frequentes
-    </h2>
-
-    <div className={styles.listaPerguntas}>
-
-      <div className={styles.cardFaq}>
-
-        <div className={styles.botaoMinimizar}>
-
-          <p className={styles.textoFaq}>
-            Funciona para qualquer tipo de veículo?
-          </p>
-
-          <button className={styles.faqToggle} type="button">
-            <img src="/assets/images/botao-menos.png" alt="Minimizar pergunta" />
-          </button>
-
-        </div>
-
-        <p className={styles.respostaFaq}>
-          Sim. Motos, carros, vans e caminhões, cada um com
-          capacidade, volume e jornada próprios. O otimizador
-          monta as rotas só com os veículos que você escolher.
-        </p>
-
-      </div>
-       <div className={styles.cardFaqMinimizado}>
-
-        <div className={styles.botaoMinimizar}>
-
-          <p className={styles.textoFaq}>
-            Posso cancelar quando quiser?
-          </p>
-          <button className={styles.faqToggle} type="button">
-            <img src="/assets/images/botao-mais.png" alt=" pergunta" />
-          </button>
-        </div>
-      </div>
-
-        <div className={styles.cardFaqMinimizado}>
-
-        <div className={styles.botaoMinimizar}>
-
-          <p className={styles.textoFaq}>
-            O cliente final precisa baixar algum app?
-          </p>
-          <button className={styles.faqToggle} type="button">
-            <img src="/assets/images/botao-mais.png" alt="" />
-          </button>
-        </div>
+          {/* Mensagem para assinatura */}
+          <div className={styles.areaTextoNona}>
+            <h2 className={styles.tituloPrincipalBranco}>
+              Seu primeiro lote
+              <br />
+              roteirizado hoje.
+            </h2>
+            <p className={styles.textoVerdeEscuro}>
+              Crie a conta, conecte sua loja e veja as rotas saindo
+              <br />
+              em minutos.
+            </p>
+            <Button variant="verde-destaque">Conheça Nossas Soluções</Button>
+          </div>
+        </section>
       </div>
 
-         <div className={styles.cardFaqMinimizado}>
-
-        <div className={styles.botaoMinimizar}>
-
-          <p className={styles.textoFaq}>
-            E se o motorista ficar sem internet?
-          </p>
-          <button className={styles.faqToggle} type="button">
-            <img src="/assets/images/botao-mais.png" alt=" pergunta" />
-          </button>
-        </div>
-      </div>
-    </div>
-
-           {/* Mensagem para assinatura */}
-        <div className={styles.areaTextoNona}>
-        <h2 className={styles.tituloPrincipalBranco}>
-          Seu primeiro lote 
-             <br />
-          roteirizado hoje.
-        </h2>
-        <p className={styles.textoVerdeEscuro}>
-            Crie a conta, conecte sua loja e veja as rotas saindo
-            <br />
-            em minutos. 
-        </p>
-           <Button variant="verde-destaque">
-                Conheça Nossas Soluções
-              </Button>
-       </div>
-  </section>
-</div>
-
-<Footer />
-</main>
+      <Footer />
+    </main>
   );
 }
