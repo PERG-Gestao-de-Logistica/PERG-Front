@@ -13,6 +13,7 @@ import { LuMapPin } from "react-icons/lu";
 import CardRotasHoje from "@/components/componentesEmpresa/cardRotasHoje/cardRotasHoje";
 import CardOcorrencia from "@/components/componentesEmpresa/cardOcorrencia/cardOcorrência";
 import { painelService } from "@/services/painelService";
+import { EVENTO_PEDIDO_CRIADO } from "@/services/pedidosService";
 import type { ResumoPainel } from "@/@types/painel";
 
 const ATUALIZAR_A_CADA_MS = 60_000;
@@ -37,9 +38,12 @@ export default function VisaoGeralEmpresa() {
         .catch((e) => ativo && setErro((e as Error).message));
     buscar();
     const intervalo = setInterval(buscar, ATUALIZAR_A_CADA_MS);
+    // Pedido criado pelo modal do cabeçalho: atualiza na hora
+    window.addEventListener(EVENTO_PEDIDO_CRIADO, buscar);
     return () => {
       ativo = false;
       clearInterval(intervalo);
+      window.removeEventListener(EVENTO_PEDIDO_CRIADO, buscar);
     };
   }, []);
 
