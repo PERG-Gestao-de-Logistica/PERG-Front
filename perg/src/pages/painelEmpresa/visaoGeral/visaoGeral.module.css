@@ -73,6 +73,53 @@
   flex-shrink: 0;
 }
 
+.status {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+/* Card que substitui os Primeiros Passos: atalhos mais espaçados e imagem ocupando a altura toda */
+.cardPronto .lista {
+  margin-top: var(--espacamento-lg);
+  margin-bottom: 0;
+  gap: var(--espacamento-md);
+}
+
+.imagemPronto {
+  width: 45%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  align-self: stretch;
+  object-fit: cover;
+  object-position: 75% bottom;
+}
+
+.atalho {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-negrito);
+  text-decoration: none;
+}
+
+.atalho:hover {
+  text-decoration: underline;
+}
+
+.setaAtalho {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.atalho:hover .setaAtalho {
+  transform: translateX(4px);
+}
+
 .imagem {
   width: 30%;
   height: auto;
@@ -208,8 +255,16 @@
     font-size: var(--tamanho-texto-auxiliar);
   }
 
+  .status {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
   .imagem {
     width: 25%;
+  }
+
+  .imagemPronto {
+    width: 40%;
   }
 
   .kpis {

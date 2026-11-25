@@ -28,7 +28,9 @@ export default function CabecalhoEmpresa() {
   const titulo =
     router.pathname === "/painelEmpresa/visaoGeral"
       ? `${saudacao()}, ${primeiroNome(usuario?.nome ?? "")}`
-      : TITULOS[router.pathname] ?? "";
+      : router.pathname.startsWith("/painelEmpresa/configuracao")
+        ? "Configurações"
+        : TITULOS[router.pathname] ?? "";
   const subtitulo = usuario ? `${dataPorExtenso()} - ${usuario.nomeEmpresa}` : dataPorExtenso();
 
   return (

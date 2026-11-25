@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
+  TbRoute,
+  TbArrowRight,
+  TbMapPin,
+  TbUsers,
   TbCircleCheck,
   TbCircleNumber1,
   TbCircleNumber2,
@@ -15,12 +20,33 @@ import CardOcorrencia from "@/components/componentesEmpresa/cardOcorrencia/cardO
 import { painelService } from "@/services/painelService";
 import { EVENTO_PEDIDO_CRIADO } from "@/services/pedidosService";
 import type { ResumoPainel } from "@/@types/painel";
+import { useAuth } from "@/hooks/useAuth";
+import Esqueleto from "@/components/esqueleto/esqueleto";
+import { primeiroNome, saudacao } from "@/utils/painel";
+
+const ATALHOS = [
+  { href: "/painelEmpresa/roteirizacao", texto: "Roteirizar os pedidos do dia", Icone: TbRoute },
+  { href: "/painelEmpresa/monitoramento", texto: "Acompanhar as entregas em tempo real", Icone: TbMapPin },
+  { href: "/painelEmpresa/entregadores", texto: "Ver a rede de entregadores", Icone: TbUsers },
+];
+
+const plural = (n: number, um: string, varios: string) => `${n} ${n === 1 ? um : varios}`;
+
+// Frase do card que substitui os Primeiros Passos: o que pede atenção agora
+function statusOperacao(r: ResumoPainel) {
+  if (r.ocorrenciasAbertas.length > 0)
+    return `${plural(r.ocorrenciasAbertas.length, "ocorrência aguardando", "ocorrências aguardando")} a sua atenção.`;
+  if (r.rotasEmAndamento > 0)
+    return `${plural(r.rotasEmAndamento, "rota na rua", "rotas na rua")} agora. Tudo correndo bem.`;
+  return "Tudo em dia por aqui.";
+}
 
 const ATUALIZAR_A_CADA_MS = 60_000;
 
 const numero = (valor: number) => valor.toLocaleString("pt-BR");
 
 export default function VisaoGeralEmpresa() {
+  const { usuario } = useAuth();
   const [resumo, setResumo] = useState<ResumoPainel | null>(null);
   const [erro, setErro] = useState("");
 
@@ -57,7 +83,10 @@ export default function VisaoGeralEmpresa() {
     : [];
   const feitos = passos.filter((p) => p.feito).length;
   const mostrarPrimeirosPassos = resumo !== null && feitos < passos.length;
-  const valor = (n: number | undefined) => (resumo ? numero(n ?? 0) : "--");
+  const carregando = resumo === null && !erro;
+  // Enquanto carrega: bloco animado no lugar do número
+  const valor = (n: number | undefined) =>
+    resumo ? numero(n ?? 0) : carregando ? <Esqueleto largura="5rem" altura="2rem" /> : "--";
 
   return (
     <main className={styles.container}>
@@ -65,6 +94,50 @@ export default function VisaoGeralEmpresa() {
         <p role="alert" style={{ color: "var(--cor-perigo)", margin: 0 }}>
           Não foi possível carregar a visão geral: {erro}
         </p>
+      )}
+      {/* O primeiro card sempre ocupa o mesmo espaço, para o grid não se mexer */}
+      {resumo === null && (
+        <article className={styles.primeirosPassos} aria-busy={carregando} aria-label="Carregando visão geral">
+          {carregando && (
+            <>
+              <div className={styles.conteudo}>
+                <Esqueleto largura="9rem" altura="2rem" />
+                <Esqueleto largura="80%" altura="1.8rem" />
+                <Esqueleto largura="55%" altura="1rem" />
+                <div className={styles.lista} style={{ width: "100%", marginTop: "var(--espacamento-lg)", gap: "var(--espacamento-md)" }}>
+                  <Esqueleto largura="70%" />
+                  <Esqueleto largura="65%" />
+                  <Esqueleto largura="60%" />
+                </div>
+              </div>
+              <Esqueleto largura="40%" altura="100%" raio="var(--raio-padrao)" />
+            </>
+          )}
+        </article>
+      )}
+      {resumo !== null && !mostrarPrimeirosPassos && (
+        <article className={`${styles.primeirosPassos} ${styles.cardPronto}`}>
+          <div className={styles.conteudo}>
+            <h3 className={styles.titulo}>Visão geral</h3>
+            <h2 className={styles.subtitulo}>
+              {saudacao()}
+              {usuario ? `, ${primeiroNome(usuario.nome)}` : ""}!
+            </h2>
+            <p className={styles.status}>{statusOperacao(resumo)}</p>
+            <ul className={styles.lista}>
+              {ATALHOS.map(({ href, texto, Icone }) => (
+                <li key={href}>
+                  <Link href={href} className={styles.atalho}>
+                    <Icone className={styles.icone} aria-hidden="true" />
+                    {texto}
+                    <TbArrowRight className={styles.setaAtalho} aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <img src="/assets/images/funcionarioHome.png" alt="" className={styles.imagemPronto} />
+        </article>
       )}
       {mostrarPrimeirosPassos && (
       <article className={styles.primeirosPassos}>
@@ -109,7 +182,9 @@ export default function VisaoGeralEmpresa() {
 
           <div className={`${styles.informacao} ${styles.informacaoRotas}`}>
             <data value={resumo?.rotasAtivas ?? ""}>{valor(resumo?.rotasAtivas)}</data>
-            <p>{resumo ? `${resumo.rotasEmAndamento} em andamento` : ""}</p>
+            <p>
+              {resumo ? `${resumo.rotasEmAndamento} em andamento` : carregando ? <Esqueleto largura="7rem" /> : ""}
+            </p>
           </div>
         </article>
 
@@ -121,7 +196,11 @@ export default function VisaoGeralEmpresa() {
 
           <div className={styles.informacao}>
             <data value={resumo?.noPrazoPercentual ?? ""}>
-              {resumo?.noPrazoPercentual != null ? `${numero(resumo.noPrazoPercentual)}%` : "--"}
+              {resumo?.noPrazoPercentual != null
+                ? `${numero(resumo.noPrazoPercentual)}%`
+                : carregando
+                  ? <Esqueleto largura="5rem" altura="2rem" />
+                  : "--"}
             </data>
           </div>
         </article>
