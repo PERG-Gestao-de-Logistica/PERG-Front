@@ -6,7 +6,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scroll-behavior: smooth;
-  scrollbar-color: var(--cor-secundaria-verde) var(--cor-superficie-branca);
+  scrollbar-color: var(--cor-secundaria-verde) var(--cor-fundo-claro);
 }
 
 .conteudo {

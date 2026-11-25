@@ -1,14 +1,22 @@
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import styles from "./perfilConfig.module.css";
+import { useState } from "react";
 
 export default function ConfiguracaoEmpresa() {
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [mostrarSenhaAtual, setMostrarSenhaAtual] = useState(false);
+  const [senha, setSenha] = useState("");
+  const [senhaAtual, setSenhaAtual] = useState("");
+
   return (
     <main className={styles.container}>
       <section className={styles.dadosPessoaisSeguranca}>
         <article className={styles.dadosPessoais}>
-          <header>
+          <header className={styles.cabecalhoCard}>
             <h2>Dados Pessoais</h2>
             <p>Como você aparece para sua equipe</p>
           </header>
+
           <div className={styles.perfil}>
             <h3 className={styles.iniciais}>AS</h3>
 
@@ -17,21 +25,23 @@ export default function ConfiguracaoEmpresa() {
               <p className={styles.nomeCargoEmpresa}>Admin - Aurora Store</p>
             </div>
           </div>
+
           <form className={styles.formulario}>
             <div className={styles.campo}>
-              <label htmlFor="nome" className={styles.rotulo}>
+              <label htmlFor="nomeUsuario" className={styles.rotulo}>
                 Nome Completo
               </label>
               <input
                 id="nomeUsuario"
                 name="nome"
-                type="name"
+                type="text"
                 placeholder="Digite seu nome..."
                 className={styles.input}
               />
             </div>
+
             <div className={styles.campo}>
-              <label htmlFor="nome" className={styles.rotulo}>
+              <label htmlFor="telefone" className={styles.rotulo}>
                 Telefone
               </label>
               <input
@@ -42,8 +52,9 @@ export default function ConfiguracaoEmpresa() {
                 className={styles.input}
               />
             </div>
+
             <div className={styles.campo}>
-              <label htmlFor="nome" className={styles.rotulo}>
+              <label htmlFor="email" className={styles.rotulo}>
                 Email
               </label>
               <input
@@ -56,54 +67,174 @@ export default function ConfiguracaoEmpresa() {
             </div>
           </form>
         </article>
+
         <article className={styles.seguranca}>
-          <header>
+          <header className={styles.cabecalhoCard}>
             <h2>Segurança</h2>
             <p>Proteja o acesso à sua conta</p>
           </header>
-          <section>
-          <h3>Senha</h3>
-          <button>Alterar</button>
+
+          <section className={styles.cabecalhoSenha}>
+            <h3>Senha</h3>
+            <button type="button" className={styles.botaoAlterarSenha}>
+              Alterar
+            </button>
           </section>
-          <section>
+
+          <section className={styles.camposSenhaContainer}>
             <div className={styles.campo}>
-              <label htmlFor="nome" className={styles.rotulo}>
-                Senha Antiga
+              <label htmlFor="senhaAtual" className={styles.rotulo}>
+                Senha Atual
               </label>
-              <input
-                id="senha"
-                name="senha"
-                type="password"
-                placeholder="****" // TODO: colocar a senha antiga oara visualização no padrão oculto
-                className={styles.input}
-              />
+              <div className={styles.campoSenha}>
+                <input
+                  id="senhaAtual"
+                  name="senhaAtual"
+                  type={mostrarSenhaAtual ? "text" : "password"}
+                  placeholder="Digite sua senha atual..."
+                  className={styles.input}
+                  value={senhaAtual}
+                  onChange={(e) => setSenhaAtual(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setMostrarSenhaAtual((prev) => !prev)}
+                  aria-label={
+                    mostrarSenhaAtual
+                      ? "Ocultar senha atual"
+                      : "Mostrar senha atual"
+                  }
+                  className={styles.botaoEsconderSenha}
+                >
+                  {mostrarSenhaAtual ? (
+                    <IoEyeOffOutline size={24} />
+                  ) : (
+                    <IoEyeOutline size={24} />
+                  )}
+                </button>
+              </div>
             </div>
-              <div className={styles.campo}>
-              <label htmlFor="nome" className={styles.rotulo}>
+
+            <div className={styles.campo}>
+              <label htmlFor="senha" className={styles.rotulo}>
                 Nova Senha
               </label>
-              <input
-                id="senha"
-                name="senha"
-                type="password"
-                placeholder="Digite sua nova senha..." 
-                className={styles.input}
-              />
+              <div className={styles.campoSenha}>
+                <input
+                  id="senha"
+                  name="senha"
+                  type={mostrarSenha ? "text" : "password"}
+                  placeholder="Digite sua senha"
+                  className={styles.input}
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setMostrarSenha((prev) => !prev)}
+                  aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+                  className={styles.botaoEsconderSenha}
+                >
+                  {mostrarSenha ? (
+                    <IoEyeOffOutline size={24} />
+                  ) : (
+                    <IoEyeOutline size={24} />
+                  )}
+                </button>
+              </div>
             </div>
-
           </section>
+          <section
+            className={styles.secaoDuasEtapas}
+            aria-labelledby="titulo-2fa"
+          >
+            <section className={styles.verificacaoSwitch}>
 
+            <section className={styles.verificacoDuasEtapas}>
+              <h3 id="titulo-2fa">Verificação em duas etapas</h3>
+              <p className={styles.textoAuxiliar}>Código extra ao entrar</p>
+            </section>
+
+            <label className={styles.switch}>
+              <input
+                type="checkbox"
+                aria-label="Ativar verificação em duas etapas"
+              />
+              <span className={styles.slider} />
+            </label>
+            </section>
+
+            <aside className={styles.bannerSeguranca}>
+              <img
+                src="/assets/images/entregadorMenu.png"
+                alt=""
+                className={styles.bannerImagem}
+              />
+              <hgroup className={styles.bannerTexto}>
+                <h4>Proteja sua conta em 1 minuto</h4>
+                <p>Ative a verificação em duas etapas</p>
+              </hgroup>
+              <button type="button" className={styles.botaoBanner}>
+                Ativar
+              </button>
+            </aside>
+          </section>
         </article>
       </section>
+
       <section className={styles.notificacaoSalvarAlteracao}>
         <article className={styles.notificacao}>
-          <h2>Notificações</h2>
+          <header className={styles.cabecalhoCard}>
+            <h2>Notificações</h2>
+            <p>Escolha os avisos que você deseja receber.</p>
+          </header>
+
+          <ul className={styles.listaNotificacoes}>
+            <li className={styles.itemNotificacao}>
+              <hgroup>
+                <h3>Ocorrências nas entregas</h3>
+                <p className={styles.textoAuxiliar}>
+                  Avisos de recusa, ausência ou mercadoria avariada.
+                </p>
+              </hgroup>
+              <label className={styles.switch}>
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  aria-label="Ocorrências nas entregas"
+                />
+                <span className={styles.slider} />
+              </label>
+            </li>
+
+            <li className={styles.itemNotificacao}>
+              <hgroup>
+                <h3>Alertas de cobrança</h3>
+                <p className={styles.textoAuxiliar}>
+                  Lembretes de faturas e renovação do plano.
+                </p>
+              </hgroup>
+              <label className={styles.switch}>
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  aria-label="Alertas de cobrança"
+                />
+                <span className={styles.slider} />
+              </label>
+            </li>
+          </ul>
         </article>
+
         <article className={styles.salvarAlteracao}>
           <p>As preferências se aplicam apenas ao seu usuário</p>
           <div className={styles.botoes}>
-            <button className={styles.botaoCancelar}>Cancelar</button>
-            <button className={styles.botaoSalvarAlteracao}>
+            <button type="button" className={styles.botaoCancelar}>
+              Cancelar
+            </button>
+            <button type="submit" className={styles.botaoSalvarAlteracao}>
               Salvar Alterações
             </button>
           </div>
