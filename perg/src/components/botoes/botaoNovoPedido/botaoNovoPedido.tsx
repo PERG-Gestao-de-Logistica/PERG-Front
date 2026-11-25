@@ -1,10 +1,13 @@
 import styles from "./botaoNovoPedido.module.css";
 import { FaPlus } from "react-icons/fa6";
 
-// TODO: implementar lógica para abertura do modal de cadastro de pedido
-export default function BotaoNovoPedido() {
+interface BotaoNovoPedidoProps {
+  onClick?: () => void;
+}
+
+export default function BotaoNovoPedido({ onClick }: BotaoNovoPedidoProps) {
   return (
-    <button type="button" className={styles.botao}>
+    <button type="button" onClick={onClick} className={styles.botao}>
       <FaPlus className={styles.icone} />
       <span>Novo Pedido</span>
     </button>

@@ -3,6 +3,8 @@ import styles from "./cabecalhoEmpresa.module.css";
 import BarraPesquisaEmpresa from "../barraPesquisaEmpresa/barraPesquisaEmpresa";
 import BotaoNotificacaoEmpresa from "../../botoes/botaoNotificacaoEmpresa/botaoNotificacaoEmpresa";
 import BotaoNovoPedido from "@/components/botoes/botaoNovoPedido/botaoNovoPedido";
+import { useState } from "react";
+import ModalNovoPedido from "../modalNovoPedido/modalNovoPedido";
 import { useAuth } from "@/hooks/useAuth";
 import { dataPorExtenso, primeiroNome, saudacao } from "@/utils/painel";
 
@@ -18,6 +20,8 @@ const TITULOS: Record<string, string> = {
 
 export default function CabecalhoEmpresa() {
   const router = useRouter();
+  //*Abertura modal novo pedido
+  const [modalNovoPedidoAberto, setModalNovoPedidoAberto] = useState(false);
 
   const { usuario } = useAuth();
 
@@ -28,18 +32,25 @@ export default function CabecalhoEmpresa() {
   const subtitulo = usuario ? `${dataPorExtenso()} - ${usuario.nomeEmpresa}` : dataPorExtenso();
 
   return (
-    <header className={styles.cabecalho}>
-      <div className={styles.titulosCabecalho}>
-        <h1 className={styles.titulo}>{titulo}</h1>
-        <p className={styles.subtitulo}>{subtitulo}</p>
-      </div>
-      <div className={styles.acoes}>
-        <div className={styles.pesquisa}>
-          <BarraPesquisaEmpresa />
+    <>
+      <header className={styles.cabecalho}>
+        <div className={styles.titulosCabecalho}>
+          <h1 className={styles.titulo}>{titulo}</h1>
+          <p className={styles.subtitulo}>{subtitulo}</p>
         </div>
-        <BotaoNovoPedido />
-        <BotaoNotificacaoEmpresa />
-      </div>
-    </header>
+        <div className={styles.acoes}>
+          <div className={styles.pesquisa}>
+            <BarraPesquisaEmpresa />
+          </div>
+          <BotaoNovoPedido onClick={() => setModalNovoPedidoAberto(true)} />
+          <BotaoNotificacaoEmpresa />
+        </div>
+      </header>
+
+      <ModalNovoPedido
+        aberto={modalNovoPedidoAberto}
+        onFechar={() => setModalNovoPedidoAberto(false)}
+      />
+    </>
   );
 }
