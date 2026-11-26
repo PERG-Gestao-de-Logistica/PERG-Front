@@ -136,3 +136,27 @@
     min-height: 360px;
   }
 }
+/* Botão "Ofertar rotas" no cabeçalho do card de rotas geradas */
+.botaoOfertar {
+  height: var(--altura-botao-pequeno);
+  padding: 0 var(--espacamento-md);
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+  border: none;
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  font-weight: var(--peso-semi-negrito);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.botaoOfertar:hover:not(:disabled) {
+  background-color: var(--cor-secundaria-verde);
+}
+
+.botaoOfertar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

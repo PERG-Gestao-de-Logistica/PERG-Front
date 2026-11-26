@@ -98,13 +98,14 @@
   background-color: var(--cor-primaria-verde-escuro);
   color: var(--cor-texto-branco);
   border-radius: var(--raio-pequeno);
-  display: flex;
-  flex-wrap: wrap;
+  /* Colunas iguais: os tipos ficam distribuídos por igual, seja qual for a quantidade */
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
-  gap: var(--espacamento-sm) var(--espacamento-md);
+  justify-items: center;
+  gap: var(--espacamento-sm);
   box-sizing: border-box;
-
 }
 
 .indiceDisponivel {
@@ -121,12 +122,9 @@
   text-overflow: ellipsis;
 }
 
-.indiceDisponivel:first-child {
-  justify-self: start;
-}
-
-.indiceDisponivel:last-child {
-  justify-self: end;
+/* Tipo sem nenhum entregador na rede */
+.indiceZerado {
+  opacity: 0.45;
 }
 
 .quantidadeVeiculo,
@@ -140,7 +138,7 @@
 }
 
 .botaoOtimizarRotas {
-  align-self: center;
+  align-self: stretch;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -153,14 +151,40 @@
   font-size: var(--tamanho-texto);
   font-weight: var(--peso-negrito);
   margin-top: var(--espacamento-xs);
+  border: none;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
 }
 
-.botaoOtimizarRotas:hover {
+.botaoOtimizarRotas:hover:not(:disabled) {
   background-color: var(--cor-verde-hover);
 }
 
+.botaoOtimizarRotas:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
 .iconeBotao {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Enquanto otimiza, o raio pulsa */
+.iconeGirando {
+  animation: pulsar 0.9s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.6;
+  }
 }
 
 @media (max-width: 900px) {
@@ -169,8 +193,6 @@
   }
 
   .veiculosDisponiveis {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: center;
   }
 
@@ -208,8 +230,6 @@
   }
 
   .veiculosDisponiveis {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0.3rem var(--espacamento-md);
   }
 
@@ -217,9 +237,7 @@
     display: none;
   }
 
-  .indiceDisponivel,
-  .indiceDisponivel:first-child,
-  .indiceDisponivel:last-child {
+  .indiceDisponivel {
     justify-self: center;
   }
 }

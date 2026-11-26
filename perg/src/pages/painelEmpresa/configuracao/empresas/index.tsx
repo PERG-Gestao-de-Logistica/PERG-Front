@@ -4,6 +4,7 @@ import base from "../perfil/perfilConfig.module.css";
 import styles from "./empresasConfig.module.css";
 import AbasConfiguracao, { SomenteAdmin } from "@/components/componentesEmpresa/abasConfiguracao/abasConfiguracao";
 import EquipeEmpresa from "@/components/componentesEmpresa/equipeEmpresa/equipeEmpresa";
+import ValoresEntregador from "@/components/componentesEmpresa/valoresEntregador/valoresEntregador";
 import Esqueleto from "@/components/esqueleto/esqueleto";
 import { empresaService } from "@/services/empresaService";
 import { useAuth } from "@/hooks/useAuth";
@@ -172,6 +173,7 @@ export default function ConfiguracaoEmpresaPagina() {
       <SomenteAdmin>
         <DadosEmpresa />
         <EquipeEmpresa />
+        <ValoresEntregador />
       </SomenteAdmin>
     </main>
   );

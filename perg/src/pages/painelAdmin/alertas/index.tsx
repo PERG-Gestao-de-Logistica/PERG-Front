@@ -1,6 +1,3 @@
-
-export { default } from "@/pages/alertas-incidentes";
-
 import { alertasDetalhes, alertasExemplo, incidentesExemplos } from "@/mocks/alertas";
 import { corPorIndicador } from "@/types/alerta";
 import type { Alerta } from "@/types/alerta";

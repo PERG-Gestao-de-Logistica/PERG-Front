@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { FaMotorcycle, FaCarSide, FaTruck, FaBicycle } from "react-icons/fa";
 import { TbSteeringWheel } from "react-icons/tb";
 import type { RotaGerada } from "@/components/componentesEmpresa/mapaRoteirizacao/mapaRoteirizacao";
@@ -17,6 +17,8 @@ interface ItemRotaGeradaProps {
   cor: string;
   selecionada: boolean;
   onSelecionar: (id: string) => void;
+  // Só vem para rota ainda não ofertada: mostra "Cancelar rota" quando ela está selecionada
+  onCancelar?: (id: string) => Promise<void>;
 }
 
 export default function ItemRotaGerada({
@@ -24,8 +26,27 @@ export default function ItemRotaGerada({
   cor,
   selecionada,
   onSelecionar,
+  onCancelar,
 }: ItemRotaGeradaProps) {
   const IconeVeiculo = VEICULO_ICONS[rota.veiculo] ?? TbSteeringWheel;
+  const [confirmando, setConfirmando] = useState(false);
+  const [cancelando, setCancelando] = useState(false);
+
+  // Fecha a confirmação ao trocar de rota
+  useEffect(() => {
+    if (!selecionada) setConfirmando(false);
+  }, [selecionada]);
+
+  async function cancelar() {
+    if (!onCancelar) return;
+    setCancelando(true);
+    try {
+      await onCancelar(rota.id);
+    } finally {
+      setCancelando(false);
+      setConfirmando(false);
+    }
+  }
 
   return (
     <li className={styles.itemLista}>
@@ -56,6 +77,26 @@ export default function ItemRotaGerada({
           </span>
         </div>
       </button>
+
+      {selecionada && onCancelar && (
+        <div className={styles.acoesRota} style={{ "--cor-rota": cor } as CSSProperties}>
+          {confirmando ? (
+            <>
+              <span className={styles.textoConfirmacao}>Os pedidos voltam para Novo. Cancelar a rota?</span>
+              <button type="button" className={styles.botaoNao} onClick={() => setConfirmando(false)} disabled={cancelando}>
+                Não
+              </button>
+              <button type="button" className={styles.botaoCancelarRota} onClick={cancelar} disabled={cancelando}>
+                {cancelando ? "Cancelando..." : "Sim, cancelar"}
+              </button>
+            </>
+          ) : (
+            <button type="button" className={styles.linkCancelar} onClick={() => setConfirmando(true)}>
+              Cancelar rota
+            </button>
+          )}
+        </div>
+      )}
     </li>
   );
 }

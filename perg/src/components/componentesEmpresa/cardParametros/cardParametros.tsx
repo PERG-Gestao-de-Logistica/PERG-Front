@@ -26,6 +26,8 @@ interface CardParametrosProps {
   onChangePrioridade: (novaPrioridade: string) => void;
   veiculosDisponiveis: VeiculoDisponivel[];
   onOtimizar: () => void;
+  // Enquanto a API calcula as rotas (pode levar alguns segundos)
+  otimizando?: boolean;
 }
 
 export default function CardParametros({
@@ -35,6 +37,7 @@ export default function CardParametros({
   onChangePrioridade,
   veiculosDisponiveis,
   onOtimizar,
+  otimizando = false,
 }: CardParametrosProps) {
   return (
     <article className={styles.parametros}>
@@ -76,7 +79,7 @@ export default function CardParametros({
             return (
               <li
                 key={item.tipo}
-                className={styles.indiceDisponivel}
+                className={`${styles.indiceDisponivel} ${item.quantidade === 0 ? styles.indiceZerado : ""}`}
                 aria-label={`${item.quantidade} ${item.label}`}
               >
                 <IconeVeiculo className={styles.icone} aria-hidden="true" />
@@ -94,9 +97,11 @@ export default function CardParametros({
         type="button"
         onClick={onOtimizar}
         className={styles.botaoOtimizarRotas}
+        disabled={otimizando}
+        aria-busy={otimizando}
       >
-        <span>Otimizar Rotas</span>
-        <IoFlash className={styles.iconeBotao} aria-hidden="true" />
+        <IoFlash className={`${styles.iconeBotao} ${otimizando ? styles.iconeGirando : ""}`} aria-hidden="true" />
+        <span>{otimizando ? "Otimizando..." : "Otimizar Rotas"}</span>
       </button>
     </article>
   );
