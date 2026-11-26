@@ -1,0 +1,227 @@
+.cardFlutuante {
+  position: absolute;
+  bottom: var(--espacamento-md);
+  left: var(--espacamento-md);
+  right: var(--espacamento-md);
+  z-index: 1000;
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacamento-md);
+  min-width: 0;
+  height: 5rem;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  min-width: 0;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.identificacao,
+.metricaTempo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.identificacao strong,
+.metricaTempo strong {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.identificacao span,
+.metricaTempo span {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+}
+
+.divisor {
+  width: 1px;
+  height: 28px;
+  background-color: var(--cor-borda);
+  flex-shrink: 0;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  flex-shrink: 0;
+}
+
+.popupTelefone {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  z-index: 1010;
+  min-width: 195px;
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--cor-borda);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Setinha inferior apontando para o ícone de telefone */
+.popupTelefone::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 11px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--cor-superficie-branca);
+  border-right: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+  transform: rotate(45deg);
+}
+
+.popupCabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacamento-sm);
+}
+
+.popupTitulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  white-space: nowrap;
+}
+
+.popupFechar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--raio-pequeno);
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.popupFechar:hover {
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.popupCorpo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacamento-sm);
+}
+
+.popupNumero {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-secundaria-verde);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.popupNumero:hover {
+  text-decoration: underline;
+}
+
+.popupCopiar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.popupCopiar:hover {
+  background-color: var(--cor-verde-destaque);
+}
+
+.botaoAcao {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--raio-pequeno);
+  background-color: transparent;
+  color: var(--cor-primaria-verde-escuro);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.botaoAcao:hover {
+  background-color: var(--cor-fundo-verde-claro);
+  color: var(--cor-secundaria-verde);
+}
+
+@media (max-width: 640px) {
+  .cardFlutuante {
+    display: flex;
+    flex-direction: row;
+    gap: var(--espacamento-sm);
+    padding: var(--espacamento-sm);
+  }
+
+  .divisor {
+    display: none;
+  }
+
+  .perfil {
+    flex: 1 1 65%;
+  }
+
+  .acoes {
+    margin-left: auto;
+  }
+}

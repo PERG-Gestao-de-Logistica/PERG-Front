@@ -1,5 +1,5 @@
 
-import ModalNovaOrigem from "@/components/ModalNovaOrigem";
+import ModalNovaOrigem from "@/components/componentesAdmin/ModalNovaOrigem";
 import { useState } from "react";
 
 
