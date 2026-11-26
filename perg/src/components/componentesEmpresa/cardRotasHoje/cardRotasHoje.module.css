@@ -1,0 +1,47 @@
+.rotasHoje {
+  background-color: var(--cor-superficie-branca);
+  padding: var(--espacamento-md);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+}
+
+.rotasHoje header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px rgb(148, 147, 152, 0.5);
+  padding-bottom: var(--espacamento-md);
+  flex-shrink: 0;
+}
+
+.titulo {
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.lista {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--cor-secundaria-verde) var(--cor-superficie-branca);
+}
+
+.monitoramento {
+  color: var(--cor-secundaria-verde);
+  font-weight: var(--peso-negrito);
+  cursor: pointer;
+  font-family: var(--fonte-texto);
+}
+
+.monitoramento:hover {
+  color: var(--cor-verde-hover);
+}

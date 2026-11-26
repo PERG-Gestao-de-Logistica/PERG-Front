@@ -1,0 +1,157 @@
+.item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 3rem;
+  align-items: center;
+  border: 2px solid transparent;
+  border-bottom-color: rgba(148, 147, 152, 0.2);
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao-padrao);
+}
+
+.item:hover {
+  background-color: var(--cor-fundo-claro);
+}
+
+.itemSelecionado,
+.itemSelecionado:hover {
+  background-color: var(--cor-fundo-verde-claro);
+  border-color: var(--cor-verde-destaque);
+}
+
+.caixa {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.caixa input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--cor-primaria-verde-escuro);
+  cursor: pointer;
+}
+
+.caixa input:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+/* Colunas iguais às do cabeçalho da tabela */
+.conteudo {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1.4fr) minmax(0, 1.8fr) minmax(0, 1.1fr) 4.5rem 9.5rem;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-sm) var(--espacamento-sm) var(--espacamento-sm) 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.numero {
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-regular);
+}
+
+.cliente,
+.endereco {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cliente {
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-regular);
+}
+
+.endereco,
+.bairro,
+.peso {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+}
+
+.endereco,
+.bairro {
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ícone (quando houver) + balão: o balão fica sempre na mesma posição, encostado à direita */
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--espacamento-sm);
+  min-width: 0;
+}
+
+.balaoStatus {
+  display: flex;
+  justify-content: center;
+  width: 6rem;
+  flex-shrink: 0;
+}
+
+.alerta,
+.aviso {
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.alerta {
+  background-color: var(--fundo-status-ocorrencia);
+  color: var(--cor-status-ocorrencia);
+}
+
+.aviso {
+  background-color: var(--cor-fundo-verde-claro);
+  color: var(--cor-secundaria-verde);
+}
+
+/* Coluna "Detalhes": seta que abre o modal do pedido */
+.detalhes {
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.detalhes:hover {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+@media (max-width: 900px) {
+  .conteudo {
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+  }
+
+  .endereco,
+  .bairro,
+  .peso {
+    display: none;
+  }
+}

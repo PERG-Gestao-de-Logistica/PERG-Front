@@ -1,0 +1,210 @@
+.ocorrencias {
+  background-color: var(--cor-verde-article);
+  padding: var(--espacamento-md);
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacamento-sm);
+  flex-shrink: 0;
+}
+
+.tituloGrupo {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  min-width: 0;
+}
+
+.contador {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-negrito);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.verTodas {
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-negrito);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.verTodas:hover {
+  text-decoration: underline;
+}
+
+.imagemTitulo {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+}
+
+.titulo {
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.tituloTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--espacamento-xs);
+  width: 100%;
+}
+
+.tituloTexto h3 {
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.tituloTexto p {
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
+  max-width: 38ch;
+  line-height: 1.4;
+}
+
+.imagemEntregador {
+  width: clamp(5rem, 25%, 9rem);
+  max-height: 55%;
+  object-fit: contain;
+  display: block;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--cor-secundaria-verde) var(--cor-superficie-branca);
+  padding: var(--espacamento-md) 0 0;
+}
+
+/* Cada ocorrência é um cartão branco clicável que leva ao pedido */
+.item,
+.itemCarregando {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-pequeno);
+  color: var(--cor-primaria-verde-escuro);
+  text-decoration: none;
+}
+
+.item {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.item:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-card);
+}
+
+.iconeTipo {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--cor-fundo-verde-claro);
+  font-size: 1.3rem;
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tipo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+}
+
+.detalhe,
+.meta {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  opacity: 0.75;
+}
+
+.seta {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+  font-size: 1.2rem;
+  transition: transform 0.15s ease;
+}
+
+.item:hover .seta {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1200px) {
+  .ocorrencias {
+    height: auto;
+    min-height: 16rem;
+  }
+
+  .imagemTitulo {
+    min-height: 12rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ocorrencias {
+    min-height: 10rem;
+    padding: var(--espacamento-md);
+  }
+
+  .imagemEntregador {
+    width: 25%;
+  }
+
+  .tituloTexto p {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+}

@@ -1,0 +1,95 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: var(--altura-botao-pequeno);
+  padding: var(--padding-botao-pequeno);
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-negrito);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Balões claros: texto escuro. Balões escuros: texto branco. */
+.emRota {
+  color: var(--cor-texto-principal);
+  background-color: var(--fundo-status-entregue);
+}
+
+.roteirizado {
+  color: var(--cor-texto-branco);
+  background-color: var(--fundo-status-roteirizado);
+}
+
+.concluida {
+  color: var(--cor-texto-branco);
+  background-color: var(--cor-primaria-verde-escuro);
+}
+
+.aguardando {
+  color: var(--cor-texto-principal);
+  background-color: var(--cor-fundo-input);
+}
+
+.novo {
+  color: var(--cor-texto-principal);
+  background-color: var(--fundo-status-novo);
+}
+
+.entregue {
+  color: var(--cor-texto-principal);
+  background-color: var(--fundo-status-novo);
+}
+
+.ocorrencia {
+  color: var(--cor-texto-principal);
+  background-color: var(--fundo-status-ocorrencia);
+}
+
+.disponivel {
+  color: var(--cor-status-disponivel);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+}
+
+.offline {
+  color: var(--cor-status-offline);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+}
+
+.outraLoja {
+  color: var(--cor-status-outraLoja);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+}
+
+.emRotaAzul {
+  color: var(--cor-status-rota);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+}
+
+.desconhecido {
+  color: var(--cor-texto-secundario);
+  font-size: var(--tamanho-texto-auxiliar);
+}
+
+.noPrazo {
+  color: var(--cor-primaria-verde-escuro); /* ou var(--cor-secundaria-verde) */
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  width: auto;
+  height: auto;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+.atrasada {
+  color: var(--cor-status-ocorrencia, #D94333);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  width: auto;
+  height: auto;
+  padding: 0;
+  justify-content: flex-end;
+}

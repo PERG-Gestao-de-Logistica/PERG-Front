@@ -1,0 +1,98 @@
+/* Caixa branca das abas; encolhe na barra e as abas rolam por dentro */
+.envoltorio {
+  position: relative;
+  display: flex;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  overflow: hidden;
+}
+
+.abas {
+  display: flex;
+  gap: var(--espacamento-xs);
+  padding: var(--espacamento-xs);
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.abas::-webkit-scrollbar {
+  display: none;
+}
+
+/* Setas que aparecem só quando há abas escondidas daquele lado */
+.seta {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  border: none;
+  color: var(--cor-primaria-verde-escuro);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.setaEsquerda {
+  left: 0;
+  justify-content: start;
+  padding-left: var(--espacamento-xs);
+  background: linear-gradient(to right, var(--cor-superficie-branca) 55%, transparent);
+}
+
+.setaDireita {
+  right: 0;
+  justify-content: end;
+  padding-right: var(--espacamento-xs);
+  background: linear-gradient(to left, var(--cor-superficie-branca) 55%, transparent);
+}
+
+.seta:hover {
+  color: var(--cor-secundaria-verde);
+}
+
+.aba {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  padding: var(--espacamento-sm) 0.75rem;
+  border: none;
+  border-radius: var(--raio-pequeno);
+  background: transparent;
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
+  font-weight: var(--peso-semi-negrito);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.aba:hover:not(.abaAtiva) {
+  background-color: var(--cor-fundo-verde-claro);
+}
+
+.abaAtiva {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.contador {
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-negrito);
+}
+
+/* Abas que pedem atenção (com problema, ocorrências) quando têm pedidos: só o número em vermelho */
+.contadorAlerta {
+  color: var(--cor-status-ocorrencia);
+}
+
+.abaAtiva .contadorAlerta {
+  color: inherit;
+}

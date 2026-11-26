@@ -118,7 +118,10 @@ export default function MenuEmpresa() {
         <nav className={styles.navegacao} aria-label="Navegação principal">
           <ul className={styles.lista}>
             {itensMenu.map((item) => {
-              const ativo = router.pathname === item.rota;
+              // Configurações fica ativo em qualquer aba (perfil, empresa, equipe...)
+              const ativo =
+                router.pathname === item.rota ||
+                (item.rota.startsWith("/painelEmpresa/configuracao") && router.pathname.startsWith("/painelEmpresa/configuracao"));
               const Icone = item.icone;
 
               return (
@@ -128,7 +131,7 @@ export default function MenuEmpresa() {
                     className={`${styles.item} ${ativo ? styles.itemAtivo : ""}`}
                     aria-current={ativo ? "page" : undefined}
                   >
-                    <Icone aria-hidden="true" size={32} />
+                    <Icone aria-hidden="true" size={28} />
                     <span>{item.nome}</span>
                   </Link>
                 </li>

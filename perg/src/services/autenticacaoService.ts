@@ -7,6 +7,10 @@ export const autenticacaoService = {
 
   eu: () => api.get<UsuarioLogado>("/api/Usuarios/eu"),
 
+  // Nome, telefone e preferências de notificação do próprio usuário (o e-mail não muda: é o login)
+  atualizarPerfil: (dados: { nome: string; telefone?: string; notifOcorrencias: boolean; notifCobranca: boolean }) =>
+    api.put<{ mensagem: string }>("/api/Usuarios/eu", dados),
+
   trocarSenha: (senhaAtual: string, novaSenha: string) =>
     api.put<{ mensagem: string }>("/api/Usuarios/eu/senha", { senhaAtual, novaSenha }),
 

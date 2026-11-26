@@ -1,0 +1,118 @@
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-lg);
+  width: 100%;
+  min-width: 0;
+  padding-bottom: var(--espacamento-lg);
+}
+
+/* Abas, busca e botão numa linha só; as abas rolam de lado se faltar espaço */
+.barra {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  min-width: 0;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Busca e botão com a mesma caixa: mesma altura, raio e sombra */
+.busca {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  height: var(--altura-botao-medio);
+  margin: 0;
+  padding: 0 var(--espacamento-md);
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  color: var(--cor-texto-secundario);
+}
+
+.busca input {
+  width: 11.5rem; /* cabe "Número ou cliente" inteiro */
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--fonte-texto);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+/* Verde-destaque com o ícone de rota; peso de texto igual aos outros botões do painel */
+.botaoRoteirizar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  height: var(--altura-botao-medio);
+  padding: 0 var(--espacamento-md);
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+  border: none;
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
+  font-weight: var(--peso-regular);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.botaoRoteirizar:hover:not(:disabled) {
+  background-color: var(--cor-verde-hover);
+}
+
+.botaoRoteirizar:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.erro,
+.sucesso {
+  margin: 0;
+  font-family: var(--fonte-texto);
+}
+
+.erro {
+  color: var(--cor-perigo);
+}
+
+.sucesso {
+  color: var(--cor-sucesso);
+}
+
+@media (max-width: 1100px) {
+  .barra {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .acoes {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .busca {
+    flex: 1;
+  }
+
+  .busca input {
+    width: 100%;
+  }
+
+  .botaoRoteirizar {
+    width: 100%;
+    justify-content: center;
+  }
+}

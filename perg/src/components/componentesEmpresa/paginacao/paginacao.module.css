@@ -1,0 +1,48 @@
+.paginacao {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagina,
+.seta {
+  display: grid;
+  place-items: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.4rem;
+  border: none;
+  border-radius: var(--raio-pequeno);
+  background-color: transparent;
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-semi-negrito);
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.pagina:hover:not(.paginaAtiva):not(:disabled),
+.seta:hover:not(:disabled) {
+  background-color: var(--cor-fundo-verde-claro);
+}
+
+.paginaAtiva {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.seta {
+  font-size: 1.1rem;
+}
+
+.seta:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.reticencias {
+  min-width: 1.25rem;
+  text-align: center;
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto-secundario);
+}

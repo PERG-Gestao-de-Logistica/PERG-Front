@@ -1,0 +1,68 @@
+.rotasGeradas {
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  padding: var(--espacamento-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  min-width: 0;
+  min-height: 0;
+  height: 360px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.cabecalhoCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacamento-sm);
+  flex-shrink: 0;
+}
+
+.cabecalhoCard h3 {
+  font-size: var(--tamanho-titulo-secao);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.listaRotas {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  padding-right: var(--espacamento-xs);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-secundaria-verde) var(--cor-superficie-branca);
+  min-height: 0;
+}
+
+.listaRotas li{
+    flex-shrink: 0;
+}
+
+@media (max-width: 1200px) and (min-width: 641px) {
+  .rotasGeradas {
+    height: 100%;
+    min-height: 320px;
+    max-height: 360px;
+    padding: var(--espacamento-md);
+  }
+
+  .listaRotas{
+     padding-right: var(--espacamento-xs);
+  }
+}
+
+@media (max-width: 640px) {
+  .rotasGeradas {
+    padding: var(--espacamento-md);
+    height: 310px;
+  }
+}
