@@ -1,9 +1,13 @@
 .paginaTrafego {
   display: flex;
-  min-height: 28rem;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
   flex-direction: column;
   gap: var(--espacamento-md);
+  overflow: hidden;
   color: var(--cor-texto-branco);
+  box-sizing: border-box;
 }
 
 .indices {
@@ -15,8 +19,12 @@
 
 .conteudo{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  grid-template-rows: minmax(0, 1fr);
+  align-items: stretch;
   gap: var(--espacamento-lg);
 }
 
@@ -39,7 +47,7 @@
   overflow: hidden;
   color: var(--cor-texto-secundario);
   font-family: var(--fonte-texto);
-  font-size: 19px;
+  font-size: var(--tamanho-texto);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -47,7 +55,7 @@
 .indicadorNumero {
   color: var(--cor-texto-branco); 
   font-family: var(--fonte-titulo);
-  font-size: 25px;
+  font-size: var(--tamanho-titulo-secao);
   font-weight: var(--peso-semi-negrito);
   line-height: var(--altura-linha-titulo);
 }
@@ -58,10 +66,10 @@
   flex-direction: column;
   min-width: 0;
   min-height: 0;
-  flex: 1;
-  align-items: flex-start;
-  justify-content: space-between;
+  height: 100%;
   gap: var(--espacamento-md);
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .linhaEndPoints{
@@ -69,29 +77,34 @@
 }
 
 .grafico {
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  height: 50vh;
-  padding: 20px;
-  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
-  border-radius: var(--raio-padrao);
-  background-color: var(--cor-primaria-secundaria);
-  box-shadow: var(--sombra-interna-destaque);
-}
-
-.endpoints {
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  height: 70vh;
   display: flex;
+  width: 100%;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
   flex-direction: column;
   padding: 20px;
   border: var(--largura-borda) solid var(--cor-primaria-secundaria);
   border-radius: var(--raio-padrao);
   background-color: var(--cor-primaria-secundaria);
   box-shadow: var(--sombra-interna-destaque);
+  overflow: hidden;
+}
+
+.endpoints {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px;
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  background-color: var(--cor-primaria-secundaria);
+  box-shadow: var(--sombra-interna-destaque);
+  overflow: hidden;
 }
 
 .tabelaEndpointsContainer {
@@ -113,7 +126,7 @@
 }
 
 .tabelaEndpointsContainer::-webkit-scrollbar-thumb {
-  background-color: var(--cor-verde-destaque);
+  background-color: var(--cor-primaria-verde-escuro);
   border-radius: var(--raio-pequeno);
 }
 
@@ -131,7 +144,7 @@
   border-bottom: var(--largura-borda) solid #075052;
   text-align: center;
   overflow-wrap: anywhere;
-  font-size: 16px;
+  font-size: var(--tamanho-texto);
 }
 
 .tabelaEndpoints th {
@@ -157,7 +170,9 @@
 .graficoVisual {
   width: 100%;
   min-width: 0;
-  height: 17rem;
+  min-height: 0;
+  height: auto;
+  flex: 1;
 }
 
 .grafico h2 {
@@ -186,7 +201,8 @@
 .cardCircular {
   display: flex;
   width: 100%;
-  height: 100%;
+  min-height: 9rem;
+  flex: 0 0 auto;
   min-width: 0;
   align-items: center;
   gap: var(--espacamento-xl);
@@ -240,7 +256,53 @@
   flex: 0 0 auto;
 }
 
-@media (max-width: 480px) {
+/* Notebook and smaller layouts use natural page height and vertical scrolling. */
+@media (max-width: 1200px), (max-height: 700px) {
+  .paginaTrafego {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .conteudo {
+    flex: none;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .painelGraficos {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .grafico {
+    min-height: 20rem;
+    flex: none;
+    overflow: visible;
+  }
+
+  .graficoVisual {
+    height: 17rem;
+    min-height: 17rem;
+    flex: none;
+  }
+
+  .endpoints {
+    height: auto;
+    min-height: 20rem;
+    max-height: 28rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .indices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
   .cardCircular {
     flex-direction: column;
     align-items: stretch;
@@ -251,19 +313,46 @@
     height: 9rem;
     flex-basis: 9rem;
   }
-}
 
-@media (max-width: 720px) {
-  .indices {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .grafico {
+    min-height: 18rem;
   }
 
-  .painelGraficos {
-    flex-direction: column;
+  .graficoVisual {
+    height: 15rem;
+    min-height: 15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .indices {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .indicadorTitulo {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .indicadorNumero {
+    font-size: clamp(1.25rem, 7vw, 1.56rem);
+    overflow-wrap: anywhere;
   }
 
   .grafico,
   .endpoints {
-    width: 100%;
+    padding: var(--espacamento-md);
+  }
+
+  .graficoVisual {
+    height: 13rem;
+    min-height: 13rem;
+  }
+
+  .tabelaEndpoints th,
+  .tabelaEndpoints td {
+    padding: var(--espacamento-xs);
+    font-size: var(--tamanho-texto-auxiliar);
   }
 }

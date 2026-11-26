@@ -1,16 +1,19 @@
 .paginaAlertas {
   display: flex;
-  height: calc(100dvh - 12rem);
-  min-height: 28rem;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
   flex-direction: column;
   gap: var(--espacamento-md);
+  overflow: hidden;
   color: var(--cor-texto-branco);
+  box-sizing: border-box;
 }
 
 .indicadores {
   display: grid;
   flex: 0 0 auto;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
   gap: var(--espacamento-sm);
 }
 
@@ -64,6 +67,7 @@
 
 .painelAlertas {
   display: grid;
+  min-width: 0;
   min-height: 0;
   flex: 1;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -283,12 +287,82 @@
   text-align: center;
 }
 
-@media (max-width: 720px) {
-  .painelAlertas {
-    grid-template-columns: 1fr;
+/* Notebook and smaller layouts use natural page height and vertical scrolling. */
+@media (max-width: 1200px), (max-height: 700px) {
+  .paginaAlertas {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
   }
 
+  .painelAlertas {
+    flex: none;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .listaAlertas,
+  .detalheAlerta {
+    min-height: 20rem;
+  }
+
+  .listaAlertas {
+    max-height: 26rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .alertaItem {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--espacamento-xs) var(--espacamento-sm);
+    padding: var(--espacamento-sm);
+  }
+
+  .statusAlerta {
+    grid-column: 2 / -1;
+  }
+
+  .horarioAlerta {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 480px) {
   .indicadores {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .indicador {
+    min-height: 4.5rem;
+  }
+
+  .indicadorTitulo {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .alertaItem {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .informacoesAlerta,
+  .statusAlerta {
+    grid-column: 1 / -1;
+  }
+
+  .horarioAlerta {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .cabecalhoDetalhe {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .acoesDetalhe {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
