@@ -15,8 +15,9 @@
   flex-shrink: 0;
 }
 
+/* Balões claros: texto escuro. Balões escuros: texto branco. */
 .emRota {
-  color: var(--cor-secundaria-verde);
+  color: var(--cor-texto-principal);
   background-color: var(--fundo-status-entregue);
 }
 
@@ -46,7 +47,7 @@
 }
 
 .ocorrencia {
-  color: var(--cor-status-ocorrencia);
+  color: var(--cor-texto-principal);
   background-color: var(--fundo-status-ocorrencia);
 }
 
@@ -91,4 +92,4 @@
   height: auto;
   padding: 0;
   justify-content: flex-end;
-}
+}

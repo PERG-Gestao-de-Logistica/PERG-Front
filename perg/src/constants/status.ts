@@ -36,6 +36,17 @@ export const STATUS_CONFIG = {
     variant: "ocorrencia",
   },
 
+  // Pedido saiu com o entregador (mesmo visual escuro da rota concluída)
+  pedidoEmRota: {
+    label: "Em rota",
+    variant: "concluida",
+  },
+
+  cancelado: {
+    label: "Cancelado",
+    variant: "aguardando",
+  },
+
   // * Status de entregadores
   disponivel: {
     label: "Disponível",

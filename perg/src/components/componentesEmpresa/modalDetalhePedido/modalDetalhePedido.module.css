@@ -1,0 +1,417 @@
+/* Complementa o modalNovoPedido.module.css, que este modal reaproveita */
+
+.modal {
+  width: min(94vw, 960px);
+}
+
+/* O conteúdo ocupa a largura toda do modal (sem isso ele encolhe até o tamanho do texto) */
+.conteudo {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Ícone, título, status e fechar alinhados no centro */
+.cabecalho {
+  align-items: center;
+}
+
+.colunas {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--espacamento-lg);
+}
+
+.carregando {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+}
+
+.diagnostico {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+}
+
+.problema,
+.aviso,
+.pronto {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  margin: 0;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-texto);
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
+}
+
+.problema {
+  background-color: var(--fundo-status-ocorrencia);
+  color: var(--cor-status-ocorrencia);
+  font-weight: var(--peso-semi-negrito);
+}
+
+.aviso,
+.pronto {
+  background-color: var(--cor-fundo-verde-claro);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.pronto {
+  font-weight: var(--peso-semi-negrito);
+}
+
+.bloco {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+}
+
+.legenda {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+  padding: 0;
+}
+
+.rotulo {
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.dados {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: var(--espacamento-xs) var(--espacamento-md);
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
+}
+
+.dados dt {
+  color: var(--cor-texto-secundario);
+}
+
+.dados dd {
+  margin: 0;
+  color: var(--cor-primaria-verde-escuro);
+  font-weight: var(--peso-semi-negrito);
+  overflow-wrap: anywhere;
+}
+
+.faltando {
+  color: var(--cor-texto-secundario) !important;
+  font-style: italic;
+  font-weight: var(--peso-regular) !important;
+}
+
+.duas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacamento-sm);
+}
+
+.tituloMapa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacamento-sm);
+}
+
+.seloGeo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+}
+
+.seloGeoOk {
+  background-color: var(--cor-fundo-verde-claro);
+  color: var(--cor-secundaria-verde);
+}
+
+.seloGeoAtencao {
+  background-color: var(--fundo-status-ocorrencia);
+  color: var(--cor-status-ocorrencia);
+}
+
+.mapa {
+  position: relative;
+  height: 13rem;
+  border-radius: var(--raio-pequeno);
+  overflow: hidden;
+  background-color: var(--cor-fundo-claro);
+}
+
+/* Botões de zoom e seletor de camadas do Leaflet no visual do Perg */
+.mapa :global(.leaflet-control-zoom) {
+  border: none;
+  box-shadow: var(--sombra-card);
+  border-radius: var(--raio-pequeno);
+  overflow: hidden;
+}
+
+.mapa :global(.leaflet-control-zoom a) {
+  width: 1.75rem;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: var(--peso-negrito);
+  border: none;
+  transition: var(--transicao-padrao);
+}
+
+.mapa :global(.leaflet-control-zoom a + a) {
+  border-top: 1px solid var(--cor-borda);
+}
+
+.mapa :global(.leaflet-control-zoom a:hover) {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.mapa :global(.leaflet-control-zoom a.leaflet-disabled) {
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+  opacity: 0.5;
+}
+
+.mapa :global(.leaflet-control-layers) {
+  border: none;
+  border-radius: var(--raio-pequeno);
+  box-shadow: var(--sombra-card);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+}
+
+.mapa :global(.leaflet-control-layers-toggle) {
+  width: 1.75rem;
+  height: 1.75rem;
+  background-size: 1rem;
+}
+
+.mapa :global(.leaflet-control-layers-expanded) {
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+}
+
+.mapa :global(.leaflet-control-layers label) {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  cursor: pointer;
+}
+
+.mapa :global(.leaflet-control-layers input) {
+  accent-color: var(--cor-primaria-verde-escuro);
+}
+
+.mapa :global(.leaflet-control-attribution) {
+  font-size: 0.6rem;
+}
+
+.dicaMapa {
+  position: absolute;
+  left: var(--espacamento-sm);
+  bottom: var(--espacamento-sm);
+  z-index: 2;
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+  border-radius: var(--raio-pequeno);
+  padding: 0.2rem 0.5rem;
+  pointer-events: none;
+}
+
+.acoesMapa {
+  display: flex;
+  gap: var(--espacamento-sm);
+  flex-wrap: wrap;
+}
+
+.botaoAcao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  height: var(--altura-botao-pequeno);
+  padding: 0 var(--espacamento-md);
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+  border: none;
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  font-weight: var(--peso-semi-negrito);
+  cursor: pointer;
+}
+
+.botaoAcaoPrincipal {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.botaoAcao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.linhaTempo {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--espacamento-md);
+  border-left: 2px solid var(--cor-borda);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  max-height: 11rem;
+  overflow-y: auto;
+}
+
+.linhaTempo li {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fonte-texto);
+}
+
+.linhaTempo strong {
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.linhaTempo span {
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+}
+
+/* Ocorrência: motivo em destaque e as ações para resolver */
+.blocoOcorrencia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-md);
+  border-radius: var(--raio-pequeno);
+  border: 1px solid var(--fundo-status-ocorrencia);
+  background-color: color-mix(in srgb, var(--fundo-status-ocorrencia) 45%, transparent);
+}
+
+.motivoOcorrencia {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-status-ocorrencia);
+}
+
+.descricaoOcorrencia {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-style: italic;
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.metaOcorrencia,
+.dicaOcorrencia {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+}
+
+.acoesOcorrencia {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  flex-wrap: wrap;
+}
+
+.textoConfirmacao {
+  flex: 1;
+  min-width: 12rem;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.erro,
+.sucesso {
+  margin: 0;
+  font-family: var(--fonte-texto);
+}
+
+.erro {
+  color: var(--cor-perigo);
+}
+
+.sucesso {
+  color: var(--cor-sucesso);
+}
+
+.rodape {
+  justify-content: space-between;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+/* Botões sempre à direita, mesmo sem o "Cancelar pedido" do lado esquerdo */
+.rodape > div:last-child {
+  margin-left: auto;
+}
+
+.linkCancelar {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-negrito);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cancelamento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: var(--espacamento-sm);
+  width: 100%;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .colunas,
+  .duas,
+  .cancelamento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Edição da janela: data + início + fim na mesma linha */
+.janelaEdicao {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.campoJanela {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+  min-width: 0;
+}

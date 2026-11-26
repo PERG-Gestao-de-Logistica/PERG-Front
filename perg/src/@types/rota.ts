@@ -48,6 +48,8 @@ export interface Rota {
 export interface CriarRoteirizacao {
   origemId?: string;
   dataOperacao: string;
+  // Sem a lista, a API pega todos os pedidos prontos da origem
+  pedidoIds?: string[];
   frota: { tipo: TipoVeiculo; quantidade: number }[];
   objetivo: ObjetivoRoteirizacao;
 }
