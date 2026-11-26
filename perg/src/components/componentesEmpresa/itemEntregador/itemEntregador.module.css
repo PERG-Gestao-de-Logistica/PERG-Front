@@ -1,0 +1,198 @@
+.itemLista {
+  list-style: none;
+  min-width: 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.itemLista:last-child {
+  border-bottom: none;
+}
+
+.linha {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(170px, 2.4fr) minmax(95px, 1.1fr) 0.75fr 0.75fr 0.75fr 2.25rem;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-sm) var(--espacamento-xs);
+  border-radius: var(--raio-pequeno);
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+  box-sizing: border-box;
+}
+
+.linha:hover,
+.linhaSelecionada {
+  background-color: var(--cor-fundo-claro);
+}
+
+.colunaEntregador {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  min-width: 0;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-fundo-input);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarDestaque {
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.dadosPrincipais {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+  min-width: 0;
+}
+
+.dadosPrincipais h4 {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dadosPrincipais p {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-texto);
+  font-size: calc(var(--tamanho-texto-auxiliar) + 0.15rem);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.colunaStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.colunaMetrica {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.colunaNota {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-xs);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  white-space: nowrap;
+}
+
+.iconeEstrela {
+  color: var(--cor-secundaria-verde);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.botaoPreferencial {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--raio-pequeno);
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transicao-padrao);
+}
+
+.botaoPreferencial:hover {
+  background-color: var(--cor-fundo-claro);
+}
+
+.preferencialAtivo {
+  background-color: var(--cor-primaria-verde-escuro);
+  border-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.preferencialAtivo:hover {
+  background-color: var(--cor-secundaria-verde);
+  border-color: var(--cor-secundaria-verde);
+}
+
+@media (max-width: 1200px) and (min-width: 641px) {
+  .linha {
+    grid-template-columns: minmax(150px, 2fr) minmax(90px, 1fr) 0.65fr 0.65fr 0.7fr 2.1rem;
+    gap: var(--espacamento-xs);
+  }
+}
+
+@media (max-width: 640px) {
+  .linha {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas:
+      "entregador status acao"
+      "entregador nota acao";
+    align-items: center;
+    gap: 0.25rem var(--espacamento-sm);
+    padding: var(--espacamento-sm) 0.25rem;
+  }
+
+  .colunaEntregador {
+    grid-area: entregador;
+  }
+
+  .colunaStatus {
+    grid-area: status;
+    justify-content: flex-end;
+    align-self: end;
+  }
+
+  .colunaMetrica {
+    display: none;
+  }
+
+  .colunaNota {
+    grid-area: nota;
+    justify-content: flex-end;
+    align-self: start;
+    font-size: var(--tamanho-texto-auxiliar);
+    color: var(--cor-texto-secundario);
+  }
+
+  .botaoPreferencial {
+    grid-area: acao;
+    align-self: center;
+    width: 28px;
+    height: 28px;
+    border-radius:calc(var(--raio-padrao) - 0.25rem); ;
+  }
+}   
