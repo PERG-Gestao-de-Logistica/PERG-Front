@@ -1,0 +1,110 @@
+.itemLista {
+  list-style: none;
+  min-width: 0;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  background-color: var(--cor-superficie-branca);
+  border: 2px solid var(--cor-rota, var(--cor-borda));
+  border-radius: var(--raio-pequeno);
+  text-align: left;
+  min-width: 0;
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.item:hover,
+.itemSelecionado {
+  background-color: var(--cor-fundo-claro);
+}
+
+.topoItem {
+  display: grid;
+  grid-template-columns: 2.35rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--espacamento-md);
+  width: 100%;
+  min-width: 0;
+}
+
+.iconeVeiculo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+  font-size: 1.15em;
+  flex-shrink: 0;
+}
+
+.informacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.informacoes h4 {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.informacoes p {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-texto);
+  font-size: calc(var(--tamanho-texto-auxiliar) + 0.1rem);
+  font-weight: var(--peso-regular);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rodapeProgresso {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  width: 100%;
+  min-width: 0;
+}
+
+.barraFundo {
+  flex: 1;
+  height: 6px;
+  background-color: var(--cor-fundo-claro);
+  border-radius: 999px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.barraPreenchimento {
+  height: 100%;
+  background-color: var(--cor-verde-destaque);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.contagemEntregas {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

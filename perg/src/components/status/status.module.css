@@ -74,3 +74,21 @@
   color: var(--cor-texto-secundario);
   font-size: var(--tamanho-texto-auxiliar);
 }
+
+.noPrazo {
+  color: var(--cor-primaria-verde-escuro); /* ou var(--cor-secundaria-verde) */
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  width: auto;
+  height: auto;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+.atrasada {
+  color: var(--cor-status-ocorrencia, #D94333);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  width: auto;
+  height: auto;
+  padding: 0;
+  justify-content: flex-end;
+}
