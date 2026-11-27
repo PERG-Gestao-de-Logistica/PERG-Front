@@ -1,0 +1,155 @@
+.cardPerfil {
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  padding: var(--espacamento-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.cabecalhoPerfil {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  min-width: 0;
+}
+
+.avatarGrande {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) + 0.15rem);
+  font-weight: var(--peso-negrito);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.identificacao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.identificacao h3 {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.identificacao p {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-texto);
+  font-size: calc(var(--tamanho-texto-auxiliar) + 0.15rem);
+  color: var(--cor-texto-secundario);
+  white-space: nowrap;
+}
+
+.seloVerificado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-xs);
+  padding: var(--espacamento-sm);
+  background-color: var(--cor-fundo-claro);
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  text-align: center;
+}
+
+.seloVerificado p{
+  font-size: calc(var(--tamanho-texto-auxiliar) + 0.25rem);
+
+}
+
+.iconeSelo {
+  font-size: 1rem;
+  color: var(--cor-secundaria-verde);
+  flex-shrink: 0;
+}
+
+.gradeMetricas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacamento-sm);
+}
+
+.blocoMetrica {
+  background-color: var(--cor-fundo-claro);
+  border-radius: var(--raio-pequeno);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+
+.blocoMetrica p {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--fonte-texto);
+  font-size: calc(var(--tamanho-texto-auxiliar) + 0.1rem);
+  color: var(--cor-texto-secundario);
+}
+
+.botaoPreferencial {
+  width: 100%;
+  height: var(--altura-botao-medio);
+  padding: 0 var(--espacamento-md);
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-negrito);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.botaoRemover {
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+  border: 1px solid var(--cor-borda);
+}
+
+.botaoRemover:hover {
+  background-color: var(--cor-fundo-input);
+}
+
+.botaoAdicionar {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+  border: 1px solid var(--cor-primaria-verde-escuro);
+}
+
+.botaoAdicionar:hover {
+  background-color: var(--cor-secundaria-verde);
+  border-color: var(--cor-secundaria-verde);
+}
+
+@media (max-width: 640px) {
+  .cardPerfil {
+    padding: var(--espacamento-md);
+  }
+}

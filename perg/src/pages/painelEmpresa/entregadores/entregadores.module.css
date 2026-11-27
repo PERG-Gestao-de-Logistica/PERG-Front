@@ -1,0 +1,272 @@
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-lg);
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    padding-bottom: var(--espacamento-pagina);
+    box-sizing: border-box;
+}
+
+.botoesFiltro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--espacamento-md);
+    width: 100%;
+    min-width: 0;
+}
+
+.filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacamento-xs);
+    padding: var(--espacamento-sm);
+    min-height: var(--altura-botao-medio);
+    background-color: var(--cor-superficie-branca);
+    border-radius: var(--raio-padrao);
+    box-shadow: var(--sombra-card);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.icone {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.botaoFiltro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espacamento-xs);
+    height: var(--altura-botao-pequeno);
+    padding: 0 var(--espacamento-md);
+    background-color: transparent;
+    color: var(--cor-primaria-verde-escuro);
+    border: none;
+    border-radius: calc(var(--raio-padrao) - 0.25rem);
+    font-family: var(--fonte-titulo);
+    font-size: var(--tamanho-texto-auxiliar);
+    font-weight: var(--peso-semi-negrito);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transicao-padrao);
+}
+
+.botaoFiltro:hover:not(.botaoFiltroAtivo) {
+    background-color: var(--cor-fundo-claro);
+}
+
+.botaoFiltroAtivo {
+    background-color: var(--cor-primaria-verde-escuro);
+    color: var(--cor-texto-branco);
+}
+
+.filtroVeiculos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espacamento-xs);
+}
+
+.botaoVeiculo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--espacamento-xs);
+    height: calc(var(--altura-botao-pequeno) + (var(--espacamento-sm) * 2));
+    padding: var(--padding-botao-pequeno);
+    background-color: var(--cor-superficie-branca);
+    color: var(--cor-primaria-verde-escuro);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    font-family: var(--fonte-titulo);
+    font-size: var(--tamanho-texto-auxiliar);
+    font-weight: var(--peso-semi-negrito);
+    box-shadow: var(--sombra-card);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transicao-padrao);
+}
+
+.botaoVeiculo:hover:not(.botaoVeiculoAtivo) {
+    background-color: var(--cor-fundo-claro);
+}
+
+.botaoVeiculoAtivo {
+    background-color: var(--cor-fundo-verde-claro);
+    border-color: var(--cor-secundaria-verde);
+    color: var(--cor-primaria-verde-escuro);
+}
+
+.gradePrincipal {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(290px, 0.85fr);
+    gap: var(--espacamento-lg);
+    width: 100%;
+    min-width: 0;
+    align-items: start;
+}
+
+.listaEntregador {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+.indiceEntregadorPreferencia {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-md);
+    width: 100%;
+    height: auto;
+    min-width: 0;
+}
+
+.selecionarPreferenciais {
+    background-color: var(--cor-primaria-verde-escuro);
+    color: var(--cor-texto-branco);
+    border-radius: var(--raio-padrao);
+    box-shadow: var(--sombra-card);
+    padding: var(--espacamento-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-sm);
+    box-sizing: border-box;
+    height: auto;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+.cabecalhoPreferenciais {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacamento-md);
+}
+
+.cabecalhoPreferenciais h4 {
+    font-family: var(--fonte-titulo);
+    font-size: var(--tamano-titulo-card);
+    font-weight: var(--peso-semi-negrito);
+    color: var(--cor-texto-branco);
+}
+
+.selecionarPreferenciais p {
+    margin: 0;
+    font-family: var(--fonte-texto);
+    font-size: var(--tamanho-texto);
+    font-weight: var(--peso-light);
+    line-height: 1.2;
+    color: var(--cor-texto-branco);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.28);
+    border-radius: var(--raio-padrao);
+    cursor: pointer;
+    transition: var(--transicao-padrao);
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--cor-texto-branco);
+    border-radius: 50%;
+    transition: var(--transicao-padrao);
+}
+
+.switch input:checked+.slider {
+    background-color: var(--cor-verde-destaque);
+}
+
+.switch input:checked+.slider::before {
+    transform: translateX(18px);
+    background-color: var(--cor-primaria-verde-escuro);
+}
+
+@media (max-width: 1200px) and (min-width: 641px) {
+    .gradePrincipal {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--espacamento-lg);
+    }
+
+    .indiceEntregadorPreferencia {
+        display: flex;
+        flex-direction: column;
+        gap: var(--espacamento-md);
+    }
+
+    .selcionarPreferenciais {
+        height: auto;
+        padding: var(--espacamento-md) var(--espacamento-lg);
+    }
+}
+
+@media (max-width: 640px) {
+    .conteudo {
+        gap: var(--espacamento-md);
+    }
+
+    .filtro {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-radius: var(--raio-padrao);
+    }
+
+    .botaoFiltro {
+        width: 100%;
+        padding: 0 var(--espacamento-xs);
+        border-radius: calc(var(--raio-padrao) - 0.25rem);
+    }
+
+    .filtroVeiculos {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: var(--espacamento-xs);
+    }
+
+    .botaoVeiculo {
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .botaoVeiculo p {
+        display: none;
+    }
+
+    .gradePrincipal {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--espacamento-md);
+    }
+
+    .selcionarPreferenciais {
+        padding: var(--espacamento-md);
+    }
+}

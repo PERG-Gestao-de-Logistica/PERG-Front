@@ -92,4 +92,18 @@
   height: auto;
   padding: 0;
   justify-content: flex-end;
-}
+}
+
+/* Status de entregador (só texto, com ícone): sem balão */
+.disponivel,
+.offline,
+.outraLoja,
+.emRotaAzul {
+  width: auto;
+  height: auto;
+  padding: 0;
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+}
