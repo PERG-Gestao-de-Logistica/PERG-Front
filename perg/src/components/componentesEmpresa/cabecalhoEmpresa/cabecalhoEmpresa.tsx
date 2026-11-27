@@ -3,57 +3,56 @@ import styles from "./cabecalhoEmpresa.module.css";
 import BarraPesquisaEmpresa from "../barraPesquisaEmpresa/barraPesquisaEmpresa";
 import BotaoNotificacaoEmpresa from "../../botoes/botaoNotificacaoEmpresa/botaoNotificacaoEmpresa";
 import BotaoNovoPedido from "@/components/botoes/botaoNovoPedido/botaoNovoPedido";
+import { useState } from "react";
+import ModalNovoPedido from "../modalNovoPedido/modalNovoPedido";
+import { useAuth } from "@/hooks/useAuth";
+import { dataPorExtenso, primeiroNome, saudacao } from "@/utils/painel";
 
-// TODO: implementar lógica dinâmica para visualizar nome do usuário, data de acesso e nome empresa.CONFIG_PAGINAS precisa guardar apenas o título padrão de cada rota. Trazer props para info e função formatação de data e saudação dinâmica conforme horário(bom dia, boa tarde e boa noite)
-const CONFIG_PAGINAS: Record<string, { titulo: string; subtitulo: string }> = {
-  "/painelEmpresa/visaoGeral": {
-    titulo: "Bom dia, Ana Souza",
-    subtitulo: "quinta, 08 de out - Aurora Store",
-  },
-  "/painelEmpresa/pedidos": {
-    titulo: "Pedidos",
-    subtitulo: "quinta, 08 de out - Aurora Store",
-  },
-  "/painelEmpresa/roteirizacao": {
-    titulo: "Roteirização",
-    subtitulo: "quinta, 08 de out - Aurora Store",
-  },
-  "/painelEmpresa/monitoramento": {
-    titulo: "Monitoramento",
-    subtitulo: "quinta, 08 de out - Aurora Store",
-  },
-  "/painelEmpresa/entregadores": {
-    titulo: "Entregadores",
-    subtitulo: "quinta, 08 de out - Aurora Store",
-  },
-  "/painelEmpresa/configuracao/perfil": {
-    titulo: "Configurações",
-    subtitulo: "quinta, 08 de out - Aurora Store",
-  },
+// Título fixo de cada página; na visão geral vira a saudação com o nome do usuário
+const TITULOS: Record<string, string> = {
+  "/painelEmpresa/visaoGeral": "",
+  "/painelEmpresa/pedidos": "Pedidos",
+  "/painelEmpresa/roteirizacao": "Roteirização",
+  "/painelEmpresa/monitoramento": "Monitoramento",
+  "/painelEmpresa/entregadores": "Entregadores",
+  "/painelEmpresa/configuracao/perfil": "Configurações",
 };
 
 export default function CabecalhoEmpresa() {
   const router = useRouter();
+  //*Abertura modal novo pedido
+  const [modalNovoPedidoAberto, setModalNovoPedidoAberto] = useState(false);
 
-  //* Adicionado fallback caso a rota ainda não tenha carregado 
-  const { titulo, subtitulo } = CONFIG_PAGINAS[router.pathname] || {
-    titulo: "",
-    subtitulo: "",
-  };
+  const { usuario } = useAuth();
+
+  const titulo =
+    router.pathname === "/painelEmpresa/visaoGeral"
+      ? `${saudacao()}, ${primeiroNome(usuario?.nome ?? "")}`
+      : router.pathname.startsWith("/painelEmpresa/configuracao")
+        ? "Configurações"
+        : TITULOS[router.pathname] ?? "";
+  const subtitulo = usuario ? `${dataPorExtenso()} - ${usuario.nomeEmpresa}` : dataPorExtenso();
 
   return (
-    <header className={styles.cabecalho}>
-      <div className={styles.titulosCabecalho}>
-        <h1 className={styles.titulo}>{titulo}</h1>
-        <p className={styles.subtitulo}>{subtitulo}</p>
-      </div>
-      <div className={styles.acoes}>
-        <div className={styles.pesquisa}>
-          <BarraPesquisaEmpresa />
+    <>
+      <header className={styles.cabecalho}>
+        <div className={styles.titulosCabecalho}>
+          <h1 className={styles.titulo}>{titulo}</h1>
+          <p className={styles.subtitulo}>{subtitulo}</p>
         </div>
-        <BotaoNovoPedido />
-        <BotaoNotificacaoEmpresa />
-      </div>
-    </header>
+        <div className={styles.acoes}>
+          <div className={styles.pesquisa}>
+            <BarraPesquisaEmpresa />
+          </div>
+          <BotaoNovoPedido onClick={() => setModalNovoPedidoAberto(true)} />
+          <BotaoNotificacaoEmpresa />
+        </div>
+      </header>
+
+      <ModalNovoPedido
+        aberto={modalNovoPedidoAberto}
+        onFechar={() => setModalNovoPedidoAberto(false)}
+      />
+    </>
   );
 }
