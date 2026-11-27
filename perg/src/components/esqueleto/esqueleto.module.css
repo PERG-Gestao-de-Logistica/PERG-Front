@@ -1,0 +1,29 @@
+/* Bloco "fantasma" com brilho passando, usado enquanto a API não responde */
+.esqueleto {
+  display: block;
+  flex-shrink: 0;
+  max-width: 100%;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--cor-primaria-verde-escuro) 8%, transparent) 25%,
+    color-mix(in srgb, var(--cor-primaria-verde-escuro) 18%, transparent) 50%,
+    color-mix(in srgb, var(--cor-primaria-verde-escuro) 8%, transparent) 75%
+  );
+  background-size: 300% 100%;
+  animation: brilho 1.4s ease-in-out infinite;
+}
+
+@keyframes brilho {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .esqueleto {
+    animation: none;
+  }
+}

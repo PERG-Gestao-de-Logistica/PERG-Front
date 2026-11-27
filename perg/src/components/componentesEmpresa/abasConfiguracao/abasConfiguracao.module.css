@@ -1,0 +1,105 @@
+.linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.abas {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  padding: var(--espacamento-sm);
+  min-height: var(--altura-botao-medio);
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  max-width: fit-content;
+  box-sizing: border-box;
+}
+
+.aba {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-xs);
+  height: var(--altura-botao-pequeno);
+  padding: 0 var(--espacamento-md);
+  background-color: transparent;
+  color: var(--cor-primaria-verde-escuro);
+  border: none;
+  border-radius: calc(var(--raio-padrao) - 0.25rem);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-semi-negrito);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transicao-padrao);
+}
+
+.aba span{
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto);
+  font-weight: var(--peso-semi-negrito);
+}
+
+.aba:hover {
+ background-color: var(--cor-fundo-claro);
+}
+
+.abaAtiva,
+.abaAtiva:hover {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.abaEmBreve {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.abaEmBreve:hover {
+  background-color: transparent;
+}
+
+.icone {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.selo {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-medio);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0 0.4rem;
+}
+
+.semAcesso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  text-align: center;
+  padding: var(--espacamento-lg);
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.iconeSemAcesso {
+  font-size: 2.5rem;
+}
+
+.semAcesso p {
+  font-family: var(--fonte-texto);
+}
+
+.linkPerfil {
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-negrito);
+}

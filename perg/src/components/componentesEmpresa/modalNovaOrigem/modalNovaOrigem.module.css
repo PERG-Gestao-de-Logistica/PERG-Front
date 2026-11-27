@@ -1,0 +1,277 @@
+/* Complementa o modalNovoPedido.module.css, que este modal reaproveita */
+
+.modal {
+  width: min(94vw, 900px);
+}
+
+.colunas {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+}
+
+.legenda {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-secundario);
+  padding: 0;
+}
+
+.rotulo {
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.linhaNomeTipo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) auto;
+  gap: var(--espacamento-sm);
+  align-items: end;
+}
+
+.seletorTipo {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background-color: var(--cor-fundo-claro);
+  border-radius: var(--raio-pequeno);
+  height: var(--altura-botao-medio);
+  box-sizing: border-box;
+}
+
+.opcaoTipo {
+  padding: 0 var(--espacamento-md);
+  border: none;
+  border-radius: calc(var(--raio-pequeno) - 2px);
+  background: transparent;
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  font-weight: var(--peso-semi-negrito);
+  cursor: pointer;
+}
+
+.opcaoTipoAtiva {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.linhaNumero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--espacamento-sm);
+}
+
+.linhaResponsavel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacamento-sm);
+}
+
+.cidade {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+}
+
+.mapa {
+  position: relative;
+  height: 9.5rem;
+  border-radius: var(--raio-pequeno);
+  overflow: hidden;
+  background-color: var(--cor-fundo-claro);
+}
+
+/* Botões de zoom e seletor de camadas do Leaflet no visual do Perg */
+.mapa :global(.leaflet-control-zoom) {
+  border: none;
+  box-shadow: var(--sombra-card);
+  border-radius: var(--raio-pequeno);
+  overflow: hidden;
+}
+
+.mapa :global(.leaflet-control-zoom a) {
+  width: 1.75rem;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: var(--peso-negrito);
+  border: none;
+  transition: var(--transicao-padrao);
+}
+
+.mapa :global(.leaflet-control-zoom a + a) {
+  border-top: 1px solid var(--cor-borda);
+}
+
+.mapa :global(.leaflet-control-zoom a:hover) {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.mapa :global(.leaflet-control-zoom a.leaflet-disabled) {
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+  opacity: 0.5;
+}
+
+.mapa :global(.leaflet-control-layers) {
+  border: none;
+  border-radius: var(--raio-pequeno);
+  box-shadow: var(--sombra-card);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+}
+
+.mapa :global(.leaflet-control-layers-toggle) {
+  width: 1.75rem;
+  height: 1.75rem;
+  background-size: 1rem;
+}
+
+.mapa :global(.leaflet-control-layers-expanded) {
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+}
+
+.mapa :global(.leaflet-control-layers label) {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  cursor: pointer;
+}
+
+.mapa :global(.leaflet-control-layers input) {
+  accent-color: var(--cor-primaria-verde-escuro);
+}
+
+.mapa :global(.leaflet-control-attribution) {
+  font-size: 0.6rem;
+}
+
+.dicaMapa {
+  position: absolute;
+  left: var(--espacamento-sm);
+  bottom: var(--espacamento-sm);
+  z-index: 2;
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+  border-radius: var(--raio-pequeno);
+  padding: 0.2rem 0.5rem;
+  pointer-events: none;
+}
+
+.dias {
+  display: flex;
+  gap: var(--espacamento-xs);
+}
+
+.dia {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-negrito);
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.diaAtivo {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.horarios {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: var(--espacamento-sm);
+  align-items: center;
+  margin-top: var(--espacamento-xs);
+}
+
+.campoHora {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  height: var(--altura-botao-medio);
+  padding: 0 var(--espacamento-sm);
+  border: var(--largura-borda) solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.campoHora input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  outline: none;
+}
+
+.ate {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+}
+
+.erro {
+  margin: 0;
+  color: var(--cor-perigo);
+  font-family: var(--fonte-texto);
+}
+
+.rodape {
+  justify-content: space-between;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.checkPadrao {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  cursor: pointer;
+}
+
+.checkPadrao input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--cor-primaria-verde-escuro);
+}
+
+@media (max-width: 640px) {
+  .colunas,
+  .linhaNomeTipo,
+  .linhaResponsavel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .linhaNumero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .linhaNumero input:last-child {
+    grid-column: 1 / -1;
+  }
+}
