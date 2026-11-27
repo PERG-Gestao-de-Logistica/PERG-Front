@@ -44,7 +44,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  max-height: 425px;
+  height: 425px;
   padding-right: var(--espacamento-xs);
   overflow-y: auto;
   overflow-x: hidden;
