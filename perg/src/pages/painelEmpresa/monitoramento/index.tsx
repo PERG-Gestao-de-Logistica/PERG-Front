@@ -210,7 +210,7 @@ export default function Monitoramento() {
 
             <section className={styles.entregadorMapa}>
                 <section className={styles.filtroItemEntregador}>
-                    <div
+                    <section
                         className={styles.filtro}
                         role="group"
                         aria-label="Filtrar rotas por status"
@@ -244,7 +244,7 @@ export default function Monitoramento() {
                         >
                             Atrasados - {totalAtrasados}
                         </button>
-                    </div>
+                    </section>
 
                     <CardEntregadores
                         rotas={rotasFiltradas}

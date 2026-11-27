@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { FaMotorcycle, FaCarSide, FaTruck, FaBicycle } from "react-icons/fa";
 import { TbSteeringWheel } from "react-icons/tb";
 import type { RotaGerada } from "@/components/componentesEmpresa/mapaRoteirizacao/mapaRoteirizacao";
-import Status from "@/components/status/status"; // Ajuste o caminho conforme sua pasta
+import Status from "@/components/status/status"; 
 import styles from "./itemMonitoramento.module.css";
 
 const VEICULO_ICONS = {
