@@ -1,0 +1,166 @@
+.cardLista {
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  padding: var(--espacamento-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.cabecalhoMobile {
+  display: none;
+}
+
+.cabecalhoColunas {
+  display: grid;
+  grid-template-columns: 22px minmax(75px, 0.85fr) minmax(170px, 2.2fr) minmax(100px, 1.1fr) 0.75fr 110px;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: 0 calc(var(--espacamento-md) + 0.55rem) var(--espacamento-sm) calc(var(--espacamento-md) + 1px);
+  border-bottom: 1px solid var(--cor-borda);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto-auxiliar) - 0.05rem);
+  font-weight: var(--peso-semi-negrito);
+  letter-spacing: 0.03em;
+  color: var(--cor-texto-secundario);
+  flex-shrink: 0;
+}
+
+.cabecalhoColunas p {
+  font-size: var(--tamanho-titulo-card);
+  margin: 0;
+  text-align: left;
+}
+
+.cabecalhoColunas p.colunaCentral {
+  text-align: center;
+}
+
+.checkboxMestre {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid var(--cor-borda);
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-texto-branco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: var(--transicao-padrao);
+}
+
+.checkboxMestre:hover {
+  border-color: var(--cor-primaria-verde-escuro);
+}
+
+.checkboxMestreAtivo {
+  background-color: var(--cor-primaria-verde-escuro);
+  border-color: var(--cor-primaria-verde-escuro);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.25rem 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-secundaria-verde) transparent;
+  min-height: 0;
+}
+
+.vazio {
+  margin: 0;
+  padding: var(--espacamento-xl) 0;
+  text-align: center;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+  color: var(--cor-texto-secundario);
+}
+
+@media (max-width: 1200px) and (min-width: 641px) {
+  .cardLista {
+    padding: var(--espacamento-md);
+  }
+
+  .cabecalhoColunas {
+    grid-template-columns: 20px minmax(68px, 0.8fr) minmax(140px, 2fr) minmax(85px, 1fr) 0.7fr 100px;
+    gap: var(--espacamento-xs);
+    padding: 0 var(--espacamento-sm) var(--espacamento-sm);
+  }
+
+  .lista {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardLista {
+    padding: var(--espacamento-md);
+    gap: var(--espacamento-sm);
+  }
+
+  .cabecalhoMobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacamento-sm);
+    padding-bottom: var(--espacamento-xs);
+    border-bottom: 1px solid var(--cor-borda);
+  }
+
+  .tituloMobile {
+    display: flex;
+    align-items: baseline;
+    gap: var(--espacamento-xs);
+  }
+
+  .tituloMobile h3 {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: var(--tamanho-titulo-secao);
+    font-weight: var(--peso-negrito);
+    color: var(--cor-primaria-verde-escuro);
+  }
+
+  .tituloMobile span {
+    font-family: var(--fonte-texto);
+    font-size: var(--tamanho-texto-auxiliar);
+    color: var(--cor-texto-secundario);
+  }
+
+  .botaoSelecionarTodosMobile {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: var(--fonte-titulo);
+    font-size: var(--tamanho-texto-auxiliar);
+    font-weight: var(--peso-semi-negrito);
+    color: var(--cor-secundaria-verde);
+    cursor: pointer;
+  }
+
+  .cabecalhoColunas {
+    display: none;
+  }
+
+  .lista {
+    max-height: 480px;
+  }
+}
