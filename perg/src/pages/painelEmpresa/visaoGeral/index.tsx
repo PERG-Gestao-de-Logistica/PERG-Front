@@ -1,9 +1,5 @@
-import {
-  TbCircleNumber1,
-  TbCircleNumber2,
-  TbCircleNumber3,
-  TbCircleNumber4,
-} from "react-icons/tb";
+
+import { TbCircleNumber1, TbCircleNumber2, TbCircleNumber3, TbCircleNumber4,} from "react-icons/tb";
 import styles from "./visaoGeral.module.css";
 import { HiOutlineArchiveBox } from "react-icons/hi2";
 import { MdOutlineRoute, MdOutlineWatchLater } from "react-icons/md";
@@ -95,3 +91,4 @@ export default function VisaoGeralEmpresa() {
     </main>
   );
 }
+

@@ -56,6 +56,17 @@ export const STATUS_CONFIG = {
     label: "Em rota",
     variant: "emRotaAzul",
   },
+
+  // * Status de monitoramento
+  noPrazo: {
+    label: "No prazo",
+    variant: "noPrazo",
+  },
+
+  atrasada: {
+    label: "Atrasada",
+    variant: "atrasada",
+  },
 };
 
 export const STATUS_DESCONHECIDO = {
