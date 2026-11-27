@@ -1,0 +1,96 @@
+.linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.abas {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  gap: var(--espacamento-xs);
+  padding: var(--espacamento-xs);
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+
+.aba {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border-radius: var(--raio-pequeno);
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
+  font-weight: var(--peso-semi-negrito);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transicao-padrao);
+}
+
+.aba:hover {
+  background-color: var(--cor-verde-hover);
+}
+
+.abaAtiva,
+.abaAtiva:hover {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+}
+
+.abaEmBreve {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.abaEmBreve:hover {
+  background-color: transparent;
+}
+
+.icone {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.selo {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-medio);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0 0.4rem;
+}
+
+.semAcesso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  text-align: center;
+  padding: var(--espacamento-lg);
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.iconeSemAcesso {
+  font-size: 2.5rem;
+}
+
+.semAcesso p {
+  font-family: var(--fonte-texto);
+}
+
+.linkPerfil {
+  color: var(--cor-primaria-verde-escuro);
+  font-family: var(--fonte-texto);
+  font-weight: var(--peso-negrito);
+}

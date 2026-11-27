@@ -1,6 +1,7 @@
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import styles from "./perfilConfig.module.css";
 import { useState } from "react";
+import AbasConfiguracao from "@/components/componentesEmpresa/abasConfiguracao/abasConfiguracao";
 
 export default function ConfiguracaoEmpresa() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
@@ -10,6 +11,9 @@ export default function ConfiguracaoEmpresa() {
 
   return (
     <main className={styles.container}>
+      <div className={styles.barraAbasWrapper}>
+        <AbasConfiguracao />
+      </div>
       <section className={styles.dadosPessoaisSeguranca}>
         <article className={styles.dadosPessoais}>
           <header className={styles.cabecalhoCard}>
@@ -152,18 +156,18 @@ export default function ConfiguracaoEmpresa() {
           >
             <section className={styles.verificacaoSwitch}>
 
-            <section className={styles.verificacoDuasEtapas}>
-              <h3 id="titulo-2fa">Verificação em duas etapas</h3>
-              <p className={styles.textoAuxiliar}>Código extra ao entrar</p>
-            </section>
+              <section className={styles.verificacoDuasEtapas}>
+                <h3 id="titulo-2fa">Verificação em duas etapas</h3>
+                <p className={styles.textoAuxiliar}>Código extra ao entrar</p>
+              </section>
 
-            <label className={styles.switch}>
-              <input
-                type="checkbox"
-                aria-label="Ativar verificação em duas etapas"
-              />
-              <span className={styles.slider} />
-            </label>
+              <label className={styles.switch}>
+                <input
+                  type="checkbox"
+                  aria-label="Ativar verificação em duas etapas"
+                />
+                <span className={styles.slider} />
+              </label>
             </section>
 
             <aside className={styles.bannerSeguranca}>

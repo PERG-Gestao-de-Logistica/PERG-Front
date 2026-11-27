@@ -1,0 +1,220 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-lg);
+  background-color: var(--cor-superficie-branca);
+  border-radius: var(--raio-padrao);
+  box-shadow: var(--sombra-card);
+  min-width: 0;
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+}
+
+.cabecalho h2 {
+  font-size: var(--tamanho-titulo-secao);
+}
+
+.cabecalho p {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+  max-width: 70ch;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+}
+
+.titulos,
+.linha {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1.3fr) repeat(3, minmax(0, 1fr)) minmax(0, 1.1fr);
+  gap: var(--espacamento-md);
+  align-items: center;
+}
+
+.titulos {
+  padding: 0 var(--espacamento-sm) var(--espacamento-xs);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-texto-secundario);
+}
+
+.linha {
+  padding: var(--espacamento-sm);
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-fundo-claro);
+}
+
+.veiculo {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-primaria-verde-escuro);
+  flex-wrap: wrap;
+}
+
+.iconeVeiculo {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: var(--raio-pequeno);
+  background-color: var(--cor-verde-destaque);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.selo {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-medio);
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+  border-radius: 999px;
+  padding: 0 0.5rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.entrada {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  height: var(--altura-botao-medio);
+  padding: 0 var(--espacamento-sm);
+  background-color: var(--cor-superficie-branca);
+  border: var(--largura-borda) solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  transition: var(--transicao-padrao);
+}
+
+.entrada:focus-within {
+  border-color: var(--cor-verde-destaque);
+}
+
+.prefixo {
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+}
+
+.entrada input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-semi-negrito);
+  color: var(--cor-primaria-verde-escuro);
+}
+
+.exemplo {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fonte-titulo);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-secundaria-verde);
+}
+
+/* Rótulo de cada campo só aparece no celular, quando a tabela vira cartões */
+.rotuloCelular {
+  display: none;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  font-weight: var(--peso-regular);
+  color: var(--cor-texto-secundario);
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.mensagem {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
+  color: var(--cor-texto-secundario);
+}
+
+.botoes {
+  display: flex;
+  gap: var(--espacamento-sm);
+  margin-left: auto;
+}
+
+.botaoSecundario,
+.botaoPrimario {
+  height: var(--altura-botao-medio);
+  padding: 0 var(--espacamento-md);
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte-titulo);
+  font-size: calc(var(--tamanho-texto) - 0.15rem);
+  font-weight: var(--peso-semi-negrito);
+  cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.botaoSecundario {
+  background-color: var(--cor-superficie-branca);
+  color: var(--cor-primaria-verde-escuro);
+  border: var(--largura-borda) solid var(--cor-borda);
+}
+
+.botaoPrimario {
+  background-color: var(--cor-primaria-verde-escuro);
+  color: var(--cor-texto-branco);
+  border: none;
+}
+
+.botaoPrimario:hover:not(:disabled) {
+  background-color: var(--cor-secundaria-verde);
+}
+
+.botaoSecundario:hover:not(:disabled) {
+  border-color: var(--cor-verde-destaque);
+}
+
+.botaoPrimario:disabled,
+.botaoSecundario:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .titulos {
+    display: none;
+  }
+
+  .linha {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .veiculo {
+    grid-column: 1 / -1;
+  }
+
+  .rotuloCelular {
+    display: block;
+  }
+}

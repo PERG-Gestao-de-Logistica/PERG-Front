@@ -9,6 +9,13 @@
   padding-bottom: var(--espacamento-lg);
 }
 
+.barraAbasWrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: calc(var(--espacamento-sm) * -1);
+}
+
 .dadosPessoaisSeguranca {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
