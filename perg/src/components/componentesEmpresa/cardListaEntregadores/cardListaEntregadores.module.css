@@ -14,10 +14,10 @@
 
 .cabecalhoColunas {
   display: grid;
-  grid-template-columns: minmax(170px, 2.75fr) minmax(95px, 1.5fr) 0.75fr 0.75fr 0.75fr 2.25rem;
+  grid-template-columns: minmax(170px, 2.4fr) minmax(95px, 1.1fr) 0.75fr 0.75fr 0.75fr 2.25rem;
   align-items: center;
   gap: var(--espacamento-sm);
-  padding: 0 var(--espacamento-xs) var(--espacamento-sm);
+  padding: 0 calc(var(--espacamento-xs) + 0.55rem) var(--espacamento-sm) var(--espacamento-xs);
   border-bottom: 1px solid var(--cor-borda);
   font-family: var(--fonte-titulo);
   font-size: calc(var(--tamanho-texto-auxiliar) - 0.05rem);
@@ -27,6 +27,8 @@
   flex-shrink: 0;
 }
 
+.cabecalhoColunas h4,
+.cabecalhoColunas h5,
 .cabecalhoColunas p{
     font-size: var(--tamanho-titulo-card);
 }
@@ -70,6 +72,7 @@
   .cabecalhoColunas {
     grid-template-columns: minmax(150px, 2fr) minmax(90px, 1fr) 0.65fr 0.65fr 0.7fr 2.1rem;
     gap: var(--espacamento-xs);
+    padding: 0 calc(var(--espacamento-xs) + 0.55rem) var(--espacamento-sm) var(--espacamento-xs);
   }
 
   .lista {
