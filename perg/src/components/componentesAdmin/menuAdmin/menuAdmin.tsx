@@ -127,7 +127,7 @@ export default function MenuAdmin() {
                   className={`${styles.item} ${ativo ? styles.itemAtivo : ""}`}
                   aria-current={ativo ? "page" : undefined}
                 >
-                  <Icone aria-hidden="true" size={32} />
+                  <Icone aria-hidden="true" size={28} />
                   <span>{item.nome}</span>
                 </Link>
               </li>
@@ -149,7 +149,7 @@ export default function MenuAdmin() {
           className={styles.botaoLogout}
           aria-label="Sair da conta"
         >
-          <MdLogout size={32} />
+          <MdLogout size={28} />
         </button>
       </footer>
     </aside>

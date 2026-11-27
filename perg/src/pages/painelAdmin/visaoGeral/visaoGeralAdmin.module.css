@@ -1,0 +1,609 @@
+
+/* ========================================== */
+/* ESTRUTURA GERAL DA PÁGINA */
+/* ========================================== */
+
+.paginaVisaoGeral {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  overflow: hidden;
+  color: var(--cor-texto-branco);
+  box-sizing: border-box;
+}
+
+.paginaVisaoGeral h1 {
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-card);
+  line-height: var(--altura-linha-subtitulo);
+}
+
+.paginaVisaoGeral h2 {
+  color: var(--cor-texto-branco);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo-secao);
+  line-height: var(--altura-linha-subtitulo);
+}
+
+/* ========================================== */
+/* GRADES DA PÁGINA */
+/* ========================================== */
+
+
+.gradePrincipal{
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+}
+
+
+.gradeSuperior,
+.gradeInferior {
+  display: grid;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 1fr);
+  gap: var(--espacamento-md);
+}
+
+/* ========================================== */
+/* CARDS GERAIS */
+/* ========================================== */
+
+.cardEmpresas,
+.cardServicos,
+.cardAlertas,
+.cardResumo {
+  display: flex;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  flex-direction: column;
+  align-self: stretch;
+  overflow: hidden;
+  padding: var(--espacamento-md);
+  border: var(--largura-borda) solid var(--cor-primaria-secundaria);
+  border-radius: var(--raio-padrao);
+  background-color: var(--cor-primaria-profunda);
+  box-shadow: var(--sombra-interna-destaque);
+}
+
+
+/* ========================================== */
+/* PRIMEIRO CARD - CABEÇALHO */
+/* ========================================== */
+
+.cabecalho_visao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.cabecalho_visao h1 {
+  font-size: var(--tamanho-titulo-card);
+  font-weight: var(--peso-semi-negrito);
+}
+
+.cabecalho_visao a {
+  font-size: 12px;
+  color: var(--cor-verde-destaque);
+  text-decoration: none;
+}
+
+
+/* ========================================== */
+/* COLUNAS DA TABELA */
+/* ========================================== */
+
+.colunas,
+.linha {
+  display: grid;
+  grid-template-columns: 1.35fr 1.2fr 1.15fr 0.55fr 12px;
+  align-items: center;
+  gap: 8px;
+}
+
+.atualizadoAgora {
+  font-size: 12px;
+  color: var(--cor-verde-destaque);
+}
+
+/* ========================================== */
+/* ÁREA DOS ALERTAS */
+/* ========================================== */
+
+.areaCard {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: min-content;
+  align-content: start;
+  gap: 12px;
+  width: 100%;
+  overflow: auto;
+}
+
+.listaServicos {
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+}
+
+.mini_card {
+  background-color: #0A3539;
+  border-radius: 20px;
+  min-height: 100px;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+
+.linhaServico {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  align-items: center;
+  gap: 12px;
+  min-height: 39px;
+  padding: 7px 0;
+  border-bottom: 1px solid color-mix(
+    in srgb,
+    var(--cor-verde-destaque) 15%,
+    transparent
+  );
+}
+
+.linhaServico:last-child {
+  border-bottom: none;
+}
+
+.nomeServico {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 14px;
+}
+
+.pontoOnline,
+.pontoDegradado {
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.pontoOnline {
+  background-color: var(--cor-verde-destaque);
+}
+
+.pontoDegradado {
+  background-color: #ff9f35;
+}
+
+.statusOnline,
+.statusDegradado {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--cor-verde-destaque);
+  text-align: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.statusOnline {
+  color: var(--cor-verde-destaque);
+   font-size: 14px;
+}
+
+.statusDegradado {
+  color: #ff9f35;
+  font-size: 14px;
+}
+
+
+.colunas {
+  padding: 0 0 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid color-mix(
+    in srgb,
+    var(--cor-verde-destaque) 20%,
+    transparent
+  );
+}
+
+.colunas span {
+  font-size: 12px;
+  color: #6CCECA;
+  white-space: nowrap;
+}
+
+/* ========================================== */
+/* LINHAS DAS EMPRESAS */
+/* ========================================== */
+
+
+.empresasLinhas{
+  min-height: 0;
+  max-height: none;
+  flex: 1;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  scrollbar-color: var(--cor-primaria-verde-escuro) var(--cor-primaria-secundaria);
+}
+
+
+.linha {
+  min-height: 39px;
+  padding: 12px 0;
+  border-bottom: 1px solid color-mix(
+    in srgb,
+    var(--cor-verde-destaque) 15%,
+    transparent
+  );
+}
+
+.linha:last-child {
+  border-bottom: none;
+}
+
+/* ========================================== */
+/* IDENTIFICAÇÃO DA EMPRESA */
+/* ========================================== */
+
+.empresa {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  min-width: 0;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background-color: var(--cor-secundaria-verde);
+  color: var(--cor-primaria-secundaria);
+  border-radius: 8px;
+  font-size: var(--tamanho-texto);
+  font-weight: 600;
+}
+
+
+.area_status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.estadoBadge {
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: #021A1D;
+  font-weight: 700;
+}
+
+.descricao_texto{
+  color: var(--cor-texto-secundario);
+}
+.area_status[data-estado="Crítico"] {
+  color: #FF6868;
+}
+.area_status[data-estado="Crítico"] .estadoBadge {
+  background-color: #FF6868;
+}
+
+.area_status[data-estado="Alto"] {
+  color: #FF9F35;
+}
+.area_status[data-estado="Alto"] .estadoBadge {
+  background-color: #FF9F35;
+}
+
+.area_status[data-estado="Médio"] {
+  color: #FFB547;
+}
+.area_status[data-estado="Médio"] .estadoBadge {
+  background-color: #FFB547;
+}
+
+.area_status[data-estado="Aberto"] {
+  color: #6C9BFF;
+}
+.area_status[data-estado="Aberto"] .estadoBadge {
+  background-color: #6C9BFF;
+}
+
+.area_empresa {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.area_empresa strong {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--fonte-titulo);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.area_empresa span {
+  font-size: 11px;
+  color: #6CCECA;
+}
+
+/* ========================================== */
+/* INFORMAÇÕES DAS EMPRESAS */
+/* ========================================== */
+
+.motivo,
+.indicador {
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.motivo {
+  color: var(--cor-texto-branco);
+}
+
+.indicador {
+  color: #6CCECA;
+}
+
+.plano{
+  font-size: 13px;
+}
+
+/* ========================================== */
+/* INDICADORES DE SAÚDE */
+/* ========================================== */
+
+.saudeRisco,
+.saudeAtencao,
+.saudeTeste {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.saudeRisco {
+  color: #FF6868;
+}
+
+.saudeAtencao {
+  color: #FFB547;
+}
+
+.saudeTeste {
+  color: #6C9BFF;
+}
+
+/* ========================================== */
+/* SETA DE DETALHES */
+/* ========================================== */
+
+.seta {
+  color: var(--cor-verde-destaque);
+  font-size: 20px;
+  text-align: right;
+}
+
+
+/* ========================================== */
+/* CARD EMPRESA */
+/* ========================================== */
+  .resumoArea{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .resumoTexto{
+    margin-top: 20px;
+  }
+
+
+/* Notebook and smaller layouts use natural page height and vertical scrolling. */
+@media (max-width: 1200px), (max-height: 700px) {
+  .paginaVisaoGeral {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .gradePrincipal {
+    flex: none;
+    min-height: 0;
+  }
+
+  .gradeSuperior,
+  .gradeInferior {
+    flex: none;
+    min-height: 0;
+    grid-template-rows: auto;
+  }
+
+  .cardEmpresas,
+  .cardServicos,
+  .cardAlertas,
+  .cardResumo {
+    min-height: 12rem;
+    overflow: visible;
+  }
+
+  .empresasLinhas,
+  .listaServicos,
+  .areaCard {
+    flex: initial;
+    max-height: 18rem;
+  }
+
+  .empresasLinhas {
+    max-height: 14rem;
+  }
+
+  .cardEmpresas {
+    overflow-x: auto;
+  }
+
+  .areaCard {
+    max-height: 22rem;
+  }
+
+  .gradeSuperior {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gradeInferior {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .colunas,
+  .linha {
+    min-width: 600px;
+  }
+
+  .mini_card {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cardEmpresas,
+  .cardServicos,
+  .cardAlertas,
+  .cardResumo {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .areaCard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mini_card {
+    min-height: 110px;
+  }
+}
+
+@media (max-width: 720px) {
+  .paginaVisaoGeral {
+    width: 100%;
+    gap: var(--espacamento-md);
+  }
+
+  .gradeSuperior {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gradeInferior {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--espacamento-md);
+  }
+
+  .cardEmpresas,
+  .cardServicos,
+  .cardAlertas,
+  .cardResumo {
+    padding: 14px;
+  }
+
+  .cabecalho_visao {
+    gap: var(--espacamento-sm);
+    flex-wrap: wrap;
+  }
+
+  .linhaServico {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--espacamento-sm);
+  }
+
+  .nomeServico {
+    font-size: var(--tamanho-texto);
+  }
+
+  .statusOnline,
+  .statusDegradado {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .areaCard {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--espacamento-sm);
+  }
+
+  .mini_card {
+    min-height: 6.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardEmpresas,
+  .cardServicos,
+  .cardAlertas,
+  .cardResumo {
+    padding: var(--espacamento-sm);
+  }
+
+  .cabecalho_visao {
+    align-items: flex-start;
+  }
+
+  .cabecalho_visao h1 {
+    font-size: var(--tamanho-texto);
+  }
+
+  .cabecalho_visao a,
+  .atualizadoAgora {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .linhaServico {
+    min-height: 2.2rem;
+  }
+
+  .pontoOnline,
+  .pontoDegradado {
+    width: 10px;
+    height: 10px;
+    flex-basis: 10px;
+  }
+
+  .area_status {
+    flex-wrap: wrap;
+    gap: var(--espacamento-xs);
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .estadoBadge {
+    padding: 3px 7px;
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .afetadas_texto {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+
+  .descricao_texto {
+    font-size: var(--tamanho-texto-auxiliar);
+  }
+}
