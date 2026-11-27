@@ -1,25 +1,17 @@
 import { BsShieldCheck } from "react-icons/bs";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import type {
-  Entregador,
-  TipoVeiculoEntregador,
-} from "../itemEntregador/itemEntregador";
+import { linhaVeiculo, textoNota, type Entregador } from "../itemEntregador/itemEntregador";
 import styles from "./cardEntregadorIndice.module.css";
 
 interface CardDetalhesEntregadorPerfilProps {
   entregador: Entregador;
+  ocupado?: boolean;
   onAlternarPreferencial: (id: string) => void;
 }
 
-const NOME_VEICULO: Record<TipoVeiculoEntregador, string> = {
-  moto: "Moto",
-  carro: "Carro",
-  bicicleta: "Bicicleta",
-  caminhao: "Caminhão",
-};
-
 export default function CardDetalhesEntregadorIndice({
   entregador,
+  ocupado = false,
   onAlternarPreferencial,
 }: CardDetalhesEntregadorPerfilProps) {
   const temHistorico =
@@ -37,9 +29,7 @@ export default function CardDetalhesEntregadorIndice({
 
         <div className={styles.identificacao}>
           <h3>{entregador.nome}</h3>
-          <p>
-            {NOME_VEICULO[entregador.veiculo]} · {entregador.placa}
-          </p>
+          <p>{linhaVeiculo(entregador, false)}</p>
         </div>
       </header>
 
@@ -66,12 +56,12 @@ export default function CardDetalhesEntregadorIndice({
         </article>
 
         <article className={styles.blocoMetrica}>
-          <h3>{entregador.nota.toFixed(1).replace(".", ",")}</h3>
+          <h3>{textoNota(entregador.nota)}</h3>
           <p>nota média</p>
         </article>
 
         <article className={styles.blocoMetrica}>
-          <h3>{entregador.aceiteMedioMin} min</h3>
+          <h3>{entregador.aceiteMedioMin === null ? "—" : `${entregador.aceiteMedioMin} min`}</h3>
           <p>aceite médio</p>
         </article>
       </section>
@@ -79,6 +69,7 @@ export default function CardDetalhesEntregadorIndice({
       <button
         type="button"
         onClick={() => onAlternarPreferencial(entregador.id)}
+        disabled={ocupado}
         className={`${styles.botaoPreferencial} ${
           entregador.preferencial ? styles.botaoRemover : styles.botaoAdicionar
         }`}

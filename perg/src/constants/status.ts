@@ -63,6 +63,12 @@ export const STATUS_CONFIG = {
     variant: "offline",
   },
 
+  // Livre e em expediente, mas fora do raio de oferta da loja
+  longe: {
+    label: "Longe",
+    variant: "offline",
+  },
+
    emRotaAzul: {
     label: "Em rota",
     variant: "emRotaAzul",

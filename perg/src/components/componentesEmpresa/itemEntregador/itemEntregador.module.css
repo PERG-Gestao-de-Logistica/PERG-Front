@@ -63,9 +63,9 @@
 .dadosPrincipais h4 {
   margin: 0;
   line-height: 1.2;
-  font-family: var(--fonte-titulo);
+  font-family: var(--fonte-texto);
   font-size: var(--tamanho-texto);
-  font-weight: var(--peso-negrito);
+  font-weight: var(--peso-regular);
   color: var(--cor-primaria-verde-escuro);
   white-space: nowrap;
   overflow: hidden;
@@ -76,7 +76,7 @@
   margin: 0;
   line-height: 1.2;
   font-family: var(--fonte-texto);
-  font-size: calc(var(--tamanho-texto-auxiliar) + 0.15rem);
+  font-size: calc(var(--tamanho-texto) - 0.1rem);
   color: var(--cor-texto-secundario);
   white-space: nowrap;
   overflow: hidden;
@@ -92,9 +92,9 @@
 }
 
 .colunaMetrica {
-  font-family: var(--fonte-titulo);
+  font-family: var(--fonte-texto);
   font-size: var(--tamanho-texto);
-  font-weight: var(--peso-negrito);
+  font-weight: var(--peso-regular);
   color: var(--cor-primaria-verde-escuro);
   text-align: center;
   white-space: nowrap;
@@ -105,9 +105,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--espacamento-xs);
-  font-family: var(--fonte-titulo);
+  font-family: var(--fonte-texto);
   font-size: var(--tamanho-texto);
-  font-weight: var(--peso-negrito);
+  font-weight: var(--peso-regular);
   color: var(--cor-primaria-verde-escuro);
   white-space: nowrap;
 }
@@ -132,6 +132,11 @@
   cursor: pointer;
   flex-shrink: 0;
   transition: var(--transicao-padrao);
+}
+
+.botaoPreferencial:disabled {
+  opacity: 0.5;
+  cursor: wait;
 }
 
 .botaoPreferencial:hover {

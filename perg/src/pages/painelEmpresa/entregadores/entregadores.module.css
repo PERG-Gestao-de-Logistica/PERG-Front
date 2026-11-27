@@ -10,6 +10,8 @@
 }
 
 .botoesFiltro {
+    /* Mesma altura para os filtros da esquerda e os veículos da direita */
+    --altura-filtros: calc(var(--altura-botao-medio) + 0.25rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,8 +25,8 @@
     display: inline-flex;
     align-items: center;
     gap: var(--espacamento-xs);
-    padding: var(--espacamento-sm);
-    min-height: var(--altura-botao-medio);
+    height: var(--altura-filtros);
+    padding: var(--espacamento-xs);
     background-color: var(--cor-superficie-branca);
     border-radius: var(--raio-padrao);
     box-shadow: var(--sombra-card);
@@ -33,7 +35,7 @@
 }
 
 .icone {
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     flex-shrink: 0;
 }
 
@@ -42,14 +44,14 @@
     align-items: center;
     justify-content: center;
     gap: var(--espacamento-xs);
-    height: var(--altura-botao-pequeno);
-    padding: 0 var(--espacamento-md);
+    height: 100%;
+    padding: 0 0.75rem;
     background-color: transparent;
     color: var(--cor-primaria-verde-escuro);
     border: none;
-    border-radius: calc(var(--raio-padrao) - 0.25rem);
+    border-radius: var(--raio-pequeno);
     font-family: var(--fonte-titulo);
-    font-size: var(--tamanho-texto-auxiliar);
+    font-size: calc(var(--tamanho-texto) - 0.1rem);
     font-weight: var(--peso-semi-negrito);
     cursor: pointer;
     white-space: nowrap;
@@ -58,6 +60,12 @@
 
 .botaoFiltro:hover:not(.botaoFiltroAtivo) {
     background-color: var(--cor-fundo-claro);
+}
+
+/* Número ao lado do nome, como nas abas de Pedidos: sem fundo e em negrito */
+.contador {
+    font-family: var(--fonte-titulo);
+    font-weight: var(--peso-negrito);
 }
 
 .botaoFiltroAtivo {
@@ -77,14 +85,14 @@
     align-items: center;
     justify-content: flex-start;
     gap: var(--espacamento-xs);
-    height: calc(var(--altura-botao-pequeno) + (var(--espacamento-sm) * 2));
-    padding: var(--padding-botao-pequeno);
+    height: var(--altura-filtros);
+    padding: 0 0.75rem;
     background-color: var(--cor-superficie-branca);
     color: var(--cor-primaria-verde-escuro);
     border: 1px solid var(--cor-borda);
-    border-radius: var(--raio-pequeno);
+    border-radius: var(--raio-padrao);
     font-family: var(--fonte-titulo);
-    font-size: var(--tamanho-texto-auxiliar);
+    font-size: calc(var(--tamanho-texto) - 0.1rem);
     font-weight: var(--peso-semi-negrito);
     box-shadow: var(--sombra-card);
     cursor: pointer;
@@ -269,4 +277,31 @@
     .selcionarPreferenciais {
         padding: var(--espacamento-md);
     }
+}
+
+/* Mensagens de preferencial / "só preferenciais" */
+.avisoOk,
+.avisoErro {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto);
+}
+
+.avisoOk {
+  color: var(--cor-sucesso);
+}
+
+.avisoErro {
+  color: var(--cor-perigo);
+}
+
+.switch input:disabled + .slider {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* Valores pagos aos entregadores (veio de Configurações > Empresa) */
+.valores {
+    width: 100%;
+    min-width: 0;
 }

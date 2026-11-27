@@ -2,7 +2,7 @@
   background-color: var(--cor-superficie-branca);
   border-radius: var(--raio-padrao);
   box-shadow: var(--sombra-card);
-  padding: var(--espacamento-lg);
+  padding: var(--espacamento-md) var(--espacamento-lg) var(--espacamento-lg);
   display: flex;
   flex-direction: column;
   gap: var(--espacamento-xs);
@@ -19,18 +19,22 @@
   gap: var(--espacamento-sm);
   padding: 0 calc(var(--espacamento-xs) + 0.55rem) var(--espacamento-sm) var(--espacamento-xs);
   border-bottom: 1px solid var(--cor-borda);
-  font-family: var(--fonte-titulo);
-  font-size: calc(var(--tamanho-texto-auxiliar) - 0.05rem);
+  font-family: var(--fonte-texto);
+  font-size: var(--tamanho-texto-auxiliar);
   font-weight: var(--peso-semi-negrito);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--cor-texto-secundario);
   flex-shrink: 0;
 }
 
+/* Mesmo tamanho do cabeçalho da tabela de Pedidos */
 .cabecalhoColunas h4,
 .cabecalhoColunas h5,
-.cabecalhoColunas p{
-    font-size: var(--tamanho-titulo-card);
+.cabecalhoColunas p {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
 }
 
 .colunaCentral {

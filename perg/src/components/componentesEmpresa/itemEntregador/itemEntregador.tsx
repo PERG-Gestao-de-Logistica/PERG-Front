@@ -2,23 +2,24 @@ import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 import Status, { type TipoStatus } from "@/components/status/status";
 import styles from "./itemEntregador.module.css";
 
-export type TipoVeiculoEntregador = "moto" | "carro" | "bicicleta" | "caminhao";
+export type TipoVeiculoEntregador = "moto" | "carro" | "bicicleta" | "van" | "caminhao";
 
 export interface Entregador {
     id: string;
     nome: string;
     iniciais: string;
-    veiculo: TipoVeiculoEntregador;
-    placa: string;
-    distancia: string;
+    veiculo: TipoVeiculoEntregador | null;
+    placa: string | null;
+    distancia: string | null;
     status: Extract<
         TipoStatus,
-        "emRotaAzul" | "disponivel" | "outraLoja" | "offline"
+        "emRotaAzul" | "disponivel" | "outraLoja" | "offline" | "longe"
     >;
+    // Entregas e sucesso com esta loja
     entregas: number | null;
     sucesso: number | null;
-    nota: number;
-    aceiteMedioMin: number;
+    nota: number | null;
+    aceiteMedioMin: number | null;
     preferencial: boolean;
     verificado: boolean;
 }
@@ -26,6 +27,8 @@ export interface Entregador {
 interface ItemEntregadorProps {
     entregador: Entregador;
     selecionado: boolean;
+    // Desabilita o coração enquanto salva
+    ocupado?: boolean;
     onSelecionar: (id: string) => void;
     onAlternarPreferencial: (id: string) => void;
 }
@@ -34,12 +37,27 @@ const NOME_VEICULO: Record<TipoVeiculoEntregador, string> = {
     moto: "Moto",
     carro: "Carro",
     bicicleta: "Bicicleta",
+    van: "Van",
     caminhao: "Caminhão",
 };
+
+// "Moto · FJK-2A19 · 1,2 km do CD" (pula o que não tiver)
+export function linhaVeiculo(entregador: Entregador, comDistancia = true) {
+    return [
+        entregador.veiculo ? NOME_VEICULO[entregador.veiculo] : "Sem veículo",
+        entregador.placa,
+        comDistancia && entregador.distancia ? `${entregador.distancia} do CD` : null,
+    ]
+        .filter(Boolean)
+        .join(" · ");
+}
+
+export const textoNota = (nota: number | null) => (nota === null ? "—" : nota.toFixed(1).replace(".", ","));
 
 export default function ItemEntregador({
     entregador,
     selecionado,
+    ocupado = false,
     onSelecionar,
     onAlternarPreferencial,
 }: ItemEntregadorProps) {
@@ -73,10 +91,7 @@ export default function ItemEntregador({
 
                     <div className={styles.dadosPrincipais}>
                         <h4>{entregador.nome}</h4>
-                        <p>
-                            {NOME_VEICULO[entregador.veiculo]} · {entregador.placa} ·{" "}
-                            {entregador.distancia} do CD
-                        </p>
+                        <p>{linhaVeiculo(entregador)}</p>
                     </div>
                 </section>
 
@@ -96,7 +111,7 @@ export default function ItemEntregador({
 
                 <span className={styles.colunaNota}>
                     <FaStar className={styles.iconeEstrela} aria-hidden="true" />
-                    {entregador.nota.toFixed(1).replace(".", ",")}
+                    {textoNota(entregador.nota)}
                 </span>
 
                 <button
@@ -105,6 +120,7 @@ export default function ItemEntregador({
                         e.stopPropagation();
                         onAlternarPreferencial(entregador.id);
                     }}
+                    disabled={ocupado}
                     className={`${styles.botaoPreferencial} ${entregador.preferencial ? styles.preferencialAtivo : ""
                         }`}
                     aria-pressed={entregador.preferencial}

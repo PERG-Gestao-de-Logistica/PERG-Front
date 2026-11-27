@@ -82,10 +82,27 @@ export interface PosicaoEntregador {
 }
 
 // GET /api/Entregadores (rede)
+// Disponivel = receberia a oferta da loja agora (expediente aberto, livre e no raio); Longe = livre, fora do raio
+export type SituacaoEntregadorRede = "Disponivel" | "EmRota" | "OutraLoja" | "Offline" | "Longe";
+
+// GET /api/Entregadores: entregadores ativos da rede, vistos pela loja
 export interface EntregadorRede {
   id: string;
   nome: string;
+  fotoChave: string | null;
   veiculoTipo: TipoVeiculo | null;
   veiculoPlaca: string | null;
+  veiculoVerificado: boolean;
+  cnhVerificada: boolean;
+  totalEntregas: number;
+  taxaSucesso: number | null; // 0 a 1
+  notaMedia: number | null;
+  totalAvaliacoes: number;
+  tempoAceiteMedioS: number | null;
   favorito: boolean;
+  // Só com esta loja
+  entregasComLoja: number;
+  taxaSucessoComLoja: number | null; // 0 a 1
+  situacao: SituacaoEntregadorRede;
+  distanciaOrigemKm: number | null;
 }
